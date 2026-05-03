@@ -3,10 +3,15 @@ import Image from 'next/image'
 
 const footerLinks = {
     capabilities: [
-        { name: 'Systems Architecture', href: '/capabilities/systems-architecture' },
-        { name: 'Product Systems', href: '/capabilities/product-systems' },
+        { name: 'Business Design', href: '/capabilities/business-design' },
+        { name: 'Product Strategy', href: '/capabilities/product-strategy' },
+        { name: 'Economics & Value', href: '/capabilities/economics-value' },
+        { name: 'CX/Service Design', href: '/capabilities/cx-design' },
+        { name: 'Operating Model', href: '/capabilities/operating-model' },
+        { name: 'Technology & Platforms', href: '/capabilities/technology-platforms' },
         { name: 'Data & Intelligence', href: '/capabilities/data-intelligence' },
-        { name: 'Design & Experience', href: '/capabilities/design-experience' },
+        { name: 'Governance & Risk', href: '/capabilities/governance-risk' },
+        { name: 'Change & Behavior', href: '/capabilities/change-behavior' },
     ],
     platforms: [
         { name: 'VeloDesk', href: '/platforms/velodesk' },
