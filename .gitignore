@@ -40,11 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large video files (GitHub 100MB limit)
-public/*.mp4
-public/*.mov
-public/*.MOV
-public/videos/
+# large files exceeding GitHub 100MB limit
+public/12494404_3840_2160_30fps.mp4
 
 # test artifacts
 test-results/
