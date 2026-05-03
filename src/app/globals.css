@@ -5,6 +5,11 @@
    Systems Design & Engineering
    ============================================ */
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 :root {
   /* Core Colors */
   --bg: #ffffff;
@@ -27,8 +32,8 @@
   --glass-bg: rgba(255, 255, 255, 0.7);
 
   /* Fonts */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: var(--font-outfit), 'Outfit', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
 }
 
 @theme inline {
@@ -86,12 +91,18 @@ h4 {
   letter-spacing: -0.01em;
 }
 
-/* Section Labels */
+/* Section Labels (Eyebrows) */
 .section-label {
-  font-size: 0.65rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  color: var(--text-subtle);
+  background: linear-gradient(to right, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 /* Premium Buttons */
@@ -238,4 +249,21 @@ h4 {
 
 .p5-canvas-container canvas {
   display: block;
+}
+
+/* Cookie Consent Banner Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
