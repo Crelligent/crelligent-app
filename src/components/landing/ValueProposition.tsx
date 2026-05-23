@@ -1,6 +1,5 @@
 'use client'
 
-import { Sparkles } from 'lucide-react'
 import { ScrollRevealText } from '@/components/ScrollRevealText'
 
 export function ValueProposition() {
@@ -11,8 +10,7 @@ export function ValueProposition() {
 
             <div className="max-w-5xl mx-auto relative z-10">
                 <div className="text-center mb-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[.03] text-xs text-gray-400 mb-8 tracking-wide">
-                        <Sparkles className="w-3 h-3 text-[#3b82f6]" />
+                    <div className="section-label mb-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
                         Systems Design &amp; Engineering
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-8 tracking-tight">
