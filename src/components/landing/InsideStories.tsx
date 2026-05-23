@@ -7,7 +7,7 @@ const stories = [
         title: "Diagnosing rare childhood diseases",
         description: "How AI and cloud technology could help speed up medical diagnoses",
         size: "large", // mapped to the large left column
-        image: "/diagnosing-childhood-diseases.png",
+        image: "/images/diagnosing-childhood-diseases.jpg",
     },
     {
         id: 2,
