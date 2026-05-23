@@ -15,8 +15,7 @@ const footerLinks = {
     ],
     platforms: [
         { name: 'VeloDesk', href: '/platforms/velodesk' },
-        { name: 'BI Suite', href: '/platforms/bisuite' },
-        { name: 'MarketPulse', href: '/platforms/marketpulse' },
+        { name: 'PRISM', href: '/platforms/prism' },
     ],
     company: [
         { name: 'About', href: '/about' },

@@ -9,7 +9,7 @@ const stories = [
     {
         id: 1,
         title: "How Crelligent Re-Engineered the System Behind ESN Petroleum Services Limited",
-        description: "ESN Petroleum Services Limited had built strong capabilities in fuel cards, fleet telemetry, and reporting. Crelligentâ€™s role was not to optimize individual tools, but to engineer the entire operating systemâ€”integrating payments, data, technology, operations, and control into one coordinated platform. The result was a structurally unified fleet intelligence system designed to scale, detect risk in real time, and embed operational control directly into the architecture.",
+        description: "ESN Petroleum Services Limited had built strong capabilities in fuel cards, fleet telemetry, and reporting. Crelligent's role was not to optimize individual tools, but to engineer the entire operating systems integrating payments, data, technology, operations, and control into one coordinated platform. The result was a structurally unified fleet intelligence system designed to scale, detect risk in real time, and embed operational control directly into the architecture.",
         image: "/jean-christophe-gougeon-t8bDFvkhNQY-unsplash.jpg",
         bgGradient: "from-[#1e3a8a]/20 to-[#0f172a]",
         accentGradient: "from-[#3b82f6] to-[#ec4899]",
@@ -17,8 +17,8 @@ const stories = [
     },
     {
         id: 2,
-        title: "How Crelligent Engineered Geo-Roamâ€™s Transition from Physical Games to a Digital Platform",
-        description: "Geo-Roam had built an engaging board game designed to educate Nigerians about the countryâ€™s tourist attractions. Crelligent engineered the transition into a scalable digital platformâ€”designing the product architecture, engagement model, and technology foundation required to transform a physical game into a mobile experience capable of reaching millions while preserving its educational and cultural mission.",
+        title: "How Crelligent Engineered Geo-Roam's Transition from Physical Games to a Digital Platform",
+        description: "Geo-Roam had built an engaging board game designed to educate Nigerians about the country's tourist attractions. Crelligent engineered the transition into a scalable digital platform designing the product architecture, engagement model, and technology foundation required to transform a physical game into a mobile experience capable of reaching millions while preserving its educational and cultural mission.",
         image: "/ChatGPT Image Feb 28, 2026, 02_07_26 PM.png",
         bgGradient: "from-[#14532d]/20 to-[#052e16]",
         accentGradient: "from-[#22c55e] to-[#3b82f6]",
@@ -27,7 +27,7 @@ const stories = [
     {
         id: 4,
         title: "How Crelligent Engineered the System Architecture Behind CallMed Technologies",
-        description: "CallMed Technologies was founded with the ambition to build the digital infrastructure, applications, and hardware powering the future of healthcare. Crelligent engineered the core system architectureâ€”aligning platform design, data flows, and operational structureâ€”to enable CallMed to function as a unified healthcare infrastructure capable of scaling across providers, patients, and devices.",
+        description: "CallMed Technologies was founded with the ambition to build the digital infrastructure, applications, and hardware powering the future of healthcare. Crelligent engineered the core system architecture aligning platform design, data flows, and operational structure-to enable CallMed to function as a unified healthcare infrastructure capable of scaling across providers, patients, and devices.",
         image: "/ChatGPT Image Mar 1, 2026, 07_18_56 AM.png",
         bgGradient: "from-[#0f766e]/20 to-[#134e4a]",
         accentGradient: "from-[#14b8a6] to-[#3b82f6]",
@@ -35,8 +35,8 @@ const stories = [
     },
     {
         id: 5,
-        title: "How Crelligent Engineered ESNâ€™s Biometric Identity Platform into a Secure, Scalable Digital Infrastructure",
-        description: "ESNâ€™s biometric enrollment process relied on fragmented tools, manual photo editing, and non-standardized device workflowsâ€”creating operational friction and security exposure. Crelligent redesigned the entire identity lifecycle into a unified, multi-institution biometric platform, integrating Android enrollment devices, centralized identity management, and automated SecureID transmission to transform manual enrollment operations into a secure, scalable digital identity infrastructure.",
+        title: "How Crelligent Engineered ESN's Biometric Identity Platform into a Secure, Scalable Digital Infrastructure",
+        description: "ESN's biometric enrollment process relied on fragmented tools, manual photo editing, and non-standardized device workflows creating operational friction and security exposure. Crelligent redesigned the entire identity lifecycle into a unified, multi-institution biometric platform, integrating Android enrollment devices, centralized identity management, and automated SecureID transmission to transform manual enrollment operations into a secure, scalable digital identity infrastructure.",
         image: "/logo.png",
         bgGradient: "from-[#9f1239]/20 to-[#4c0519]",
         accentGradient: "from-[#f43f5e] to-[#f59e0b]",

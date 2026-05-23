@@ -96,20 +96,12 @@ const platforms = [
     color: '#22c55e',
   },
   {
-    name: 'BI Suite',
-    role: 'Organizational Intelligence',
-    description: 'Enterprise-level system governance with System Alignment Index (SAI).',
-    stage: 'Growth & Enterprise',
-    href: '/platforms/bisuite',
+    name: 'PRISM',
+    role: 'Operational Intelligence Platform',
+    description: 'Real-time telemetry ingestion, AI-driven anomaly detection, and systems monitoring.',
+    stage: 'Enterprise Operations',
+    href: '/platforms/prism',
     color: '#3b82f6',
-  },
-  {
-    name: 'MarketPulse',
-    role: 'Market Feedback Loops',
-    description: 'Consumer intelligence that feeds decision systems, not just dashboards.',
-    stage: 'Growth Stage',
-    href: '/platforms/marketpulse',
-    color: '#8b5cf6',
   },
 ]
 
@@ -455,7 +447,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto" style={{ fontFamily: "'Outfit', sans-serif" }}>
             {platforms.map((platform) => (
               <Link
                 key={platform.href}

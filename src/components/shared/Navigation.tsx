@@ -73,8 +73,7 @@ const navData: NavMenuData[] = [
                 title: 'Platforms',
                 items: [
                     { name: 'VeloDesk', desc: 'Early-stage system sensing', href: '/platforms/velodesk' },
-                    { name: 'BI Suite', desc: 'Organizational intelligence', href: '/platforms/bisuite' },
-                    { name: 'MarketPulse', desc: 'Market feedback loops', href: '/platforms/marketpulse' },
+                    { name: 'PRISM', desc: 'Operational intelligence', href: '/platforms/prism' },
                 ]
             },
             {
