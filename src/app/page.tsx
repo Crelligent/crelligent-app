@@ -509,7 +509,7 @@ export default function LandingPage() {
 
             {/* Right: Copy */}
             <div className="w-full lg:w-1/2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 bg-white/[.02] text-[11px] font-bold text-[#ec4899] uppercase tracking-widest mb-6">
+              <div className="section-label mb-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
                 Historical Precedent
               </div>
 
@@ -570,7 +570,7 @@ export default function LandingPage() {
 
             {/* Left Side: Copy */}
             <div className="w-full md:w-5/12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 bg-white/[.02] text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6">
+              <div className="section-label mb-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
                 Corporate Responsibility
               </div>
               <h2 className="text-3xl md:text-4xl font-light leading-tight mb-6">
