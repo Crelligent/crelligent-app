@@ -7,7 +7,7 @@ const stories = [
         title: "Diagnosing rare childhood diseases",
         description: "How AI and cloud technology could help speed up medical diagnoses",
         size: "large", // mapped to the large left column
-        image: "/images/diagnosing-childhood-diseases.jpg",
+        image: "/diagnosing-childhood-diseases.jpg",
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const stories = [
         title: "Journey to sustainability",
         description: "A joined-up approach to reducing businesses' carbon footprints",
         size: "small", // mapped to top right
-        image: "/industry-innovation.jpg", // placeholder
+        image: "/journey-to-sustainability.jpg",
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ const stories = [
         title: "Sail into the future",
         description: "Reducing the carbon footprint of maritime transport",
         size: "small", // mapped to bottom right
-        image: "/Reduced Inequalities.jpg", // placeholder
+        image: "/sail-into-the-future.jpg",
     }
 ]
 
