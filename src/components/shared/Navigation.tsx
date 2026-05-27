@@ -80,7 +80,7 @@ const navData: NavMenuData[] = [
                 title: 'Specialized Units',
                 items: [
                     { name: 'Foundry', desc: 'Startup-as-a-Service', href: '/foundry' },
-                    { name: 'Edge', desc: 'Mission-critical hardware', href: '/edge' },
+                    { name: 'Intelligence Systems', desc: 'Mission-critical hardware', href: '/intelligence-systems' },
                     { name: 'Enterprise', desc: 'Scale transformations', href: '/enterprise' },
                 ]
             }
@@ -482,11 +482,7 @@ export function Navigation() {
                 </div>
 
                 {/* Right Placeholder (to perfectly center the middle items) */}
-                <div className="hidden xl:flex w-48 justify-end items-center flex-shrink-0">
-                    <Link href="/contact" className="text-[13px] font-medium text-white bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition">
-                        Contact Us
-                    </Link>
-                </div>
+                <div className="hidden xl:block w-48 flex-shrink-0" />
 
                 {/* Mobile Menu Button */}
                 <button

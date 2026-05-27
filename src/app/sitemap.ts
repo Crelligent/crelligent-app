@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         // Service tiers
         '/foundry',
-        '/edge',
+        '/intelligence-systems',
         '/enterprise',
 
         // Platforms

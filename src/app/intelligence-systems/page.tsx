@@ -4,7 +4,7 @@ import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, Cpu, Radio, Zap, Shield, Cloud, CheckCircle, Brain, Battery, Lock, GitBranch, BarChart3, RefreshCw } from 'lucide-react'
 
 export const metadata = {
-    title: 'Crelligent Edge | IoT & Embedded Systems',
+    title: 'Crelligent Intelligence Systems | IoT & Embedded Systems',
     description: 'From silicon to insight—IoT, firmware, edge computing, and cloud analytics as one complete system.',
 }
 
@@ -111,7 +111,7 @@ export default function EdgePage() {
                     </div>
 
                     <h1 className="heading-xl mb-6">
-                        Crelligent Edge
+                        Crelligent Intelligence Systems
                     </h1>
 
                     <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed mb-8">
