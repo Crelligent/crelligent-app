@@ -754,7 +754,7 @@ export default function LandingPage() {
                 <div className="text-[11px] uppercase tracking-[0.2em] text-[#f59e0b] mb-4 relative z-10">For Industry</div>
                 <h3 className="text-3xl font-[300] tracking-wide text-white mb-4 relative z-10">Crelligent Intelligent Systems</h3>
                 <p className="text-[15px] text-white font-[200] leading-loose opacity-80 mb-8 relative z-10">
-                  Your operations generate data every second. Fleet movements. Fuel consumption. Energy usage. Transactions. Most of it is invisible to the people who need it. We connect the physical operations of African industry to a unified intelligence command layer — built on PRISM and the Crelligent Edge Module.
+                  Your operations generate data every second — fleet movements, fuel consumption, energy usage, transactions. We connect Africa&apos;s industrial operations to a unified intelligence command layer built on PRISM and the Crelligent Edge Module.
                 </p>
                 <Link href="/intelligent-systems" className="mt-auto px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-[300] text-sm tracking-widest uppercase hover:bg-white/10 hover:border-[#f59e0b]/50 transition-all flex items-center gap-3 relative z-10">
                   Explore Intelligent Systems
