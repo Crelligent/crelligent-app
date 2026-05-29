@@ -22,6 +22,7 @@ const footerLinks = {
         { name: 'Templates', href: '/templates' },
         { name: 'Foundry', href: '/foundry' },
         { name: 'Enterprise', href: '/enterprise' },
+        { name: 'Intelligent Systems', href: '/intelligent-systems' },
         { name: 'Contact', href: '/contact' },
     ],
 }
@@ -87,6 +88,7 @@ export function Footer() {
                         <p className="mt-4 text-sm text-gray-500 max-w-xs leading-relaxed">
                             We design the systems companies rely on before scale and complexity expose their weaknesses.
                         </p>
+
                         {/* Social Links */}
                         <div className="mt-6 flex items-center gap-3">
                             {socialLinks.map((social) => (

@@ -80,7 +80,7 @@ const navData: NavMenuData[] = [
                 title: 'Specialized Units',
                 items: [
                     { name: 'Foundry', desc: 'Startup-as-a-Service', href: '/foundry' },
-                    { name: 'Intelligence Systems', desc: 'Mission-critical hardware', href: '/intelligence-systems' },
+                    { name: 'Intelligent Systems', desc: 'Operational IoT & industry intelligence', href: '/intelligent-systems' },
                     { name: 'Enterprise', desc: 'Scale transformations', href: '/enterprise' },
                 ]
             }

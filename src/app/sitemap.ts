@@ -11,7 +11,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         // Service tiers
         '/foundry',
-        '/intelligence-systems',
+        '/intelligent-systems',
+        '/intelligent-systems/its',
+        '/intelligent-systems/ies',
+        '/intelligent-systems/ils',
+        '/intelligent-systems/iis',
+        '/intelligent-systems/ibs',
+        '/intelligent-systems/ihs',
+        '/intelligent-systems/ias',
+        '/intelligent-systems/iss',
+        '/intelligent-systems/irs',
+        '/intelligent-systems/ifis',
         '/enterprise',
 
         // Platforms

@@ -103,6 +103,14 @@ const platforms = [
     href: '/platforms/prism',
     color: '#3b82f6',
   },
+  {
+    name: 'Crelligent Edge Module (CEM)',
+    role: 'Industrial IoT Hardware for Africa',
+    description: 'Purpose-built IoT hardware designed for African operating conditions. Connects vehicles, generators, tanks, and industrial assets to the PRISM intelligence platform via 4G/LTE and LoRa.',
+    stage: 'Industry Operations',
+    href: '/intelligent-systems/hardware',
+    color: '#f59e0b',
+  },
 ]
 
 export default function LandingPage() {
@@ -447,7 +455,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto" style={{ fontFamily: "'Outfit', sans-serif" }}>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto" style={{ fontFamily: "'Outfit', sans-serif" }}>
             {platforms.map((platform) => (
               <Link
                 key={platform.href}
@@ -700,10 +708,10 @@ export default function LandingPage() {
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Two Paths</div>
+            <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Three Paths</div>
             <h2 className="heading-lg">Where are you in your journey?</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8" style={{ fontFamily: "'Outfit', sans-serif" }}>
+          <div className="grid md:grid-cols-3 gap-8" style={{ fontFamily: "'Outfit', sans-serif" }}>
             {/* Foundry */}
             <div className="relative rounded-xl overflow-hidden p-[1px] group h-full block">
               <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e] to-[#8b5cf6] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
@@ -734,6 +742,23 @@ export default function LandingPage() {
                 <Link href="/enterprise" className="mt-auto px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-[300] text-sm tracking-widest uppercase hover:bg-white/10 hover:border-[#3b82f6]/50 transition-all flex items-center gap-3 relative z-10">
                   Enterprise Engagement
                   <ArrowRight className="w-4 h-4 text-[#3b82f6]" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Intelligent Systems */}
+            <div className="relative rounded-xl overflow-hidden p-[1px] group h-full block">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#f59e0b] to-[#ef4444] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative bg-[#050505] rounded-xl p-10 h-full z-10 w-full overflow-hidden text-left flex flex-col items-start justify-start">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#f59e0b]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="text-[11px] uppercase tracking-[0.2em] text-[#f59e0b] mb-4 relative z-10">For Industry</div>
+                <h3 className="text-3xl font-[300] tracking-wide text-white mb-4 relative z-10">Crelligent Intelligent Systems</h3>
+                <p className="text-[15px] text-white font-[200] leading-loose opacity-80 mb-8 relative z-10">
+                  Your operations generate data every second. Fleet movements. Fuel consumption. Energy usage. Transactions. Most of it is invisible to the people who need it. We connect the physical operations of African industry to a unified intelligence command layer — built on PRISM and the Crelligent Edge Module.
+                </p>
+                <Link href="/intelligent-systems" className="mt-auto px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-[300] text-sm tracking-widest uppercase hover:bg-white/10 hover:border-[#f59e0b]/50 transition-all flex items-center gap-3 relative z-10">
+                  Explore Intelligent Systems
+                  <ArrowRight className="w-4 h-4 text-[#f59e0b]" />
                 </Link>
               </div>
             </div>
