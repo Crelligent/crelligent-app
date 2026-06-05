@@ -7,6 +7,7 @@ import { LatestInsights } from '@/components/landing/LatestInsights'
 import { RecentClientStories } from '@/components/landing/RecentClientStories'
 import { InsideStories } from '@/components/landing/InsideStories'
 import { ValueProposition } from '@/components/landing/ValueProposition'
+import { SurveyTeaser } from '@/components/SurveyTeaser'
 import {
   Layers,
   Compass,
@@ -117,6 +118,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Navigation />
+      <SurveyTeaser />
 
       {/* Dynamic Video Slider Hero */}
       <HeroSlider />
