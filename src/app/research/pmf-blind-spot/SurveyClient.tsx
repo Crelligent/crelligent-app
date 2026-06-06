@@ -938,7 +938,10 @@ function ThankYouScreen({ responseCount }: { responseCount: number }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#3b82f6] to-[#22c55e] text-black text-sm font-medium rounded-xl hover:opacity-90 transition-all group"
             >
-              Join the VeloDesk Waitlist — Get Early Access + 14-Day Free Trial
+              <div className="flex flex-col text-left">
+                <span>Join the VeloDesk Waitlist — Get Early Access + 14-Day Free Trial</span>
+                <span className="text-[11px] text-black/60 font-normal mt-0.5">(No credit card required to join waitlist)</span>
+              </div>
               <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
