@@ -633,10 +633,10 @@ export function Navigation() {
                                         <ul className="space-y-4">
                                             {section.items.map(item => (
                                                 <li key={item.name}>
-                                                    <Link href={item.href} className="flex group hover:pl-2 transition-all">
+                                                    <Link href={item.href} className="flex items-center group hover:pl-2 transition-all">
                                                         {item.logo && (
-                                                            <div className="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center mr-3 shrink-0 p-1 mt-0.5">
-                                                                <Image src={item.logo} alt="" width={24} height={24} className="object-contain" />
+                                                            <div className="flex items-center justify-center mr-3 shrink-0 mt-0.5">
+                                                                <Image src={item.logo} alt="" width={32} height={32} className="object-contain" />
                                                             </div>
                                                         )}
                                                         <div className="flex flex-col">
