@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { HeroSlider } from '@/components/landing/HeroSlider'
@@ -95,6 +96,7 @@ const platforms = [
     stage: 'Startups & Founders',
     href: '/platforms/velodesk',
     color: '#22c55e',
+    logo: '/velodesk (2).png',
   },
   {
     name: 'PRISM',
@@ -103,6 +105,7 @@ const platforms = [
     stage: 'Enterprise Operations',
     href: '/platforms/prism',
     color: '#3b82f6',
+    logo: '/PRISM-logo.png',
   },
   {
     name: 'Crelligent Edge Module (CEM)',
@@ -470,7 +473,14 @@ export default function LandingPage() {
                   <div className="text-[11px] font-[400] uppercase tracking-[0.2em] mb-4 relative z-10" style={{ color: platform.color }}>
                     {platform.stage}
                   </div>
-                  <h3 className="text-2xl font-[300] tracking-wide text-white mb-2 relative z-10">{platform.name}</h3>
+                  <div className="flex items-center gap-3 mb-2 relative z-10">
+                    {platform.logo && (
+                      <div className="w-8 h-8 flex items-center justify-center bg-white/5 border border-white/10 rounded overflow-hidden">
+                        <Image src={platform.logo} alt={`${platform.name} logo`} width={24} height={24} className="object-contain" />
+                      </div>
+                    )}
+                    <h3 className="text-2xl font-[300] tracking-wide text-white">{platform.name}</h3>
+                  </div>
                   <div className="text-sm text-gray-400 font-[200] opacity-80 mb-4 relative z-10">{platform.role}</div>
                   <p className="text-sm text-white font-[200] leading-loose opacity-80 relative z-10">{platform.description}</p>
                   <div className="mt-8 text-sm font-[300] tracking-widest uppercase opacity-0 group-hover:opacity-100 transition flex items-center gap-2 relative z-10" style={{ color: platform.color }}>
