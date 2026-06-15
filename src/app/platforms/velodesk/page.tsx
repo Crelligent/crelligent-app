@@ -45,7 +45,7 @@ export default function VelodeskPage() {
 
                     <div className="flex flex-col sm:flex-row items-start gap-4">
                         <a
-                            href="http://localhost:3000"
+                            href="https://velodesk.crelligent.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-primary"
@@ -127,7 +127,7 @@ export default function VelodeskPage() {
                         Start free and see where you stand.
                     </p>
                     <a
-                        href="http://localhost:3000/signup"
+                        href="https://velodesk.crelligent.com/signup"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-primary"

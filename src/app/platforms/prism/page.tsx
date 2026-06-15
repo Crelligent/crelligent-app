@@ -45,7 +45,7 @@ export default function PrismPage() {
 
                     <div className="flex flex-col sm:flex-row items-start gap-4">
                         <a
-                            href="http://localhost:3002"
+                            href="https://prism.crelligent.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-primary !bg-[#3b82f6] hover:!bg-[#2563eb] !border-[#3b82f6]"
@@ -124,7 +124,7 @@ export default function PrismPage() {
                         Deploy PRISM across your enterprise infrastructure today.
                     </p>
                     <a
-                        href="http://localhost:3002/signup"
+                        href="https://prism.crelligent.com/signup"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-primary !bg-[#3b82f6] hover:!bg-[#2563eb] !border-[#3b82f6]"
