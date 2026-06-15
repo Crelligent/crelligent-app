@@ -21,6 +21,7 @@ interface NavItem {
     content?: React.ReactNode;
     ctaText?: string;
     ctaHref?: string;
+    logo?: string;
 }
 
 interface NavSection {
@@ -72,8 +73,8 @@ const navData: NavMenuData[] = [
             {
                 title: 'Platforms',
                 items: [
-                    { name: 'VeloDesk', desc: 'Early-stage system sensing', href: '/platforms/velodesk' },
-                    { name: 'PRISM', desc: 'Operational intelligence', href: '/platforms/prism' },
+                    { name: 'VeloDesk', desc: 'Early-stage system sensing', href: '/platforms/velodesk', logo: '/velodesk (2).png' },
+                    { name: 'PRISM', desc: 'Operational intelligence', href: '/platforms/prism', logo: '/PRISM-logo.png' },
                 ]
             },
             {
@@ -632,15 +633,22 @@ export function Navigation() {
                                         <ul className="space-y-4">
                                             {section.items.map(item => (
                                                 <li key={item.name}>
-                                                    <Link href={item.href} className="flex flex-col group hover:pl-2 transition-all">
-                                                        <span className={`text-sm ${item.primary ? 'text-gray-200' : 'text-gray-400'} group-hover:text-white transition-colors leading-snug`}>
-                                                            {item.name}
-                                                        </span>
-                                                        {item.desc && (
-                                                            <span className="text-xs text-gray-500 mt-1 transition-colors leading-snug">
-                                                                {item.desc}
-                                                            </span>
+                                                    <Link href={item.href} className="flex group hover:pl-2 transition-all">
+                                                        {item.logo && (
+                                                            <div className="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center mr-3 shrink-0 p-1 mt-0.5">
+                                                                <Image src={item.logo} alt="" width={24} height={24} className="object-contain" />
+                                                            </div>
                                                         )}
+                                                        <div className="flex flex-col">
+                                                            <span className={`text-sm ${item.primary ? 'text-gray-200' : 'text-gray-400'} group-hover:text-white transition-colors leading-snug`}>
+                                                                {item.name}
+                                                            </span>
+                                                            {item.desc && (
+                                                                <span className="text-xs text-gray-500 mt-1 transition-colors leading-snug">
+                                                                    {item.desc}
+                                                                </span>
+                                                            )}
+                                                        </div>
                                                     </Link>
                                                 </li>
                                             ))}
