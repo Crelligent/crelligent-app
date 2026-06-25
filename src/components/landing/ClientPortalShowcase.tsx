@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Wallet, ShieldCheck, MapPin, BarChart2, ArrowRight } from 'lucide-react'
+import { Wallet, ShieldCheck, MapPin, BarChart2, ArrowUpRight, CreditCard, TrendingUp, Activity, AlertTriangle, LayoutDashboard, FlaskConical, Milestone, Rss, Archive, Bell, Settings, KeyRound, CheckSquare, Search } from 'lucide-react'
 
 export function ClientPortalShowcase() {
     return (
@@ -25,70 +25,264 @@ export function ClientPortalShowcase() {
                     </p>
                 </div>
 
-                {/* Abstract Portal UI Representation */}
-                <div className="relative mx-auto max-w-5xl rounded-2xl border border-white/10 bg-[#050505] shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col md:flex-row h-auto md:h-[500px]">
-                    {/* Sidebar Mock */}
-                    <div className="w-full md:w-64 bg-[#0a0a0a] border-r border-white/10 p-6 hidden md:flex flex-col gap-6">
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="w-5 h-5 bg-gradient-to-br from-[#7B61FF] to-[#38BDF8] rounded flex items-center justify-center">
-                                <span className="text-[8px] font-bold text-white tracking-tighter">PR</span>
+                {/* Realistic Portal UI */}
+                <div className="relative mx-auto max-w-6xl rounded-2xl border border-white/10 bg-[#050505] shadow-[0_0_80px_rgba(123,97,255,0.08)] overflow-hidden flex flex-col md:flex-row h-auto md:h-[580px]">
+                    
+                    {/* Sidebar — mirrors the real sidebar */}
+                    <div className="w-full md:w-56 bg-[#050505] border-r border-white/10 hidden md:flex flex-col">
+                        {/* Header */}
+                        <div className="h-12 flex items-center px-4 border-b border-white/10 shrink-0">
+                            <div className="w-5 h-5 bg-gradient-to-br from-[#7B61FF] to-[#38BDF8] rounded flex items-center justify-center mr-2">
+                                <span className="text-[7px] font-bold text-white">C</span>
                             </div>
-                            <span className="text-sm font-medium tracking-wide text-white">Client Portal</span>
+                            <span className="text-xs font-semibold tracking-tight text-white">Crelligent</span>
+                            <span className="text-[9px] text-[#7B61FF] ml-1.5 font-light">Client</span>
                         </div>
-                        <div className="space-y-3">
-                            <div className="w-3/4 h-3 bg-white/10 rounded-full" />
-                            <div className="w-1/2 h-3 bg-white/5 rounded-full" />
-                            <div className="w-2/3 h-3 bg-white/5 rounded-full" />
-                            <div className="w-4/5 h-3 bg-white/5 rounded-full" />
+
+                        {/* Nav Groups */}
+                        <div className="flex-1 py-4 px-3 space-y-5 overflow-hidden">
+                            {/* Executive Portal */}
+                            <div>
+                                <div className="px-2 text-[8px] font-mono uppercase tracking-widest text-white/30 mb-2">Executive Portal</div>
+                                <div className="space-y-0.5">
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-white/5 text-white text-[11px]">
+                                        <LayoutDashboard className="w-3 h-3 text-blue-400" /> Command Center
+                                    </div>
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <ShieldCheck className="w-3 h-3 text-[#00B67A]/50" /> ESRE Scorecard
+                                    </div>
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <BarChart2 className="w-3 h-3 text-cyan-400/50" /> Blueprints & Assets
+                                    </div>
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <CreditCard className="w-3 h-3 text-[#7B61FF]/50" /> Service Wallet
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Diagnostics */}
+                            <div>
+                                <div className="px-2 text-[8px] font-mono uppercase tracking-widest text-white/30 mb-2">Diagnostics</div>
+                                <div className="space-y-0.5">
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <AlertTriangle className="w-3 h-3 text-orange-400/50" /> Risk Register
+                                    </div>
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <Activity className="w-3 h-3 text-red-400/50" /> Bottleneck Tracker
+                                    </div>
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <FlaskConical className="w-3 h-3 text-amber-400/50" /> Simulation Lab
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Implementation */}
+                            <div>
+                                <div className="px-2 text-[8px] font-mono uppercase tracking-widest text-white/30 mb-2">Implementation</div>
+                                <div className="space-y-0.5">
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <MapPin className="w-3 h-3 text-[#38BDF8]/50" /> Operator Timeline
+                                    </div>
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <Milestone className="w-3 h-3 text-emerald-400/50" /> Milestone Tracker
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Intelligence */}
+                            <div>
+                                <div className="px-2 text-[8px] font-mono uppercase tracking-widest text-white/30 mb-2">Intelligence</div>
+                                <div className="space-y-0.5">
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <Rss className="w-3 h-3 text-pink-400/50" /> Data Feeds
+                                    </div>
+                                    <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
+                                        <Archive className="w-3 h-3 text-purple-400/50" /> Reports Archive
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Profile */}
+                        <div className="p-3 border-t border-white/10 shrink-0">
+                            <div className="flex items-center gap-2">
+                                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#7B61FF] to-[#38BDF8]" />
+                                <div>
+                                    <div className="text-[10px] font-medium text-white">Apex Logistics</div>
+                                    <div className="text-[8px] text-white/30">CEO Account</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Main Content Mock */}
-                    <div className="flex-1 p-6 lg:p-10 flex flex-col justify-between">
-                        <header className="flex justify-between items-end mb-8">
-                            <div>
-                                <h3 className="text-2xl font-light text-white mb-1">Apex Logistics</h3>
-                                <p className="text-xs text-white/40 font-mono">ESRE™ Implementation Phase</p>
+                    {/* Main Content */}
+                    <div className="flex-1 flex flex-col overflow-hidden">
+                        
+                        {/* Top Nav Bar */}
+                        <div className="h-12 border-b border-white/5 px-5 flex items-center justify-between shrink-0 bg-[#050505]/80">
+                            <div className="flex items-center gap-2 px-2.5 py-1 bg-white/[0.03] border border-white/5 rounded-md text-white/30 text-[11px] w-64">
+                                <Search className="w-3 h-3" />
+                                <span className="font-light">Search or type a command...</span>
+                                <span className="ml-auto text-[8px] font-mono bg-white/10 px-1 rounded">⌘K</span>
                             </div>
-                            <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-xs text-white flex items-center gap-2">
-                                <Wallet className="w-3 h-3 text-[#00B67A]" /> 42,500 CRD Available
+                            <div className="flex items-center gap-3">
+                                <Bell className="w-3.5 h-3.5 text-white/30" />
+                                <div className="w-6 h-6 rounded-full bg-white/10" />
                             </div>
-                        </header>
+                        </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1">
-                            {/* Card 1 */}
-                            <div className="bg-white/5 border border-white/5 rounded-xl p-5 flex flex-col justify-between group hover:bg-white/10 transition-colors">
-                                <div className="flex items-center gap-3 text-[#7B61FF] mb-4">
-                                    <ShieldCheck className="w-5 h-5" />
-                                    <span className="text-xs font-mono uppercase tracking-widest text-white/70">ESRE Score</span>
-                                </div>
+                        {/* Alert Banner */}
+                        <div className="bg-orange-500/10 border-b border-orange-500/20 px-4 py-1.5 flex items-center justify-center gap-2">
+                            <AlertTriangle className="w-3 h-3 text-orange-400" />
+                            <span className="text-[9px] text-orange-200">SLA Warning: External ERP integration latency exceeded 200ms at 04:00 AM.</span>
+                        </div>
+
+                        {/* Dashboard Content */}
+                        <div className="flex-1 p-5 overflow-hidden">
+                            {/* Header */}
+                            <div className="flex justify-between items-end mb-5">
                                 <div>
-                                    <div className="text-4xl font-light text-white mb-1">78<span className="text-lg text-white/30">/100</span></div>
-                                    <div className="text-xs text-[#00B67A]">Top Quartile Performance</div>
+                                    <div className="text-[8px] font-mono uppercase tracking-widest text-[#7B61FF] mb-1">Executive Command Center</div>
+                                    <h3 className="text-lg font-light text-white flex items-center gap-2">
+                                        Apex Logistics
+                                        <span className="px-1.5 py-0.5 bg-[#00B67A]/10 border border-[#00B67A]/20 rounded text-[#00B67A] text-[7px] font-mono uppercase tracking-widest flex items-center gap-1">
+                                            <div className="w-1 h-1 rounded-full bg-[#00B67A] animate-pulse"/> Online
+                                        </span>
+                                    </h3>
+                                    <p className="text-[10px] text-white/40">ESRE™ Diagnostic & Implementation Portal</p>
+                                </div>
+                                <div className="flex gap-2">
+                                    <button className="px-2.5 py-1 bg-white/5 rounded text-[9px] border border-white/10 text-white/70">Export Snapshot</button>
+                                    <button className="px-2.5 py-1 bg-gradient-to-r from-[#7B61FF] to-[#38BDF8] rounded text-[9px] text-white shadow-[0_0_12px_rgba(123,97,255,0.25)]">Schedule Review</button>
                                 </div>
                             </div>
 
-                            {/* Card 2 */}
-                            <div className="bg-white/5 border border-white/5 rounded-xl p-5 flex flex-col justify-between group hover:bg-white/10 transition-colors">
-                                <div className="flex items-center gap-3 text-[#FFB020] mb-4">
-                                    <BarChart2 className="w-5 h-5" />
-                                    <span className="text-xs font-mono uppercase tracking-widest text-white/70">Blueprints</span>
+                            {/* Top Row: 3 Cards */}
+                            <div className="grid grid-cols-3 gap-3 mb-4">
+                                {/* Service Wallet */}
+                                <div className="bg-white/5 border border-white/5 rounded-xl p-4 relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[#7B61FF]/10 to-transparent opacity-50" />
+                                    <div className="relative z-10">
+                                        <div className="flex items-center gap-1.5 mb-3">
+                                            <Wallet className="w-3 h-3 text-[#7B61FF]" />
+                                            <span className="text-[8px] font-mono uppercase tracking-widest text-white/50">Service Wallet</span>
+                                        </div>
+                                        <div className="text-2xl font-light text-white mb-0.5">42,500 <span className="text-xs text-white/30">CRD</span></div>
+                                        <div className="text-sm text-white/70 font-mono">₦42,500,000</div>
+                                        <div className="text-[8px] text-white/30 mt-2 pt-2 border-t border-white/10 flex justify-between">
+                                            <span>1 CRD = ₦1,000</span>
+                                            <span className="text-[#FF6B35]">Burn: -2,500/mo</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div className="text-lg font-medium text-white mb-1">Target Model v2</div>
-                                    <div className="text-xs text-[#00B67A]">Approved by Board</div>
+
+                                {/* ESRE Score */}
+                                <div className="bg-white/5 border border-white/5 rounded-xl p-4">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <span className="text-[8px] font-mono uppercase tracking-widest text-white/50">ESRE™ Score</span>
+                                        <ShieldCheck className="w-3 h-3 text-[#00B67A]" />
+                                    </div>
+                                    <div className="text-3xl font-light text-white mb-0.5">78<span className="text-sm text-white/30">/100</span></div>
+                                    <div className="text-[10px] text-[#00B67A] flex items-center gap-1">
+                                        <ArrowUpRight className="w-2.5 h-2.5" /> +13 pts since Q1
+                                    </div>
+                                </div>
+
+                                {/* Projected Value */}
+                                <div className="bg-white/5 border border-white/5 rounded-xl p-4 relative overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-bl from-[#00B67A]/10 to-transparent opacity-50" />
+                                    <div className="relative z-10">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-[8px] font-mono uppercase tracking-widest text-white/50">Projected Value</span>
+                                            <TrendingUp className="w-3 h-3 text-[#00B67A]" />
+                                        </div>
+                                        <div className="text-[9px] text-white/40 mb-0.5">Annual Operational Savings</div>
+                                        <div className="text-2xl font-light text-[#00B67A]">₦180M</div>
+                                        <div className="text-[8px] text-white/30 mt-2 pt-2 border-t border-white/10">Route Optimization Phase 1</div>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Card 3 */}
-                            <div className="bg-white/5 border border-white/5 rounded-xl p-5 flex flex-col justify-between group hover:bg-white/10 transition-colors">
-                                <div className="flex items-center gap-3 text-[#38BDF8] mb-4">
-                                    <MapPin className="w-5 h-5" />
-                                    <span className="text-xs font-mono uppercase tracking-widest text-white/70">Implementation</span>
+                            {/* Bottom Row: Radar + Bottlenecks + Implementation */}
+                            <div className="grid grid-cols-3 gap-3">
+                                {/* Radar placeholder */}
+                                <div className="bg-white/5 border border-white/5 rounded-xl p-4 col-span-1">
+                                    <div className="text-[10px] font-medium text-white mb-1">Diagnostic Capabilities Map</div>
+                                    <div className="text-[8px] text-white/30 mb-3">9-Dimensional ESRE Assessment</div>
+                                    {/* SVG Radar shape */}
+                                    <div className="flex items-center justify-center h-[120px]">
+                                        <svg viewBox="0 0 100 100" className="w-28 h-28">
+                                            <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" />
+                                            <polygon points="50,25 72,37 72,63 50,75 28,63 28,37" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
+                                            <polygon points="50,40 60,45 60,55 50,60 40,55 40,45" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+                                            <polygon points="50,15 80,35 72,68 42,80 18,55 25,30" fill="rgba(123,97,255,0.25)" stroke="#7B61FF" strokeWidth="0.8" />
+                                        </svg>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div className="text-lg font-medium text-white mb-1">Route Alg. Build</div>
-                                    <div className="text-xs text-white/50">Sarah J. • Wk 4 of 12</div>
+
+                                {/* Implementation Arm */}
+                                <div className="bg-white/5 border border-white/5 rounded-xl p-4">
+                                    <div className="flex items-center gap-1.5 mb-3">
+                                        <MapPin className="w-3 h-3 text-[#38BDF8]" />
+                                        <span className="text-[10px] font-medium text-white">Implementation Arm</span>
+                                    </div>
+                                    <div className="space-y-3 relative before:absolute before:inset-y-0 before:left-[5px] before:w-[1px] before:bg-white/10">
+                                        <div className="relative pl-5">
+                                            <div className="absolute left-0 top-0.5 w-2.5 h-2.5 rounded-full bg-[#00B67A]/20 border border-[#00B67A] flex items-center justify-center z-10">
+                                                <div className="w-1 h-1 rounded-full bg-[#00B67A]" />
+                                            </div>
+                                            <div className="text-[10px] text-white">Diagnostic & Blueprint</div>
+                                            <div className="text-[8px] text-white/30">Completed</div>
+                                        </div>
+                                        <div className="relative pl-5">
+                                            <div className="absolute left-0 top-0.5 w-2.5 h-2.5 rounded-full bg-[#38BDF8]/20 border border-[#38BDF8] flex items-center justify-center z-10">
+                                                <div className="w-1 h-1 rounded-full bg-[#38BDF8] animate-pulse" />
+                                            </div>
+                                            <div className="text-[10px] text-white">Routing Algorithm Build</div>
+                                            <div className="text-[8px] text-[#38BDF8] font-mono">Wk 4 of 12</div>
+                                        </div>
+                                        <div className="relative pl-5">
+                                            <div className="absolute left-0 top-0.5 w-2.5 h-2.5 rounded-full bg-white/5 border border-white/20 flex items-center justify-center z-10">
+                                                <div className="w-1 h-1 rounded-full bg-white/20" />
+                                            </div>
+                                            <div className="text-[10px] text-white/40">Go-Live Handover</div>
+                                            <div className="text-[8px] text-[#FFB020]">Sep 15, 2026</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Client Action Required */}
+                                <div className="bg-white/5 border border-white/5 rounded-xl p-4">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <div className="flex items-center gap-1.5">
+                                            <CheckSquare className="w-3 h-3 text-[#7B61FF]" />
+                                            <span className="text-[10px] font-medium text-white">Client Action Required</span>
+                                        </div>
+                                        <span className="text-[8px] font-mono text-white/30">3 Pending</span>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <div className="flex items-start gap-2 p-2 bg-white/5 rounded-lg">
+                                            <input type="checkbox" disabled className="mt-0.5 rounded border-white/20 bg-transparent w-3 h-3" />
+                                            <div>
+                                                <div className="text-[10px] text-white">Approve Governance Matrix v2.1</div>
+                                                <div className="text-[8px] text-white/30">CEO sign-off required</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-start gap-2 p-2 bg-white/5 rounded-lg">
+                                            <input type="checkbox" disabled className="mt-0.5 rounded border-white/20 bg-transparent w-3 h-3" />
+                                            <div>
+                                                <div className="text-[10px] text-white">Nominate Data Steward</div>
+                                                <div className="text-[8px] text-white/30">System Integration feeds</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-start gap-2 p-2 bg-white/5 rounded-lg">
+                                            <input type="checkbox" disabled className="mt-0.5 rounded border-white/20 bg-transparent w-3 h-3" />
+                                            <div>
+                                                <div className="text-[10px] text-white">Confirm Go-Live Date</div>
+                                                <div className="text-[8px] text-white/30">Sep 15 delivery target</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +300,7 @@ export function ClientPortalShowcase() {
                     <div>
                         <h4 className="text-lg font-medium text-white mb-2">Live Milestones</h4>
                         <p className="text-sm text-white/50 leading-relaxed">
-                            Stop asking "what's the status?" Track the exact phase of your ESRE blueprint implementation. See what our on-site engineers are deploying in real-time.
+                            Stop asking &quot;what&apos;s the status?&quot; Track the exact phase of your ESRE blueprint implementation. See what our on-site engineers are deploying in real-time.
                         </p>
                     </div>
                     <div>
