@@ -10,7 +10,7 @@ export function ClientPortalBanner() {
         <div className="relative flex flex-col sm:flex-row items-center justify-between bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-full px-12 py-6 overflow-hidden">
           
           {/* Subtle background icon for texture (Crelligent Logo) */}
-          <img src="/logo.png" alt="" className="absolute -right-8 -bottom-12 w-48 h-48 opacity-[0.03] -rotate-12 pointer-events-none object-contain grayscale" />
+          <img src="/logo.png" alt="" className="absolute -right-8 -bottom-12 w-48 h-48 opacity-[0.15] -rotate-12 pointer-events-none object-contain" />
           
           {/* Text Content */}
           <div className="relative z-10 flex-1 text-center sm:text-left mb-4 sm:mb-0">
