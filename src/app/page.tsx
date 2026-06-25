@@ -122,7 +122,6 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Navigation />
-      <ClientPortalBanner />
       <SurveyTeaser />
 
       {/* Dynamic Video Slider Hero */}
@@ -796,6 +795,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <ClientPortalBanner />
       <Footer />
     </div >
   )
