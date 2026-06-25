@@ -60,7 +60,7 @@ export function ClientPortalShowcase() {
                             <div className="bg-white/5 border border-white/5 rounded-xl p-5 flex flex-col justify-between group hover:bg-white/10 transition-colors">
                                 <div className="flex items-center gap-3 text-[#7B61FF] mb-4">
                                     <ShieldCheck className="w-5 h-5" />
-                                    <span className="text-xs font-mono uppercase tracking-widest text-white/70">PMF Score</span>
+                                    <span className="text-xs font-mono uppercase tracking-widest text-white/70">ESRE Score</span>
                                 </div>
                                 <div>
                                     <div className="text-4xl font-light text-white mb-1">78<span className="text-lg text-white/30">/100</span></div>
