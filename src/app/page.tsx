@@ -4,6 +4,7 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { HeroSlider } from '@/components/landing/HeroSlider'
 import { EsreTimeline } from '@/components/landing/EsreTimeline'
+import { ClientPortalShowcase } from '@/components/landing/ClientPortalShowcase'
 import { LatestInsights } from '@/components/landing/LatestInsights'
 import { RecentClientStories } from '@/components/landing/RecentClientStories'
 import { InsideStories } from '@/components/landing/InsideStories'
@@ -497,6 +498,9 @@ export default function LandingPage() {
       {/* Flagship Engagement: ESRE */}
       {/* Flagship Engagement: ESRE (Interactive Timeline) */}
       <EsreTimeline />
+
+      {/* Client Portal Showcase */}
+      <ClientPortalShowcase />
 
       {/* New Capgemini-Style Sections */}
       <LatestInsights />
