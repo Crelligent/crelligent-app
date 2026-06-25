@@ -162,22 +162,46 @@ h4 {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 4px;
+/* ──── Scrollbar: invisible until needed, then whisper-thin ──── */
+
+* {
+  scrollbar-width: none;
 }
 
-::-webkit-scrollbar-track {
+*:hover {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
   background: transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--glass-border);
-  border-radius: 2px;
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+  transition: background 0.4s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--glass-border-hover);
+*:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.10);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* Selection */
