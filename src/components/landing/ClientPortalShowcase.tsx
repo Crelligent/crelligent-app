@@ -26,7 +26,10 @@ export function ClientPortalShowcase() {
                 </div>
 
                 {/* Realistic Portal UI */}
-                <div className="relative mx-auto max-w-6xl rounded-2xl border border-white/10 bg-[#050505] shadow-[0_0_80px_rgba(123,97,255,0.08)] overflow-hidden flex flex-col md:flex-row h-auto md:h-[580px]">
+                <div className="relative mx-auto max-w-6xl">
+                <div className="relative rounded-2xl overflow-hidden p-[1px] group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#7B61FF] via-[#38BDF8] to-[#7B61FF] opacity-30 group-hover:opacity-60 transition-opacity duration-700" />
+                <div className="relative rounded-2xl bg-[#050505] shadow-[0_0_80px_rgba(123,97,255,0.08)] overflow-hidden flex flex-col md:flex-row h-auto md:h-[580px] z-10">
                     
                     {/* Sidebar — mirrors the real sidebar */}
                     <div className="w-full md:w-56 bg-[#050505] border-r border-white/10 hidden md:flex flex-col">
@@ -287,6 +290,17 @@ export function ClientPortalShowcase() {
                             </div>
                         </div>
                     </div>
+                </div>
+                </div>
+
+                {/* Mirror Reflection */}
+                <div className="relative h-[180px] overflow-hidden pointer-events-none mt-0 rounded-b-2xl" aria-hidden="true">
+                    <div className="absolute inset-x-0 top-0 h-full" style={{ transform: 'scaleY(-1)' }}>
+                        <div className="w-full h-[580px] bg-gradient-to-r from-[#7B61FF]/5 via-[#38BDF8]/5 to-[#7B61FF]/5 rounded-2xl border border-white/5" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/80 to-[#0a0a0a]" />
+                    <div className="absolute inset-0 backdrop-blur-[2px]" />
+                </div>
                 </div>
 
                 {/* Features Grid below mock */}
