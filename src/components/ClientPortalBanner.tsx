@@ -1,23 +1,20 @@
 import React from 'react'
 import Link from 'next/link'
-import { Lock } from 'lucide-react'
 
 export function ClientPortalBanner() {
   return (
-    <div className="w-full bg-[#050505] flex justify-center py-6 px-4">
-      <div className="max-w-4xl w-full relative group">
-        {/* Subtle glow effect behind the pill */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#7B61FF] via-[#5B8DEF] to-[#38BDF8] opacity-20 blur-xl rounded-full group-hover:opacity-30 transition-opacity duration-500" />
+    <div className="w-full bg-[#050505] flex justify-center py-10 px-6">
+      <div className="max-w-5xl w-full relative group">
         
         {/* The Pill itself */}
-        <div className="relative flex flex-col sm:flex-row items-center justify-between bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-full px-8 py-4 overflow-hidden">
+        <div className="relative flex flex-col sm:flex-row items-center justify-between bg-white/[0.03] border border-white/10 backdrop-blur-md rounded-full px-12 py-6 overflow-hidden">
           
-          {/* Subtle background icon for texture (similar to the lock in the plaid example) */}
-          <Lock className="absolute -right-4 -bottom-8 w-32 h-32 text-white/[0.02] -rotate-12 pointer-events-none" />
+          {/* Subtle background icon for texture (Crelligent Logo) */}
+          <img src="/logo.png" alt="" className="absolute -right-8 -bottom-12 w-48 h-48 opacity-[0.03] -rotate-12 pointer-events-none object-contain grayscale" />
           
           {/* Text Content */}
           <div className="relative z-10 flex-1 text-center sm:text-left mb-4 sm:mb-0">
-            <p className="text-sm md:text-base font-light text-white/90">
+            <p className="text-base md:text-lg font-light text-white/90">
               Active engagement or managed service? You are in control of your intelligence data.
             </p>
           </div>
