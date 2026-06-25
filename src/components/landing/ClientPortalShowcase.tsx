@@ -100,7 +100,7 @@ export function ClientPortalShowcase() {
                     <div>
                         <h4 className="text-lg font-medium text-white mb-2">Service Credit Wallet</h4>
                         <p className="text-sm text-white/50 leading-relaxed">
-                            Pre-fund your operations. Seamlessly burn credits to authorize embedded operator extensions, unlock deep-dive market intelligence, or subscribe to PRISM data feeds without waiting on new purchase orders.
+                            Pre-fund your operations. Seamlessly burn credits to authorize embedded operator extensions, unlock deep-dive market intelligence, or subscribe to Crelligent data feeds without waiting on new purchase orders.
                         </p>
                     </div>
                     <div>
@@ -112,7 +112,7 @@ export function ClientPortalShowcase() {
                     <div>
                         <h4 className="text-lg font-medium text-white mb-2">Managed Telemetry</h4>
                         <p className="text-sm text-white/50 leading-relaxed">
-                            Once the system is built, we operate it. Monitor your PRISM outsourced operations, check SLA uptime, and manage API keys for your intelligence data streams directly.
+                            Once the system is built, we operate it. Monitor your Crelligent outsourced operations, check SLA uptime, and manage API keys for your intelligence data streams directly.
                         </p>
                     </div>
                 </div>
