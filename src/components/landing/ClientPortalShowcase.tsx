@@ -55,7 +55,7 @@ export function ClientPortalShowcase() {
                             </div>
                         </header>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1">
                             {/* Card 1 */}
                             <div className="bg-white/5 border border-white/5 rounded-xl p-5 flex flex-col justify-between group hover:bg-white/10 transition-colors">
                                 <div className="flex items-center gap-3 text-[#7B61FF] mb-4">
@@ -70,13 +70,25 @@ export function ClientPortalShowcase() {
 
                             {/* Card 2 */}
                             <div className="bg-white/5 border border-white/5 rounded-xl p-5 flex flex-col justify-between group hover:bg-white/10 transition-colors">
+                                <div className="flex items-center gap-3 text-[#FFB020] mb-4">
+                                    <BarChart2 className="w-5 h-5" />
+                                    <span className="text-xs font-mono uppercase tracking-widest text-white/70">Blueprints</span>
+                                </div>
+                                <div>
+                                    <div className="text-lg font-medium text-white mb-1">Target Model v2</div>
+                                    <div className="text-xs text-[#00B67A]">Approved by Board</div>
+                                </div>
+                            </div>
+
+                            {/* Card 3 */}
+                            <div className="bg-white/5 border border-white/5 rounded-xl p-5 flex flex-col justify-between group hover:bg-white/10 transition-colors">
                                 <div className="flex items-center gap-3 text-[#38BDF8] mb-4">
                                     <MapPin className="w-5 h-5" />
                                     <span className="text-xs font-mono uppercase tracking-widest text-white/70">Implementation</span>
                                 </div>
                                 <div>
                                     <div className="text-lg font-medium text-white mb-1">Route Alg. Build</div>
-                                    <div className="text-xs text-white/50">Sarah J. (Embedded Lead) • Wk 4 of 12</div>
+                                    <div className="text-xs text-white/50">Sarah J. • Wk 4 of 12</div>
                                 </div>
                             </div>
                         </div>
