@@ -73,8 +73,8 @@ const navData: NavMenuData[] = [
             {
                 title: 'Platforms',
                 items: [
-                    { name: 'VeloDesk', desc: 'Early-stage system sensing', href: '/platforms/velodesk', logo: '/velodesk (2).png' },
-                    { name: 'PRISM', desc: 'Operational intelligence', href: '/platforms/prism', logo: '/PRISM-logo.png' },
+                    { name: 'VeloDesk', desc: 'Early-stage system sensing', href: 'https://velodesk.crelligent.com', logo: '/velodesk (2).png' },
+                    { name: 'PRISM', desc: 'Operational intelligence', href: 'https://prism.crelligent.com', logo: '/PRISM-logo.png' },
                 ]
             },
             {

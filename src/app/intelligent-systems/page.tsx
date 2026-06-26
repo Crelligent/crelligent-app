@@ -267,7 +267,7 @@ export default function IntelligentSystemsPage() {
               Request a Deployment Assessment
               <ArrowRight className="w-4 h-4 ml-2 inline" />
             </Link>
-            <Link href="/platforms/prism" className="btn-ghost">
+            <Link href="https://prism.crelligent.com" className="btn-ghost">
               Explore PRISM
             </Link>
           </div>
@@ -607,7 +607,7 @@ export default function IntelligentSystemsPage() {
           {/* PRISM cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Link
-              href="/platforms/prism"
+              href="https://prism.crelligent.com"
               className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
             >
               <div className="w-10 h-10 rounded-lg bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mb-4">
@@ -624,7 +624,7 @@ export default function IntelligentSystemsPage() {
             </Link>
 
             <Link
-              href="/platforms/prism#ai"
+              href="https://prism.crelligent.com#ai"
               className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
             >
               <div className="w-10 h-10 rounded-lg bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center mb-4">

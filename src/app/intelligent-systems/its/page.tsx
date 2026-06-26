@@ -138,7 +138,7 @@ export default function ITSPage() {
             <Link href="/contact" className="btn-primary">
               Request an Assessment
             </Link>
-            <Link href="/platforms/prism" className="btn-ghost inline-flex items-center gap-2">
+            <Link href="https://prism.crelligent.com" className="btn-ghost inline-flex items-center gap-2">
               Explore PRISM <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -315,7 +315,7 @@ export default function ITSPage() {
             <Link href="/contact" className="btn-primary">
               Request a Deployment Assessment
             </Link>
-            <Link href="/platforms/prism" className="btn-ghost inline-flex items-center gap-2">
+            <Link href="https://prism.crelligent.com" className="btn-ghost inline-flex items-center gap-2">
               Explore PRISM Platform <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

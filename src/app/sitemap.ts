@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/enterprise',
 
         // Platforms
-        '/platforms/velodesk',
+        'https://velodesk.crelligent.com',
         '/platforms/bisuite',
         '/platforms/marketpulse',
 
