@@ -22,7 +22,7 @@ export function ClientPortalBanner() {
           {/* CTA Link */}
           <div className="relative z-10">
             <Link 
-              href="http://localhost:3003" 
+              href="https://client.crelligent.com/login" 
               className="inline-flex items-center text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#7B61FF] to-[#38BDF8] hover:opacity-80 transition-opacity whitespace-nowrap"
             >
               Manage your deployments with Client Portal »
