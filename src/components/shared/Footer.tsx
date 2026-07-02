@@ -20,6 +20,7 @@ const footerLinks = {
     company: [
         { name: 'About', href: '/about' },
         { name: 'Templates', href: '/templates' },
+        { name: 'Core', href: '/core' },
         { name: 'Foundry', href: '/foundry' },
         { name: 'Enterprise', href: '/enterprise' },
         { name: 'Intelligent Systems', href: '/intelligent-systems' },
