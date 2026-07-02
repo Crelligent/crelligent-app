@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
-import { ArrowRight, Activity, Smartphone, Link2, Database, BarChart3, Fingerprint, Coins, TrendingUp } from 'lucide-react'
+import { WhatsAppSimulator } from '@/components/shared/WhatsAppSimulator'
+import { ArrowRight, Activity, Smartphone, Link2, Database, BarChart3, Fingerprint, Coins, TrendingUp, Terminal } from 'lucide-react'
 
 export const metadata = {
     title: 'Crelligent Core | Intelligence for the Real Economy',
@@ -112,6 +113,40 @@ export default function CorePage() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Interactive Sandbox Section */}
+            <section className="py-24 px-6 relative border-y border-white/5 bg-[#050505]">
+                <div className="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-16 items-center">
+                    <div className="space-y-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs font-semibold uppercase tracking-widest text-blue-400">
+                            <Terminal className="w-4 h-4" />
+                            Live Sandbox
+                        </div>
+                        <h2 className="heading-lg">Experience the Intelligence Engine</h2>
+                        <p className="text-gray-400 text-lg font-light leading-relaxed">
+                            Try the ESRE Vitals Bot for yourself. 
+                            Type a natural language message in the simulator (e.g., <em>"I just sold 2 bags of cement for ₦10,000"</em>) 
+                            and watch how our NLP engine instantly parses it into structured financial ledger data.
+                        </p>
+
+                        <div className="relative rounded-xl overflow-hidden p-[1px] group block mt-8">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] opacity-30 transition-opacity duration-500" />
+                            <div className="relative bg-[#0a0a0a] rounded-xl p-6 z-10 w-full text-left">
+                                <h3 className="text-[#3b82f6] font-medium tracking-wide uppercase text-sm mb-2">How it works</h3>
+                                <p className="text-sm text-gray-400 leading-relaxed">
+                                    When an informal trader sends a WhatsApp message, it hits our NLP layer. 
+                                    The engine extracts intent, item classification, quantity, and real-world pricing data—updating their digital ledger in milliseconds.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="flex justify-center relative w-full">
+                        <div className="absolute inset-0 bg-amber-500/5 blur-[100px] rounded-full" />
+                        <WhatsAppSimulator />
                     </div>
                 </div>
             </section>
