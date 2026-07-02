@@ -97,14 +97,19 @@ export default function CorePage() {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid md:grid-cols-2 gap-8" style={{ fontFamily: "'Outfit', sans-serif" }}>
                         {productOfferings.map((product) => (
-                            <div key={product.title} className="glass-card rounded-2xl p-8 border border-white/10 relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-colors" />
-                                <product.icon className="w-8 h-8 text-amber-500 mb-6" />
-                                <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">{product.audience}</div>
-                                <h3 className="text-2xl font-light mb-4">{product.title}</h3>
-                                <p className="text-gray-400 leading-relaxed">{product.description}</p>
+                            <div key={product.title} className="relative rounded-xl overflow-hidden p-[1px] group h-full block">
+                                <div className="absolute inset-0 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="relative bg-[#050505] rounded-xl p-8 h-full z-10 w-full overflow-hidden text-left flex flex-col items-start justify-start">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[#f59e0b]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                                    <div className="w-12 h-12 rounded bg-[#f59e0b]/10 border border-[#f59e0b]/20 flex items-center justify-center mb-6 group-hover:bg-[#f59e0b]/20 transition relative z-10">
+                                        <product.icon className="w-6 h-6 text-amber-500" />
+                                    </div>
+                                    <div className="text-[11px] uppercase tracking-[0.2em] text-amber-500 mb-2 relative z-10">{product.audience}</div>
+                                    <h3 className="text-2xl font-[300] tracking-wide text-white mb-3 relative z-10">{product.title}</h3>
+                                    <p className="text-sm text-white font-[200] leading-loose opacity-80 relative z-10 flex-1">{product.description}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -122,16 +127,20 @@ export default function CorePage() {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-3 gap-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
                         {partnerChannels.map((channel) => (
-                            <div key={channel.title} className="bg-[#0a0a0a] rounded-xl p-8 border border-white/5 hover:border-white/10 transition-colors">
-                                <div className={`w-12 h-12 rounded-lg ${channel.bg} ${channel.border} border flex items-center justify-center mb-6`}>
-                                    <channel.icon className={`w-6 h-6 ${channel.color}`} />
-                                </div>
-                                <h3 className="text-xl font-medium mb-3">{channel.title}</h3>
-                                <p className="text-sm text-gray-400 mb-6 leading-relaxed">{channel.description}</p>
-                                <div className="text-xs font-mono text-gray-500 uppercase tracking-widest border-t border-white/10 pt-4 mt-auto">
-                                    Target: {channel.target}
+                            <div key={channel.title} className="relative rounded-xl overflow-hidden p-[1px] group h-full block">
+                                <div className="absolute inset-0 bg-gradient-to-r from-[#f59e0b] via-[#3b82f6] to-[#22c55e] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="relative bg-[#050505] rounded-xl p-8 h-full z-10 w-full overflow-hidden text-left flex flex-col items-start justify-start">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                                    <div className={`w-12 h-12 rounded-lg ${channel.bg} ${channel.border} border flex items-center justify-center mb-6 relative z-10`}>
+                                        <channel.icon className={`w-6 h-6 ${channel.color}`} />
+                                    </div>
+                                    <h3 className="text-xl font-[300] tracking-wide text-white mb-3 relative z-10">{channel.title}</h3>
+                                    <p className="text-sm text-white font-[200] leading-loose opacity-80 relative z-10 flex-1">{channel.description}</p>
+                                    <div className="text-[11px] font-mono text-gray-500 uppercase tracking-widest border-t border-white/10 pt-4 mt-6 w-full relative z-10">
+                                        Target: {channel.target}
+                                    </div>
                                 </div>
                             </div>
                         ))}
