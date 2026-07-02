@@ -17,7 +17,7 @@ export function WhatsAppSimulator() {
     {
       id: '1',
       role: 'bot',
-      content: 'Hello! I am your ESRE Vitals Bot. How did your business do today? Just tell me what you sold or bought.',
+      content: 'Hello! I am your ESRE Vitals Bot. 🟢 Try testing me! Type something like "I just sold 5 bags of rice for ₦40,000" below.',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       status: 'read'
     }
@@ -142,8 +142,20 @@ export function WhatsAppSimulator() {
       </div>
 
       {/* Input Area */}
-      <div className="bg-[#f0f2f5] p-3 flex gap-2 z-10">
-        <div className="flex-1 bg-white rounded-xl px-4 py-2 flex items-center shadow-sm">
+      <div className="bg-[#f0f2f5] p-3 flex gap-2 z-10 relative">
+        {/* Pulsing indicator to draw attention */}
+        {messages.length === 1 && (
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full animate-bounce shadow-lg flex items-center whitespace-nowrap z-20">
+                <span className="relative flex h-2 w-2 mr-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                </span>
+                Type here to test it!
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-amber-500 rotate-45"></div>
+            </div>
+        )}
+
+        <div className="flex-1 bg-white rounded-xl px-4 py-2 flex items-center shadow-sm relative">
           <input
             type="text"
             className="w-full outline-none text-[#111b21] bg-transparent text-[15px]"
