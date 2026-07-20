@@ -40,6 +40,18 @@ body {
   --color-background: var(--bg);
   --color-foreground: var(--text-main);
   --color-accent: var(--accent);
+  
+  /* Crelligent Core Sub-brand */
+  --color-core-navy: #1F3864;
+  --color-core-teal: #2E75B6;
+  --color-core-amber: #F5A623;
+  --color-core-green: #2D6A4F;
+  --color-core-bg: #FAFAF8;
+  --color-core-text: #1A1A1A;
+  --color-core-muted: #6B6B6B;
+  
+  --font-jakarta: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
+  --font-dm: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
 * {

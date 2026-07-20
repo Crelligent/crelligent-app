@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Outfit } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Outfit, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/CookieConsent";
 
@@ -24,6 +24,20 @@ const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600"],
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
@@ -151,7 +165,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${outfit.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${outfit.variable} ${plusJakartaSans.variable} ${dmSans.variable} antialiased overflow-x-hidden`}
       >
         {children}
         <CookieConsent />
