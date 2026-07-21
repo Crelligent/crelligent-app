@@ -5,6 +5,7 @@ import { Footer } from '@/components/shared/Footer'
 import { HeroSlider } from '@/components/landing/HeroSlider'
 import { EsreTimeline } from '@/components/landing/EsreTimeline'
 import { ClientPortalShowcase } from '@/components/landing/ClientPortalShowcase'
+import { EsreIntelligenceShowcase } from '@/components/landing/EsreIntelligenceShowcase'
 import { LatestInsights } from '@/components/landing/LatestInsights'
 import { RecentClientStories } from '@/components/landing/RecentClientStories'
 import { InsideStories } from '@/components/landing/InsideStories'
@@ -501,6 +502,9 @@ export default function LandingPage() {
 
       {/* Client Portal Showcase */}
       <ClientPortalShowcase />
+
+      {/* ESRE AI Intelligence Engine Showcase */}
+      <EsreIntelligenceShowcase />
 
       {/* New Capgemini-Style Sections */}
       <LatestInsights />

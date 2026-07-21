@@ -12,8 +12,7 @@ export function ClientPortalShowcase() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono uppercase tracking-widest text-[#7B61FF] mb-6">
-                        <Wallet className="w-3 h-3" />
+                    <div className="section-label mb-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
                         Executive Command Center
                     </div>
                     <h2 className="text-4xl md:text-5xl font-[300] tracking-tight text-white mb-6">
