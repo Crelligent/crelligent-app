@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { BrainCircuit, FileSearch, Library, Activity, ArrowRight, Zap, Network, ShieldCheck } from 'lucide-react'
+import { BrainCircuit, FileSearch, Library, Activity, Sparkles, Zap, Network, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
 export function EsreIntelligenceShowcase() {
