@@ -1,18 +1,24 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { X, ArrowRight } from 'lucide-react'
+import { X } from 'lucide-react'
+import { FormEngine } from '@/components/forms/FormEngine'
+import { pmfSurveySchema } from '@/components/forms/pmfSurveySchema'
 
-const STORAGE_KEY = 'survey_teaser_dismissed'
+const STORAGE_KEY = 'velodesk_teaser_dismissed'
 const SUPPRESS_DAYS = 7
 const SHOW_DELAY_MS = 3000
 
 export function SurveyTeaser() {
   const [isVisible, setIsVisible] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
+  const [sessionId, setSessionId] = useState('')
+  const [success, setSuccess] = useState(false)
 
   useEffect(() => {
+    // Generate telemetry session
+    setSessionId(Math.random().toString(36).substring(2, 15))
+
     // Check localStorage for suppression
     const dismissed = localStorage.getItem(STORAGE_KEY)
     if (dismissed) {
@@ -38,6 +44,27 @@ export function SurveyTeaser() {
       document.body.style.overflow = ''
       localStorage.setItem(STORAGE_KEY, new Date().toISOString())
     }, 300)
+  }
+
+  const handleFormSubmit = async (answers: Record<string, any>) => {
+    // 1. Submit to Form Engine API
+    await fetch('/api/forms/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            form_id: pmfSurveySchema.id,
+            session_id: sessionId,
+            answers: answers
+        })
+    })
+
+    // 2. Show success state for the survey
+    setSuccess(true)
+    
+    // Provide a short delay to read success message before closing automatically
+    setTimeout(() => {
+        handleDismiss()
+    }, 3500)
   }
 
   if (!isVisible) return null
@@ -74,82 +101,35 @@ export function SurveyTeaser() {
           </button>
 
           {/* Content */}
-          <div className="relative z-10 p-8 md:p-10">
+          <div className="relative z-10 p-8 md:p-10 max-h-[85vh] overflow-y-auto custom-scrollbar">
             {/* Section label */}
-            <div className="section-label mb-6" style={{ fontFamily: "var(--font-outfit), 'Outfit', sans-serif" }}>
+            <div className="section-label mb-2" style={{ fontFamily: "var(--font-outfit), 'Outfit', sans-serif" }}>
               Founder Research — 2026
             </div>
 
-            {/* Headline */}
-            <h2
-              className="text-3xl md:text-4xl font-[200] tracking-tight text-white mb-3 leading-tight"
-              style={{ fontFamily: "var(--font-outfit), 'Outfit', sans-serif" }}
-            >
-              The PMF{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#22c55e]">
-                Blind Spot
-              </span>
-            </h2>
-
-            {/* Subtitle */}
-            <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-              3 minutes. Anonymous. We&apos;ll share the full findings with every participant.
-            </p>
-
-            {/* Stat callout */}
-            <div className="relative rounded-xl overflow-hidden p-[1px] mb-8">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#ec4899]/40 to-[#3b82f6]/40" />
-              <div className="relative bg-[#111111] rounded-xl p-5">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span
-                    className="text-4xl font-[200] text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] to-[#3b82f6]"
-                    style={{ fontFamily: "var(--font-outfit), 'Outfit', sans-serif" }}
-                  >
-                    42%
-                  </span>
-                  <span className="text-sm text-gray-400">of startups</span>
+            {success ? (
+                <div className="py-12 text-center">
+                    <div className="w-16 h-16 mx-auto mb-6 bg-[#22c55e]/20 rounded-full flex items-center justify-center">
+                        <span className="text-3xl">📊</span>
+                    </div>
+                    <h3 className="text-2xl font-light text-white mb-2">Thank you!</h3>
+                    <p className="text-gray-400">Your answers shape the research. We will send you the full report.</p>
                 </div>
-                <p className="text-sm text-gray-300 font-light leading-relaxed">
-                  fail because they never found product-market fit. We&apos;re researching how founders
-                  actually measure it — and what gets in the way.
-                </p>
-              </div>
-            </div>
-
-            {/* Intro copy */}
-            <p className="text-[13px] text-gray-500 mb-8 leading-relaxed">
-              We&apos;re surveying 100+ founders globally. Once complete, we&apos;ll publish the full
-              findings — no gated report. Your answers shape the research.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              <button
-                onClick={() => {
-                  document.body.style.overflow = ''
-                  localStorage.setItem(STORAGE_KEY, new Date().toISOString())
-                  setIsClosing(true)
-                  setTimeout(() => {
-                    setIsVisible(false)
-                    window.location.href = '/research/pmf-blind-spot'
-                  }, 300)
-                }}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#3b82f6] to-[#22c55e] text-black text-sm font-medium tracking-wide rounded-lg hover:opacity-90 transition-all group"
-              >
-                Take the Survey
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-
-              <button
-                onClick={handleDismiss}
-                className="px-6 py-3.5 text-sm text-gray-500 hover:text-gray-300 transition-colors"
-              >
-                Maybe later
-              </button>
-            </div>
+            ) : (
+                <div className="mt-6">
+                    {sessionId && (
+                        <FormEngine 
+                            schema={pmfSurveySchema}
+                            sessionId={sessionId}
+                            onSubmit={handleFormSubmit}
+                        />
+                    )}
+                </div>
+            )}
           </div>
         </div>
       </div>
     </div>
   )
 }
+
