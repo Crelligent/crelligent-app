@@ -3,9 +3,10 @@ import Image from 'next/image'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { HeroSlider } from '@/components/landing/HeroSlider'
-import { EsreTimeline } from '@/components/landing/EsreTimeline'
+import { ESRESection } from '@/components/landing/ESRESection'
 import { ClientPortalShowcase } from '@/components/landing/ClientPortalShowcase'
 import { EsreIntelligenceShowcase } from '@/components/landing/EsreIntelligenceShowcase'
+import { AEHISection } from '@/components/AEHISection'
 import { LatestInsights } from '@/components/landing/LatestInsights'
 import { RecentClientStories } from '@/components/landing/RecentClientStories'
 import { InsideStories } from '@/components/landing/InsideStories'
@@ -27,66 +28,79 @@ import {
   Globe2
 } from 'lucide-react'
 
-// The 9 Capabilities - Grouped by Phase
-const defineCapabilities = [
+// ESRE OS Core — The five capability layers (L1–L5)
+const osCoreCapabilities = [
   {
     icon: Layers,
+    layer: 'L1',
     title: 'Business Design',
-    description: 'Define system intent, boundaries, and structural logic before execution begins.',
+    subtitle: 'The Kernel',
+    description: 'Defines system purpose, structural logic, and operational boundaries. The contract every other layer must conform to. Installed first.',
     href: '/capabilities/business-design',
   },
   {
-    icon: Compass,
-    title: 'Product Strategy',
-    description: 'Engineer deliberate, phased capability growth aligned to business goals.',
-    href: '/capabilities/product-strategy',
-  },
-]
-
-const buildCapabilities = [
-  {
-    icon: Users,
-    title: 'CX / Service Design',
-    description: 'Translate system intent into usable, intuitive human experiences.',
-    href: '/capabilities/cx-design',
-  },
-  {
-    icon: Brain,
-    title: 'Data & Intelligence',
-    description: 'Enable system sensing, learning, and insight generation for decision-making.',
-    href: '/capabilities/data-intelligence',
-  },
-  {
     icon: Workflow,
+    layer: 'L2',
     title: 'Operating Model & Process',
-    description: 'Design how work flows end-to-end with reliability and scalability.',
+    subtitle: 'The Scheduler',
+    description: 'Determines how work flows, who does what, in what sequence, with what resources. When this layer is absent, the founder becomes the scheduler — and the enterprise cannot operate without them.',
     href: '/capabilities/operating-model',
+    critical: true,
   },
   {
     icon: Server,
+    layer: 'L3',
     title: 'Technology & Platform',
-    description: 'Architect technical foundations that support scalability and evolution.',
+    subtitle: 'Infrastructure Layer',
+    description: 'Makes the underlying systems (ERP, CRM, APIs, IoT) invisible to the business processes above them. Operations should not manage infrastructure directly.',
     href: '/capabilities/technology-platform',
+  },
+  {
+    icon: Brain,
+    layer: 'L4',
+    title: 'Data & Intelligence',
+    subtitle: 'Sensing Layer',
+    description: 'Instruments the OS. Generates real-time feedback loops so the enterprise can see itself, detect drift, and adapt. Feeds the ESRE AI Engine.',
+    href: '/capabilities/data-intelligence',
+  },
+  {
+    icon: Shield,
+    layer: 'L5',
+    title: 'Governance, Risk & Control',
+    subtitle: 'Security Layer',
+    description: 'Controls who can authorise what, how processes are isolated from each other, and what maintains system stability when the enterprise is under pressure.',
+    href: '/capabilities/governance',
   },
 ]
 
-const sustainCapabilities = [
+// Application Runtime — Capabilities that run ON TOP of the OS
+const appRuntimeCapabilities = [
   {
-    icon: Shield,
-    title: 'Governance, Risk & Control',
-    description: 'Maintain system stability while preserving adaptability.',
-    href: '/capabilities/governance',
+    icon: Compass,
+    title: 'Product Strategy',
+    subtitle: 'Growth Application',
+    description: 'Expands what the enterprise offers and to whom. Runs on the L1 kernel and L2 scheduler.',
+    href: '/capabilities/product-strategy',
   },
   {
     icon: TrendingUp,
     title: 'Economics & Value Engineering',
-    description: 'Connect system design to measurable value creation.',
+    subtitle: 'Performance Application',
+    description: 'Connects OS activity to measurable value creation. Runs on L4 data signals.',
     href: '/capabilities/economics',
+  },
+  {
+    icon: Users,
+    title: 'CX / Service Design',
+    subtitle: 'Interface Application',
+    description: 'Translates OS performance into customer experience. Poor CX is almost always an L2 or L3 failure at the customer touchpoint.',
+    href: '/capabilities/cx-design',
   },
   {
     icon: Repeat,
     title: 'Change, Adoption & Behavior',
-    description: 'Activate the system and embed it into daily behavior.',
+    subtitle: 'Activation Application',
+    description: "Ensures the installed OS is actually used. Change management activates the applications — you don't adopt an OS, you adopt what runs on it.",
     href: '/capabilities/change-adoption',
   },
 ]
@@ -97,14 +111,14 @@ const platforms = [
     role: 'Early-Stage System Sensing',
     description: 'Product validation and PMF scoring for founders ready to prove traction.',
     stage: 'Startups & Founders',
-    href: 'https://velodesk.crelligent.com',
+    href: '/platforms/velodesk',
     color: '#22c55e',
     logo: '/velodesk (2).png',
   },
   {
     name: 'PRISM',
-    role: 'Operational Intelligence Platform',
-    description: 'Real-time telemetry ingestion, AI-driven anomaly detection, and systems monitoring.',
+    role: 'ESRE OS Network Layer — Operational Intelligence Platform',
+    description: 'Real-time telemetry ingestion, AI-driven anomaly detection, and systems monitoring. PRISM is the L4 sensing layer of the ESRE OS for operational assets — connecting CEM hardware telemetry to the Data & Intelligence layer and feeding the ESRE AI Engine in real time.',
     stage: 'Enterprise Operations',
     href: 'https://prism.crelligent.com',
     color: '#3b82f6',
@@ -113,11 +127,11 @@ const platforms = [
   {
     name: 'Crelligent Edge Module (CEM)',
     role: 'Industrial IoT Hardware for Africa',
-    description: 'Purpose-built IoT hardware designed for African operating conditions. Connects vehicles, generators, tanks, and industrial assets to the PRISM intelligence platform via 4G/LTE and LoRa.',
+    description: 'Purpose-built IoT hardware designed for African operating conditions. Connects vehicles, generators, tanks, and industrial assets to the PRISM intelligence platform via 4G/LTE and LoRa. CEM is the physical infrastructure layer of the ESRE OS — the hardware that the operational sensing layer (L4) and PRISM network depend on.',
     stage: 'Industry Operations',
     href: '/intelligent-systems/hardware',
     color: '#f59e0b',
-  },
+  }
 ]
 
 export default function LandingPage() {
@@ -352,103 +366,105 @@ export default function LandingPage() {
         </div>
       </section >
 
-      {/* Capabilities: The Nine Disciplines */}
-      < section className="py-24 px-6" >
-        <div className="max-w-6xl mx-auto">
+      {/* Capabilities: ESRE OS Architecture */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Nine Integrated Capabilities - Our Framework</div>
+            <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>The ESRE OS Architecture</div>
             <h2 className="heading-lg mb-4">
-              We design the system as a whole
+              Five capability layers form the OS. Four run on top of it.
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              Every capability works together. Strategy informs technology. Data informs decisions. People adopt what's designed for them.
+              The OS Core handles the foundation. The Application Runtime executes strategy on top of it. When the OS is strong, the applications perform at full capacity.
             </p>
           </div>
 
-          {/* Define Phase */}
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 flex items-center justify-center text-xs font-bold text-[#3b82f6]">1</div>
-              <h3 className="text-sm uppercase tracking-widest text-[#3b82f6] font-semibold">Define</h3>
-              <div className="flex-1 h-px bg-white/5" />
+          {/* Group 1 — ESRE OS Core */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 flex items-center justify-center text-sm font-bold text-[#3b82f6]">OS</div>
+              <div>
+                <h3 className="text-sm uppercase tracking-widest text-[#3b82f6] font-semibold">ESRE OS Core — L1 to L5</h3>
+                <p className="text-xs text-gray-500 mt-1">The five capability layers that form the enterprise operating system</p>
+              </div>
+              <div className="flex-1 h-px bg-white/5 ml-4" />
             </div>
-            <div className="grid md:grid-cols-2 gap-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
-              {defineCapabilities.map((cap) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+              {osCoreCapabilities.map((cap) => (
                 <Link
                   key={cap.href}
                   href={cap.href}
                   className="relative rounded-xl overflow-hidden p-[1px] group h-full block"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#3b82f6] to-[#ec4899] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-[#050505] rounded-xl p-8 h-full z-10 w-full overflow-hidden text-left flex flex-col items-start justify-start">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                    <div className="w-10 h-10 rounded bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center mb-6 group-hover:bg-[#3b82f6]/20 transition relative z-10">
-                      <cap.icon className="w-5 h-5 text-[#3b82f6]" />
-                    </div>
-                    <h3 className="text-2xl font-[300] tracking-wide text-white mb-3 relative z-10">{cap.title}</h3>
-                    <p className="text-sm text-white font-[200] leading-loose opacity-80 relative z-10 flex-1">{cap.description}</p>
-                    <div className="mt-6 text-sm text-[#3b82f6] font-[300] tracking-widest uppercase opacity-0 group-hover:opacity-100 transition flex items-center gap-2 relative z-10">
-                      Learn more <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Build Phase */}
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 flex items-center justify-center text-xs font-bold text-[#8b5cf6]">2</div>
-              <h3 className="text-sm uppercase tracking-widest text-[#8b5cf6] font-semibold">Build</h3>
-              <div className="flex-1 h-px bg-white/5" />
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
-              {buildCapabilities.map((cap) => (
-                <Link
-                  key={cap.href}
-                  href={cap.href}
-                  className="relative rounded-xl overflow-hidden p-[1px] group h-full block"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6] to-[#ec4899] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative bg-[#050505] rounded-xl p-6 h-full z-10 w-full overflow-hidden text-left flex flex-col items-start justify-start">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#8b5cf6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                    <cap.icon className="w-6 h-6 text-[#8b5cf6] mb-4 relative z-10" />
-                    <h3 className="text-xl font-[300] tracking-wide text-white mb-2 relative z-10">{cap.title}</h3>
-                    <p className="text-sm text-white font-[200] leading-loose opacity-80 relative z-10">{cap.description}</p>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                    
+                    <div className="flex items-center justify-between w-full mb-6 relative z-10">
+                      <div className="w-10 h-10 rounded bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center group-hover:bg-[#3b82f6]/20 transition">
+                        <cap.icon className="w-5 h-5 text-[#3b82f6]" />
+                      </div>
+                      <div className="px-2 py-1 rounded bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[10px] font-bold text-[#3b82f6] tracking-wider">
+                        {cap.layer}
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-lg font-[300] tracking-wide text-white mb-1 relative z-10">{cap.title}</h3>
+                    
+                    <div className="flex items-center gap-2 mb-3 relative z-10">
+                      <div className="text-xs text-[#3b82f6] font-medium tracking-wide uppercase">{cap.subtitle}</div>
+                      {cap.critical && (
+                        <div className="px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 text-[9px] font-bold text-amber-500 uppercase tracking-widest">
+                          Critical
+                        </div>
+                      )}
+                    </div>
+                    
+                    <p className="text-[13px] text-white font-[200] leading-relaxed opacity-70 relative z-10 flex-1">{cap.description}</p>
                   </div>
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Sustain Phase */}
+          {/* Group 2 — Application Runtime */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 flex items-center justify-center text-xs font-bold text-[#22c55e]">3</div>
-              <h3 className="text-sm uppercase tracking-widest text-[#22c55e] font-semibold">Sustain</h3>
-              <div className="flex-1 h-px bg-white/5" />
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 flex items-center justify-center">
+                <Workflow className="w-4 h-4 text-[#22c55e]" />
+              </div>
+              <div>
+                <h3 className="text-sm uppercase tracking-widest text-[#22c55e] font-semibold">Application Runtime</h3>
+                <p className="text-xs text-gray-500 mt-1">Four capabilities that execute on top of the installed OS</p>
+              </div>
+              <div className="flex-1 h-px bg-white/5 ml-4" />
             </div>
-            <div className="grid md:grid-cols-3 gap-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
-              {sustainCapabilities.map((cap) => (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4" style={{ fontFamily: "'Outfit', sans-serif" }}>
+              {appRuntimeCapabilities.map((cap) => (
                 <Link
                   key={cap.href}
                   href={cap.href}
                   className="relative rounded-xl overflow-hidden p-[1px] group h-full block"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e] to-[#ec4899] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e] to-[#3b82f6] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative bg-[#050505] rounded-xl p-6 h-full z-10 w-full overflow-hidden text-left flex flex-col items-start justify-start">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                    <cap.icon className="w-6 h-6 text-[#22c55e] mb-4 relative z-10" />
-                    <h3 className="text-xl font-[300] tracking-wide text-white mb-2 relative z-10">{cap.title}</h3>
-                    <p className="text-sm text-white font-[200] leading-loose opacity-80 relative z-10">{cap.description}</p>
+                    
+                    <div className="w-10 h-10 rounded bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mb-6 group-hover:bg-[#22c55e]/20 transition relative z-10">
+                      <cap.icon className="w-5 h-5 text-[#22c55e]" />
+                    </div>
+                    
+                    <h3 className="text-lg font-[300] tracking-wide text-white mb-1 relative z-10">{cap.title}</h3>
+                    <div className="text-xs text-[#22c55e] font-medium tracking-wide uppercase mb-3 relative z-10">{cap.subtitle}</div>
+                    
+                    <p className="text-[13px] text-white font-[200] leading-relaxed opacity-70 relative z-10 flex-1">{cap.description}</p>
                   </div>
                 </Link>
               ))}
             </div>
           </div>
         </div>
-      </section >
+      </section>
 
       {/* Systems Intelligence Stack */}
       < section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5" >
@@ -496,15 +512,17 @@ export default function LandingPage() {
         </div>
       </section >
 
-      {/* Flagship Engagement: ESRE */}
-      {/* Flagship Engagement: ESRE (Interactive Timeline) */}
-      <EsreTimeline />
+      {/* Flagship Engagement: ESRE (Platform) */}
+      <ESRESection />
 
       {/* Client Portal Showcase */}
       <ClientPortalShowcase />
 
       {/* ESRE AI Intelligence Engine Showcase */}
       <EsreIntelligenceShowcase />
+
+      {/* AEHI Section */}
+      <AEHISection />
 
       {/* New Capgemini-Style Sections */}
       <LatestInsights />

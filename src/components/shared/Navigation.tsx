@@ -57,23 +57,27 @@ const navData: NavMenuData[] = [
         },
         sections: [
             {
-                title: 'Capabilities',
+                title: 'OS Core (L1–L5)',
                 items: [
-                    { name: 'Business Design', href: '/capabilities/business-design' },
+                    { name: 'Business Design — L1 · The Kernel', href: '/capabilities/business-design' },
+                    { name: 'Operating Model & Process — L2 · The Scheduler', href: '/capabilities/operating-model' },
+                    { name: 'Technology & Platform — L3 · Infrastructure Layer', href: '/capabilities/technology-platforms' },
+                    { name: 'Data & Intelligence — L4 · Sensing Layer', href: '/capabilities/data-intelligence' },
+                    { name: 'Governance, Risk & Control — L5 · Security Layer', href: '/capabilities/governance-risk' },
+                ]
+            },
+            {
+                title: 'Application Runtime',
+                items: [
                     { name: 'Product Strategy', href: '/capabilities/product-strategy' },
-                    { name: 'Economics & Value', href: '/capabilities/economics-value' },
-                    { name: 'CX/Service Design', href: '/capabilities/cx-design' },
-                    { name: 'Operating Model', href: '/capabilities/operating-model' },
-                    { name: 'Technology & Platforms', href: '/capabilities/technology-platforms' },
-                    { name: 'Data & Intelligence', href: '/capabilities/data-intelligence' },
-                    { name: 'Governance & Risk', href: '/capabilities/governance-risk' },
-                    { name: 'Change & Behavior', href: '/capabilities/change-behavior' },
+                    { name: 'Economics & Value Engineering', href: '/capabilities/economics-value' },
+                    { name: 'CX / Service Design', href: '/capabilities/cx-design' },
+                    { name: 'Change, Adoption & Behavior', href: '/capabilities/change-behavior' },
                 ]
             },
             {
                 title: 'Platforms',
                 items: [
-                    { name: 'VeloDesk', desc: 'Early-stage system sensing', href: 'https://velodesk.crelligent.com', logo: '/velodesk (2).png' },
                     { name: 'PRISM', desc: 'Operational intelligence', href: 'https://prism.crelligent.com', logo: '/PRISM-logo.png' },
                 ]
             },
@@ -130,9 +134,9 @@ const navData: NavMenuData[] = [
                         ctaHref: '/about/partners',
                         content: (
                             <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-500">
-                                <h4 className="text-xl font-light text-white font-outfit">VeloDesk API Integrations</h4>
+                                <h4 className="text-xl font-light text-white font-outfit">Strategic API Integrations</h4>
                                 <p className="text-sm text-gray-400 leading-relaxed">
-                                    Our platforms like VeloDesk are tightly integrated with best-in-class strategic partners to deliver robust, intelligent sensing at scale.
+                                    Our platforms are tightly integrated with best-in-class strategic partners to deliver robust, intelligent sensing at scale.
                                 </p>
                                 <div className="grid grid-cols-2 gap-4 mt-6">
                                     <div className="p-4 rounded-lg bg-white/5 border border-white/5">
@@ -468,6 +472,9 @@ export function Navigation() {
 
                 {/* Desktop Navigation (Center Aligned) */}
                 <div className="hidden xl:flex items-center justify-center gap-6 z-50 relative h-full py-2 flex-grow">
+                    <Link href="/esre-os" className="flex items-center gap-1 text-[13px] font-medium text-gray-300 hover:text-white transition py-2 whitespace-nowrap">
+                        ESRE OS
+                    </Link>
                     {navData.map((menu) => (
                         <div
                             key={menu.id}
@@ -625,7 +632,7 @@ export function Navigation() {
                             </div>
                         ) : (
                             /* Standard Multi-Column Grid Pane */
-                            <div className={`flex-1 pl-10 grid gap-8 py-10 ${activeMenuData.featured ? 'grid-cols-3' : 'grid-cols-4'}`}>
+                            <div className={`flex-1 pl-10 grid gap-8 py-10 ${activeMenuData.featured ? (activeMenuData.sections.length > 3 ? 'grid-cols-4' : 'grid-cols-3') : 'grid-cols-4'}`}>
                                 {activeMenuData.sections.map((section, idx) => (
                                     <div key={idx}>
                                         <h3 className="text-xs font-semibold uppercase tracking-widest text-[#22c55e] mb-6 border-b border-white/10 pb-3">
@@ -666,6 +673,11 @@ export function Navigation() {
             {mobileOpen && (
                 <div className="xl:hidden absolute top-full left-0 right-0 bg-[#0a0a0a] border-b border-x border-white/10 m-4 rounded-xl p-6 shadow-2xl h-[calc(100vh-6rem)] overflow-y-auto">
                     <div className="space-y-8">
+                        <div>
+                            <Link href="/esre-os" className="text-sm font-semibold uppercase tracking-widest text-white hover:text-[#22c55e] mb-4 block" onClick={() => setMobileOpen(false)}>
+                                ESRE OS
+                            </Link>
+                        </div>
                         {navData.map(menu => (
                             <div key={menu.id}>
                                 <div className="text-sm font-semibold uppercase tracking-widest text-[#22c55e] mb-4">{menu.label}</div>

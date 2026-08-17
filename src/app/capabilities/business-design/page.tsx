@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import EsreOsBadge from '@/components/shared/EsreOsBadge'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Layers, Target, GitBranch, AlertTriangle } from 'lucide-react'
@@ -55,6 +56,10 @@ export default function BusinessDesignPage() {
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-8 h-8 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 flex items-center justify-center text-xs font-bold text-[#3b82f6]">1</div>
                         <span className="text-xs uppercase tracking-widest text-[#3b82f6]">Define Phase</span>
+                    </div>
+
+                    <div className="mb-8">
+                        <EsreOsBadge type='os-core' layer='L1' name='The Kernel' intro='Business Design is Layer 1 of the ESRE OS — the kernel that defines what the enterprise fundamentally is, what it can do, and what boundaries govern every other layer. Nothing else in the OS can be designed until the kernel is defined.' />
                     </div>
 
                     <h1 className="heading-xl mb-6">

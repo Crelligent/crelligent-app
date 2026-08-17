@@ -14,7 +14,6 @@ const footerLinks = {
         { name: 'Change & Behavior', href: '/capabilities/change-behavior' },
     ],
     platforms: [
-        { name: 'VeloDesk', href: 'https://velodesk.crelligent.com' },
         { name: 'PRISM', href: 'https://prism.crelligent.com' },
     ],
     company: [

@@ -1,19 +1,111 @@
+'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
+import { motion } from 'framer-motion'
 import {
   ArrowRight, Cpu, Radio, Zap, Shield, Cloud, CheckCircle,
   Brain, Battery, Lock, Truck, Factory, Building2, Heart,
   Leaf, Eye, ShoppingBag, CreditCard, Warehouse
 } from 'lucide-react'
 
-export const metadata = {
-  title: 'Crelligent Intelligent Systems | Operational Intelligence for African Industry',
-  description:
-    'One reusable operational intelligence architecture deployed across ten African industry verticals. IoT hardware, PRISM platform, and real-time command intelligence — built for African operating conditions.',
-  keywords:
-    'intelligent systems Nigeria, IoT Africa, fleet intelligence Nigeria, operational intelligence platform, PRISM enterprise, industrial IoT West Africa, fuel monitoring Nigeria, generator monitoring Africa',
+/* ─────────────── animation variants ─────────────── */
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+  },
 }
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+}
+
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+  },
+}
+
+/* ─────────────── hardware products ─────────────── */
+
+const hardwareProducts = [
+  {
+    id: 'cen',
+    name: 'Crelligent Edge Node',
+    abbr: 'CEN',
+    tagline: 'Industrial Edge Intelligence Hub',
+    description:
+      'Connects legacy industrial machines and modern sensors into a unified data system. Aggregates, processes, stores, and transmits data from multiple sources.',
+    image: '/images/Crelligent Edge Node (CEN).png',
+    specs: ['ESP32-S3 + nRF9160', 'RS-485 · Modbus · 4–20mA · Ethernet', '12–24V DC + Battery Backup', 'LoRa SX1262'],
+    color: '#f59e0b',
+  },
+  {
+    id: 'esa',
+    name: 'Environmental Sensor Array',
+    abbr: 'ESA',
+    tagline: 'Multi-Parameter Environmental Intelligence',
+    description:
+      'Real-time environmental monitoring — air quality, climate, and compliance. Pharmaceutical cold chains, cleanrooms, and food storage.',
+    image: '/images/Environmental Sensor Array.png',
+    specs: ['STM32 + LoRa SX1262', '7 Environmental Sensors', '1–3 Year Battery Life', 'NAFDAC / HACCP Ready'],
+    color: '#22c55e',
+  },
+  {
+    id: 'sem',
+    name: 'Smart Energy Monitor',
+    abbr: 'SEM',
+    tagline: 'Circuit-Level Energy Intelligence',
+    description:
+      'Non-invasive energy monitoring via CT clamps. Per-tenant billing, generator optimization, and ESG carbon tracking without rewiring.',
+    image: '/images/Smart Energy Monitor.png',
+    specs: ['STM32 + Precision AFE', 'Multi-Channel CT Clamps', 'WiFi / Cellular', 'Spike & Anomaly Detection'],
+    color: '#3b82f6',
+  },
+  {
+    id: 'tlm',
+    name: 'Tank Level Monitor',
+    abbr: 'TLM',
+    tagline: 'Non-Contact Liquid Intelligence',
+    description:
+      'Ultrasonic or pressure-based tank monitoring with real-time fuel theft detection and automated replenishment triggers.',
+    image: '/images/Tank Level Monitor.png',
+    specs: ['STM32 + nRF9160', 'Ultrasonic / Pressure Sensor', 'Cellular Connectivity', 'Anomaly Detection'],
+    color: '#8b5cf6',
+  },
+  {
+    id: 'cep',
+    name: 'Crelligent Edge Panel',
+    abbr: 'CEP',
+    tagline: 'Industrial Touch Interface',
+    description:
+      'Rugged touchscreen for on-site monitoring and operator control. Factory floors, warehouses, and depot stations.',
+    image: '/images/Crelligent Edge Panel (CEP).png',
+    specs: ['7″ / 10″ Touchscreen', 'Qualcomm Snapdragon', 'Android Edge UI', '12V DC / Mains Powered'],
+    color: '#ec4899',
+  },
+  {
+    id: 'ocd',
+    name: 'Operations Command Display',
+    abbr: 'OCD',
+    tagline: 'Enterprise Operations Intelligence',
+    description:
+      'Large-format display for centralized command visibility — fleet operations, manufacturing control rooms, and executive dashboards.',
+    image: '/images/operations command display.png',
+    specs: ['43″–65″ Display', 'Snapdragon Compute Module', 'Multi-Feed Visualization', 'Real-time Data Sync'],
+    color: '#f59e0b',
+  },
+]
 
 /* ─────────────── helpers ─────────────── */
 
@@ -212,21 +304,45 @@ const deploymentSteps = [
     week: 'Week 1–2',
     title: 'OPERATIONAL ASSESSMENT',
     desc: 'We map your existing operations, asset inventory, connectivity landscape, and data gaps. No assumptions — we understand your business first.',
+    activities: [
+      'Site surveys and physical infrastructure mapping',
+      'Integration requirements for legacy systems',
+      'Definition of operational KPIs and alert thresholds',
+      'Connectivity strength testing (GSM/LoRa)'
+    ]
   },
   {
     week: 'Week 3–6',
     title: 'HARDWARE DEPLOYMENT',
     desc: 'CEM devices are installed, commissioned, and verified. Field engineers validate signal quality, sensor calibration, and data flow from every connected point.',
+    activities: [
+      'Physical installation of edge nodes and sensors',
+      'Power integration (Mains/Generator/Solar/Battery)',
+      'Signal calibration and baseline data testing',
+      'Security encryption keys provisioning'
+    ]
   },
   {
     week: 'Week 7–10',
     title: 'PLATFORM CONFIGURATION',
     desc: 'PRISM is configured to your industry vertical, organizational structure, and KPI framework. Dashboards, alerts, and workflows are built for your team.',
+    activities: [
+      'Custom dashboard creation per user role',
+      'Alerting thresholds and escalation workflows',
+      'Historical data migration (if applicable)',
+      'AI conversational model fine-tuning'
+    ]
   },
   {
     week: 'Week 11–12',
     title: 'COMMAND HANDOVER',
     desc: 'Your operations team is trained, the command centre goes live, and Crelligent remains on-hand for the first 30 days of full operation.',
+    activities: [
+      'Executive and operator platform training sessions',
+      'Command centre physical display setup',
+      'User acceptance testing (UAT)',
+      'Transition to 24/7 SLA support phase'
+    ]
   },
 ]
 
@@ -238,83 +354,189 @@ export default function IntelligentSystemsPage() {
       <Navigation />
 
       {/* ── SECTION 1 — HERO ── */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/20 mb-8">
-            <span className="text-xs uppercase tracking-widest text-[#f59e0b] font-medium">
-              Operational Intelligence Infrastructure
-            </span>
-          </div>
+      <section className="pt-32 pb-16 px-6 relative overflow-hidden">
+        {/* Ambient background glow */}
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#f59e0b]/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
-          {/* Headline */}
-          <h1 className="heading-xl font-outfit mb-6">
-            One Architecture.{' '}
-            <span className="text-[#f59e0b]">Ten Industries.</span>{' '}
-            The Intelligence Layer African Operations Have Never Had.
-          </h1>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            {/* LEFT — Text content */}
+            <div>
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="mb-6"
+              >
+                <span className="text-xs uppercase tracking-widest text-[#f59e0b] font-medium">
+                  Operational Intelligence Infrastructure
+                </span>
+              </motion.div>
 
-          {/* Subheading */}
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-10">
-            Crelligent Intelligent Systems deploys operational intelligence infrastructure across
-            African industry — connecting the physical world of assets, vehicles, energy, and
-            transactions to a unified command intelligence layer powered by PRISM.
-          </p>
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="heading-xl font-outfit mb-6"
+              >
+                One Architecture.{' '}
+                <span className="text-[#f59e0b]">Ten Industries.</span>{' '}
+                The Intelligence Layer African Operations Have Never Had.
+              </motion.h1>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link href="/contact" className="btn-primary">
-              Request a Deployment Assessment
-              <ArrowRight className="w-4 h-4 ml-2 inline" />
-            </Link>
-            <Link href="https://prism.crelligent.com" className="btn-ghost">
-              Explore PRISM
-            </Link>
-          </div>
+              {/* Subheading */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-xl text-gray-400 max-w-xl leading-relaxed mb-10"
+              >
+                Crelligent Intelligent Systems deploys operational intelligence infrastructure across
+                African industry — connecting the physical world of assets, vehicles, energy, and
+                transactions to a unified command intelligence layer powered by PRISM.
+              </motion.p>
 
-          {/* Stats row */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-            {['10 Industry Verticals', '5-Layer Architecture', '12-Week Deployment'].map((stat) => (
-              <div key={stat} className="px-10 py-3 text-sm text-gray-400 tracking-wide">
-                {stat}
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.45 }}
+                className="flex flex-col sm:flex-row gap-4 mb-12"
+              >
+                <Link href="/contact" className="btn-primary">
+                  Request a Deployment Assessment
+                  <ArrowRight className="w-4 h-4 ml-2 inline" />
+                </Link>
+                <Link href="https://prism.crelligent.com" className="btn-ghost">
+                  Explore PRISM
+                </Link>
+              </motion.div>
+
+              {/* Stats row */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="flex flex-col sm:flex-row items-start gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10"
+              >
+                {['10 Industry Verticals', '5-Layer Architecture', '12-Week Deployment'].map((stat) => (
+                  <div key={stat} className="px-6 first:pl-0 py-3 text-sm text-gray-400 tracking-wide">
+                    {stat}
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* RIGHT — CEP Product Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 80, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1.2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative flex items-center justify-center lg:justify-end lg:-mt-12"
+            >
+              <div className="relative w-full">
+                <div className="hero-product-glow animate-pulse-glow" />
+                <div className="animate-float">
+                  <Image
+                    src="/images/Crelligent Edge Panel (CEP).png"
+                    alt="Crelligent Edge Panel — Industrial Touch Interface"
+                    width={850}
+                    height={700}
+                    className="w-full max-w-[700px] xl:max-w-[850px] h-auto drop-shadow-[0_20px_60px_rgba(245,158,11,0.15)]"
+                    priority
+                  />
+                </div>
               </div>
-            ))}
+            </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* ── PRODUCT STRIP ── */}
+      <section className="bg-[#080808] border-y border-white/[0.06] py-10 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1.0 }}
+          >
+            <h2 className="text-[15px] font-medium text-white mb-8 tracking-wide">
+              Our <span className="font-semibold">Products</span>
+            </h2>
+
+            <div className="grid grid-cols-3 md:grid-cols-6">
+              {hardwareProducts.map((product, i) => (
+                <div
+                  key={product.id}
+                  className={`group flex flex-col items-center px-3 py-4 cursor-default transition-all duration-300 hover:bg-white/[0.03] rounded-lg ${
+                    i < hardwareProducts.length - 1 ? 'md:border-r md:border-white/[0.06] md:rounded-none' : ''
+                  }`}
+                >
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-3">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <span className="text-[11px] sm:text-xs text-gray-500 text-center leading-tight group-hover:text-white transition-colors duration-300">
+                    {product.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ── SECTION 2 — THE ARCHITECTURE ── */}
       <section className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="section-label mb-4">The Architecture</div>
-          <h2 className="heading-lg font-outfit mb-6">
-            Not Ten Products. One Platform Applied Across Ten Verticals.
-          </h2>
-          <div className="max-w-3xl space-y-4 text-gray-400 leading-relaxed mb-14">
-            <p>
-              Most technology companies build a separate product for each industry — a fleet
-              solution here, an energy monitoring tool there. The result is fragmented data,
-              duplicated costs, and no single view of the business.
-            </p>
-            <p>
-              Crelligent Intelligent Systems is built differently. We designed one architecture —
-              five layers from hardware to executive command — and we apply that same architecture
-              across every industry we enter. The hardware changes. The platform stays the same.
-            </p>
-            <p>
-              This means an organisation operating across logistics, energy, and retail gets one
-              command centre, one intelligence layer, and one team. Not three vendors, three
-              dashboards, and three contracts.
-            </p>
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="section-label mb-4">The Architecture</motion.div>
+            <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-6">
+              Not Ten Products. One Platform Applied Across Ten Verticals.
+            </motion.h2>
+            <motion.div variants={fadeUp} className="max-w-3xl space-y-4 text-gray-400 leading-relaxed mb-14">
+              <p>
+                Most technology companies build a separate product for each industry — a fleet
+                solution here, an energy monitoring tool there. The result is fragmented data,
+                duplicated costs, and no single view of the business.
+              </p>
+              <p>
+                Crelligent Intelligent Systems is built differently. We designed one architecture —
+                five layers from hardware to executive command — and we apply that same architecture
+                across every industry we enter. The hardware changes. The platform stays the same.
+              </p>
+              <p>
+                This means an organisation operating across logistics, energy, and retail gets one
+                command centre, one intelligence layer, and one team. Not three vendors, three
+                dashboards, and three contracts.
+              </p>
+            </motion.div>
+          </motion.div>
 
           {/* 5-layer stack */}
-          <div className="max-w-2xl space-y-0">
+          <motion.div
+            className="max-w-2xl space-y-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={stagger}
+          >
             {layers.map((layer, i) => {
               const color = layerColors[layer.id]
               const isLast = i === layers.length - 1
               return (
-                <div key={layer.id} className="relative">
+                <motion.div key={layer.id} className="relative" variants={fadeUp}>
                   {/* connector line */}
                   {!isLast && (
                     <div
@@ -324,7 +546,7 @@ export default function IntelligentSystemsPage() {
                       }}
                     />
                   )}
-                  <div className="flex gap-4 p-6 bg-[#111] border border-white/5 rounded-xl mb-6">
+                  <div className="flex gap-4 p-6 bg-[#111] border border-white/5 rounded-xl mb-6 hover:border-white/10 transition-colors duration-300">
                     <div
                       className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0 font-mono text-xs font-semibold"
                       style={{
@@ -346,391 +568,369 @@ export default function IntelligentSystemsPage() {
                       <p className="text-sm text-gray-500">{layer.desc}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* ── SECTION 3 — THE TEN VERTICALS ── */}
       <section className="bg-[#050505] py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="section-label mb-4">Industry Verticals</div>
-          <h2 className="heading-lg font-outfit mb-4">
-            Ten Industries. One Shared Intelligence Architecture.
-          </h2>
-          <p className="text-gray-400 max-w-2xl mb-12 leading-relaxed">
-            We enter each vertical with the same methodology: design the operating model first,
-            then deploy the intelligence infrastructure that serves it.
-          </p>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="section-label mb-4">Industry Verticals</motion.div>
+            <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-4">
+              Ten Industries. One Shared Intelligence Architecture.
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-gray-400 max-w-2xl mb-12 leading-relaxed">
+              We enter each vertical with the same methodology: design the operating model first,
+              then deploy the intelligence infrastructure that serves it.
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={stagger}
+          >
             {verticals.map((v) => (
-              <Link
-                key={v.slug}
-                href={`/intelligent-systems/${v.slug}`}
-                className="group relative rounded-xl border border-white/5 bg-[#0a0a0a] p-8 hover:border-white/10 hover:bg-[#0f0f0f] transition-all block"
-              >
-                {/* top row */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl font-mono font-light text-white/20">{v.num}</span>
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center"
-                      style={{
-                        background: `${v.iconColor}1a`,
-                        border: `1px solid ${v.iconColor}33`,
-                        color: v.iconColor,
-                      }}
+              <motion.div key={v.slug} variants={fadeUp}>
+                <Link
+                  href={`/intelligent-systems/${v.slug}`}
+                  className="group relative rounded-xl border border-white/5 bg-[#0a0a0a] p-8 hover:border-white/10 hover:bg-[#0f0f0f] transition-all block"
+                >
+                  {/* top row */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-3xl font-mono font-light text-white/20">{v.num}</span>
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center"
+                        style={{
+                          background: `${v.iconColor}1a`,
+                          border: `1px solid ${v.iconColor}33`,
+                          color: v.iconColor,
+                        }}
+                      >
+                        {v.icon}
+                      </div>
+                    </div>
+                    <span
+                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs border ${statusStyles[v.status]}`}
                     >
-                      {v.icon}
+                      {v.status}
+                    </span>
+                  </div>
+
+                  {/* name + desc */}
+                  <h3 className="text-lg font-light text-white mb-1">{v.name}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{v.desc}</p>
+
+                  {/* connect / deliver */}
+                  <div className="grid grid-cols-2 gap-4 text-xs">
+                    <div>
+                      <div
+                        className="uppercase tracking-widest mb-2 text-[10px]"
+                        style={{ color: v.iconColor }}
+                      >
+                        What we connect
+                      </div>
+                      <ul className="space-y-1 text-gray-400">
+                        {v.connect.map((c) => (
+                          <li key={c}>{c}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="text-[#22c55e] uppercase tracking-widest mb-2 text-[10px]">
+                        What we deliver
+                      </div>
+                      <ul className="space-y-1 text-gray-400">
+                        {v.deliver.map((d) => (
+                          <li key={d}>{d}</li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                  <span
-                    className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs border ${statusStyles[v.status]}`}
-                  >
-                    {v.status}
-                  </span>
-                </div>
 
-                {/* name + desc */}
-                <h3 className="text-lg font-light text-white mb-1">{v.name}</h3>
-                <p className="text-sm text-gray-500 mb-4">{v.desc}</p>
-
-                {/* connect / deliver */}
-                <div className="grid grid-cols-2 gap-4 text-xs">
-                  <div>
-                    <div
-                      className="uppercase tracking-widest mb-2 text-[10px]"
-                      style={{ color: v.iconColor }}
-                    >
-                      What we connect
-                    </div>
-                    <ul className="space-y-1 text-gray-400">
-                      {v.connect.map((c) => (
-                        <li key={c}>{c}</li>
-                      ))}
-                    </ul>
+                  {/* footer row */}
+                  <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+                    <span className="text-xs text-gray-600">{v.sectors}</span>
+                    <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all" />
                   </div>
-                  <div>
-                    <div className="text-[#22c55e] uppercase tracking-widest mb-2 text-[10px]">
-                      What we deliver
-                    </div>
-                    <ul className="space-y-1 text-gray-400">
-                      {v.deliver.map((d) => (
-                        <li key={d}>{d}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* footer row */}
-                <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-xs text-gray-600">{v.sectors}</span>
-                  <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── SECTION 4 — CEM HARDWARE ── */}
-      <section className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="section-label mb-4">The Hardware</div>
-          <h2 className="heading-lg font-outfit mb-6">
-            Purpose-Built for African Operating Conditions.
-          </h2>
-          <p className="text-gray-400 max-w-3xl mb-12 leading-relaxed">
-            Off-the-shelf industrial IoT hardware is designed for European warehouses and
-            American logistics networks. It assumes stable power, reliable connectivity, and
-            controlled environments. African operations demand something different — hardware
-            that survives generator surges, 45°C heat, intermittent GSM coverage, and the
-            physical realities of field deployment. The Crelligent Edge Module (CEM) was
-            designed for exactly that.
-          </p>
+      {/* ── SECTION 3.5 — HARDWARE PRODUCT SUITE ── */}
+      <section className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6 relative overflow-hidden">
+        {/* Subtle ambient glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[#f59e0b]/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* LEFT — specs card */}
-            <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-8">
-              <div className="text-xs uppercase tracking-widest text-[#f59e0b] mb-1">
-                Crelligent Edge Module (CEM)
-              </div>
-              <div className="text-sm text-gray-500 mb-8">Gen 1 — Industrial IoT for Africa</div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="section-label mb-4">The Hardware Suite</motion.div>
+            <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-6">
+              Six Devices. One Unified Intelligence Ecosystem.
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-gray-400 max-w-3xl mb-16 leading-relaxed">
+              Purpose-built hardware designed for African operating conditions — from edge nodes
+              that survive generator surges to command displays that visualise your entire
+              operation. Every device feeds data into PRISM for real-time operational intelligence.
+            </motion.p>
+          </motion.div>
 
-              <div className="space-y-6 font-mono text-sm">
-                {/* Processors */}
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-gray-600 mb-2">
-                    Core Processors
-                  </div>
-                  <div className="text-gray-300">Nordic nRF9160</div>
-                  <div className="text-xs text-gray-500 mb-1">LTE-M/NB-IoT cellular</div>
-                  <div className="text-gray-300">Espressif ESP32-S3</div>
-                  <div className="text-xs text-gray-500">Sensor processing &amp; local intelligence</div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={stagger}
+          >
+            {hardwareProducts.map((product) => (
+              <motion.div
+                key={product.id}
+                variants={scaleUp}
+                className="group relative rounded-2xl border border-white/[0.06] bg-[#0d0d0d] overflow-hidden hover:border-white/[0.15] transition-all duration-500"
+              >
+                {/* Image area */}
+                <div className="relative aspect-[4/3] bg-gradient-to-b from-white/[0.03] to-transparent overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-8 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  {/* Glow beneath product */}
+                  <div
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/2 rounded-full blur-[60px] opacity-[0.12] group-hover:opacity-[0.28] transition-opacity duration-700"
+                    style={{ background: product.color }}
+                  />
                 </div>
 
-                {/* Connectivity */}
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-gray-600 mb-2">
-                    Connectivity
+                {/* Content */}
+                <div className="p-6 border-t border-white/[0.04]">
+                  <div
+                    className="text-[10px] uppercase tracking-[0.2em] mb-2 font-medium"
+                    style={{ color: product.color }}
+                  >
+                    {product.tagline}
                   </div>
-                  {[
-                    '4G LTE-M / NB-IoT',
-                    'LoRa 868/915 MHz',
-                    'Wi-Fi 802.11 b/g/n',
-                    'Bluetooth 5.0',
-                  ].map((c) => (
-                    <div key={c} className="text-gray-300">
-                      {c}
-                    </div>
-                  ))}
-                </div>
+                  <h3 className="text-lg font-light text-white mb-1.5">
+                    {product.name}{' '}
+                    <span className="text-sm text-gray-600">({product.abbr})</span>
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-5">{product.description}</p>
 
-                {/* Power */}
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-gray-600 mb-2">
-                    Power
+                  {/* Key specs */}
+                  <div className="space-y-2">
+                    {product.specs.map((spec) => (
+                      <div key={spec} className="flex items-center gap-2.5 text-xs text-gray-400">
+                        <span
+                          className="w-1 h-1 rounded-full shrink-0"
+                          style={{ background: product.color }}
+                        />
+                        {spec}
+                      </div>
+                    ))}
                   </div>
-                  <div className="text-gray-300">9–36 V DC input</div>
-                  <div className="text-gray-300">Li-Po battery backup (8 hr)</div>
-                  <div className="text-gray-300">Solar charging input</div>
                 </div>
-
-                {/* Operating conditions */}
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-gray-600 mb-2">
-                    Operating Conditions
-                  </div>
-                  <div className="text-gray-300">−20°C to +75°C</div>
-                  <div className="text-gray-300">IP67 rated</div>
-                  <div className="text-gray-300">Vibration resistant (IEC 60068)</div>
-                </div>
-
-                {/* Security */}
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-gray-600 mb-2">
-                    Security
-                  </div>
-                  <div className="text-gray-300">ATECC608B hardware encryption</div>
-                  <div className="text-gray-300">Secure boot</div>
-                  <div className="text-gray-300">OTA firmware updates</div>
-                </div>
-
-                {/* Certifications */}
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-gray-600 mb-2">
-                    Certifications (in progress)
-                  </div>
-                  <div className="text-gray-300">NCC Type Approval (Nigeria)</div>
-                  <div className="text-gray-300">CE (Europe)</div>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT — differentiators */}
-            <div className="space-y-6">
-              <h3 className="text-white font-light text-xl mb-2">
-                Why CEM Performs Where Others Fail
-              </h3>
-              {[
-                {
-                  icon: <Battery className="w-5 h-5 text-[#f59e0b]" />,
-                  bold: 'Wide-voltage tolerance.',
-                  text: 'Generator surges and unstable grid power won\'t destroy the device. 9–36 V DC input handles the full range of African power realities.',
-                },
-                {
-                  icon: <Cloud className="w-5 h-5 text-[#f59e0b]" />,
-                  bold: 'Offline-resilient by design.',
-                  text: 'Local data buffering means connectivity drops don\'t create data gaps. Telemetry syncs automatically when network is restored.',
-                },
-                {
-                  icon: <Shield className="w-5 h-5 text-[#f59e0b]" />,
-                  bold: 'Built for the African climate.',
-                  text: 'IP67 rating and −20°C to +75°C operating range handle coastal humidity, Saharan heat, and everything in between.',
-                },
-                {
-                  icon: <Lock className="w-5 h-5 text-[#f59e0b]" />,
-                  bold: 'Hardware-level security.',
-                  text: 'ATECC608B cryptographic co-processor ensures data integrity from sensor to cloud — not just in transit, but at the point of capture.',
-                },
-                {
-                  icon: <Cpu className="w-5 h-5 text-[#f59e0b]" />,
-                  bold: 'Edge intelligence.',
-                  text: 'The ESP32-S3 runs local analytics at the device — reducing latency, lowering data costs, and enabling decision-making even without cloud connectivity.',
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 p-5 rounded-xl bg-[#0d0d0d] border border-white/5">
-                  <div className="w-10 h-10 rounded-lg bg-[#f59e0b]/10 border border-[#f59e0b]/20 flex items-center justify-center shrink-0">
-                    {item.icon}
-                  </div>
-                  <p className="text-sm text-gray-400 leading-relaxed">
-                    <span className="text-white font-medium">{item.bold}</span> {item.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
+
 
       {/* ── SECTION 5 — PRISM CONNECTION ── */}
-      <section className="bg-[#050505] py-24 px-6">
+      <section className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="section-label mb-4">The Intelligence Platform</div>
-          <h2 className="heading-lg font-outfit mb-6">
-            Every Sensor Feeds PRISM. Every Alert Reaches the Right Person.
-          </h2>
-          <p className="text-gray-400 max-w-3xl leading-relaxed mb-4">
-            Data without intelligence is noise. The CEM hardware is the nervous system;
-            PRISM is the brain. Every telemetry point — every GPS coordinate, fuel level
-            reading, voltage spike, or transaction record — flows into PRISM, where it is
-            structured, analysed, and transformed into operational intelligence.
-          </p>
-          <p className="text-gray-400 max-w-3xl leading-relaxed mb-8">
-            PRISM doesn&apos;t just display data. It answers the questions that operations
-            leaders actually need answered:
-          </p>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="section-label mb-4">The Intelligence Platform</motion.div>
+            <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-6">
+              Every Sensor Feeds PRISM. Every Alert Reaches the Right Person.
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-gray-400 max-w-3xl leading-relaxed mb-4">
+              Data without intelligence is noise. The CEM hardware is the nervous system;
+              PRISM is the brain. Every telemetry point — every GPS coordinate, fuel level
+              reading, voltage spike, or transaction record — flows into PRISM, where it is
+              structured, analysed, and transformed into operational intelligence.
+            </motion.p>
+            <motion.p variants={fadeUp} className="text-gray-400 max-w-3xl leading-relaxed mb-8">
+              PRISM doesn&apos;t just display data. It answers the questions that operations
+              leaders actually need answered:
+            </motion.p>
+          </motion.div>
 
           {/* Questions block */}
-          <div className="p-6 bg-[#0a0a0a] border border-white/5 rounded-xl space-y-3 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="p-6 bg-[#111] border border-white/5 rounded-xl space-y-3 mb-12"
+          >
             {prismQuestions.map((q) => (
               <div key={q} className="flex items-start gap-3">
                 <span className="text-[#22c55e] font-mono mt-0.5">→</span>
                 <span className="text-gray-300 text-sm leading-relaxed">{q}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* PRISM cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link
-              href="https://prism.crelligent.com"
-              className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
-            >
-              <div className="w-10 h-10 rounded-lg bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mb-4">
-                <Radio className="w-5 h-5 text-[#22c55e]" />
-              </div>
-              <h3 className="text-white font-light text-lg mb-2">PRISM Core</h3>
-              <p className="text-sm text-gray-500 mb-4 leading-relaxed">
-                The enterprise intelligence operating system that unifies telemetry, alerts,
-                dashboards, and workflows across every connected operation.
-              </p>
-              <div className="flex items-center gap-2 text-sm text-[#22c55e] group-hover:gap-3 transition-all">
-                Explore PRISM Core <ArrowRight className="w-4 h-4" />
-              </div>
-            </Link>
-
-            <Link
-              href="https://prism.crelligent.com#ai"
-              className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
-            >
-              <div className="w-10 h-10 rounded-lg bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center mb-4">
-                <Brain className="w-5 h-5 text-[#3b82f6]" />
-              </div>
-              <h3 className="text-white font-light text-lg mb-2">PRISM AI</h3>
-              <p className="text-sm text-gray-500 mb-4 leading-relaxed">
-                Conversational intelligence layer. Ask PRISM questions in plain language.
-                Get structured answers from your operational data — no SQL, no BI tools required.
-              </p>
-              <div className="flex items-center gap-2 text-sm text-[#3b82f6] group-hover:gap-3 transition-all">
-                Explore PRISM AI <ArrowRight className="w-4 h-4" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 6 — PROOF POINT ── */}
-      <section className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="section-label mb-4">Live Deployments</div>
-          <h2 className="heading-lg font-outfit mb-10">Already Operating in the Field.</h2>
-
-          <div className="rounded-2xl border border-white/10 bg-[#0d0d0d] overflow-hidden">
-            {/* card header */}
-            <div className="px-8 py-5 border-b border-white/5 flex items-center justify-between">
-              <span className="text-xs uppercase tracking-widest text-[#f59e0b]">
-                ITS + IES — Fuel &amp; Fleet Intelligence
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-xs text-[#22c55e]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] animate-pulse" />
-                Live
-              </span>
-            </div>
-
-            {/* card body */}
-            <div className="p-8 md:p-10">
-              <div className="text-xs uppercase tracking-widest text-gray-600 mb-2">Client</div>
-              <h3 className="text-2xl font-light text-white mb-6">
-                ESN Petroleum Services Limited
-              </h3>
-              <div className="space-y-4 text-gray-400 leading-relaxed max-w-3xl mb-8">
-                <p>
-                  ESN Petroleum operates a distributed network of fuel assets — tankers,
-                  storage tanks, dispensing equipment, and generator sets — across multiple
-                  sites in Nigeria. Before Crelligent, fuel reconciliation was manual, theft
-                  was difficult to prove, and generator uptime was tracked by phone calls.
-                </p>
-                <p>
-                  Crelligent deployed CEM devices across ESN&apos;s fleet and energy
-                  infrastructure, connecting real-time fuel telemetry and vehicle GPS into
-                  PRISM. The result: end-to-end fuel accountability from tank to nozzle,
-                  live fleet visibility, and generator uptime dashboards — all in one
-                  command centre, managed by a single operations team.
-                </p>
-                <p>
-                  ESN now knows exactly where every litre of fuel is, where every vehicle
-                  is, and when every generator is at risk of failure — before it happens.
-                </p>
-              </div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.div variants={scaleUp}>
               <Link
-                href="/insights"
-                className="inline-flex items-center gap-2 text-sm text-[#f59e0b] hover:gap-3 transition-all"
+                href="https://prism.crelligent.com"
+                className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
               >
-                Read the full case study <ArrowRight className="w-4 h-4" />
+                <div className="w-10 h-10 rounded-lg bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mb-4">
+                  <Radio className="w-5 h-5 text-[#22c55e]" />
+                </div>
+                <h3 className="text-white font-light text-lg mb-2">PRISM Core</h3>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                  The enterprise intelligence operating system that unifies telemetry, alerts,
+                  dashboards, and workflows across every connected operation.
+                </p>
+                <div className="flex items-center gap-2 text-sm text-[#22c55e] group-hover:gap-3 transition-all">
+                  Explore PRISM Core <ArrowRight className="w-4 h-4" />
+                </div>
               </Link>
-            </div>
-          </div>
+            </motion.div>
+
+            <motion.div variants={scaleUp}>
+              <Link
+                href="https://prism.crelligent.com#ai"
+                className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
+              >
+                <div className="w-10 h-10 rounded-lg bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center mb-4">
+                  <Brain className="w-5 h-5 text-[#3b82f6]" />
+                </div>
+                <h3 className="text-white font-light text-lg mb-2">PRISM AI</h3>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                  Conversational intelligence layer. Ask PRISM questions in plain language.
+                  Get structured answers from your operational data — no SQL, no BI tools required.
+                </p>
+                <div className="flex items-center gap-2 text-sm text-[#3b82f6] group-hover:gap-3 transition-all">
+                  Explore PRISM AI <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
+
+
 
       {/* ── SECTION 7 — DEPLOYMENT PROCESS ── */}
-      <section className="bg-[#050505] py-24 px-6">
+      <section className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="section-label mb-4">How It Works</div>
-          <h2 className="heading-lg font-outfit mb-14">
-            From Assessment to Intelligence in 12 Weeks.
-          </h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="section-label mb-4">How It Works</motion.div>
+            <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-14">
+              From Assessment to Intelligence in 12 Weeks.
+            </motion.h2>
+          </motion.div>
 
-          {/* Steps grid */}
-          <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8 mb-14">
-            {/* horizontal connector — desktop only */}
-            <div className="hidden md:block absolute top-4 left-[calc(12.5%+1rem)] right-[calc(12.5%+1rem)] border-t border-dashed border-white/10" />
+          {/* Detailed vertical timeline */}
+          <motion.div
+            className="relative max-w-4xl mx-auto mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={stagger}
+          >
+            {/* Vertical connector line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2" />
 
-            {deploymentSteps.map((step, i) => (
-              <div key={i} className="relative">
-                <div className="w-8 h-8 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/20 flex items-center justify-center text-sm font-mono text-[#f59e0b] mb-4 relative z-10">
-                  {i + 1}
-                </div>
-                <div className="text-xs uppercase tracking-widest text-[#f59e0b] mb-2">
-                  {step.week}
-                </div>
-                <h4 className="text-white font-light text-lg mb-2 leading-snug">{step.title}</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
+            {deploymentSteps.map((step, i) => {
+              const isEven = i % 2 === 0
+              return (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className={`relative flex flex-col md:flex-row gap-8 md:gap-16 items-start mb-16 last:mb-0 ${
+                    isEven ? 'md:flex-row-reverse' : ''
+                  }`}
+                >
+                  {/* Timeline node */}
+                  <div className="absolute left-8 md:left-1/2 top-0 w-12 h-12 rounded-full bg-[#0a0a0a] border border-[#f59e0b]/40 flex items-center justify-center -translate-x-1/2 z-10 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                    <span className="text-[#f59e0b] font-mono text-sm">{i + 1}</span>
+                  </div>
+
+                  {/* Empty space for alternating layout on desktop */}
+                  <div className="hidden md:block md:w-1/2" />
+
+                  {/* Content card */}
+                  <div className={`w-full md:w-1/2 pl-20 md:pl-0 ${isEven ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                    <div className="text-xs uppercase tracking-widest text-[#f59e0b] mb-2 font-medium">
+                      {step.week}
+                    </div>
+                    <h4 className="text-xl text-white font-medium mb-3">{step.title}</h4>
+                    <p className="text-sm text-gray-400 leading-relaxed mb-6">
+                      {step.desc}
+                    </p>
+                    
+                    {/* Detailed activities list */}
+                    <ul className={`space-y-3 ${isEven ? 'md:items-end' : 'items-start'} flex flex-col`}>
+                      {step.activities.map((activity, actIdx) => (
+                        <li key={actIdx} className={`flex items-start gap-3 text-sm text-gray-300 ${isEven ? 'md:flex-row-reverse md:text-right' : ''}`}>
+                          <CheckCircle className="w-4 h-4 text-[#22c55e] shrink-0 mt-0.5" />
+                          <span>{activity}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </motion.div>
 
           {/* CTA */}
-          <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
             <Link href="/contact" className="btn-primary">
               Start Your Deployment Assessment
               <ArrowRight className="w-4 h-4 ml-2 inline" />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -740,20 +940,26 @@ export default function IntelligentSystemsPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#f59e0b]/5 to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[#f59e0b]/5 blur-3xl pointer-events-none" />
 
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="heading-lg font-outfit mb-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+          className="max-w-3xl mx-auto text-center relative z-10"
+        >
+          <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-6">
             Your Operations Are Generating Data Right Now.{' '}
             <span className="text-[#f59e0b]">The Question Is Whether Anyone Can Read It.</span>
-          </h2>
-          <p className="text-gray-400 leading-relaxed mb-10 text-lg">
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-400 leading-relaxed mb-10 text-lg">
             Every vehicle moving, every generator running, every tank filling — all of it
             is data that currently evaporates. Crelligent Intelligent Systems captures that
             data, structures it, and turns it into the operational intelligence your
             leadership team needs to make decisions with confidence. The infrastructure
             exists. The platform is proven. The only question is when you decide to use it.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col items-center gap-4">
+          <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
             <Link href="/contact" className="btn-primary">
               Request an Assessment
               <ArrowRight className="w-4 h-4 ml-2 inline" />
@@ -764,8 +970,8 @@ export default function IntelligentSystemsPage() {
             >
               Download the CEM Hardware Spec Sheet →
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       <Footer />

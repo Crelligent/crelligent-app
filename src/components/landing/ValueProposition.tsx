@@ -16,14 +16,14 @@ export function ValueProposition() {
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-8 tracking-tight">
                         We don&apos;t fix parts.<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6]">
-                            We design the whole system.
+                            We install the operating system.
                         </span>
                     </h2>
 
                     {/* First paragraph - reveals early (82% → 45% of viewport) */}
                     <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mb-12">
                         <ScrollRevealText
-                            text="Organizations break when strategy, technology, operations, and people are designed in isolation. We engineer them as one integrated system — so everything works together, by design."
+                            text="Enterprises break when strategy, technology, operations, and data are designed in isolation — without an operating system coordinating them. Crelligent installs ESRE OS: a five-layer enterprise operating system that runs your organisation, monitors its own performance, and improves continuously. We build the connective tissue between every critical capability. That connective tissue is the OS."
                             baseColor="rgb(107, 114, 128)"
                             revealColor="rgb(229, 231, 235)"
                             startThreshold={0.78}

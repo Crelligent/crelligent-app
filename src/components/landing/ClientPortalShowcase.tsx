@@ -16,11 +16,11 @@ export function ClientPortalShowcase() {
                         Executive Command Center
                     </div>
                     <h2 className="text-4xl md:text-5xl font-[300] tracking-tight text-white mb-6">
-                        Complete visibility. <br className="hidden md:block" />
-                        Zero procurement friction.
+                        ESRE OS Dashboard — Complete OS visibility. <br className="hidden md:block" />
+                        Live performance score. Zero procurement friction.
                     </h2>
                     <p className="text-lg text-white/50 font-[200] leading-relaxed">
-                        The ESRE™ diagnostic doesn't end with a PDF. Your Client Portal connects directly to our Implementation Arm, giving your executive team a live view into embedded operators, telemetry, and market intelligence.
+                        The ESRE OS does not end with an installation. Your ESRE OS Dashboard — accessible at client.crelligent.com — gives your executive team a live view into OS layer health, the OS Performance Score, implementation milestones, embedded operator timelines, telemetry feeds, and market intelligence. The OS runs. The Dashboard shows you exactly how.
                     </p>
                 </div>
 
@@ -51,7 +51,7 @@ export function ClientPortalShowcase() {
                                         <LayoutDashboard className="w-3 h-3 text-blue-400" /> Command Center
                                     </div>
                                     <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
-                                        <ShieldCheck className="w-3 h-3 text-[#00B67A]/50" /> ESRE Scorecard
+                                        <ShieldCheck className="w-3 h-3 text-[#00B67A]/50" /> ESRE OS Scorecard
                                     </div>
                                     <div className="flex items-center gap-2 px-2 py-1.5 rounded-md text-white/40 text-[11px]">
                                         <BarChart2 className="w-3 h-3 text-cyan-400/50" /> Blueprints & Assets
@@ -151,7 +151,7 @@ export function ClientPortalShowcase() {
                                             <div className="w-1 h-1 rounded-full bg-[#00B67A] animate-pulse"/> Online
                                         </span>
                                     </h3>
-                                    <p className="text-[10px] text-white/40">ESRE™ Diagnostic & Implementation Portal</p>
+                                    <p className="text-[10px] text-white/40">ESRE OS Diagnostic & Implementation Portal</p>
                                 </div>
                                 <div className="flex gap-2">
                                     <button className="px-2.5 py-1 bg-white/5 rounded text-[9px] border border-white/10 text-white/70">Export Snapshot</button>
@@ -181,7 +181,7 @@ export function ClientPortalShowcase() {
                                 {/* ESRE Score */}
                                 <div className="bg-white/5 border border-white/5 rounded-xl p-4">
                                     <div className="flex items-center justify-between mb-3">
-                                        <span className="text-[8px] font-mono uppercase tracking-widest text-white/50">ESRE™ Score</span>
+                                        <span className="text-[8px] font-mono uppercase tracking-widest text-white/50">ESRE OS Performance Score</span>
                                         <ShieldCheck className="w-3 h-3 text-[#00B67A]" />
                                     </div>
                                     <div className="text-3xl font-light text-white mb-0.5">78<span className="text-sm text-white/30">/100</span></div>
@@ -210,7 +210,7 @@ export function ClientPortalShowcase() {
                                 {/* Radar placeholder */}
                                 <div className="bg-white/5 border border-white/5 rounded-xl p-4 col-span-1">
                                     <div className="text-[10px] font-medium text-white mb-1">Diagnostic Capabilities Map</div>
-                                    <div className="text-[8px] text-white/30 mb-3">9-Dimensional ESRE Assessment</div>
+                                    <div className="text-[8px] text-white/30 mb-3">ESRE OS Diagnostic — 5-layer + Application Runtime Assessment</div>
                                     {/* SVG Radar shape */}
                                     <div className="flex items-center justify-center h-[120px]">
                                         <svg viewBox="0 0 100 100" className="w-28 h-28">
@@ -313,7 +313,7 @@ export function ClientPortalShowcase() {
                     <div>
                         <h4 className="text-lg font-medium text-white mb-2">Live Milestones</h4>
                         <p className="text-sm text-white/50 leading-relaxed">
-                            Stop asking &quot;what&apos;s the status?&quot; Track the exact phase of your ESRE blueprint implementation. See what our on-site engineers are deploying in real-time.
+                            Stop asking &quot;what&apos;s the status?&quot; Track the exact phase of your ESRE OS installation. See what our on-site engineers are deploying in real-time.
                         </p>
                     </div>
                     <div>

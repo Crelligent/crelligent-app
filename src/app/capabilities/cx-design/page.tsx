@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import EsreOsBadge from '@/components/shared/EsreOsBadge'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Users, MapPin, Palette, TestTube } from 'lucide-react'
@@ -55,6 +56,10 @@ export default function CXDesignPage() {
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-8 h-8 rounded-full bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 flex items-center justify-center text-xs font-bold text-[#8b5cf6]">2</div>
                         <span className="text-xs uppercase tracking-widest text-[#8b5cf6]">Build Phase</span>
+                    </div>
+
+                    <div className="mb-8">
+                        <EsreOsBadge type='app-runtime' name='Interface Application' intro='CX / Service Design is part of the ESRE OS Application Runtime — a capability that runs on top of the installed OS, not inside it. Its performance depends on the health of the five OS Core layers beneath it. Install the OS. The application performs.' />
                     </div>
 
                     <h1 className="heading-xl mb-6">

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import EsreOsBadge from '@/components/shared/EsreOsBadge'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Shield, Scale, Eye, AlertTriangle } from 'lucide-react'
@@ -55,6 +56,10 @@ export default function GovernancePage() {
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-8 h-8 rounded-full bg-[#22c55e]/20 border border-[#22c55e]/40 flex items-center justify-center text-xs font-bold text-[#22c55e]">3</div>
                         <span className="text-xs uppercase tracking-widest text-[#22c55e]">Sustain Phase</span>
+                    </div>
+
+                    <div className="mb-8">
+                        <EsreOsBadge type='os-core' layer='L5' name='Security Layer' intro='Governance, Risk & Control is Layer 5 of the ESRE OS — the security layer that controls permissions, enforces process isolation, and maintains system stability under load. Without L5, every decision escalates to the CEO as the default root user.' />
                     </div>
 
                     <h1 className="heading-xl mb-6">

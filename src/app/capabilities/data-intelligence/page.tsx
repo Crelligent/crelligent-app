@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import EsreOsBadge from '@/components/shared/EsreOsBadge'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Brain, Database, LineChart, Repeat } from 'lucide-react'
@@ -55,6 +56,10 @@ export default function DataIntelligencePage() {
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-8 h-8 rounded-full bg-[#8b5cf6]/20 border border-[#8b5cf6]/40 flex items-center justify-center text-xs font-bold text-[#8b5cf6]">2</div>
                         <span className="text-xs uppercase tracking-widest text-[#8b5cf6]">Build Phase</span>
+                    </div>
+
+                    <div className="mb-8">
+                        <EsreOsBadge type='os-core' layer='L4' name='Sensing Layer' intro='Data & Intelligence is Layer 4 of the ESRE OS — the sensing layer that instruments the enterprise and generates real-time feedback loops. L4 feeds the ESRE AI Engine. Without this layer, the enterprise cannot detect its own performance degradation before it becomes a crisis.' />
                     </div>
 
                     <h1 className="heading-xl mb-6">

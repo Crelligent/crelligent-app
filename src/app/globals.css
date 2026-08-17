@@ -174,46 +174,12 @@ h4 {
   background: rgba(0, 0, 0, 0.03);
 }
 
-/* ──── Scrollbar: invisible until needed, then whisper-thin ──── */
-
+/* ──── Hide Scrollbar Completely ──── */
 * {
-  scrollbar-width: none;
+  scrollbar-width: none; /* Firefox */
 }
-
-*:hover {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
-}
-
-*::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 999px;
-  transition: background 0.4s ease;
-}
-
-*:hover::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.10);
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.22);
-}
-
-*::-webkit-scrollbar-thumb:active {
-  background: rgba(0, 0, 0, 0.35);
-}
-
-*::-webkit-scrollbar-corner {
-  background: transparent;
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 /* Selection */
@@ -344,4 +310,30 @@ h4 {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
+}
+
+/* ─── Hardware Product Showcase ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.28; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.hero-product-glow {
+  position: absolute;
+  inset: -25%;
+  background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.14) 0%, transparent 70%);
+  pointer-events: none;
 }

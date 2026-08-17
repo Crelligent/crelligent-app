@@ -5,9 +5,9 @@ import { useState } from 'react'
 const phases = [
     {
         id: 1,
-        title: "The Diagnostic",
+        title: "ESRE OS Diagnostic",
         duration: "4–6 weeks",
-        tagline: "Most companies guess. We don't. We map the absolute truth of how your organization behaves—finding the invisible constraints that others miss.",
+        tagline: "Most enterprises run blind. We scan every OS layer to find exactly what is missing, misconfigured, or degraded — before proposing any solution.",
         color: "#3b82f6",
         gradient: "from-[#3b82f6] to-[#60a5fa]",
         whatWeDo: [
@@ -17,17 +17,17 @@ const phases = [
             "Technology landscape assessment"
         ],
         whatYouReceive: [
-            "Enterprise System Map",
-            "Constraint & Leverage Point Analysis",
+            "OS Layer Map",
+            "OS Performance Score + Layer Diagnostic",
             "Risk & Failure Modes Brief",
             "Clear problem framing"
         ]
     },
     {
         id: 2,
-        title: "The Architecture",
+        title: "ESRE OS Architecture",
         duration: "6–10 weeks",
-        tagline: "Design isn't just how it looks. It's how it works. We re-engineer the core of your business to align completely with your intent.",
+        tagline: "We design your target OS configuration — specifying what each layer must do, in what sequence it must be installed, and what each OS system component must connect to.",
         color: "#8b5cf6",
         gradient: "from-[#8b5cf6] to-[#a78bfa]",
         whatWeDo: [
@@ -37,17 +37,18 @@ const phases = [
             "Governance & operating model definition"
         ],
         whatYouReceive: [
-            "Target System Architecture",
-            "Experience & Product Blueprint",
-            "Decision & Intelligence Model",
-            "Engineering & Platform Roadmap"
+            "Target OS Blueprint",
+            "Layer-by-layer specifications (L1–L5)",
+            "Application Runtime design",
+            "CEM deployment plan",
+            "PRISM configuration spec"
         ]
     },
     {
         id: 3,
-        title: "The Build",
+        title: "ESRE OS Installation",
         duration: "12–24 weeks",
-        tagline: "Ideas are easy. Execution is everything. We build the platforms, pipelines, and habits that make the new system your reality.",
+        tagline: "We don't deliver a plan and leave. We install the OS — layer by layer, in sequence — and hand you a functioning, scored, monitored enterprise system.",
         color: "#ec4899",
         gradient: "from-[#ec4899] to-[#f472b6]",
         whatWeDo: [
@@ -57,28 +58,28 @@ const phases = [
             "Change enablement"
         ],
         whatYouReceive: [
-            "Working systems",
-            "Operational dashboards",
-            "Trained internal teams",
-            "Transition to operations"
+            "Installed L1–L5 OS Core",
+            "Deployed OS systems (ECC live, PRISM connected, CEM hardware deployed)",
+            "ESRE OS Performance Score baseline",
+            "Teams trained on the OS"
         ]
     },
     {
         id: 4,
-        title: "The Evolution",
+        title: "ESRE OS Support & Updates",
         duration: "Ongoing",
-        tagline: "Static systems die. We install the sensors and feedback loops to ensure you adapt, learn, and stay ahead.",
+        tagline: "An OS is not a project. It requires ongoing maintenance, monitoring, and upgrades as the enterprise grows and its environment changes.",
         color: "#22c55e",
         gradient: "from-[#22c55e] to-[#4ade80]",
         whatWeDo: [
-            "Quarterly system health reviews",
-            "Feedback loop monitoring",
-            "Risk & resilience assessments",
+            "Monthly OS Performance Score reports",
+            "Drift detection alerts via ESRE Monitor",
+            "Quarterly OS layer reviews",
             "Continuous improvement cycles"
         ],
         whatYouReceive: [
-            "System Health Reports",
-            "Improvement backlog",
+            "Annual OS Performance Score benchmark against AEHI sector averages",
+            "New module releases as OS capabilities expand",
             "Executive foresight briefings"
         ]
     }
@@ -97,12 +98,12 @@ export function EsreTimeline() {
 
             <div className="max-w-5xl mx-auto relative z-10">
                 <div className="text-center mb-24">
-                    <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Our Methodology</div>
+                    <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>ESRE OS Lifecycle</div>
                     <h2 className="heading-lg mb-6">
-                        The Enterprise System Redesign Engagement (ESRE)™
+                        The ESRE OS Lifecycle
                     </h2>
                     <p className="text-gray-500 max-w-xl mx-auto">
-                        A disciplined, end-to-end partnership that transforms strategic intent into operational reality.
+                        From broken system to installed, monitored, and continuously improving enterprise operating system.
                     </p>
                 </div>
 

@@ -102,7 +102,7 @@ const slides = [
         duration: 10000, // placeholder
         text: (
             <>
-                WHEN ALL NINE CAPABILITIES MOVE AS ONE SYSTEM, PERFORMANCE COMPOUNDS. THIS IS CRELLIGENT. WE ENGINEER BUSINESSES TO EVOLVE.
+                WHEN ALL NINE CAPABILITIES FORM ONE OPERATING SYSTEM, THE ENTERPRISE NO LONGER DEPENDS ON ANY INDIVIDUAL TO RUN. THIS IS ESRE OS. WE INSTALL IT. WE MAINTAIN IT. IT RUNS.
             </>
         ),
         isConclusion: true,
@@ -250,12 +250,12 @@ export function HeroSlider() {
                         {/* Show Action Buttons only on the Conclusion slide */}
                         {slide.isConclusion && (
                             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500 fill-mode-backwards pointer-events-auto">
-                                <Link href="/foundry" className="btn-primary">
-                                    For Startups
+                                <Link href="https://client.crelligent.com" className="btn-primary">
+                                    Install ESRE OS
                                     <ArrowRight className="w-4 h-4" />
                                 </Link>
-                                <Link href="/enterprise" className="btn-ghost">
-                                    For Enterprise
+                                <Link href="/esre-os" className="btn-ghost">
+                                    Learn More
                                 </Link>
                             </div>
                         )}

@@ -26,20 +26,23 @@ export function EsreIntelligenceShowcase() {
                             Proprietary Intelligence Engine
                         </div>
                         <h2 className="text-4xl md:text-5xl font-[300] tracking-tight text-white mb-6">
-                            Not just consulting. <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] via-[#8b5cf6] to-[#3b82f6]">Structural acceleration.</span>
+                            ESRE AI — the intelligence engine of the OS
                         </h2>
                         <p className="text-lg text-white/50 font-[200] leading-relaxed max-w-2xl">
-                            The era of 10-week manual diagnostics is over. Crelligent's proprietary ESRE™ AI Engine ingests your ERP telemetry, policy manuals, and operational data—delivering a structural diagnosis in 3 weeks, not 5.
+                            Every ESRE OS installation makes the AI Engine smarter. Every smarter AI Engine makes the next installation faster, more accurate, and more precisely prescribed.
                         </p>
                     </div>
                     
                     <div className="shrink-0 pb-2">
                         <Link href="https://client.crelligent.com" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full text-sm font-medium hover:bg-white/90 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-                            Run ESRE Diagnostic
+                            Run ESRE OS Diagnostic
                         </Link>
                     </div>
                 </motion.div>
+
+                <p className="text-lg text-white/50 font-[200] leading-relaxed mb-16">
+                    Every ESRE OS installation generates structured intelligence — layer-by-layer diagnostic data, post-installation OS performance trajectories, and real-time operational telemetry from PRISM and the CEM network. This intelligence feeds the ESRE AI Engine, which trains its models on this growing dataset and improves diagnostic accuracy, blueprint precision, and drift prediction with every installation. The ESRE AI Engine does not operate independently. It is the intelligence layer of the ESRE OS — trained on OS installations, improving OS diagnostics, and continuously monitoring installed OS performance.
+                </p>
 
                 {/* The 4 Modules Visualization */}
                 <div className="grid lg:grid-cols-12 gap-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
@@ -106,7 +109,7 @@ export function EsreIntelligenceShowcase() {
                         <div className="mt-12 text-center relative z-10 px-8">
                             <h4 className="text-sm font-medium text-white mb-2">The Intelligence Nexus</h4>
                             <p className="text-xs text-white/40 leading-relaxed">
-                                Raw enterprise data is synthesized through the 9-dimensional ESRE Capability Framework to generate high-fidelity architectural blueprints.
+                                Raw enterprise data is synthesized through the ESRE OS architecture to generate high-fidelity architectural blueprints.
                             </p>
                         </div>
                     </div>
