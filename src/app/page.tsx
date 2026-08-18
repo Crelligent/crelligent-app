@@ -9,7 +9,6 @@ import { EsreIntelligenceShowcase } from '@/components/landing/EsreIntelligenceS
 import { AEHISection } from '@/components/AEHISection'
 import { LatestInsights } from '@/components/landing/LatestInsights'
 import { RecentClientStories } from '@/components/landing/RecentClientStories'
-import { InsideStories } from '@/components/landing/InsideStories'
 import { ValueProposition } from '@/components/landing/ValueProposition'
 import { SurveyTeaser } from '@/components/SurveyTeaser'
 import { ClientPortalBanner } from '@/components/ClientPortalBanner'
@@ -189,9 +188,9 @@ export default function LandingPage() {
                   <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700" />
                 </div>
                 <div className="p-8 flex flex-col flex-1 relative z-20">
-                  <h3 className="text-2xl font-[300] tracking-wide mb-4 text-white">9 Capability Architecture</h3>
+                  <h3 className="text-2xl font-[300] tracking-wide mb-4 text-white">5 + 4 OS Architecture</h3>
                   <p className="text-base text-white font-[200] leading-loose opacity-80 mb-8 flex-1">
-                    We assess and design across 9 integrated capabilities — from business design to data intelligence and behaviour change — as one unified system.
+                    Five OS Core layers form the enterprise operating system (L1–L5). Four Application Runtime capabilities execute strategy on top of it. Nine total — designed as one unified system, not piecemeal workstreams.
                   </p>
                   <Link href="/about" className="flex items-center justify-between text-sm font-[300] tracking-widest uppercase text-white group-hover:text-[#3b82f6] w-full transition-colors mt-auto">
                     <span>Read more</span>
@@ -225,146 +224,6 @@ export default function LandingPage() {
         </div>
       </section >
 
-      {/* Bento Grid Showcase */}
-      < section className="px-0" >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-12 gap-1">
-
-            {/* Large Left Card - Systems Architecture (Image + Text) */}
-            <Link
-              href="/capabilities/systems-architecture"
-              className="col-span-12 md:col-span-6 lg:col-span-5 row-span-2 relative h-[560px] overflow-hidden group rounded-xl p-[1px]"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6] to-[#ec4899] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative bg-[#050505] rounded-xl h-full w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/40 via-[#0f1628]/40 to-[#1a1a2e]/40 z-0" />
-
-                {/* Optional Image Background */}
-                <div className="absolute inset-0 z-10">
-                  <img src="/Business Design II.png" alt="Systems Architecture" className="w-full h-full object-contain object-top pt-8 group-hover:scale-105 transition-all duration-700" />
-                </div>
-
-                {/* Decorative Grid */}
-                <div className="absolute inset-0 opacity-20 z-20">
-                  <div className="absolute top-1/4 left-1/4 w-40 h-40 border border-[#3b82f6]/40 rounded-full" />
-                  <div className="absolute top-1/3 left-1/3 w-56 h-56 border border-[#3b82f6]/20 rounded-full" />
-                  <div className="absolute bottom-20 right-10 w-32 h-32 border border-[#3b82f6]/30 rounded-full" />
-                </div>
-
-                {/* Content at Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#050505] via-[#050505]/95 to-transparent z-30">
-                  <h3 className="text-3xl md:text-4xl font-[300] tracking-wide mb-2 text-white leading-tight mt-12">
-                    SYSTEMS<br />ARCHITECTURE
-                  </h3>
-                  <div className="w-6 h-0.5 bg-[#3b82f6] mb-4" />
-                  <p className="text-sm text-gray-300 mb-4 max-w-sm font-[200] leading-loose">
-                    Engineer the foundations organizations rely on—structure, boundaries, and failure modes.
-                  </p>
-                  <div className="flex items-center gap-2 text-white text-sm group-hover:gap-4 transition-all">
-                    <ArrowRight className="w-5 h-5 text-[#3b82f6]" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Top Right - Text Only Card */}
-            <Link
-              href="/capabilities/data-intelligence"
-              className="col-span-12 md:col-span-6 lg:col-span-4 relative h-[280px] overflow-hidden group rounded-xl p-[1px]"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative bg-[#050505] rounded-xl h-full w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-                {/* Decorative Accent */}
-                <div className="absolute top-8 right-8 w-16 h-16 rounded-full bg-[#3b82f6]/10 flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-[#3b82f6]/20" />
-                </div>
-
-                {/* Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <h3 className="text-3xl font-[300] tracking-wide text-white leading-tight mb-2">
-                    DATA<br />INTELLIGENCE
-                  </h3>
-                  <div className="w-6 h-0.5 bg-[#3b82f6] mb-4" />
-                  <p className="text-sm text-gray-300 font-[200] leading-relaxed mb-4">
-                    System sensing and adaptive decision intelligence.
-                  </p>
-                  <div className="flex items-center gap-2 text-white text-sm group-hover:gap-4 transition-all">
-                    <ArrowRight className="w-5 h-5 text-[#3b82f6]" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Top Far Right - Image Only Strip */}
-            <div
-              className="hidden lg:block col-span-3 relative h-[280px] overflow-hidden rounded-xl group"
-            >
-              <div className="absolute inset-0 z-0">
-                <img src="/ChatGPT Image Feb 27, 2026, 05_31_44 PM.png" alt="Data Intelligence Visual" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-[#050505]/20 to-transparent z-10 pointer-events-none" />
-            </div>
-
-            {/* Bottom Middle - Integration Card (Now spanning 4 cols mathematically by position and aesthetic) */}
-            <Link
-              href="/capabilities/integration-infrastructure"
-              className="col-span-12 md:col-span-6 lg:col-span-4 relative h-[280px] overflow-hidden group rounded-xl p-[1px]"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#f59e0b] to-[#ef4444] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative bg-[#050505] rounded-xl h-full w-full overflow-hidden">
-
-                {/* Image Background only */}
-                <div className="absolute inset-0 z-0">
-                  <img src="/ChatGPT Image Feb 27, 2026, 06_50_34 PM.png" alt="Integration Infrastructure" className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
-                </div>
-              </div>
-            </Link>
-
-            {/* Bottom Right - Integration Card (Moved from Product Systems) */}
-            <Link
-              href="/capabilities/integration-infrastructure"
-              className="col-span-12 md:col-span-6 lg:col-span-3 relative h-[280px] overflow-hidden group rounded-xl p-[1px]"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#8b5cf6] to-[#ec4899] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative bg-[#050505] rounded-xl h-full w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1f0f1f]/80 via-[#2e1a2e]/80 to-[#150a15]/80 z-10" />
-
-                {/* Decorative - Globe/World */}
-                <div className="absolute top-1/2 right-8 -translate-y-1/2 opacity-30 z-0">
-                  <div className="w-32 h-32 rounded-full border-2 border-[#a855f7]/40 flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full border border-[#a855f7]/30" />
-                    <div className="absolute w-20 h-20 rounded-full border border-[#a855f7]/20" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                  <h3 className="text-2xl font-[300] tracking-wide text-white mb-2">
-                    INTEGRATION
-                  </h3>
-                  <p className="text-sm text-gray-300 font-[200] leading-relaxed mb-3">
-                    The operational execution layer for system stability.
-                  </p>
-                  <div className="flex items-center gap-2 text-white text-sm group-hover:gap-4 transition-all">
-                    <ArrowRight className="w-4 h-4 text-[#a855f7]" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-          </div>
-        </div>
-      </section >
 
       {/* Capabilities: ESRE OS Architecture */}
       <section className="py-24 px-6">
@@ -527,7 +386,6 @@ export default function LandingPage() {
       {/* New Capgemini-Style Sections */}
       <LatestInsights />
       <RecentClientStories />
-      <InsideStories />
 
       {/* Use Case: The Wright Principle */}
       <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5 relative overflow-hidden">
