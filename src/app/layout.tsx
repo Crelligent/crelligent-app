@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Inter, Outfit, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -173,6 +174,21 @@ export default function RootLayout({
       >
         {children}
         <CookieConsent />
+      
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-89LVTFH0GF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-89LVTFH0GF');
+          }
+        </Script>
       </body>
     </html>
   );
