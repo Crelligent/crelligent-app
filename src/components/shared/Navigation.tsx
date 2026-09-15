@@ -488,6 +488,9 @@ export function Navigation() {
                             </button>
                         </div>
                     ))}
+                    <Link href="/pricing" className="flex items-center gap-1 text-[13px] font-medium text-gray-300 hover:text-white transition py-2 whitespace-nowrap">
+                        Pricing
+                    </Link>
                 </div>
 
                 {/* Right Placeholder (to perfectly center the middle items) */}
@@ -676,6 +679,9 @@ export function Navigation() {
                         <div>
                             <Link href="/esre-os" className="text-sm font-semibold uppercase tracking-widest text-white hover:text-[#22c55e] mb-4 block" onClick={() => setMobileOpen(false)}>
                                 ESRE OS
+                            </Link>
+                            <Link href="/pricing" className="text-sm font-semibold uppercase tracking-widest text-white hover:text-[#22c55e] mb-4 block" onClick={() => setMobileOpen(false)}>
+                                Pricing
                             </Link>
                         </div>
                         {navData.map(menu => (
