@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Check, ArrowRight, Layers, ShieldCheck, Activity, Cpu } from "lucide-react";
-import Footer from "@/components/shared/Footer";
+import { Footer } from "@/components/shared/Footer";
 import { Navigation } from "@/components/shared/Navigation";
 
 export const metadata = {
