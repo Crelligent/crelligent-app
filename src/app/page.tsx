@@ -1,3 +1,4 @@
+﻿import { AgenticComparison } from '@/components/landing/AgenticComparison';
 import Link from 'next/link'
 import Image from 'next/image'
 import { Navigation } from '@/components/shared/Navigation'
@@ -375,7 +376,8 @@ export default function LandingPage() {
       <ESRESection />
 
       {/* Client Portal Showcase */}
-      <ClientPortalShowcase />
+      <AgenticComparison />
+        <ClientPortalShowcase />
 
       {/* ESRE AI Intelligence Engine Showcase */}
       <EsreIntelligenceShowcase />
@@ -684,3 +686,5 @@ export default function LandingPage() {
     </div >
   )
 }
+
+

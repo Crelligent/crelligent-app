@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { BrainCircuit, FileSearch, Library, Activity, Sparkles, Zap, Network, ShieldCheck } from 'lucide-react'
@@ -41,7 +41,7 @@ export function EsreIntelligenceShowcase() {
                 </motion.div>
 
                 <p className="text-lg text-white/50 font-[200] leading-relaxed mb-16">
-                    Every ESRE OS installation generates structured intelligence — layer-by-layer diagnostic data, post-installation OS performance trajectories, and real-time operational telemetry from PRISM and the CEM network. This intelligence feeds the ESRE AI Engine, which trains its models on this growing dataset and improves diagnostic accuracy, blueprint precision, and drift prediction with every installation. The ESRE AI Engine does not operate independently. It is the intelligence layer of the ESRE OS — trained on OS installations, improving OS diagnostics, and continuously monitoring installed OS performance.
+                    Every ESRE OS installation generates structured intelligence — layer-by-layer diagnostic data, post-installation OS performance trajectories, and real-time operational telemetry from PRISM and the CEM network. This intelligence feeds the ESRE AI Engine, which trains its models on this growing dataset and improves diagnostic accuracy, blueprint precision, and drift prediction with every installation. The ESRE AI Engine does not operate independently. It is the intelligence layer of the ESRE OS — trained on OS installations, improving OS diagnostics, and continuously monitoring installed OS performance.<br/><br/><span className="text-white font-medium">ESRE AI recommends. With Agentic ESRE OS, it can also act, only within the limits you set.</span>
                 </p>
 
                 {/* The 4 Modules Visualization */}
@@ -157,3 +157,4 @@ export function EsreIntelligenceShowcase() {
         </section>
     )
 }
+
