@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/enterprise',
         '/pricing',
         '/onboarding',
+        '/tools/esre-os-score',
         '/templates',
         '/research/aehi',
         '/problems',
