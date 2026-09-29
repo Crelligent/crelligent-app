@@ -4,6 +4,7 @@ import { aehiReports } from '@/data/research'
 import { problems } from '@/data/problems'
 import { industries } from '@/data/industries'
 import { caseStudies } from '@/data/case-studies'
+import { insights } from '@/data/insights'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.crelligent.com'
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/problems',
         '/industries',
         '/case-studies',
+        '/insights',
         '/esre-os/methodology',
         '/esre-os/architecture',
         '/esre-os/layers',
@@ -85,5 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }))
 
-    return [...coreRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes]
+    const insightRoutes = insights.map((a) => ({
+        url: `${baseUrl}/insights/${a.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+    }))
+
+    return [...coreRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
 }
