@@ -7,8 +7,8 @@ export function AgenticComparison() {
     <section className="py-24 px-6 max-w-6xl mx-auto font-outfit border-t border-white/10">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Choose how your ESRE OS runs</h2>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          Every enterprise needs an operating system. You choose who executes the actions on it.
+        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          Crelligent engineers the operating system, and you choose how it runs. We deploy our proprietary ESRE AI Engine as governed agents to actively manage, route, and monitor your enterprise architecture.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export function AgenticComparison() {
             <Zap className="w-6 h-6" /> Agentic ESRE OS
           </h3>
           <p className="text-gray-400 mb-6 min-h-[80px]">
-            Everything in ESRE OS, plus governed AI agents that carry out approved actions on your operating system. Agents propose. You approve, or pre-approve within limits you set in your Governance Matrix. Every action is logged.
+            Crelligent deploys Agentic AI directly into your ESRE OS. Our agents actively monitor the Sensing Layer (L4), draft remediation tasks when drift occurs, and automate workflows in your L2 Scheduler. The ESRE AI Engine proposes actions; you approve them within the limits of your Governance Matrix.
           </p>
           
           <div className="bg-black/30 border border-white/5 rounded-xl p-5 mb-8">
