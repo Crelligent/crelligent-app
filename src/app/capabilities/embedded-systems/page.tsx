@@ -3,10 +3,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Cpu, Zap, Shield, Radio } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/embedded-systems',
+
     title: 'Embedded Systems | Crelligent',
     description: 'Mission-critical contexts requiring engineering depth and precision.',
-}
+})
 
 export default function EmbeddedSystemsPage() {
     return (

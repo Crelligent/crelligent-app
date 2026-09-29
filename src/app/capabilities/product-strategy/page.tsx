@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Compass, Map, Clock, Scale } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/product-strategy',
+
     title: 'Product Strategy | Crelligent',
     description: 'Engineer deliberate, phased capability growth aligned to business goals.',
-}
+})
 
 const keyQuestions = [
     'How must this system evolve over time?',

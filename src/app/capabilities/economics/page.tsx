@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, TrendingUp, DollarSign, Target, BarChart3 } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/economics',
+
     title: 'Economics & Value Engineering | Crelligent',
     description: 'Connect system design to measurable value creation.',
-}
+})
 
 const keyQuestions = [
     'How does the system create and capture value?',

@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Brain, Database, LineChart, Repeat } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/data-intelligence',
+
     title: 'Data & Intelligence | Crelligent',
     description: 'Enable system sensing, learning, and insight generation for decision-making.',
-}
+})
 
 const keyQuestions = [
     'What data signals matter most?',

@@ -43,7 +43,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://crelligent.com"),
+  metadataBase: new URL("https://www.crelligent.com"),
   title: {
     default: "Crelligent | ESRE OS — The Enterprise Operating System for Africa",
     template: "%s | Crelligent",
@@ -64,16 +64,14 @@ export const metadata: Metadata = {
     "Nigerian mid-market consulting",
     "Crelligent Lagos",
   ],
-  authors: [{ name: "Crelligent", url: "https://crelligent.com" }],
+  authors: [{ name: "Crelligent", url: "https://www.crelligent.com" }],
   creator: "Crelligent",
   publisher: "Crelligent",
-  alternates: {
-    canonical: "/",
-  },
+  
   openGraph: {
     title: "Crelligent | ESRE OS — Enterprise Operating System",
     description: "Crelligent installs and maintains ESRE OS — the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
-    url: "https://crelligent.com",
+    url: "https://www.crelligent.com",
     siteName: "Crelligent",
     images: [
       {
@@ -115,9 +113,9 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://crelligent.com/#organization",
+      "@id": "https://www.crelligent.com/#organization",
       name: "Crelligent",
-      url: "https://crelligent.com",
+      url: "https://www.crelligent.com",
       logo: "https://crelligent.com/logo.png",
       description: "Crelligent installs and maintains ESRE OS — the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
       sameAs: [
@@ -129,10 +127,10 @@ const jsonLd = {
       "@type": "ProfessionalService",
       "@id": "https://crelligent.com/#service",
       name: "Crelligent",
-      url: "https://crelligent.com",
+      url: "https://www.crelligent.com",
       description: "Crelligent installs and maintains ESRE OS — the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
       provider: {
-        "@id": "https://crelligent.com/#organization",
+        "@id": "https://www.crelligent.com/#organization",
       },
       serviceType: [
         "Systems Architecture",
@@ -145,12 +143,12 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://crelligent.com/#website",
-      url: "https://crelligent.com",
+      "@id": "https://www.crelligent.com/#website",
+      url: "https://www.crelligent.com",
       name: "Crelligent",
       description: "Crelligent installs and maintains ESRE OS — the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
       publisher: {
-        "@id": "https://crelligent.com/#organization",
+        "@id": "https://www.crelligent.com/#organization",
       },
     },
   ],

@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Repeat, Users, Lightbulb, Target } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/change-adoption',
+
     title: 'Change, Adoption & Behavior | Crelligent',
     description: 'Activate the system and embed it into daily behavior.',
-}
+})
 
 const keyQuestions = [
     'How do people adopt this system?',

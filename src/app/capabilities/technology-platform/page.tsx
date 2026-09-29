@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Server, Layers, GitBranch, Shield } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/technology-platform',
+
     title: 'Technology & Platform | Crelligent',
     description: 'Architect technical foundations that support scalability and evolution.',
-}
+})
 
 const keyQuestions = [
     'What architecture best supports system intent?',

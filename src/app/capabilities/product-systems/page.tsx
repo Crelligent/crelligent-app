@@ -3,10 +3,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Box, Cog, GitMerge, Layers, CheckCircle } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/product-systems',
+
     title: 'Product & Software Systems | Crelligent',
     description: 'Products that evolve as capabilities inside a larger system, not isolated features.',
-}
+})
 
 const approaches = [
     {

@@ -36,6 +36,39 @@ const systemComponents = [
     },
 ]
 
+const deliverables = [
+    {
+        icon: Target,
+        title: 'Go-To-Market Strategy',
+        description: 'Comprehensive planning to position your product, reach target audiences, and execute launch strategies.',
+    },
+    {
+        icon: TrendingUp,
+        title: 'Scale-Up Advisory',
+        description: 'Strategic guidance to navigate rapid growth, optimize operations, and prepare for investor due diligence.',
+    },
+    {
+        icon: Zap,
+        title: 'Tech-Stack Integration',
+        description: 'Seamless selection and integration of modern tools, platforms, and architectures to power operations.',
+    },
+    {
+        icon: Rocket,
+        title: 'MVP Engineering',
+        description: 'Rapid design and development of your product to test core hypotheses and gather early user feedback.',
+    },
+    {
+        icon: Brain,
+        title: 'Data & Intelligence',
+        description: 'Implementation of essential telemetry, analytics, and business intelligence to drive decision making.',
+    },
+    {
+        icon: Repeat,
+        title: 'Operational Playbooks',
+        description: 'Standardized processes and workflows engineered for consistency, predictability, and team alignment.',
+    },
+]
+
 const packages = [
     {
         name: 'Starter',
@@ -203,6 +236,29 @@ export default function FoundryPage() {
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </section>
+
+            {/* Core Deliverables */}
+            <section className="py-20 px-6">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="section-label mb-4">Core Deliverables</div>
+                        <h2 className="heading-lg">What You Get</h2>
+                        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+                            Tangible outputs and expert services engineered to move your startup from concept to market dominance.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {deliverables.map((item) => (
+                            <div key={item.title} className="p-6 border border-white/5 rounded-lg hover:border-white/10 transition bg-white/[0.02]">
+                                <item.icon className="w-6 h-6 text-white mb-4" />
+                                <h3 className="text-lg font-light mb-2">{item.title}</h3>
+                                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

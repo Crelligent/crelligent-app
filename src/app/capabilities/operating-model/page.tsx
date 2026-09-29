@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Workflow, GitMerge, Users, Zap } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/operating-model',
+
     title: 'Operating Model & Process | Crelligent',
     description: 'Design how work flows end-to-end with reliability and scalability.',
-}
+})
 
 const keyQuestions = [
     'How does work get done end-to-end?',

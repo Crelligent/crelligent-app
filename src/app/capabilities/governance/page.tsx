@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Shield, Scale, Eye, AlertTriangle } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/governance',
+
     title: 'Governance, Risk & Control | Crelligent',
     description: 'Maintain system stability while preserving adaptability.',
-}
+})
 
 const keyQuestions = [
     'How are decisions made?',

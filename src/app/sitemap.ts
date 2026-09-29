@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://crelligent.com'
+    const baseUrl = 'https://www.crelligent.com'
 
     const routes = [
         // Core pages
@@ -25,7 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/enterprise',
 
         // Platforms
-        'https://velodesk.crelligent.com',
         '/platforms/bisuite',
         '/platforms/marketpulse',
 

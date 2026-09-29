@@ -3,10 +3,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Layers, Target, GitBranch, Shield, Repeat, CheckCircle } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/systems-architecture',
+
     title: 'Systems Architecture & Design | Crelligent',
     description: 'We engineer the foundations organizations rely on—system intent, structure, boundaries, and failure modes.',
-}
+})
 
 const principles = [
     {

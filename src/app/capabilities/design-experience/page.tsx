@@ -3,10 +3,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Palette, Users, Repeat, Eye } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/design-experience',
+
     title: 'Design & Experience | Crelligent',
     description: 'Human feedback loops inside systems—experience as system input.',
-}
+})
 
 export default function DesignExperiencePage() {
     return (

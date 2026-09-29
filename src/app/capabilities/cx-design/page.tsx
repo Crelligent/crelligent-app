@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Users, MapPin, Palette, TestTube } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/cx-design',
+
     title: 'CX / Service Design | Crelligent',
     description: 'Translate system intent into usable, intuitive human experiences.',
-}
+})
 
 const keyQuestions = [
     'How do users experience the system?',

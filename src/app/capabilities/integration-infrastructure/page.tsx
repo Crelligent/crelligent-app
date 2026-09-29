@@ -3,10 +3,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Server, Cloud, Link2, Shield } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/integration-infrastructure',
+
     title: 'Integration & Infrastructure | Crelligent',
     description: 'The execution layer—where systems become operational reality.',
-}
+})
 
 export default function IntegrationInfrastructurePage() {
     return (

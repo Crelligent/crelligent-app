@@ -4,10 +4,14 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, ArrowLeft, Layers, Target, GitBranch, AlertTriangle } from 'lucide-react'
 
-export const metadata = {
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+
+export const metadata = generateSeoMetadata({
+    path: '/capabilities/business-design',
+
     title: 'Business Design | Crelligent',
     description: 'Define system intent, boundaries, and structural logic before execution begins.',
-}
+})
 
 const keyQuestions = [
     'What problem does the system exist to solve?',
