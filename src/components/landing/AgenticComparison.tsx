@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, ShieldAlert, Zap, Lock } from 'lucide-react';
 
@@ -6,9 +6,9 @@ export function AgenticComparison() {
   return (
     <section className="py-24 px-6 max-w-6xl mx-auto font-outfit border-t border-white/10">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Choose how your ESRE OS runs</h2>
+        <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Run your ESRE OS, with Agentic AI</h2>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          Crelligent engineers the operating system, and you choose how it runs. We deploy our proprietary ESRE AI Engine as governed agents to actively manage, route, and monitor your enterprise architecture.
+          Crelligent engineers the operating system. You choose who executes the actions on it—your human team, or Crelligent, with Agentic AI. We deploy our proprietary ESRE AI Engine as governed agents to actively manage, route, and monitor your enterprise architecture.
         </p>
       </div>
 
@@ -37,7 +37,7 @@ export function AgenticComparison() {
           <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/5 to-transparent opacity-50 pointer-events-none" />
           
           <h3 className="text-3xl font-light text-[#22c55e] mb-4 flex items-center gap-3">
-            <Zap className="w-6 h-6" /> Agentic ESRE OS
+            <Zap className="w-6 h-6" /> ESRE OS, with Agentic AI
           </h3>
           <p className="text-gray-400 mb-6 min-h-[80px]">
             Crelligent deploys Agentic AI directly into your ESRE OS. Our agents actively monitor the Sensing Layer (L4), draft remediation tasks when drift occurs, and automate workflows in your L2 Scheduler. The ESRE AI Engine proposes actions; you approve them within the limits of your Governance Matrix.
@@ -111,3 +111,5 @@ export function AgenticComparison() {
     </section>
   );
 }
+
+
