@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -49,7 +49,7 @@ export function AEHISection() {
               {data.constraintPercent}% of enterprises assessed are constrained by their Operating Model —
               not their market, their technology, or their competition. The AEHI is
               the first quarterly benchmark of enterprise OS health across Nigeria
-              and West Africa.
+              and West Africa. Generating the dataset that trains our Agentic AI.
             </p>
 
             {/* Primary constraint callout */}
@@ -145,3 +145,4 @@ export function AEHISection() {
     </section>
   );
 }
+

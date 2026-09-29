@@ -43,7 +43,7 @@ const osCoreCapabilities = [
     layer: 'L2',
     title: 'Operating Model & Process',
     subtitle: 'The Scheduler',
-    description: 'Determines how work flows, who does what, in what sequence, with what resources. When this layer is absent, the founder becomes the scheduler — and the enterprise cannot operate without them.',
+    description: 'Determines how work flows, who does what, in what sequence, with what resources. When this layer is absent, the founder becomes the scheduler — and the enterprise cannot operate without them. Agentic AI can fully automate the L2 Scheduler.',
     href: '/capabilities/operating-model',
     critical: true,
   },
@@ -60,7 +60,7 @@ const osCoreCapabilities = [
     layer: 'L4',
     title: 'Data & Intelligence',
     subtitle: 'Sensing Layer',
-    description: 'Instruments the OS. Generates real-time feedback loops so the enterprise can see itself, detect drift, and adapt. Feeds the ESRE AI Engine.',
+    description: 'Instruments the OS. Generates real-time feedback loops so the enterprise can see itself, detect drift, and adapt. Feeds the ESRE AI Engine. With Agentic AI, L4 actively triggers automated workflows.',
     href: '/capabilities/data-intelligence',
   },
   {
@@ -109,7 +109,7 @@ const platforms = [
   {
     name: 'VeloDesk',
     role: 'Early-Stage System Sensing',
-    description: 'Product validation and PMF scoring for founders ready to prove traction.',
+    description: 'Product validation and PMF scoring for founders ready to prove traction. VeloDesk is ESRE OS Lite, powered by Agentic AI to automate early-stage operations.',
     stage: 'Startups & Founders',
     href: '/platforms/velodesk',
     color: '#22c55e',
@@ -118,7 +118,7 @@ const platforms = [
   {
     name: 'PRISM',
     role: 'ESRE OS Network Layer — Operational Intelligence Platform',
-    description: 'Real-time telemetry ingestion, AI-driven anomaly detection, and systems monitoring. PRISM is the L4 sensing layer of the ESRE OS for operational assets — connecting CEM hardware telemetry to the Data & Intelligence layer and feeding the ESRE AI Engine in real time.',
+    description: 'Real-time telemetry ingestion, AI-driven anomaly detection, and systems monitoring. PRISM is the L4 sensing layer of the ESRE OS for operational assets — connecting CEM hardware telemetry to the Data & Intelligence layer and feeding the ESRE AI Engine in real time. Our Agentic AI actively monitors PRISM to draft remediation tasks the moment drift occurs.',
     stage: 'Enterprise Operations',
     href: 'https://prism.crelligent.com',
     color: '#3b82f6',
@@ -686,5 +686,6 @@ export default function LandingPage() {
     </div >
   )
 }
+
 
 

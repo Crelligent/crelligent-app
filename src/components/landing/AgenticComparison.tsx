@@ -66,7 +66,7 @@ export function AgenticComparison() {
             <tr className="border-b border-white/10 bg-black/40">
               <th className="p-4 text-white font-medium">Capability</th>
               <th className="p-4 text-white font-medium">ESRE OS</th>
-              <th className="p-4 text-[#22c55e] font-medium">Agentic ESRE OS</th>
+              <th className="p-4 font-medium"><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#ec4899]">ESRE OS, with Agentic AI</span></th>
             </tr>
           </thead>
           <tbody className="text-sm text-gray-300">
@@ -111,6 +111,7 @@ export function AgenticComparison() {
     </section>
   );
 }
+
 
 
 
