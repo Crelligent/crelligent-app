@@ -1,34 +1,23 @@
 import { MetadataRoute } from 'next'
+import { templates } from '@/data/templates'
+import { aehiReports } from '@/data/research'
+import { problems } from '@/data/problems'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.crelligent.com'
 
-    const routes = [
-        // Core pages
+    const coreRoutes = [
         '',
         '/focus',
         '/contact',
-
-        // Service tiers
         '/foundry',
         '/intelligent-systems',
-        '/intelligent-systems/its',
-        '/intelligent-systems/ies',
-        '/intelligent-systems/ils',
-        '/intelligent-systems/iis',
-        '/intelligent-systems/ibs',
-        '/intelligent-systems/ihs',
-        '/intelligent-systems/ias',
-        '/intelligent-systems/iss',
-        '/intelligent-systems/irs',
-        '/intelligent-systems/ifis',
         '/enterprise',
-
-        // Platforms
-        '/platforms/bisuite',
-        '/platforms/marketpulse',
-
-        // Capabilities
+        '/pricing',
+        '/onboarding',
+        '/templates',
+        '/research/aehi',
+        '/problems',
         '/capabilities/business-design',
         '/capabilities/product-strategy',
         '/capabilities/product-systems',
@@ -50,5 +39,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : route.startsWith('/capabilities') ? 0.8 : 0.9,
     }))
 
-    return routes
+    const templateRoutes = templates.map((t) => ({
+        url: `${baseUrl}/templates/${t.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }))
+
+    const researchRoutes = aehiReports.map((r) => ({
+        url: `${baseUrl}/research/aehi/${r.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }))
+
+    const problemRoutes = problems.map((p) => ({
+        url: `${baseUrl}/problems/${p.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }))
+
+    return [...coreRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes]
 }
