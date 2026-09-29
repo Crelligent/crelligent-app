@@ -6,7 +6,7 @@ export function AgenticComparison() {
   return (
     <section className="py-24 px-6 max-w-6xl mx-auto font-outfit border-t border-white/10">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Run your ESRE OS, with Agentic AI</h2>
+        <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Run your ESRE OS, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#ec4899] font-[400]">with Agentic AI</span></h2>
         <p className="text-xl text-gray-400 max-w-3xl mx-auto">
           Crelligent engineers the operating system. You choose who executes the actions on it—your human team, or Crelligent, with Agentic AI. We deploy our proprietary ESRE AI Engine as governed agents to actively manage, route, and monitor your enterprise architecture.
         </p>
@@ -111,5 +111,6 @@ export function AgenticComparison() {
     </section>
   );
 }
+
 
 
