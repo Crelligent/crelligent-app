@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { templates } from '@/data/templates'
 import { aehiReports } from '@/data/research'
 import { problems } from '@/data/problems'
+import { industries } from '@/data/industries'
+import { caseStudies } from '@/data/case-studies'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.crelligent.com'
@@ -22,6 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/templates',
         '/research/aehi',
         '/problems',
+        '/industries',
+        '/case-studies',
+        '/esre-os/methodology',
+        '/esre-os/architecture',
+        '/esre-os/layers',
         '/capabilities/business-design',
         '/capabilities/product-strategy',
         '/capabilities/product-systems',
@@ -63,6 +70,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly' as const,
         priority: 0.8,
     }))
+    
+    const industryRoutes = industries.map((i) => ({
+        url: `${baseUrl}/industries/${i.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }))
 
-    return [...coreRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes]
+    const caseRoutes = caseStudies.map((cs) => ({
+        url: `${baseUrl}/case-studies/${cs.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }))
+
+    return [...coreRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes]
 }
