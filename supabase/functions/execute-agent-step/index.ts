@@ -34,7 +34,7 @@ export default {
     // 4. Mark the step as complete in the DAG
     // We call our Next.js backend API (/api/l2/complete-step) using the secret key
     const backendUrl = Deno.env.get('NEXT_PUBLIC_APP_URL') || 'http://host.docker.internal:3000'
-    const secretKey = Deno.env.get('SUPABASE_SECRET_KEY')!
+    const secretKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 
     const completeRes = await fetch(`${backendUrl}/api/l2/complete-step`, {
       method: 'POST',
@@ -54,3 +54,4 @@ export default {
     return Response.json({ success: true, ai_output: simulated_ai_output, next_step: completeData })
   })
 }
+
