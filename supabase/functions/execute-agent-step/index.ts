@@ -1,8 +1,5 @@
 import { withSupabase } from 'npm:@supabase/server'
 
-// Note: Ensure verify_jwt = false in supabase/config.toml for this function
-// so it can be called by the pg_net database webhook
-
 export default {
   fetch: withSupabase({ auth: 'none' }, async (req, ctx) => {
     // 1. Parse the incoming webhook payload from the database trigger
@@ -19,20 +16,59 @@ export default {
       return Response.json({ error: 'Execution not found' }, { status: 404 })
     }
 
-    // 3. WAKE UP THE AI BRAIN
-    // Here is where you would take `execution.inputs` and pass it to 
-    // Anthropic (Claude) or OpenAI using their SDK. 
-    // For this boilerplate, we simulate the AI thinking and producing an output:
-    
     console.log(`AI Agent starting work on step: ${execution.l2_workflow_steps?.step_name}`)
-    const simulated_ai_output = {
-      analysis: "Anomaly detected in PRISM telemetry.",
-      action_taken: "Scaled up Edge resources automatically.",
-      confidence: 0.98
+
+    let ai_output = {}
+
+    // 3. WAKE UP THE AI BRAIN (Anthropic Claude)
+    const anthropicKey = Deno.env.get('ANTHROPIC_API_KEY')
+    
+    if (!anthropicKey || anthropicKey === 'your_anthropic_api_key_here') {
+      console.log('No valid Anthropic key found. Falling back to simulated output.')
+      ai_output = {
+        analysis: "Anomaly detected in PRISM telemetry.",
+        action_taken: "Scaled up Edge resources automatically.",
+        confidence: 0.98,
+        note: "This is simulated output because ANTHROPIC_API_KEY was not configured."
+      }
+    } else {
+      console.log('Calling Anthropic API...')
+      try {
+        const aiPrompt = `You are the ESRE OS Intelligence Engine. You are executing an autonomous L2 DAG step.
+Task: ${execution.l2_workflow_steps?.step_name}
+Inputs: ${JSON.stringify(execution.inputs)}
+
+Analyze the inputs and determine the correct mitigation. 
+Return ONLY valid JSON output representing your analysis, proposed actions, and confidence score. Do not wrap it in markdown block quotes, just raw JSON.`
+
+        const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'x-api-key': anthropicKey,
+            'anthropic-version': '2023-06-01',
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            model: 'claude-3-5-sonnet-latest',
+            max_tokens: 1024,
+            messages: [{ role: 'user', content: aiPrompt }]
+          })
+        })
+
+        const anthropicData = await anthropicRes.json()
+        const ai_text = anthropicData.content?.[0]?.text || '{}'
+        
+        try {
+          ai_output = JSON.parse(ai_text.trim())
+        } catch {
+          ai_output = { raw_text: ai_text, parse_error: true }
+        }
+      } catch (err: any) {
+        ai_output = { error: 'Failed to call Anthropic API', details: err.message }
+      }
     }
 
     // 4. Mark the step as complete in the DAG
-    // We call our Next.js backend API (/api/l2/complete-step) using the secret key
     const backendUrl = Deno.env.get('NEXT_PUBLIC_APP_URL') || 'http://host.docker.internal:3000'
     const secretKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 
@@ -45,13 +81,12 @@ export default {
       body: JSON.stringify({
         execution_id: execution.id,
         status: 'completed',
-        outputs: simulated_ai_output
+        outputs: ai_output
       })
     })
 
     const completeData = await completeRes.json()
 
-    return Response.json({ success: true, ai_output: simulated_ai_output, next_step: completeData })
+    return Response.json({ success: true, ai_output, next_step: completeData })
   })
 }
-
