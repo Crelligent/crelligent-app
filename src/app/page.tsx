@@ -146,6 +146,84 @@ export default function LandingPage() {
       {/* ═══ VALUE PROPOSITION ═══ */}
       <ValueProposition />
 
+      {/* Use Case: The Wright Principle */}
+      <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5 relative overflow-hidden">
+        {/* Abstract Background Element */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#ec4899]/5 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+
+            {/* Left: Image Container */}
+            <div className="w-full lg:w-1/2 relative">
+              <div className="aspect-[4/3] rounded-xl overflow-hidden relative group border border-white/10 bg-[#111111]">
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10 duration-700" />
+
+                <img
+                  src="/images/wikiimages-plane-74020_1280.jpg"
+                  alt="Wright Brothers First Flight"
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-[50%] group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                />
+
+                {/* Decorative frame elements */}
+                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#ec4899] shadow-[0_0_10px_rgba(236,72,153,0.3)] z-20 transition-all group-hover:-translate-x-1 group-hover:-translate-y-1" />
+                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.3)] z-20 transition-all group-hover:translate-x-1 group-hover:translate-y-1" />
+              </div>
+            </div>
+
+            {/* Right: Copy */}
+            <div className="w-full lg:w-1/2">
+              <div className="section-label mb-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                Historical Precedent
+              </div>
+
+              <h2 className="text-3xl md:text-5xl font-light leading-tight mb-8 text-white">
+                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] to-[#3b82f6]">Wright</span> Principle.
+              </h2>
+
+              <div className="space-y-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                {/* The Old Way */}
+                <div className="relative rounded-xl overflow-hidden p-[1px] group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#ec4899] via-[#8b5cf6] to-[#3b82f6] opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative bg-[#050505] shadow-2xl p-6 md:p-8 rounded-xl h-full w-full">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#ec4899]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                    <h4 className="text-xs text-white mb-4 uppercase tracking-[0.2em] flex items-center gap-3 opacity-80 font-[300] relative z-10">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#ec4899] shadow-[0_0_10px_rgba(236,72,153,0.8)]" />
+                      The Old Way: Brute Force
+                    </h4>
+                    <p className="text-base md:text-lg text-white font-[200] leading-loose tracking-wide opacity-90 relative z-10">
+                      In 1903, highly-funded competitors tried to achieve flight by bolting bigger engines onto unstable gliders—solving for raw power, but failing entirely at control and integration.
+                    </p>
+                  </div>
+                </div>
+
+                {/* The Systems Approach */}
+                <div className="relative rounded-xl overflow-hidden p-[1px] group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#3b82f6] via-[#8b5cf6] to-[#ec4899] opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative bg-[#050505] shadow-2xl p-6 md:p-8 rounded-xl h-full w-full">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#3b82f6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                    <h4 className="text-xs text-white mb-4 uppercase tracking-[0.2em] flex items-center gap-3 opacity-80 font-[300] relative z-10">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
+                      The Systems Approach
+                    </h4>
+                    <p className="text-base md:text-lg text-white font-[200] leading-loose tracking-wide opacity-90 relative z-10">
+                      The Wright brothers succeeded because they designed the <span className="font-[400]">control system first</span> (3-axis control). They understood that flight wasn&apos;t a power problem; it was an integration problem.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 pt-8 border-t border-white/5">
+                <p className="text-lg text-gray-300 font-light leading-relaxed">
+                  We bring this exact systems-first engineering discipline to modern enterprises. We don&apos;t just build bigger engines; we design the structural balance that allows you to fly without crashing.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ═══ HIGHLIGHTS ═══ */}
       <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5" >
         <div className="max-w-7xl mx-auto">
@@ -389,84 +467,6 @@ export default function LandingPage() {
       <LatestInsights />
       <RecentClientStories />
 
-      {/* Use Case: The Wright Principle */}
-      <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5 relative overflow-hidden">
-        {/* Abstract Background Element */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#ec4899]/5 blur-[120px] rounded-full pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-
-            {/* Left: Image Container */}
-            <div className="w-full lg:w-1/2 relative">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden relative group border border-white/10 bg-[#111111]">
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10 duration-700" />
-
-                <img
-                  src="/images/wikiimages-plane-74020_1280.jpg"
-                  alt="Wright Brothers First Flight"
-                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-[50%] group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                />
-
-                {/* Decorative frame elements */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#ec4899] shadow-[0_0_10px_rgba(236,72,153,0.3)] z-20 transition-all group-hover:-translate-x-1 group-hover:-translate-y-1" />
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.3)] z-20 transition-all group-hover:translate-x-1 group-hover:translate-y-1" />
-              </div>
-            </div>
-
-            {/* Right: Copy */}
-            <div className="w-full lg:w-1/2">
-              <div className="section-label mb-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
-                Historical Precedent
-              </div>
-
-              <h2 className="text-3xl md:text-5xl font-light leading-tight mb-8 text-white">
-                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] to-[#3b82f6]">Wright</span> Principle.
-              </h2>
-
-              <div className="space-y-6" style={{ fontFamily: "'Outfit', sans-serif" }}>
-                {/* The Old Way */}
-                <div className="relative rounded-xl overflow-hidden p-[1px] group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#ec4899] via-[#8b5cf6] to-[#3b82f6] opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-[#050505] shadow-2xl p-6 md:p-8 rounded-xl h-full w-full">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#ec4899]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                    <h4 className="text-xs text-white mb-4 uppercase tracking-[0.2em] flex items-center gap-3 opacity-80 font-[300] relative z-10">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#ec4899] shadow-[0_0_10px_rgba(236,72,153,0.8)]" />
-                      The Old Way: Brute Force
-                    </h4>
-                    <p className="text-base md:text-lg text-white font-[200] leading-loose tracking-wide opacity-90 relative z-10">
-                      In 1903, highly-funded competitors tried to achieve flight by bolting bigger engines onto unstable gliders—solving for raw power, but failing entirely at control and integration.
-                    </p>
-                  </div>
-                </div>
-
-                {/* The Systems Approach */}
-                <div className="relative rounded-xl overflow-hidden p-[1px] group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#3b82f6] via-[#8b5cf6] to-[#ec4899] opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative bg-[#050505] shadow-2xl p-6 md:p-8 rounded-xl h-full w-full">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#3b82f6]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                    <h4 className="text-xs text-white mb-4 uppercase tracking-[0.2em] flex items-center gap-3 opacity-80 font-[300] relative z-10">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.8)]" />
-                      The Systems Approach
-                    </h4>
-                    <p className="text-base md:text-lg text-white font-[200] leading-loose tracking-wide opacity-90 relative z-10">
-                      The Wright brothers succeeded because they designed the <span className="font-[400]">control system first</span> (3-axis control). They understood that flight wasn&apos;t a power problem; it was an integration problem.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-10 pt-8 border-t border-white/5">
-                <p className="text-lg text-gray-300 font-light leading-relaxed">
-                  We bring this exact systems-first engineering discipline to modern enterprises. We don&apos;t just build bigger engines; we design the structural balance that allows you to fly without crashing.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* ═══ CORPORATE ADHERENCE / SYSTEMS IMPACT ═══ */}
       <section className="py-24 px-6 bg-[#050505] border-y border-white/5 relative overflow-hidden">
         {/* Background ambient light */}
@@ -686,6 +686,7 @@ export default function LandingPage() {
     </div >
   )
 }
+
 
 
 
