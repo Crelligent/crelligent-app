@@ -1,4 +1,4 @@
-import { verifyCredentials, createAdminClient } from '@supabase/server/core'
+import { verifyCredentials, createAdminClient, extractCredentials } from '@supabase/server/core'
 import type { SupabaseEnv } from '@supabase/server'
 import { NextResponse } from 'next/server'
 
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
   const env = resolveNextEnv()
 
   // 1. Authenticate the agent using Secret Key auth
-  const { data: auth, error: authError } = await verifyCredentials(req, {
+  const { data: auth, error: authError } = await verifyCredentials(extractCredentials(req), {
     auth: 'secret',
     env
   })
@@ -61,3 +61,4 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ success: true, transaction: data })
 }
+
