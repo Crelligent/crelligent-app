@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { InteractiveAfricaMap } from '@/components/InteractiveAfricaMap'
+import Image from 'next/image'
 
 export function AEHISection() {
   return (
@@ -34,9 +34,49 @@ export function AEHISection() {
           </div>
         </div>
 
-        {/* Right Content - Interactive Africa Map */}
-        <div className="relative flex justify-center items-center h-[550px] lg:h-[700px] w-full">
-          <InteractiveAfricaMap />
+        {/* Right Content - Static Map Image */}
+        <div className="relative flex justify-center items-center h-[500px] lg:h-[600px] w-full">
+          
+          {/* Static Dotted Map Image */}
+          <div className="absolute inset-0 flex justify-center items-center scale-110 opacity-80 mix-blend-screen pointer-events-none">
+            <Image 
+              src="/dotted-map.jpg" 
+              alt="Digital Map" 
+              fill 
+              className="object-contain lg:object-cover mask-image-radial"
+              style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%)' }}
+            />
+          </div>
+
+          {/* Floating Glass Scorecard */}
+          <div className="relative z-20 w-full max-w-sm bg-black/60 backdrop-blur-xl rounded-3xl p-6 border border-white/10 shadow-2xl mt-32 lg:mt-48 lg:ml-auto">
+             <div className="flex justify-between items-center pb-4 border-b border-white/10">
+                <div className="text-gray-300 text-xs uppercase tracking-widest font-[300]">Avg Market Score</div>
+                <div className="text-white text-xl font-[300] tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>64.6<span className="text-[10px] text-gray-400 ml-1">/100</span></div>
+             </div>
+             
+             <div className="space-y-4 pt-4">
+               {[
+                 { layer: 'L1', name: 'Business Design', score: 85 },
+                 { layer: 'L2', name: 'Operating Model', score: 65, alert: true },
+                 { layer: 'L3', name: 'Technology', score: 78 },
+                 { layer: 'L4', name: 'Intelligence', score: 60, alert: true },
+                 { layer: 'L5', name: 'Governance', score: 72 }
+               ].map((l) => (
+                  <div key={l.layer} className="flex justify-between items-center group">
+                    <div className="flex items-center gap-3">
+                       <span className="text-[#ec4899] text-[10px] font-[400] uppercase tracking-widest bg-[#ec4899]/10 px-1.5 py-0.5 rounded">{l.layer}</span>
+                       <span className="text-gray-200 text-sm font-[300] tracking-wide">{l.name}</span>
+                    </div>
+                    <div className="flex items-center gap-3 w-24">
+                       <div className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
+                         <div className={`h-full transition-all duration-1000 ${l.alert ? 'bg-amber-400' : 'bg-[#3b82f6]'}`} style={{ width: `${l.score}%` }} />
+                       </div>
+                    </div>
+                  </div>
+               ))}
+             </div>
+          </div>
         </div>
       </div>
     </section>
