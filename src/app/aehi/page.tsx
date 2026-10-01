@@ -113,7 +113,7 @@ export default async function AehiPage() {
             {[
               { label: 'Enterprises Indexed', value: totalIndexed.toString(), icon: Building2, trend: 'Updated live' },
               { label: 'Average OS Score', value: averageOsScore, icon: Activity, trend: 'Out of 100' },
-              { label: 'Markets Covered', value: '1', icon: Map, trend: 'Nigeria (Live)' }
+              { label: 'Markets Covered', value: '1', icon: MapIcon, trend: 'Nigeria (Live)' }
             ].map((stat, i) => (
               <div key={i} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px] -mr-10 -mt-10 transition-opacity opacity-50 group-hover:opacity-100" />
