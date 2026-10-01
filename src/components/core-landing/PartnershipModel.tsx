@@ -46,12 +46,12 @@ export function PartnershipModel() {
               </div>
               <h3 className="text-xl font-[300] text-white mb-2">Crelligent Core</h3>
               <p className="text-sm text-gray-400 font-[200] leading-relaxed">
-                Our intelligence layer ingests the raw conversational data, structures it, and continually calculates the business Vitals Score.
+                Our intelligence layer ingests the raw conversational data, structures it, and continually calculates the business AEHI Vitals Score.
               </p>
               
               {/* Output arrow badge */}
-              <div className="absolute -right-6 top-1/2 -translate-y-1/2 bg-[#ec4899] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(236,72,153,0.3)]">
-                Vitals Score
+              <div className="absolute -right-6 top-1/2 -translate-y-1/2 bg-[#ec4899] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(236,72,153,0.3)] whitespace-nowrap">
+                AEHI Vitals Score
               </div>
             </div>
 
@@ -89,7 +89,7 @@ export function PartnershipModel() {
               </div>
               <div>
                 <h3 className="text-lg font-[300] text-white mb-1">Crelligent Core</h3>
-                <p className="text-sm text-gray-400 font-[200]">Structures data and generates Vitals Score.</p>
+                <p className="text-sm text-gray-400 font-[200]">Structures data and generates AEHI Vitals Score.</p>
               </div>
            </div>
 

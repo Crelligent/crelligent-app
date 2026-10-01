@@ -240,6 +240,7 @@ const navData: NavMenuData[] = [
             {
                 title: 'Research & Analysis',
                 items: [
+                    { name: 'African Enterprise Health Index (AEHI)', href: '/aehi' },
                     { name: 'Industry Reports', href: '/insights/reports' },
                     { name: 'Whitepapers', href: '/insights/whitepapers' },
                     { name: 'Case Studies', href: '/insights/case-studies' },

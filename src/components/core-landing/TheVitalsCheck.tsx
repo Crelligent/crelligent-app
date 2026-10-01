@@ -21,7 +21,7 @@ export function TheVitalsCheck() {
           className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#3b82f6] to-[#ec4899] hover:opacity-90 text-white font-[300] rounded-full text-[15px] tracking-widest transition-opacity shadow-md group"
           style={{ fontFamily: "'Outfit', sans-serif" }}
         >
-          Take the Free Vitals Check
+          Take the Free AEHI Vitals Check
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

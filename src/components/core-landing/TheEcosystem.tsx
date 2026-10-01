@@ -55,7 +55,7 @@ export function TheEcosystem() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#ec4899] mt-1">•</span>
-                API integration directly to the Vitals Score.
+                API integration directly to the AEHI Vitals Score.
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#ec4899] mt-1">•</span>

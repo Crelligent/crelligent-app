@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function CoreLandingPage() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#3b82f6] selection:text-white">
+    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#3b82f6] selection:text-white pt-24 lg:pt-32">
       <CoreNavigation />
       
       <HeroSection />

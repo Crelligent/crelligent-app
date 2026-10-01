@@ -1,6 +1,37 @@
 import { Activity, RefreshCcw, Vault } from 'lucide-react'
+import { createAdminClient } from '@supabase/server/core'
+import type { SupabaseEnv } from '@supabase/server'
 
-export function TheVitalsScore() {
+function resolveNextEnv(): Partial<SupabaseEnv> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+  const secretKey = process.env.SUPABASE_SECRET_KEY
+  return {
+    url: url ?? undefined,
+    publishableKeys: publishableKey ? { default: publishableKey } : {},
+    secretKeys: secretKey ? { default: secretKey } : {},
+  }
+}
+
+export async function TheVitalsScore() {
+  const env = resolveNextEnv()
+  const supabaseAdmin = createAdminClient({ env })
+
+  const { data: scores } = await supabaseAdmin
+    .from('aehi_vitals_scores')
+    .select('composite_score')
+
+  let averageScore = 742 // fallback
+  if (scores && scores.length > 0) {
+    averageScore = Math.round(scores.reduce((acc, curr) => acc + curr.composite_score, 0) / scores.length)
+  }
+
+  // Calculate SVG stroke dasharray fill
+  // Total circumference is 377. Let's map score (out of 850) to dasharray
+  const percentage = averageScore / 850
+  const dashFill = Math.round(percentage * 377)
+  const dashEmpty = 377 - dashFill
+
   return (
     <section className="py-24 px-6 lg:px-8 bg-[#050505]">
       <div className="max-w-[1200px] mx-auto">
@@ -9,13 +40,13 @@ export function TheVitalsScore() {
           {/* Left Text Content */}
           <div>
             <span className="text-[11px] font-[400] uppercase tracking-[0.2em] text-[#3b82f6] mb-4 block" style={{ fontFamily: "'Outfit', sans-serif" }}>
-              The Vitals Score
+              The AEHI Vitals Score
             </span>
             <h2 className="text-4xl sm:text-[40px] leading-[1.15] font-[300] text-white tracking-tight mb-8" style={{ fontFamily: "'Outfit', sans-serif" }}>
               The new standard for informal creditworthiness.
             </h2>
             <p className="text-lg text-gray-300 font-[200] leading-relaxed mb-10">
-              Traditional credit bureaus look for fixed salaries and formal collateral. The grassroots economy doesn't work that way. The Vitals Score evaluates the true health of an informal business across three critical pillars:
+              Traditional credit bureaus look for fixed salaries and formal collateral. The grassroots economy doesn't work that way. As the informal sector branch of the African Enterprise Health Index (AEHI), the Vitals Score evaluates the true health of a micro-business across three critical pillars:
             </p>
 
             <div className="space-y-8">
@@ -61,14 +92,14 @@ export function TheVitalsScore() {
                 {/* Background Track */}
                 <circle cx="100" cy="100" r="80" fill="none" stroke="#1f2937" strokeWidth="12" strokeDasharray="377 125" />
                 
-                {/* Score Fill (742 / 850 = ~87%) -> 0.87 * 377 = 328 */}
+                {/* Score Fill */}
                 <circle 
                   cx="100" cy="100" r="80" 
                   fill="none" 
                   stroke="url(#gradientScore)" 
                   strokeWidth="12" 
                   strokeLinecap="round" 
-                  strokeDasharray="328 174" 
+                  strokeDasharray={`${dashFill} ${dashEmpty}`} 
                   className="drop-shadow-sm transition-all duration-1000 ease-out" 
                 />
                 
@@ -82,9 +113,9 @@ export function TheVitalsScore() {
 
               {/* Score Text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center pt-8">
-                <span className="text-sm font-[300] text-gray-500 uppercase tracking-widest mb-2" style={{ fontFamily: "'Outfit', sans-serif" }}>Vitals Score</span>
+                <span className="text-sm font-[300] text-gray-500 uppercase tracking-widest mb-2" style={{ fontFamily: "'Outfit', sans-serif" }}>AEHI Vitals Score</span>
                 <div className="flex items-baseline gap-1" style={{ fontFamily: "'Outfit', sans-serif" }}>
-                  <span className="text-6xl font-[300] text-white tracking-tighter">742</span>
+                  <span className="text-6xl font-[300] text-white tracking-tighter">{averageScore}</span>
                   <span className="text-xl text-gray-500 font-[200]">/850</span>
                 </div>
                 <div className="mt-4 px-4 py-1.5 bg-[#22c55e]/10 text-[#22c55e] border border-[#22c55e]/20 rounded-full text-[11px] font-[400] uppercase tracking-widest shadow-[0_0_15px_rgba(34,197,94,0.2)]">
