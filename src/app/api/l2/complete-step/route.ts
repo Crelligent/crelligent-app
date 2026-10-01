@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
 
-  const { execution_id, status, outputs, approver_id } = body // status should be 'completed' or 'failed'
+  let { execution_id, status, outputs, approver_id, latency_ms, tokens_used } = body
 
   if (!execution_id || !status) {
     return NextResponse.json({ error: 'Missing required fields: execution_id, status' }, { status: 400 })
@@ -43,28 +43,79 @@ export async function POST(req: Request) {
 
   const supabaseAdmin = createAdminClient({ env })
 
-  // 3. Mark the current execution as complete
-  const { data: currentExecution, error: updateError } = await supabaseAdmin
+  // 3. Get current execution to check CRD cost
+  const { data: currentExecution, error: fetchError } = await supabaseAdmin
     .from('agent_executions')
-    .update({
-      status,
-      outputs: outputs || {},
-      approver_id,
-      completed_at: new Date().toISOString()
-    })
+    .select('organization_id, workflow_id, step_id, l2_workflow_steps (step_order, cost_crd)')
     .eq('id', execution_id)
-    .select('organization_id, workflow_id, step_id, l2_workflow_steps (step_order)')
     .single()
 
-  if (updateError || !currentExecution) {
+  if (fetchError || !currentExecution) {
+    return NextResponse.json({ error: 'Failed to fetch execution' }, { status: 500 })
+  }
+
+  const costCrd = (currentExecution.l2_workflow_steps as any).cost_crd || 0
+  let insufficientFunds = false
+
+  if (status === 'completed' && costCrd > 0) {
+    // CRD deduction
+    const { data: account, error: accountError } = await supabaseAdmin
+      .from('crd_accounts')
+      .select('id, balance')
+      .eq('organization_id', currentExecution.organization_id)
+      .single()
+
+    if (accountError || !account || account.balance < costCrd) {
+      status = 'failed'
+      insufficientFunds = true
+    } else {
+      const newBalance = account.balance - costCrd
+      await supabaseAdmin
+        .from('crd_accounts')
+        .update({ balance: newBalance })
+        .eq('id', account.id)
+    }
+  }
+
+  const updatePayload: any = {
+    status,
+    outputs: outputs || {},
+    approver_id,
+    completed_at: new Date().toISOString()
+  }
+
+  if (latency_ms !== undefined) updatePayload.latency_ms = latency_ms
+  if (tokens_used !== undefined) updatePayload.tokens_used = tokens_used
+  if (insufficientFunds) {
+    updatePayload.last_error = { details: 'Insufficient CRD balance' }
+  }
+
+  // 4. Mark the current execution as complete
+  const { error: updateError } = await supabaseAdmin
+    .from('agent_executions')
+    .update(updatePayload)
+    .eq('id', execution_id)
+
+  if (updateError) {
     return NextResponse.json({ error: 'Failed to update execution log' }, { status: 500 })
   }
 
+  // Write observability log
+  await supabaseAdmin.from('agent_execution_logs').insert({
+    execution_id,
+    event: status,
+    details: {
+      latency_ms,
+      tokens_used,
+      error: insufficientFunds ? 'Insufficient CRD balance' : undefined
+    }
+  })
+
   if (status !== 'completed') {
-    return NextResponse.json({ success: true, message: 'Workflow halted due to failure or rejection' })
+    return NextResponse.json({ success: true, message: insufficientFunds ? 'Workflow failed due to Insufficient CRD balance' : 'Workflow halted due to failure or rejection' })
   }
 
-  // 4. Find the NEXT step in the DAG (step_order + 1)
+  // 5. Find the NEXT step in the DAG (step_order + 1)
   const currentOrder = (currentExecution.l2_workflow_steps as any).step_order
   const { data: nextStep, error: nextStepError } = await supabaseAdmin
     .from('l2_workflow_steps')
@@ -78,7 +129,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, message: 'Workflow completed successfully' })
   }
 
-  // 5. Initialize the next step
+  // 6. Initialize the next step
   const { data: newExecution, error: newExecutionError } = await supabaseAdmin
     .from('agent_executions')
     .insert({
@@ -102,4 +153,3 @@ export async function POST(req: Request) {
     next_step: nextStep 
   })
 }
-

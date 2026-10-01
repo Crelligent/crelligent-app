@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
 
-  const { organization_id, trigger_event, initial_inputs } = body
+  const { organization_id, trigger_event, initial_inputs, idempotency_key } = body
 
   if (!organization_id || !trigger_event) {
     return NextResponse.json({ error: 'Missing required fields: organization_id, trigger_event' }, { status: 400 })
@@ -59,7 +59,7 @@ export async function POST(req: Request) {
   // 4. Find the first step (step_order = 1)
   const { data: firstStep, error: stepError } = await supabaseAdmin
     .from('l2_workflow_steps')
-    .select('id, step_name, execution_type, timeout_seconds')
+    .select('id, step_name, execution_type, timeout_seconds, cost_crd')
     .eq('workflow_id', workflow.id)
     .eq('step_order', 1)
     .single()
@@ -68,22 +68,51 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Workflow has no configured steps' }, { status: 500 })
   }
 
+  // Fetch org rate limits for approval gate
+  const { data: orgLimits } = await supabaseAdmin
+    .from('org_rate_limits')
+    .select('require_approval_above_crd')
+    .eq('organization_id', organization_id)
+    .single()
+
+  let status = firstStep.execution_type === 'human_approval' ? 'awaiting_approval' : 'pending'
+  
+  if (orgLimits?.require_approval_above_crd !== undefined && orgLimits?.require_approval_above_crd !== null) {
+    if ((firstStep.cost_crd || 0) > orgLimits.require_approval_above_crd) {
+      status = 'awaiting_approval'
+    }
+  }
+
   // 5. Initialize the execution log for the first step
+  const insertData: any = {
+    organization_id,
+    workflow_id: workflow.id,
+    step_id: firstStep.id,
+    status,
+    inputs: initial_inputs || {},
+    cost_crd: firstStep.cost_crd || 0
+  }
+
+  if (idempotency_key) {
+    insertData.idempotency_key = idempotency_key
+  }
+
   const { data: execution, error: executionError } = await supabaseAdmin
     .from('agent_executions')
-    .insert({
-      organization_id,
-      workflow_id: workflow.id,
-      step_id: firstStep.id,
-      status: firstStep.execution_type === 'human_approval' ? 'awaiting_approval' : 'pending',
-      inputs: initial_inputs || {}
-    })
+    .insert(insertData)
     .select()
     .single()
 
   if (executionError) {
     return NextResponse.json({ error: executionError.message }, { status: 500 })
   }
+
+  // Write observability log
+  await supabaseAdmin.from('agent_execution_logs').insert({
+    execution_id: execution.id,
+    event: 'started',
+    details: { trigger_event, initial_inputs }
+  })
 
   // NOTE: If execution_type == 'agent', this is where we would trigger an event or queue a background job for the AI to pick it up!
   
@@ -94,4 +123,5 @@ export async function POST(req: Request) {
     next_step: firstStep 
   })
 }
+
 
