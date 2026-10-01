@@ -1,6 +1,6 @@
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
-import { Activity, BarChart3, Database, Layers, Shield, Workflow, TrendingUp, Building2, Map, AlertTriangle, Lightbulb, ChevronRight, CheckCircle2 } from 'lucide-react'
+import { Activity, BarChart3, Database, Layers, Shield, Workflow, TrendingUp, Building2, Map as MapIcon, AlertTriangle, Lightbulb, ChevronRight, CheckCircle2 } from 'lucide-react'
 import Link from 'next/link'
 import { createAdminClient } from '@supabase/server/core'
 import type { SupabaseEnv } from '@supabase/server'
