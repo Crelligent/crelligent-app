@@ -15,6 +15,7 @@ const footerLinks = {
     ],
     platforms: [
         { name: 'PRISM', href: 'https://prism.crelligent.com' },
+        { name: 'Telemetry Benchmarks', href: '/telemetry' },
     ],
     company: [
         { name: 'About', href: '/about' },
