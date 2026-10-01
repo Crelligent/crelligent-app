@@ -30,19 +30,22 @@ An adaptation of our systems for the informal and grassroots economy in Africa. 
 - **PRISM:** The L4 sensing network layer for operational assets (fleet movements, energy usage, transactions).
 - **CEM (Crelligent Edge Module):** The physical IoT infrastructure layer that feeds telemetry data into PRISM.
 
-## Common Questions & Answers
+## Buyer Questions & Answers
 
 **What is an enterprise operating system?**
-Just as a computer cannot run applications without an OS, a growing enterprise cannot execute strategy reliably without an enterprise OS. It is the connective tissue between strategy, technology, operations, and data, ensuring the organization runs systematically rather than relying on founder heroics.
+Just as a computer cannot run applications without an OS, a growing enterprise cannot execute strategy reliably without an enterprise OS. It is the connective tissue between strategy, technology, operations, and data.
 
-**Why do African mid-market companies need ESRE OS?**
-In African markets, companies often scale through sheer force of will by the founder. When complexity increases, the lack of an L2 (Operating Model / Scheduler) means the founder becomes the bottleneck. ESRE OS institutionalizes the processes, allowing the business to scale predictably and survive transitions.
+**How does an enterprise operating system improve mid-market operational efficiency in Africa?**
+In African markets, mid-market companies often scale through the sheer force of will by founders. An enterprise operating system (like ESRE OS) improves efficiency by institutionalizing the "Scheduler" layer (L2). It removes the founder as the operational bottleneck, automates resource allocation, establishes clear governance protocols, and provides real-time performance diagnostics.
 
-**How does Crelligent evaluate enterprise health?**
-Through the African Enterprise Health Index (AEHI), which generates a two-tier ESRE OS Performance Score: 70% weighted on the OS Core (L1-L5) and 30% weighted on the Application Runtime (Product, Economics, CX, Change).
+**What are the key capability layers required in an African mid-market digital operating system?**
+An effective digital operating system requires a 5-layer core architecture. This includes L1 Business Design (The Kernel), L2 Operating Model (The Scheduler) to manage workflows, L3 Technology & Platform (Infrastructure Layer), L4 Data & Intelligence (Sensing Layer) for feedback loops, and L5 Governance & Risk (Security Layer) to enforce control policies.
 
-**What is the ESRE AI Engine?**
-It is the intelligence layer of the ESRE OS. It is trained on structured diagnostic data and live telemetry from installed OS environments (via PRISM) to improve blueprint precision, detect operational drift, and prescribe corrective actions.
+**What is included in a startup-as-a-service system architecture deployment?**
+Our startup-as-a-service deployment, delivered through Crelligent Foundry via VeloDesk, provides an ESRE OS Lite installation. It includes a validated L1 Business Design blueprint, a lightweight L2 Operating Model mapped to your early team, and pre-configured L3 Technology integrations, calibrated specifically for early-stage companies to ensure operational stability ahead of institutional investment.
+
+**How do enterprise operating systems integrate operational telemetry with management dashboards?**
+Our systems utilize PRISM—our proprietary L4 sensing network layer—to ingest raw operational telemetry (such as fleet movements, transaction logs, and energy usage) from physical Crelligent Edge Modules (CEM). This telemetry is securely streamed into the ESRE OS Database and visualized in real-time on the ESRE OS Dashboard, giving executives an objective, unified command layer to detect drift.
 
 ## Contact & Links
 - Main Website: https://crelligent.com

@@ -20,12 +20,12 @@ export default function FAQPage() {
           a: "Just as a computer cannot run applications without a foundational OS (like Windows or macOS), a growing enterprise cannot execute strategy reliably without an enterprise OS. It is the connective tissue between strategy, technology, operations, and data. Without it, companies rely on individual heroics rather than systemic processes."
         },
         {
-          q: "Why do African mid-market companies specifically need ESRE OS?",
-          a: "In African markets, companies often scale through sheer force of will by the founder or a few key executives. As complexity increases, the lack of an L2 (Operating Model / Scheduler) means these key individuals become the bottleneck. ESRE OS institutionalizes the processes, allowing the business to scale predictably, monitor its own health, and survive transitions."
+          q: "What are the key capability layers required in an African mid-market digital operating system?",
+          a: "An effective African mid-market digital operating system requires a 5-layer core architecture. This includes L1 Business Design (The Kernel) to define structural boundaries, L2 Operating Model (The Scheduler) to manage workflows, L3 Technology & Platform (Infrastructure Layer) to host integrations, L4 Data & Intelligence (Sensing Layer) for feedback loops, and L5 Governance & Risk (Security Layer) to enforce control policies."
         },
         {
-          q: "What are the 5 layers of the ESRE OS Core?",
-          a: "The OS Core consists of: L1 Business Design (The Kernel), L2 Operating Model (The Scheduler), L3 Technology & Platform (Infrastructure), L4 Data & Intelligence (Sensing Layer), and L5 Governance & Risk (Security Layer)."
+          q: "How does an enterprise operating system improve mid-market operational efficiency in Africa?",
+          a: "In African markets, mid-market companies often scale through the sheer force of will by founders. An enterprise operating system (like ESRE OS) improves efficiency by institutionalizing the 'Scheduler' layer (L2). It removes the founder as the operational bottleneck, automates resource allocation, establishes clear governance protocols, and provides real-time performance diagnostics—allowing the business to scale predictably and execute strategy autonomously."
         }
       ]
     },
@@ -37,8 +37,8 @@ export default function FAQPage() {
           a: "The AEHI is the definitive benchmark for mid-market enterprises across Africa. We evaluate organizations against the 5-layer ESRE OS framework to generate an objective ESRE OS Performance Score (0-100), measuring operational resilience, technology posture, and process maturity."
         },
         {
-          q: "How is the ESRE OS Performance Score calculated?",
-          a: "It is a two-tier weighted score: 70% is weighted on the health and stability of your OS Core (Layers 1-5), and 30% is weighted on your Application Runtime (how well you execute Product Strategy, Economics, CX, and Change Adoption on top of that core)."
+          q: "How do enterprise operating systems integrate operational telemetry with management dashboards?",
+          a: "Our enterprise operating systems utilize PRISM—our proprietary L4 sensing network layer—to ingest raw operational telemetry (such as fleet movements, transaction logs, and energy usage) from Crelligent Edge Modules (CEM). This physical telemetry is securely streamed into the ESRE OS Database and visualized in real-time on the ESRE OS Dashboard, giving executives an objective, unified command layer to detect drift and track the organization's Live Performance Score."
         }
       ]
     },
@@ -46,12 +46,12 @@ export default function FAQPage() {
       category: "Startups & Grassroots",
       questions: [
         {
-          q: "Do you only work with large enterprises?",
-          a: "No. Through Crelligent Foundry, we offer VeloDesk—an ESRE OS Lite installation calibrated specifically for early-stage startups preparing for institutional investment. For the informal and grassroots economy, we provide 'Crelligent Core', featuring WhatsApp-based AI bots (ESRE Vitals Bot) that allow market traders to manage inventory and sales via text."
+          q: "What is included in a startup-as-a-service system architecture deployment?",
+          a: "Our startup-as-a-service deployment, delivered through Crelligent Foundry via VeloDesk, provides an ESRE OS Lite installation. It includes a validated L1 Business Design blueprint, a lightweight L2 Operating Model mapped to your early team, and pre-configured L3 Technology integrations. This foundational architecture is calibrated specifically for early-stage companies to ensure operational stability while preparing for institutional investment."
         },
         {
           q: "What is the ESRE Vitals Bot?",
-          a: "The Vitals Bot is a conversational AI embedded in WhatsApp. It allows informal traders and micro-businesses to record daily sales, track debtors, generate PDF receipts, and receive low-stock alerts without needing to learn complex software or maintain traditional ledgers."
+          a: "The Vitals Bot is a conversational AI embedded in WhatsApp, designed for the grassroots economy. It allows informal traders to record daily sales, track debtors, generate PDF receipts, and receive low-stock alerts purely via text or voice notes, without needing complex software."
         }
       ]
     }
