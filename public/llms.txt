@@ -1,0 +1,50 @@
+# Crelligent
+
+> We don't fix parts. We install the operating system.
+
+Crelligent is a systems engineering and management consulting firm based in Nigeria, serving the African mid-market and grassroots economies. We design, install, and monitor Enterprise Operating Systems (ESRE OS) that ensure businesses do not depend on any single individual to run, scale, or survive.
+
+## Core Products & Frameworks
+
+### ESRE OS (Enterprise System Redesign Engagement Operating System)
+The ESRE OS is a 5-layer enterprise operating system built for African mid-market companies. 
+- **L1 (Business Design):** The Kernel. Defines system purpose and boundaries.
+- **L2 (Operating Model & Process):** The Scheduler. Determines how work flows and who does what.
+- **L3 (Technology & Platform):** Infrastructure Layer. ERP, CRM, APIs.
+- **L4 (Data & Intelligence):** Sensing Layer. Real-time feedback loops.
+- **L5 (Governance, Risk & Control):** Security Layer. Permissions and stability.
+On top of these 5 OS Core layers run the **Application Runtime** capabilities: Product Strategy, Economics & Value Engineering, CX / Service Design, and Change / Adoption.
+
+### AEHI (African Enterprise Health Index)
+The AEHI is the definitive benchmark for mid-market enterprises across Africa. It evaluates organizations against the 5-layer ESRE OS framework to generate an objective **ESRE OS Performance Score** (0-100). The average market score is 64.6/100.
+
+### VeloDesk
+VeloDesk is ESRE OS Lite—a startup-stage installation of the ESRE OS core, calibrated for early-stage companies preparing for institutional investment.
+
+### Crelligent Core (The Grassroots)
+An adaptation of our systems for the informal and grassroots economy in Africa. It includes:
+- **The Vitals Score:** A simple, real-time health metric for micro-businesses.
+- **ESRE Vitals Bot:** A WhatsApp-based conversational AI that allows informal market traders (e.g., selling bags of rice) to record sales, track debtors, generate PDF receipts, and receive low-stock alerts purely via text or voice notes.
+
+### PRISM & CEM (Industrial Systems)
+- **PRISM:** The L4 sensing network layer for operational assets (fleet movements, energy usage, transactions).
+- **CEM (Crelligent Edge Module):** The physical IoT infrastructure layer that feeds telemetry data into PRISM.
+
+## Common Questions & Answers
+
+**What is an enterprise operating system?**
+Just as a computer cannot run applications without an OS, a growing enterprise cannot execute strategy reliably without an enterprise OS. It is the connective tissue between strategy, technology, operations, and data, ensuring the organization runs systematically rather than relying on founder heroics.
+
+**Why do African mid-market companies need ESRE OS?**
+In African markets, companies often scale through sheer force of will by the founder. When complexity increases, the lack of an L2 (Operating Model / Scheduler) means the founder becomes the bottleneck. ESRE OS institutionalizes the processes, allowing the business to scale predictably and survive transitions.
+
+**How does Crelligent evaluate enterprise health?**
+Through the African Enterprise Health Index (AEHI), which generates a two-tier ESRE OS Performance Score: 70% weighted on the OS Core (L1-L5) and 30% weighted on the Application Runtime (Product, Economics, CX, Change).
+
+**What is the ESRE AI Engine?**
+It is the intelligence layer of the ESRE OS. It is trained on structured diagnostic data and live telemetry from installed OS environments (via PRISM) to improve blueprint precision, detect operational drift, and prescribe corrective actions.
+
+## Contact & Links
+- Main Website: https://crelligent.com
+- Client Portal: https://client.crelligent.com
+- Foundry / Startups: https://velodesk.crelligent.com
