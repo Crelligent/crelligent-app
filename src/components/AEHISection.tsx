@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { AEHIAfricaGlobe } from '@/components/AEHIAfricaGlobe'
+import Image from 'next/image'
 
 export function AEHISection() {
   return (
-    <section className="py-32 px-6 relative bg-gradient-to-br from-[#050505] to-[#0a0a0a] border-t border-white/5 overflow-hidden">
+    <section className="py-32 px-6 relative bg-[#050505] border-t border-white/5 overflow-hidden">
       <div className="max-w-[1400px] mx-auto w-full grid lg:grid-cols-2 gap-16 lg:gap-8 items-center relative z-10">
         
         {/* Left Content */}
@@ -34,15 +34,22 @@ export function AEHISection() {
           </div>
         </div>
 
-        {/* Right Content - Africa Digital Globe */}
-        <div className="relative flex justify-center items-center h-[500px] lg:h-[600px]">
-          {/* The Glowing Africa Map */}
-          <div className="absolute inset-0 flex justify-center items-center scale-125 lg:scale-150">
-            <AEHIAfricaGlobe />
+        {/* Right Content - Static Map Image */}
+        <div className="relative flex justify-center items-center h-[500px] lg:h-[600px] w-full">
+          
+          {/* Static Dotted Map Image */}
+          <div className="absolute inset-0 flex justify-center items-center scale-110 opacity-80 mix-blend-screen pointer-events-none">
+            <Image 
+              src="/dotted-map.jpg" 
+              alt="Digital Map" 
+              fill 
+              className="object-contain lg:object-cover mask-image-radial"
+              style={{ WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%)' }}
+            />
           </div>
 
           {/* Floating Glass Scorecard */}
-          <div className="relative z-20 w-full max-w-sm bg-black/40 backdrop-blur-xl rounded-3xl p-6 border border-white/10 shadow-2xl mt-32 lg:mt-48 lg:ml-auto">
+          <div className="relative z-20 w-full max-w-sm bg-black/60 backdrop-blur-xl rounded-3xl p-6 border border-white/10 shadow-2xl mt-32 lg:mt-48 lg:ml-auto">
              <div className="flex justify-between items-center pb-4 border-b border-white/10">
                 <div className="text-gray-300 text-xs uppercase tracking-widest font-[300]">Avg Market Score</div>
                 <div className="text-white text-xl font-[300] tracking-tight" style={{ fontFamily: "'Outfit', sans-serif" }}>64.6<span className="text-[10px] text-gray-400 ml-1">/100</span></div>
