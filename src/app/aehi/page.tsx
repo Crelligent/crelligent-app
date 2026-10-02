@@ -10,6 +10,8 @@ export const metadata = {
   description: 'The definitive operational benchmark for mid-market enterprises across Africa. Compare your ESRE OS performance against sector averages.',
 }
 
+export const dynamic = 'force-dynamic'
+
 function resolveNextEnv(): Partial<SupabaseEnv> {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
