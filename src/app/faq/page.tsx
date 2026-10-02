@@ -112,6 +112,27 @@ export default function FAQPage() {
         </div>
       </main>
 
+      {/* JSON-LD for AI Search Engines & LLMs */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.flatMap(group => 
+              group.questions.map(q => ({
+                "@type": "Question",
+                "name": q.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": q.a
+                }
+              }))
+            )
+          })
+        }}
+      />
+
       <ClientPortalBanner />
       <Footer />
     </div>

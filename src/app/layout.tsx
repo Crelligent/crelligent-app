@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono, Inter, Outfit, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
@@ -162,6 +162,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${outfit.variable} ${plusJakartaSans.variable} ${dmSans.variable} overflow-x-hidden`}>
       <head>
+        <link rel="alternate" type="text/markdown" href="/llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
