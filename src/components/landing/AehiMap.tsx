@@ -60,8 +60,18 @@ export default function AehiMap({
     // @ts-ignore
     const all = feature(topology, topology.objects.countries).features;
 
+    const NON_AFRICAN = new Set([
+      'Yemen', 'Vatican', 'Uzbekistan', 'United Arab Emirates', 'Turkmenistan', 'Turkey', 
+      'Syria', 'Spain', 'Serbia', 'Saudi Arabia', 'San Marino', 'Qatar', 'Portugal', 
+      'Pakistan', 'Oman', 'Montenegro', 'Monaco', 'Malta', 'Macedonia', 'Lebanon', 
+      'Kuwait', 'Kosovo', 'Jordan', 'Italy', 'Israel', 'Palestine', 'Iraq', 'Iran', 
+      'Greece', 'Georgia', 'France', 'N. Cyprus', 'Cyprus', 'Bulgaria', 'Bosnia and Herz.', 
+      'Bahrain', 'Azerbaijan', 'Armenia', 'Andorra', 'Albania', 'Afghanistan', 'Antarctica'
+    ]);
+
     const kept = all.filter((f: any) => {
-      if (f.properties.name === 'Antarctica') return false;
+      const name = f.properties.name;
+      if (NON_AFRICAN.has(name)) return false;
       const [lon, lat] = geoCentroid(f);
       return lon > -30 && lon < 70 && lat > -42 && lat < 45;
     });
