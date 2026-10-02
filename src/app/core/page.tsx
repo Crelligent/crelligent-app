@@ -41,3 +41,6 @@ export default function CoreLandingPage() {
     </main>
   )
 }
+
+export const dynamic = 'force-dynamic'
+
