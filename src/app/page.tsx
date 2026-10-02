@@ -1,4 +1,4 @@
-﻿import { AgenticComparison } from '@/components/landing/AgenticComparison';
+import { AgenticComparison } from '@/components/landing/AgenticComparison';
 import Link from 'next/link'
 import Image from 'next/image'
 import { Navigation } from '@/components/shared/Navigation'
@@ -7,6 +7,8 @@ import { HeroSlider } from '@/components/landing/HeroSlider'
 import { ESRESection } from '@/components/landing/ESRESection'
 import { ClientPortalShowcase } from '@/components/landing/ClientPortalShowcase'
 import { EsreIntelligenceShowcase } from '@/components/landing/EsreIntelligenceShowcase'
+import { EsreOsIntroduction } from '@/components/landing/EsreOsIntroduction'
+import { EsreOsPerformanceScore } from '@/components/landing/EsreOsPerformanceScore'
 import { AEHISection } from '@/components/AEHISection'
 import { LatestInsights } from '@/components/landing/LatestInsights'
 import { RecentClientStories } from '@/components/landing/RecentClientStories'
@@ -451,7 +453,9 @@ export default function LandingPage() {
       </section >
 
       {/* Flagship Engagement: ESRE (Platform) */}
+      <EsreOsIntroduction />
       <ESRESection />
+      <EsreOsPerformanceScore />
 
       {/* Client Portal Showcase */}
       <AgenticComparison />
