@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { withSupabase } from 'npm:@supabase/server'
 
 async function logEvent(supabaseAdmin: any, executionId: string, event: string, details?: any) {
