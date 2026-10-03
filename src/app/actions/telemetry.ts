@@ -1,6 +1,7 @@
 'use server';
 
-import { createAdminClient } from '@/lib/supabase/server/core';
+import { createClient } from '@supabase/supabase-js';
+const createAdminClient = () => createClient(process.env.NEXT_PUBLIC_SUPABASE_URL || '', process.env.SUPABASE_SECRET_KEY || '');
 
 export async function getIndustryStats() {
   try {

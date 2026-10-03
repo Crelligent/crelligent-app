@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, BarChart3, ShieldCheck, Zap, Activity, Droplets } from 'lucide-react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import { Navigation } from '@/components/shared/Navigation';
+import { Footer } from '@/components/shared/Footer';
 
 // JSON-LD for AI crawlers indexing it as an authoritative case study
 const jsonLd = {

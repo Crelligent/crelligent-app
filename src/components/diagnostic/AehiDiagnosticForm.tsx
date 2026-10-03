@@ -128,7 +128,7 @@ export default function AehiDiagnosticForm() {
           </div>
           
           <div className="w-full h-1 bg-white/10 rounded-full mb-10 overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] transition-all duration-300" style={{ width: \`\${((currentQ) / 15) * 100}%\` }} />
+            <div className="h-full bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] transition-all duration-300" style={{ width: `${((currentQ) / 15) * 100}%` }} />
           </div>
 
           <h3 className="text-2xl font-[300] text-white mb-8 leading-snug" style={{ fontFamily: "'Outfit', sans-serif" }}>
@@ -262,8 +262,8 @@ export default function AehiDiagnosticForm() {
                  </div>
                  <div className="w-full h-1.5 bg-black rounded-full overflow-hidden">
                    <div 
-                     className={\`h-full rounded-full \${layer.score <= 10 ? 'bg-red-500' : layer.score <= 20 ? 'bg-amber-400' : 'bg-green-500'}\`} 
-                     style={{ width: \`\${(layer.score / layer.max) * 100}%\` }} 
+                     className={`h-full rounded-full ${layer.score <= 10 ? 'bg-red-500' : layer.score <= 20 ? 'bg-amber-400' : 'bg-green-500'}`} 
+                     style={{ width: `${(layer.score / layer.max) * 100}%` }} 
                    />
                  </div>
                </div>
