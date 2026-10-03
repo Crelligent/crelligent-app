@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono, Inter, Outfit, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
@@ -45,10 +45,10 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.crelligent.com"),
   title: {
-    default: "Crelligent | ESRE OS â€” The Enterprise Operating System for Africa",
+    default: "Crelligent | ESRE OS - Enterprise Operating System for Africa",
     template: "%s | Crelligent",
   },
-  description: "Crelligent installs and maintains ESRE OS â€” the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
+  description: "Crelligent installs and maintains ESRE OS - Enterprise Operating System for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
   keywords: [
     "ESRE OS",
     "enterprise operating system Africa",
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
   publisher: "Crelligent",
   
   openGraph: {
-    title: "Crelligent | ESRE OS â€” Enterprise Operating System",
-    description: "Crelligent installs and maintains ESRE OS â€” the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
+    title: "Crelligent | ESRE OS - Enterprise Operating System",
+    description: "Crelligent installs and maintains ESRE OS - Enterprise Operating System for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
     url: "https://www.crelligent.com",
     siteName: "Crelligent",
     images: [
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Crelligent | ESRE OS â€” Enterprise Operating System",
+        alt: "Crelligent | ESRE OS - Enterprise Operating System",
       },
     ],
     locale: "en_US",
@@ -86,8 +86,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Crelligent | ESRE OS â€” Enterprise Operating System",
-    description: "Crelligent installs and maintains ESRE OS â€” the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
+    title: "Crelligent | ESRE OS - Enterprise Operating System",
+    description: "Crelligent installs and maintains ESRE OS - Enterprise Operating System for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -117,7 +117,7 @@ const jsonLd = {
       name: "Crelligent",
       url: "https://www.crelligent.com",
       logo: "https://crelligent.com/logo.png",
-      description: "Crelligent installs and maintains ESRE OS â€” the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
+      description: "Crelligent installs and maintains ESRE OS - Enterprise Operating System for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
       sameAs: [
         "https://twitter.com/crelligent",
         "https://www.linkedin.com/company/crelligent",
@@ -128,7 +128,7 @@ const jsonLd = {
       "@id": "https://crelligent.com/#service",
       name: "Crelligent",
       url: "https://www.crelligent.com",
-      description: "Crelligent installs and maintains ESRE OS â€” the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
+      description: "Crelligent installs and maintains ESRE OS - Enterprise Operating System for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
       provider: {
         "@id": "https://www.crelligent.com/#organization",
       },
@@ -146,7 +146,7 @@ const jsonLd = {
       "@id": "https://www.crelligent.com/#website",
       url: "https://www.crelligent.com",
       name: "Crelligent",
-      description: "Crelligent installs and maintains ESRE OS â€” the enterprise operating system for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
+      description: "Crelligent installs and maintains ESRE OS - Enterprise Operating System for African mid-market companies. Five capability layers. Continuous monitoring. One OS Performance Score.",
       publisher: {
         "@id": "https://www.crelligent.com/#organization",
       },
@@ -206,4 +206,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </html>
   );
 }
+
 
