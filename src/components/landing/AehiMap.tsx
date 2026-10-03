@@ -4,10 +4,11 @@
  * AehiMap: interactive dark Africa map with pulsing city markers and tooltips.
  */
 
-import { useMemo, useState, useRef } from 'react';
+import { useMemo, useState, useRef, useEffect } from 'react';
 import { geoMercator, geoPath, geoCentroid } from 'd3-geo';
 import { feature } from 'topojson-client';
 import topology from 'world-atlas/countries-50m.json';
+import { getAehiStats } from '@/app/actions/aehi';
 
 const W = 900;
 const H = 900;
@@ -31,7 +32,7 @@ const AEHI_COUNTRY_DATA: Record<string, any> = {
   "Senegal": { score: 61.8, sample: '600', constraint: 'Technology (L3)' },
 };
 
-const getCountryData = (name: string) => {
+const getFallbackData = (name: string) => {
   if (AEHI_COUNTRY_DATA[name]) return AEHI_COUNTRY_DATA[name];
   
   // Deterministic fallback based on country name so data stays consistent
@@ -55,6 +56,22 @@ export default function AehiMap({
 }: any) {
   const containerRef = useRef<HTMLElement>(null);
   const [tooltip, setTooltip] = useState<{ x: number, y: number, name: string, data: any } | null>(null);
+  const [realStats, setRealStats] = useState<Record<string, any>>({});
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      const res = await getAehiStats();
+      if (res.success && res.stats) {
+        setRealStats(res.stats);
+      }
+    };
+    fetchStats();
+  }, []);
+
+  const getCountryData = (name: string) => {
+    if (realStats[name]) return realStats[name];
+    return getFallbackData(name);
+  };
 
   const { countries, projection } = useMemo(() => {
     // @ts-ignore
