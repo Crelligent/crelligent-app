@@ -492,8 +492,15 @@ export function Navigation() {
                     
                 </div>
 
-                {/* Right Placeholder (to perfectly center the middle items) */}
-                <div className="hidden xl:block w-48 flex-shrink-0" />
+                {/* CTA (Right Aligned) */}
+                <div className="hidden xl:flex w-48 flex-shrink-0 justify-end">
+                    <Link 
+                        href="/diagnostic" 
+                        className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-all text-xs font-semibold tracking-widest uppercase border border-white/20 hover:border-white"
+                    >
+                        Run Diagnostic
+                    </Link>
+                </div>
 
                 {/* Mobile Menu Button */}
                 <button
@@ -679,7 +686,9 @@ export function Navigation() {
                             <Link href="/esre-os" className="text-sm font-semibold uppercase tracking-widest text-white hover:text-[#22c55e] mb-4 block" onClick={() => setMobileOpen(false)}>
                                 ESRE OS
                             </Link>
-                            
+                            <Link href="/diagnostic" className="text-sm font-semibold uppercase tracking-widest text-[#ec4899] hover:text-[#f472b6] mb-4 block" onClick={() => setMobileOpen(false)}>
+                                RUN DIAGNOSTIC
+                            </Link>
                         </div>
                         {navData.map(menu => (
                             <div key={menu.id}>

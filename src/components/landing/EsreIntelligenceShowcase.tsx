@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import React from 'react'
 import { BrainCircuit, FileSearch, Library, Activity, Sparkles, Zap, Network, ShieldCheck } from 'lucide-react'
@@ -34,7 +34,7 @@ export function EsreIntelligenceShowcase() {
                     </div>
                     
                     <div className="shrink-0 pb-2">
-                        <Link href="https://client.crelligent.com" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full text-sm font-medium hover:bg-white/90 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                        <Link href="/diagnostic" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full text-sm font-medium hover:bg-white/90 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.15)]">
                             Run ESRE OS Diagnostic
                         </Link>
                     </div>
