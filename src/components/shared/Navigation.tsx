@@ -78,7 +78,7 @@ const navData: NavMenuData[] = [
             {
                 title: 'Specialised Units',
                 items: [
-                    { name: 'Crelligent Edge — Physical Layer & IoT', href: '/edge' },
+                    { name: 'Edge — Physical Layer & IoT', href: '/edge' },
                     { name: 'Foundry — Startup-as-a-Service', href: '/foundry' },
                     { name: 'Core — Informal Economy Intelligence', href: '/core' },
                     { name: 'Enterprise — Scale Transformations', href: '/enterprise' },
