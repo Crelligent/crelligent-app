@@ -80,21 +80,14 @@ const navData: NavMenuData[] = [
                 items: [
                     { name: 'Crelligent Edge — Physical Layer & IoT', href: '/edge' },
                     { name: 'Foundry — Startup-as-a-Service', href: '/foundry' },
+                    { name: 'Core — Informal Economy Intelligence', href: '/core' },
+                    { name: 'Enterprise — Scale Transformations', href: '/enterprise' },
                 ]
             },
             {
                 title: 'Platforms',
                 items: [
                     { name: 'PRISM', desc: 'Operational intelligence', href: 'https://prism.crelligent.com', logo: '/PRISM-logo.png' },
-                ]
-            },
-            {
-                title: 'Specialized Units',
-                items: [
-                    { name: 'Core', desc: 'Informal economy intelligence', href: '/core' },
-                    { name: 'Foundry', desc: 'Startup-as-a-Service', href: '/foundry' },
-                    { name: 'Intelligent Systems', desc: 'Operational IoT & industry intelligence', href: '/intelligent-systems' },
-                    { name: 'Enterprise', desc: 'Scale transformations', href: '/enterprise' },
                 ]
             }
         ]
