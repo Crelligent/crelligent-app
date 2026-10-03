@@ -161,7 +161,7 @@ export default function FoundryPage() {
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22c55e]/10 border border-[#22c55e]/20 rounded-full mb-8">
                         <Sparkles className="w-4 h-4 text-[#22c55e]" />
-                        <span className="text-sm text-[#22c55e]">Startup-as-a-Service</span>
+                        <span className="text-sm text-[#22c55e]">VeloDesk: ESRE OS Lite</span>
                     </div>
 
                     <h1 className="heading-xl mb-6">
@@ -169,11 +169,11 @@ export default function FoundryPage() {
                     </h1>
 
                     <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed mb-4">
-                        We engineer startups as adaptive business systems — not just products — so they validate faster, scale smarter, and survive longer.
+                        Startups don&apos;t need a massive enterprise transformation. They need operational stability before Series A.
                     </p>
 
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
-                        We don&apos;t just support startups. We co-engineer them.
+                        VeloDesk is an exact, lightweight installation of the ESRE OS Core (L1-L3), designed specifically for fast-growing African startups.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -184,6 +184,37 @@ export default function FoundryPage() {
                         <Link href="/contact" className="btn-ghost">
                             Talk to Us
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* VeloDesk Components */}
+            <section className="py-20 px-6 border-t border-white/5">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="section-label mb-4">VeloDesk Components</div>
+                        <h2 className="heading-lg">ESRE OS Lite Installation</h2>
+                        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+                            The core layers of the ESRE Operating System, right-sized for your early stage team.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-6">
+                        <div className="glass-card rounded-lg">
+                            <Target className="w-6 h-6 text-[#22c55e] mb-4" />
+                            <h3 className="text-lg font-light mb-2">Validated L1 Business Design</h3>
+                            <p className="text-sm text-gray-500">Core system intent, business model validation, and value engineering foundations.</p>
+                        </div>
+                        <div className="glass-card rounded-lg">
+                            <Layers className="w-6 h-6 text-[#22c55e] mb-4" />
+                            <h3 className="text-lg font-light mb-2">Lightweight L2 Operating Model</h3>
+                            <p className="text-sm text-gray-500">Processes and playbooks mapped directly to your early team to prevent chaos.</p>
+                        </div>
+                        <div className="glass-card rounded-lg">
+                            <Zap className="w-6 h-6 text-[#22c55e] mb-4" />
+                            <h3 className="text-lg font-light mb-2">Pre-configured L3 Technology</h3>
+                            <p className="text-sm text-gray-500">Essential integrations, data pipelines, and infrastructure to scale without friction.</p>
+                        </div>
                     </div>
                 </div>
             </section>
