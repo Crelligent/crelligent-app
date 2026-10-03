@@ -476,6 +476,9 @@ export function Navigation() {
                     <Link href="/esre-os" className="flex items-center gap-1 text-[13px] font-medium text-gray-300 hover:text-white transition py-2 whitespace-nowrap">
                         ESRE OS
                     </Link>
+                    <Link href="/edge" className="flex items-center gap-1 text-[13px] font-medium text-gray-300 hover:text-white transition py-2 whitespace-nowrap">
+                        Crelligent Edge
+                    </Link>
                     {navData.map((menu) => (
                         <div
                             key={menu.id}
@@ -685,6 +688,9 @@ export function Navigation() {
                         <div>
                             <Link href="/esre-os" className="text-sm font-semibold uppercase tracking-widest text-white hover:text-[#22c55e] mb-4 block" onClick={() => setMobileOpen(false)}>
                                 ESRE OS
+                            </Link>
+                            <Link href="/edge" className="text-sm font-semibold uppercase tracking-widest text-white hover:text-[#f59e0b] mb-4 block" onClick={() => setMobileOpen(false)}>
+                                Crelligent Edge
                             </Link>
                             <Link href="/diagnostic" className="text-sm font-semibold uppercase tracking-widest text-[#ec4899] hover:text-[#f472b6] mb-4 block" onClick={() => setMobileOpen(false)}>
                                 RUN DIAGNOSTIC
