@@ -111,7 +111,7 @@ const platforms = [
   {
     name: 'VeloDesk',
     role: 'Early-Stage System Sensing',
-    description: 'Product validation and PMF scoring for founders ready to prove traction. VeloDesk is ESRE OS Lite, powered by Agentic AI to automate early-stage operations.',
+    description: 'Product validation and PMF scoring for founders ready to prove traction. VeloDesk is an advanced PMF Validation Platform, powered by Agentic AI to help test hypotheses and find traction.',
     stage: 'Startups & Founders',
     href: '/platforms/velodesk',
     color: '#22c55e',

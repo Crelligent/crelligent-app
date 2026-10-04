@@ -161,7 +161,7 @@ export default function FoundryPage() {
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22c55e]/10 border border-[#22c55e]/20 rounded-full mb-8">
                         <Sparkles className="w-4 h-4 text-[#22c55e]" />
-                        <span className="text-sm text-[#22c55e]">VeloDesk: ESRE OS Lite</span>
+                        <span className="text-sm text-[#22c55e]">VeloDesk: PMF Validation Platform</span>
                     </div>
 
                     <h1 className="heading-xl mb-6">
@@ -173,7 +173,7 @@ export default function FoundryPage() {
                     </p>
 
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
-                        VeloDesk is an exact, lightweight installation of the ESRE OS Core (L1-L3), designed specifically for fast-growing African startups.
+                        VeloDesk is an advanced Product-Market Fit (PMF) validation platform, designed specifically for fast-growing African startups to test hypotheses, analyze signals, and scale what works.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -193,9 +193,9 @@ export default function FoundryPage() {
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center mb-16">
                         <div className="section-label mb-4">VeloDesk Components</div>
-                        <h2 className="heading-lg">ESRE OS Lite Installation</h2>
+                        <h2 className="heading-lg">PMF Validation Platform</h2>
                         <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                            The core layers of the ESRE Operating System, right-sized for your early stage team.
+                            The definitive platform for discovering, testing, and scaling Product-Market Fit.
                         </p>
                     </div>
 
