@@ -63,9 +63,9 @@ export default function EsreOsIntroduction() {
             </p>
           </div>
 
-          <div className="pl-6 border-l-4 border-l-transparent bg-gradient-to-b from-blue-500 to-purple-600 bg-clip-border text-2xl md:text-3xl font-medium leading-tight relative">
-            <div className="absolute left-[-4px] top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+          <div className="pl-6 text-2xl md:text-3xl font-medium leading-tight relative">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full" />
+            <span className="text-white">
               Strategy does not fail because the idea is wrong. It fails because the operating system beneath it is broken. We fix the OS.
             </span>
           </div>
