@@ -88,6 +88,7 @@ const navData: NavMenuData[] = [
                 title: 'Platforms',
                 items: [
                     { name: 'PRISM', desc: 'Operational intelligence', href: 'https://prism.crelligent.com', logo: '/PRISM-logo.png' },
+                    { name: 'VeloDesk', desc: 'ESRE OS Lite', href: 'https://velodesk.crelligent.com', logo: '/VeloDesk-logo.png' }
                 ]
             }
         ]
