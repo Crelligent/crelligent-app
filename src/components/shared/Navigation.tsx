@@ -88,7 +88,7 @@ const navData: NavMenuData[] = [
                 title: 'Platforms',
                 items: [
                     { name: 'PRISM', desc: 'Operational intelligence', href: 'https://prism.crelligent.com', logo: '/PRISM-logo.png' },
-                    { name: 'VeloDesk', desc: 'ESRE OS Lite', href: 'https://velodesk.crelligent.com', logo: '/VeloDesk-logo.png' }
+                    { name: 'VeloDesk', desc: 'Startup operations platform', href: 'https://velodesk.crelligent.com', logo: '/VeloDesk-logo.png' }
                 ]
             }
         ]
@@ -640,7 +640,7 @@ export function Navigation() {
                                                     <Link href={item.href} className="flex items-center group hover:pl-2 transition-all">
                                                         {item.logo && (
                                                             <div className="flex items-center justify-center mr-3 shrink-0 mt-0.5">
-                                                                <Image src={item.logo} alt="" width={32} height={32} className="object-contain" />
+                                                                <Image src={item.logo} alt="" width={32} height={32} className="object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity" />
                                                             </div>
                                                         )}
                                                         <div className="flex flex-col">
