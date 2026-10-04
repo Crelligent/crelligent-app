@@ -46,8 +46,8 @@ export default function FAQPage() {
       category: "Startups & Grassroots",
       questions: [
         {
-          q: "What is included in a startup-as-a-service system architecture deployment?",
-          a: "Our startup-as-a-service deployment, delivered through Crelligent Foundry and validated via VeloDesk (our PMF Validation Platform), provides an essential operating system baseline. It includes a validated L1 Business Design blueprint, a lightweight L2 Operating Model mapped to your early team, and pre-configured L3 Technology integrations. This foundational architecture is calibrated specifically for early-stage companies to ensure operational stability while preparing for institutional investment."
+          q: "What is included in an ESRE OS Lite deployment\?",
+          a: "An ESRE OS Lite deployment, delivered through Crelligent Foundry and validated via VeloDesk (our PMF Validation Platform), provides an essential operating system baseline. It includes a validated L1 Business Design blueprint, a lightweight L2 Operating Model mapped to your early team, and pre-configured L3 Technology integrations. This foundational architecture is calibrated specifically for early-stage companies to ensure operational stability while preparing for institutional investment."
         },
         {
           q: "What is the ESRE Vitals Bot?",

@@ -620,7 +620,7 @@ export default function LandingPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-[#22c55e] to-[#8b5cf6] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative bg-[#050505] rounded-xl p-10 h-full z-10 w-full overflow-hidden text-left flex flex-col items-start justify-start">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#22c55e]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                <div className="text-[11px] uppercase tracking-[0.2em] text-[#22c55e] mb-4 relative z-10">For Startups</div>
+                <div className="text-[11px] uppercase tracking-[0.2em] text-[#22c55e] mb-4 relative z-10">ESRE OS Lite</div>
                 <h3 className="text-3xl font-[300] tracking-wide text-white mb-4 relative z-10">Crelligent Foundry</h3>
                 <p className="text-[15px] text-white font-[200] leading-loose opacity-80 mb-8 relative z-10">
                   You&apos;re building something new. We help you design foundations that scale—before complexity exposes weakness. From validation to architecture.

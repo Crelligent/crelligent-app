@@ -4,7 +4,7 @@ import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, Sparkles, Layers, Rocket, Target, CheckCircle, Zap, Brain, Users, Shield, TrendingUp, Repeat } from 'lucide-react'
 
 export const metadata = {
-    title: 'Crelligent Foundry | Startup-as-a-Service',
+    title: 'Crelligent Foundry | ESRE OS Lite',
     description: 'We engineer startups as adaptive business systems — not just products — so they validate faster, scale smarter, and survive longer.',
 }
 

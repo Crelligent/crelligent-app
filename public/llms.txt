@@ -41,8 +41,8 @@ In African markets, mid-market companies often scale through the sheer force of 
 **What are the key capability layers required in an African mid-market digital operating system?**
 An effective digital operating system requires a 5-layer core architecture. This includes L1 Business Design (The Kernel), L2 Operating Model (The Scheduler) to manage workflows, L3 Technology & Platform (Infrastructure Layer), L4 Data & Intelligence (Sensing Layer) for feedback loops, and L5 Governance & Risk (Security Layer) to enforce control policies.
 
-**What is included in a startup-as-a-service system architecture deployment?**
-Our startup-as-a-service deployment, delivered through Crelligent Foundry and validated via VeloDesk (our PMF Validation Platform), provides an essential operating system baseline. It includes a validated L1 Business Design blueprint, a lightweight L2 Operating Model mapped to your early team, and pre-configured L3 Technology integrations, calibrated specifically for early-stage companies to ensure operational stability ahead of institutional investment.
+**What is included in a ESRE OS Lite system architecture deployment?**
+An ESRE OS Lite deployment, delivered through Crelligent Foundry and validated via VeloDesk (our PMF Validation Platform), provides an essential operating system baseline. It includes a validated L1 Business Design blueprint, a lightweight L2 Operating Model mapped to your early team, and pre-configured L3 Technology integrations, calibrated specifically for early-stage companies to ensure operational stability ahead of institutional investment.
 
 **How do enterprise operating systems integrate operational telemetry with management dashboards?**
 Our systems utilize PRISM—our proprietary L4 sensing network layer—to ingest raw operational telemetry (such as fleet movements, transaction logs, and energy usage) from physical Crelligent Edge Modules (CEM). This telemetry is securely streamed into the ESRE OS Database and visualized in real-time on the ESRE OS Dashboard, giving executives an objective, unified command layer to detect drift.
