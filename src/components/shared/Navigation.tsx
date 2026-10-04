@@ -249,20 +249,6 @@ const navData: NavMenuData[] = [
         ]
     },
     {
-        id: 'templates',
-        label: 'Templates',
-        sections: [
-            {
-                title: 'Resources',
-                items: [
-                    { name: 'Architecture Blueprints', href: '/templates/blueprints' },
-                    { name: 'Operating Models', href: '/templates/operating-models' },
-                    { name: 'Governance Frameworks', href: '/templates/governance' },
-                ]
-            }
-        ]
-    },
-    {
         id: 'focus',
         label: 'Focus',
         contentLayout: 'dynamic',
