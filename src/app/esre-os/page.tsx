@@ -68,7 +68,7 @@ export default function EsreOsPage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link 
-              href="https://velodesk.crelligent.com" 
+              href="/foundry" 
               className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-medium hover:bg-white/10 transition-colors flex items-center gap-2 backdrop-blur-sm"
             >
               Install ESRE OS Lite
