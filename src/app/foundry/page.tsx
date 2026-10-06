@@ -173,7 +173,7 @@ export default function FoundryPage() {
                     </p>
 
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
-                        Foundry delivers ESRE OS Lite: an essential baseline installation of the Enterprise Operating System, right-sized for fast-growing African startups. Every engagement includes VeloDesk, our advanced Product-Market Fit validation platform.
+                        Foundry delivers ESRE OS Lite: an essential baseline installation of the Enterprise Operating System, right-sized for fast-growing African startups. Every Foundry engagement includes full access to VeloDesk (our standalone PMF Validation Platform) as a seamless Value-Added Service (VAS).
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

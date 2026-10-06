@@ -88,7 +88,7 @@ const navData: NavMenuData[] = [
                 title: 'Platforms',
                 items: [
                     { name: 'PRISM', desc: 'Operational intelligence', href: 'https://prism.crelligent.com', logo: '/PRISM-logo.png' },
-                    
+                    { name: 'VeloDesk', desc: 'PMF Validation Platform', href: 'https://velodesk.crelligent.com', logo: '/VeloDesk-logo.png' }
                 ]
             }
         ]
@@ -707,4 +707,3 @@ export function Navigation() {
         </nav>
     )
 }
-
