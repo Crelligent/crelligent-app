@@ -66,7 +66,7 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
                     {/* Brand Column */}
                     <div className="lg:col-span-2">
-                        <Link href="/" className="flex items-center gap-2">
+                        <Link href="/" className="flex items-center gap-2 rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]">
                             <Image
                                 src="/logo.png"
                                 alt="Crelligent"
@@ -92,7 +92,7 @@ export function Footer() {
                                     rel="noopener noreferrer"
                                     aria-label={social.name}
                                     title={social.name}
-                                    className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 text-gray-500 hover:bg-white/10 hover:text-white transition-all duration-200"
+                                    className="flex items-center justify-center w-8 h-8 rounded-full bg-white/5 text-gray-500 hover:bg-white/10 hover:text-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
                                 >
                                     {social.icon}
                                 </a>
@@ -113,7 +113,7 @@ export function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-gray-400 hover:text-white transition"
+                                        className="text-sm text-gray-400 hover:text-white transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-[#050505]"
                                     >
                                         {link.name}
                                     </Link>
@@ -132,7 +132,7 @@ export function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-gray-400 hover:text-white transition"
+                                        className="text-sm text-gray-400 hover:text-white transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-[#050505]"
                                     >
                                         {link.name}
                                     </Link>
@@ -151,7 +151,7 @@ export function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-gray-400 hover:text-white transition"
+                                        className="text-sm text-gray-400 hover:text-white transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-[#050505]"
                                     >
                                         {link.name}
                                     </Link>
@@ -167,9 +167,9 @@ export function Footer() {
                         © {new Date().getFullYear()} Crelligent & Co. All rights reserved.
                     </div>
                     <div className="flex gap-6 text-sm text-gray-600">
-                        <Link href="/privacy" className="hover:text-white transition">Privacy</Link>
-                        <Link href="/terms" className="hover:text-white transition">Terms</Link>
-                        <Link href="/workplace-policy" className="hover:text-white transition">Workplace Policy</Link>
+                        <Link href="/privacy" className="hover:text-white transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-[#050505]">Privacy</Link>
+                        <Link href="/terms" className="hover:text-white transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-[#050505]">Terms</Link>
+                        <Link href="/workplace-policy" className="hover:text-white transition rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-[#050505]">Workplace Policy</Link>
                     </div>
                 </div>
             </div>

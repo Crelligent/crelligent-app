@@ -220,6 +220,7 @@ export function HeroSlider() {
                             src={slide.video}
                             muted
                             playsInline
+                            aria-hidden="true"
                             preload={index === 0 ? "auto" : "none"}
                             className="w-full h-full object-cover opacity-75"
                         />

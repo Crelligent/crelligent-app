@@ -252,9 +252,9 @@ export default function LandingPage() {
                   <p className="text-base text-white font-[200] leading-loose opacity-80 mb-8 flex-1">
                     We start with the problem — not the solution we want to sell. Every engagement begins with deep organizational diagnosis to map invisible constraints.
                   </p>
-                  <Link href="/about" className="flex items-center justify-between text-sm font-[300] tracking-widest uppercase text-white group-hover:text-[#ec4899] w-full transition-colors mt-auto">
+                  <Link href="/about#diagnosis" aria-label="Read more about Problem-Led Diagnosis" className="flex items-center justify-between text-sm font-[300] tracking-widest uppercase text-white group-hover:text-[#ec4899] w-full transition-colors mt-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm">
                     <span>Read more</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight aria-hidden="true" className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -273,9 +273,9 @@ export default function LandingPage() {
                   <p className="text-base text-white font-[200] leading-loose opacity-80 mb-8 flex-1">
                     Five OS Core layers form the enterprise operating system (L1–L5). Four Application Runtime capabilities execute strategy on top of it. Nine total — designed as one unified system, not piecemeal workstreams.
                   </p>
-                  <Link href="/about" className="flex items-center justify-between text-sm font-[300] tracking-widest uppercase text-white group-hover:text-[#3b82f6] w-full transition-colors mt-auto">
+                  <Link href="/esre-os" aria-label="Read more about the 5 + 4 OS Architecture" className="flex items-center justify-between text-sm font-[300] tracking-widest uppercase text-white group-hover:text-[#3b82f6] w-full transition-colors mt-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm">
                     <span>Read more</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight aria-hidden="true" className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -294,9 +294,9 @@ export default function LandingPage() {
                   <p className="text-base text-white font-[200] leading-loose opacity-80 mb-8 flex-1">
                     Unlike pure consultants, we engineer the platforms, pipelines, and operating models we architect. We build what we design to ensure it evolves.
                   </p>
-                  <Link href="/about" className="flex items-center justify-between text-sm font-[300] tracking-widest uppercase text-white group-hover:text-[#22c55e] w-full transition-colors mt-auto">
+                  <Link href="/about#engineering" aria-label="Read more about End-to-End Engineering" className="flex items-center justify-between text-sm font-[300] tracking-widest uppercase text-white group-hover:text-[#22c55e] w-full transition-colors mt-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm">
                     <span>Read more</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight aria-hidden="true" className="w-4 h-4" />
                   </Link>
                 </div>
               </div>

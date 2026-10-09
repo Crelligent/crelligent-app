@@ -13,7 +13,7 @@ const stories = [
         image: "/jean-christophe-gougeon-t8bDFvkhNQY-unsplash.jpg",
         bgGradient: "from-[#1e3a8a]/20 to-[#0f172a]",
         accentGradient: "from-[#3b82f6] to-[#ec4899]",
-        link: "#"
+        link: "/case-studies/esn-petroleum"
     },
     {
         id: 2,
@@ -22,7 +22,7 @@ const stories = [
         image: "/ChatGPT Image Feb 28, 2026, 02_07_26 PM.png",
         bgGradient: "from-[#14532d]/20 to-[#052e16]",
         accentGradient: "from-[#22c55e] to-[#3b82f6]",
-        link: "#"
+        link: "/case-studies/geo-roam"
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ const stories = [
         image: "/ChatGPT Image Mar 1, 2026, 07_18_56 AM.png",
         bgGradient: "from-[#0f766e]/20 to-[#134e4a]",
         accentGradient: "from-[#14b8a6] to-[#3b82f6]",
-        link: "#"
+        link: "/case-studies/callmed"
     },
     {
         id: 5,
@@ -40,7 +40,7 @@ const stories = [
         image: "/logo.png",
         bgGradient: "from-[#9f1239]/20 to-[#4c0519]",
         accentGradient: "from-[#f43f5e] to-[#f59e0b]",
-        link: "#"
+        link: "/case-studies/esn-biometric"
     }
 ]
 
@@ -77,7 +77,7 @@ export function RecentClientStories() {
     const currentStory = stories[currentIndex]
 
     return (
-        <section className="py-24 relative overflow-hidden bg-[#050505]" style={{ fontFamily: "'Outfit', sans-serif" }}>
+        <section className="py-24 relative overflow-hidden bg-[#050505]">
             <div className="max-w-7xl mx-auto px-6 mb-8 relative z-10">
                 <h2 className="heading-lg text-center md:text-left">
                     Recent client stories
@@ -109,6 +109,8 @@ export function RecentClientStories() {
 
                             {/* Sliding Content Wrapper */}
                             <div
+                                aria-live="polite"
+                                aria-atomic="true"
                                 className={`relative transition-all duration-500 transform ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
                             >
                                 <h3 className="text-xl md:text-2xl font-[300] tracking-wide text-white leading-tight mb-6">
@@ -126,10 +128,11 @@ export function RecentClientStories() {
 
                                 <Link
                                     href={currentStory.link}
-                                    className="inline-flex pl-6 pr-4 py-3 rounded-full bg-white/5 border border-white/10 text-white font-[300] text-sm tracking-widest uppercase hover:bg-white/10 hover:border-white/30 transition-all items-center gap-3 group/btn"
+                                    aria-label={`Read more about ${currentStory.title}`}
+                                    className="inline-flex pl-6 pr-4 py-3 rounded-full bg-white/5 border border-white/10 text-white font-[300] text-sm tracking-widest uppercase hover:bg-white/10 hover:border-white/30 transition-all items-center gap-3 group/btn focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505]"
                                 >
                                     Read more
-                                    <ArrowRight className="w-4 h-4 text-white opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all" />
+                                    <ArrowRight aria-hidden="true" className="w-4 h-4 text-white opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-1 transition-all" />
                                 </Link>
                             </div>
 
@@ -138,10 +141,10 @@ export function RecentClientStories() {
                                 <button
                                     onClick={handlePrev}
                                     disabled={isAnimating}
-                                    className="text-gray-500 hover:text-white disabled:opacity-50 transition-colors"
-                                    title="Previous Story"
+                                    className="text-gray-500 hover:text-white disabled:opacity-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-black/80 rounded-full"
+                                    aria-label="Previous story"
                                 >
-                                    <ArrowLeft className="w-4 h-4" />
+                                    <ArrowLeft aria-hidden="true" className="w-4 h-4" />
                                 </button>
 
                                 <div className="flex gap-2">
@@ -162,10 +165,10 @@ export function RecentClientStories() {
                                 <button
                                     onClick={handleNext}
                                     disabled={isAnimating}
-                                    className="text-gray-500 hover:text-white disabled:opacity-50 transition-colors"
-                                    title="Next Story"
+                                    className="text-gray-500 hover:text-white disabled:opacity-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-1 focus-visible:ring-offset-black/80 rounded-full"
+                                    aria-label="Next story"
                                 >
-                                    <ArrowRight className="w-4 h-4" />
+                                    <ArrowRight aria-hidden="true" className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>
