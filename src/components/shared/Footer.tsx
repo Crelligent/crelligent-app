@@ -24,7 +24,7 @@ const footerLinks = {
         { name: 'Core', href: '/core' },
         { name: 'Foundry', href: '/foundry' },
         { name: 'Enterprise', href: '/enterprise' },
-        
+        { name: 'Intelligent Systems', href: '/intelligent-systems' },
         { name: 'Contact', href: '/contact' },
     ],
 }
@@ -176,4 +176,3 @@ export function Footer() {
         </footer>
     )
 }
-

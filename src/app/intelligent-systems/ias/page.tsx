@@ -2,51 +2,51 @@ import Link from 'next/link'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import {
-  Heart,
-  Activity,
-  Users,
-  Monitor,
-  Thermometer,
+  Sprout,
+  CloudRain,
+  Droplets,
+  MapPin,
+  Wind,
   CheckCircle2,
   ArrowLeft,
   ArrowRight,
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Healthcare Systems (IHS) | Crelligent',
+  title: 'Intelligent Agriculture Systems (IAS) | Crelligent',
   description:
-    'Patient flow intelligence, health risk prediction, and clinical decision support for Nigerian hospitals, HMOs, clinics, and healthcare operators.',
+    'Yield prediction, irrigation optimisation, and climate analytics for Nigerian commercial farms, cooperatives, food processors, and governments.',
 }
 
 const hardware = [
-  { icon: Heart, name: 'Medical Wearables', description: 'Continuous monitoring of vitals including heart rate, SpO2, and blood pressure.' },
-  { icon: Monitor, name: 'Patient Monitors', description: 'Bedside and remote patient monitoring systems with real-time data streams.' },
-  { icon: Users, name: 'Biometric Systems', description: 'Patient identity verification through fingerprint and facial recognition.' },
-  { icon: Monitor, name: 'Smart Kiosks', description: 'Self-check-in and triage kiosks for patient flow management.' },
-  { icon: Thermometer, name: 'Environmental Sensors', description: 'Temperature, humidity, and air quality for clinical environment control.' },
-  { icon: Activity, name: 'Lab Equipment Interfaces', description: 'Digital integration with diagnostic equipment and lab information systems.' },
+  { icon: Sprout, name: 'Soil Sensors', description: 'Measure soil moisture, temperature, pH, and nutrient levels in real time.' },
+  { icon: CloudRain, name: 'Weather Stations', description: 'On-farm micro-weather stations for localised climate intelligence.' },
+  { icon: Droplets, name: 'Irrigation Controllers', description: 'Smart valves and pump controllers for precision water management.' },
+  { icon: MapPin, name: 'Livestock Trackers', description: 'GPS and biometric tags for herd location and health monitoring.' },
+  { icon: Wind, name: 'Drone Systems', description: 'UAV platforms for crop surveillance, mapping, and precision spraying.' },
+  { icon: Sprout, name: 'Harvest Monitors', description: 'Yield sensors and grain quality analysers for harvest optimisation.' },
 ]
 
 const capabilities = [
-  'Patient flow intelligence and wait time optimisation',
-  'Health risk prediction and early warning systems',
-  'Clinical decision support for care teams',
-  'Hospital operations monitoring and efficiency analytics',
-  'Remote patient monitoring for chronic conditions',
-  'Staff allocation and workload optimisation',
+  'Yield prediction using soil, weather, and crop data models',
+  'Irrigation optimisation to reduce water usage and costs',
+  'Disease and pest prediction with early warning alerts',
+  'Climate analytics for planting and harvest decision support',
+  'Supply chain intelligence from farm to market',
+  'Livestock health monitoring and herd performance analytics',
 ]
 
 const customers = [
-  'Hospitals',
-  'HMOs',
-  'Clinics & Diagnostic Centres',
-  'Employers (Occupational Health)',
-  'Government Health Agencies',
-  'Schools & Universities',
-  'Insurance Companies',
+  'Commercial Farms',
+  'Cooperatives',
+  'Food Processors',
+  'Government Agriculture Agencies',
+  'NGOs & Development Partners',
+  'Agribusinesses',
+  'Export Traders',
 ]
 
-export default function IHSPage() {
+export default function IASPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Navigation />
@@ -55,11 +55,11 @@ export default function IHSPage() {
       <div className="pt-28 pb-0 px-6">
         <div className="max-w-6xl mx-auto">
           <Link
-            href="/edge"
+            href="/intelligent-systems"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Crelligent Edge
+            Back to Intelligent Systems
           </Link>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function IHSPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-gray-400 uppercase tracking-widest">
-              Intelligent Healthcare Systems
+              Intelligent Agriculture Systems
             </span>
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-gray-500 uppercase tracking-widest">
               Roadmap
@@ -77,19 +77,19 @@ export default function IHSPage() {
           </div>
 
           <h1 className="heading-xl mb-6 max-w-4xl">
-            Digitize Healthcare Operations and Patient Monitoring.
+            Improve Agricultural Productivity Using Data Systems.
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mb-10 leading-relaxed">
-            IHS connects medical wearables, patient monitors, biometric systems, and smart kiosks
-            to a healthcare intelligence layer that improves patient outcomes and operational
-            efficiency.
+            IAS connects soil sensors, weather stations, irrigation controllers, and drone systems
+            into an agricultural intelligence layer that optimises yields, reduces waste, and
+            supports better farming decisions.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary">
               Register Interest
             </Link>
-            <Link href="/edge" className="btn-ghost inline-flex items-center gap-2">
+            <Link href="/intelligent-systems" className="btn-ghost inline-flex items-center gap-2">
               All Verticals <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -105,7 +105,7 @@ export default function IHSPage() {
               <p className="text-sm font-semibold text-gray-400 mb-1">Development Roadmap</p>
               <p className="text-sm text-gray-500">
                 This vertical is on our development roadmap. Register your interest below and our
-                team will notify you when IHS pilot deployments become available.
+                team will notify you when IAS pilot deployments become available.
               </p>
             </div>
           </div>
@@ -171,9 +171,9 @@ export default function IHSPage() {
       {/* CTA */}
       <section className="py-24 px-6 bg-[#0a0a0a] border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-lg mb-6">Register Interest in IHS</h2>
+          <h2 className="heading-lg mb-6">Register Interest in IAS</h2>
           <p className="text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Be among the first to know when Intelligent Healthcare Systems launches. Register your
+            Be among the first to know when Intelligent Agriculture Systems launches. Register your
             organisation below.
           </p>
           <Link href="/contact" className="btn-primary">
@@ -186,4 +186,3 @@ export default function IHSPage() {
     </div>
   )
 }
-

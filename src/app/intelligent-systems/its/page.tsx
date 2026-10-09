@@ -104,11 +104,11 @@ export default function ITSPage() {
       <div className="pt-28 pb-0 px-6">
         <div className="max-w-6xl mx-auto">
           <Link
-            href="/edge"
+            href="/intelligent-systems"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Crelligent Edge
+            Back to Intelligent Systems
           </Link>
         </div>
       </div>
@@ -214,7 +214,7 @@ export default function ITSPage() {
                 capture even in low-connectivity corridors across Nigeria.
               </p>
               <Link
-                href="/edge"
+                href="/intelligent-systems"
                 className="btn-ghost inline-flex items-center gap-2 text-sm"
               >
                 View Full Hardware Specifications <ArrowRight className="w-4 h-4" />
@@ -326,4 +326,3 @@ export default function ITSPage() {
     </div>
   )
 }
-

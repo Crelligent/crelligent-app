@@ -2,51 +2,51 @@ import Link from 'next/link'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import {
-  Sprout,
-  CloudRain,
-  Droplets,
-  MapPin,
-  Wind,
+  CreditCard,
+  Users,
+  Monitor,
+  Cpu,
+  Shield,
   CheckCircle2,
   ArrowLeft,
   ArrowRight,
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Agriculture Systems (IAS) | Crelligent',
+  title: 'Intelligent Financial Infrastructure (IFIS) | Crelligent',
   description:
-    'Yield prediction, irrigation optimisation, and climate analytics for Nigerian commercial farms, cooperatives, food processors, and governments.',
+    'Transaction intelligence, AML monitoring, fraud detection, and risk scoring for Nigerian banks, fintechs, fuel card providers, and payment operators.',
 }
 
 const hardware = [
-  { icon: Sprout, name: 'Soil Sensors', description: 'Measure soil moisture, temperature, pH, and nutrient levels in real time.' },
-  { icon: CloudRain, name: 'Weather Stations', description: 'On-farm micro-weather stations for localised climate intelligence.' },
-  { icon: Droplets, name: 'Irrigation Controllers', description: 'Smart valves and pump controllers for precision water management.' },
-  { icon: MapPin, name: 'Livestock Trackers', description: 'GPS and biometric tags for herd location and health monitoring.' },
-  { icon: Wind, name: 'Drone Systems', description: 'UAV platforms for crop surveillance, mapping, and precision spraying.' },
-  { icon: Sprout, name: 'Harvest Monitors', description: 'Yield sensors and grain quality analysers for harvest optimisation.' },
+  { icon: CreditCard, name: 'Payment Terminals', description: 'POS and card payment terminals with real-time transaction streaming.' },
+  { icon: Users, name: 'Biometric Devices', description: 'Fingerprint and facial recognition for customer identity verification.' },
+  { icon: Monitor, name: 'Smart Kiosks', description: 'Self-service financial kiosks for account access and cash management.' },
+  { icon: Cpu, name: 'ATM Integrations', description: 'Real-time monitoring and transaction intelligence for ATM networks.' },
+  { icon: Shield, name: 'HSM & Security Hardware', description: 'Hardware security modules for cryptographic key management.' },
+  { icon: CreditCard, name: 'Fuel Card Terminals', description: 'Specialised terminals for fuel card issuance and transaction control.' },
 ]
 
 const capabilities = [
-  'Yield prediction using soil, weather, and crop data models',
-  'Irrigation optimisation to reduce water usage and costs',
-  'Disease and pest prediction with early warning alerts',
-  'Climate analytics for planting and harvest decision support',
-  'Supply chain intelligence from farm to market',
-  'Livestock health monitoring and herd performance analytics',
+  'Transaction intelligence and spending pattern analytics',
+  'AML monitoring with suspicious activity detection',
+  'Fraud detection using real-time behavioural models',
+  'Risk scoring for customers, merchants, and transactions',
+  'Regulatory compliance reporting and audit trails',
+  'Terminal network performance and uptime monitoring',
 ]
 
 const customers = [
-  'Commercial Farms',
-  'Cooperatives',
-  'Food Processors',
-  'Government Agriculture Agencies',
-  'NGOs & Development Partners',
-  'Agribusinesses',
-  'Export Traders',
+  'Banks & Financial Institutions',
+  'Fintechs',
+  'Fuel Card Providers',
+  'Payment Operators',
+  'Microfinance Banks',
+  'Insurance Companies',
+  'POS Aggregators',
 ]
 
-export default function IASPage() {
+export default function IFISPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Navigation />
@@ -55,11 +55,11 @@ export default function IASPage() {
       <div className="pt-28 pb-0 px-6">
         <div className="max-w-6xl mx-auto">
           <Link
-            href="/edge"
+            href="/intelligent-systems"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Crelligent Edge
+            Back to Intelligent Systems
           </Link>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function IASPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-gray-400 uppercase tracking-widest">
-              Intelligent Agriculture Systems
+              Intelligent Financial Infrastructure
             </span>
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-gray-500 uppercase tracking-widest">
               Roadmap
@@ -77,19 +77,19 @@ export default function IASPage() {
           </div>
 
           <h1 className="heading-xl mb-6 max-w-4xl">
-            Improve Agricultural Productivity Using Data Systems.
+            Digitize Operational Finance Infrastructure.
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mb-10 leading-relaxed">
-            IAS connects soil sensors, weather stations, irrigation controllers, and drone systems
-            into an agricultural intelligence layer that optimises yields, reduces waste, and
-            supports better farming decisions.
+            IFIS connects payment terminals, biometric devices, smart kiosks, and ATM networks
+            into a financial intelligence layer — delivering transaction intelligence, fraud
+            detection, and AML monitoring at scale.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary">
               Register Interest
             </Link>
-            <Link href="/edge" className="btn-ghost inline-flex items-center gap-2">
+            <Link href="/intelligent-systems" className="btn-ghost inline-flex items-center gap-2">
               All Verticals <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -105,7 +105,7 @@ export default function IASPage() {
               <p className="text-sm font-semibold text-gray-400 mb-1">Development Roadmap</p>
               <p className="text-sm text-gray-500">
                 This vertical is on our development roadmap. Register your interest below and our
-                team will notify you when IAS pilot deployments become available.
+                team will notify you when IFIS pilot deployments become available.
               </p>
             </div>
           </div>
@@ -171,10 +171,10 @@ export default function IASPage() {
       {/* CTA */}
       <section className="py-24 px-6 bg-[#0a0a0a] border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-lg mb-6">Register Interest in IAS</h2>
+          <h2 className="heading-lg mb-6">Register Interest in IFIS</h2>
           <p className="text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Be among the first to know when Intelligent Agriculture Systems launches. Register your
-            organisation below.
+            Be among the first to know when Intelligent Financial Infrastructure launches. Register
+            your organisation below.
           </p>
           <Link href="/contact" className="btn-primary">
             Register Interest
@@ -186,4 +186,3 @@ export default function IASPage() {
     </div>
   )
 }
-

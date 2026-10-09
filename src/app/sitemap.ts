@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/focus',
         '/contact',
         '/foundry',
-        '/edge',
+        '/intelligent-systems',
         '/enterprise',
         '/pricing',
         '/onboarding',
@@ -96,4 +96,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return [...coreRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
 }
-
