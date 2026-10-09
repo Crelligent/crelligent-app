@@ -55,11 +55,11 @@ export default function ISSPage() {
       <div className="pt-28 pb-0 px-6">
         <div className="max-w-6xl mx-auto">
           <Link
-            href="/intelligent-systems"
+            href="/edge"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Intelligent Systems
+            Back to Crelligent Edge
           </Link>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function ISSPage() {
             <Link href="/contact" className="btn-primary">
               Register Interest
             </Link>
-            <Link href="/intelligent-systems" className="btn-ghost inline-flex items-center gap-2">
+            <Link href="/edge" className="btn-ghost inline-flex items-center gap-2">
               All Verticals <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -186,3 +186,4 @@ export default function ISSPage() {
     </div>
   )
 }
+

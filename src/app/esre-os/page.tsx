@@ -343,7 +343,7 @@ export default function EsreOsPage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/intelligent-systems" className="w-full py-3 px-4 rounded-lg border border-white/20 text-center text-sm font-medium hover:bg-white/5 transition-colors">
+              <Link href="/edge" className="w-full py-3 px-4 rounded-lg border border-white/20 text-center text-sm font-medium hover:bg-white/5 transition-colors">
                 Contact Sales
               </Link>
             </div>
@@ -415,3 +415,4 @@ export default function EsreOsPage() {
     </div>
   )
 }
+

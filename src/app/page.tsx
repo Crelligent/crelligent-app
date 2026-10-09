@@ -131,7 +131,7 @@ const platforms = [
     role: 'Industrial IoT Hardware for Africa',
     description: 'Purpose-built IoT hardware designed for African operating conditions. Connects vehicles, generators, tanks, and industrial assets to the PRISM intelligence platform via 4G/LTE and LoRa. CEM is the physical infrastructure layer of the ESRE OS — the hardware that the operational sensing layer (L4) and PRISM network depend on.',
     stage: 'Industry Operations',
-    href: '/intelligent-systems/hardware',
+    href: '/edge',
     color: '#f59e0b',
   }
 ]
@@ -659,7 +659,7 @@ export default function LandingPage() {
                 <p className="text-[15px] text-white font-[200] leading-loose opacity-80 mb-8 relative z-10">
                   Your operations generate data every second — fleet movements, fuel consumption, energy usage, transactions. We connect Africa&apos;s industrial operations to a unified intelligence command layer built on PRISM and the Crelligent Edge Module.
                 </p>
-                <Link href="/intelligent-systems" className="mt-auto px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-[300] text-sm tracking-widest uppercase hover:bg-white/10 hover:border-[#f59e0b]/50 transition-all flex items-center gap-3 relative z-10">
+                <Link href="/edge" className="mt-auto px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-[300] text-sm tracking-widest uppercase hover:bg-white/10 hover:border-[#f59e0b]/50 transition-all flex items-center gap-3 relative z-10">
                   Explore Intelligent Systems
                   <ArrowRight className="w-4 h-4 text-[#f59e0b]" />
                 </Link>
@@ -690,6 +690,7 @@ export default function LandingPage() {
     </div >
   )
 }
+
 
 
 

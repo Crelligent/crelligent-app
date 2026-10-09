@@ -106,11 +106,11 @@ export default function IESPage() {
       <div className="pt-28 pb-0 px-6">
         <div className="max-w-6xl mx-auto">
           <Link
-            href="/intelligent-systems"
+            href="/edge"
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Intelligent Systems
+            Back to Crelligent Edge
           </Link>
         </div>
       </div>
@@ -216,7 +216,7 @@ export default function IESPage() {
                 virtually every energy device on the market — no proprietary lock-in.
               </p>
               <Link
-                href="/intelligent-systems"
+                href="/edge"
                 className="btn-ghost inline-flex items-center gap-2 text-sm"
               >
                 View Full Hardware Specifications <ArrowRight className="w-4 h-4" />
@@ -325,3 +325,4 @@ export default function IESPage() {
     </div>
   )
 }
+
