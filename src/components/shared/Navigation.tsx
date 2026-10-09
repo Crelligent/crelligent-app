@@ -78,7 +78,7 @@ const navData: NavMenuData[] = [
             {
                 title: 'Specialised Units',
                 items: [
-                    { name: 'Edge — Physical Layer & IoT', href: '/edge' },
+                    { name: 'Edge & Intelligent Systems', href: '/intelligent-systems' },
                     { name: 'Foundry — ESRE OS Lite', href: '/foundry' },
                     { name: 'Core — Informal Economy Intelligence', href: '/core' },
                     { name: 'Enterprise — Scale Transformations', href: '/enterprise' },
@@ -707,3 +707,4 @@ export function Navigation() {
         </nav>
     )
 }
+
