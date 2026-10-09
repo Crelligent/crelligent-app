@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/edge',
+        destination: '/intelligent-systems',
+        permanent: true,
+      },
+      {
         source: '/platforms/velodesk',
         destination: 'https://velodesk.crelligent.com',
         permanent: true,

@@ -9,7 +9,7 @@ import {
   ArrowRight, Cpu, Radio, Zap, Shield, Cloud, CheckCircle,
   Brain, Battery, Lock, Truck, Factory, Building2, Heart,
   Leaf, Eye, ShoppingBag, CreditCard, Warehouse
-} from 'lucide-react'
+, Wifi } from 'lucide-react'
 
 /* ─────────────── animation variants ─────────────── */
 
