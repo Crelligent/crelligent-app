@@ -75,6 +75,22 @@ returning invoice_number, 'https://crelligent.com/foundry/pay/' || pay_token as 
 Check payments: `select invoice_number, kind, status, paid_at, paystack_reference, notes from public.foundry_invoices order by created_at desc;`
 Mismatched or unexpected payments are never marked paid; they are logged and written to `notes`.
 
+### Bank transfer (while Paystack is not live, or as an alternative)
+
+The invoice page shows bank details when these Vercel env vars are set (never put them in the repo):
+
+- NGN: `FOUNDRY_BANK_NAME`, `FOUNDRY_BANK_ACCOUNT_NAME`, `FOUNDRY_BANK_ACCOUNT_NUMBER`
+- USD: `FOUNDRY_BANK_USD_DETAILS`, lines separated by `|`, e.g. `Bank: ... | Account name: ... | Account number: ... | SWIFT: ...`
+
+The card button only shows when `PAYSTACK_SECRET_KEY` is set. After the money lands, mark the invoice paid:
+
+```sql
+update public.foundry_invoices
+   set status = 'paid', paid_at = now(), notes = 'Bank transfer confirmed'
+ where invoice_number = 'CF-2026-0001' and status = 'sent'
+returning invoice_number, status, paid_at;
+```
+
 ## API routes
 
 | Route | Purpose |

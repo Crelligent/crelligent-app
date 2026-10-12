@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/contact',
         '/foundry',
         '/foundry/apply',
+        '/foundry/pmf-check',
         '/intelligent-systems',
         '/enterprise',
         '/pricing',

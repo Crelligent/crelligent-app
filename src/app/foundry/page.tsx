@@ -38,9 +38,8 @@ import {
   SourcesList,
   StatCard,
 } from '@/components/foundry/sections'
-import { btnPrimary, btnSecondary, cx, linkAccentStandalone } from '@/components/foundry/ui'
+import { btnPrimary, btnSecondary, cx, linkAccent, linkAccentStandalone } from '@/components/foundry/ui'
 import { LibraryCard } from '@/components/library/LibraryCard'
-import { PhotoCredit } from '@/components/library/PhotoCredit'
 import { foundryFeaturedItems } from '@/data/library'
 
 const title = 'Foundry: Build and Validate Startups'
@@ -68,6 +67,17 @@ function CtaPair() {
   )
 }
 
+function SnapshotLink() {
+  return (
+    <p className="mt-4 text-sm text-(--cr-text-muted)">
+      Not sure where you stand?{' '}
+      <Link href="/foundry/pmf-check" className={linkAccent}>
+        Take the free 3-minute PMF snapshot
+      </Link>
+    </p>
+  )
+}
+
 export default function FoundryPage() {
   const validate = FOUNDRY_PACKAGES.filter((p) => p.path === 'validate')
   const venture = FOUNDRY_PACKAGES.filter((p) => p.path === 'venture')
@@ -90,6 +100,7 @@ export default function FoundryPage() {
               </h1>
               <p className="mt-5 text-base lg:text-lg text-(--cr-text-muted) max-w-2xl leading-relaxed">{HERO.subhead}</p>
               <CtaPair />
+              <SnapshotLink />
               <p className="mt-4 text-sm text-(--cr-text-muted)">
                 {HERO.trust.map((t, i) => (
                   <span key={t}>
@@ -286,7 +297,6 @@ export default function FoundryPage() {
               ))}
             </ul>
           </Reveal>
-          <PhotoCredit className="mt-4" />
         </Section>
 
         {/* 10. FAQ */}
@@ -310,6 +320,7 @@ export default function FoundryPage() {
               </h2>
               <p className="mt-4 text-base lg:text-lg text-(--cr-text-muted)">{FINAL_CTA.line}</p>
               <CtaPair />
+              <SnapshotLink />
             </div>
           </div>
         </section>
