@@ -1,4 +1,4 @@
-import { Ban, CheckCircle2, Clock, Lock, Mail } from 'lucide-react'
+import { Ban, CheckCircle2, Clock, Landmark, Lock, Mail } from 'lucide-react'
 import { cx, linkAccent } from '../ui'
 import { formatDate, formatDateTime, formatMinor, kindLabel, type PublicInvoice } from './format'
 import { PayButton, PrintButton } from './PayButton'
@@ -27,7 +27,68 @@ function Meta({ label, children }: { label: string; children: React.ReactNode })
   )
 }
 
-export function InvoiceView({ invoice: inv }: { invoice: PublicInvoice }) {
+export interface PaymentOptions {
+  /** Paystack card/bank checkout is configured. */
+  online: boolean
+  /** Bank transfer details for this invoice's currency, or null. */
+  bank: { label: string; value: string }[] | null
+}
+
+function BankTransfer({
+  rows,
+  invoiceNumber,
+  amountLabel,
+  billingEmail,
+  mailHref,
+  alsoOnline,
+}: {
+  rows: { label: string; value: string }[]
+  invoiceNumber: string
+  amountLabel: string
+  billingEmail: string
+  mailHref: string
+  alsoOnline: boolean
+}) {
+  return (
+    <section
+      aria-labelledby="bank-transfer"
+      className={cx('rounded-lg border border-(--cr-border) bg-(--cr-surface-2) p-4 sm:p-5 text-sm', alsoOnline && 'mt-6')}
+    >
+      <h2 id="bank-transfer" className="flex items-center gap-2 font-medium text-(--cr-text)">
+        <Landmark aria-hidden className="size-4 shrink-0 text-(--cr-accent)" />
+        {alsoOnline ? 'Or pay by bank transfer' : 'Pay by bank transfer'}
+      </h2>
+      <dl className="mt-4 grid grid-cols-1 sm:grid-cols-[max-content_1fr] gap-x-6 gap-y-2">
+        {rows.map((r, i) => (
+          <div key={i} className="contents">
+            {r.label ? <dt className="text-(--cr-text-muted)">{r.label}</dt> : <dt className="sr-only">Detail</dt>}
+            <dd className={cx('font-mono text-(--cr-text) break-all', !r.label && 'sm:col-span-2')}>{r.value}</dd>
+          </div>
+        ))}
+        <dt className="text-(--cr-text-muted)">Amount</dt>
+        <dd className="font-mono text-(--cr-text)">{amountLabel}</dd>
+        <dt className="text-(--cr-text-muted)">Reference</dt>
+        <dd className="font-mono text-(--cr-text) break-all">{invoiceNumber}</dd>
+      </dl>
+      <p className="mt-4 text-(--cr-text-muted)">
+        Use <span className="font-mono text-(--cr-text)">{invoiceNumber}</span> as the transfer reference, then send
+        the receipt to{' '}
+        <a href={mailHref} className={cx(linkAccent, 'font-medium')}>
+          {billingEmail}
+        </a>
+        . This page changes to a receipt once we confirm the payment.
+      </p>
+    </section>
+  )
+}
+
+export function InvoiceView({
+  invoice: inv,
+  payment = { online: true, bank: null },
+}: {
+  invoice: PublicInvoice
+  payment?: PaymentOptions
+}) {
   const paid = inv.status === 'paid'
   const isVoid = inv.status === 'void'
   const kl = kindLabel(inv.kind, inv.depositPercent)
@@ -99,7 +160,31 @@ export function InvoiceView({ invoice: inv }: { invoice: PublicInvoice }) {
       </dl>
 
       <div className="mt-8">
-        {inv.status === 'sent' && <PayButton token={inv.token} invoiceNumber={inv.invoiceNumber} amountLabel={due} />}
+        {inv.status === 'sent' && payment.online && (
+          <PayButton token={inv.token} invoiceNumber={inv.invoiceNumber} amountLabel={due} />
+        )}
+        {inv.status === 'sent' && payment.bank && (
+          <BankTransfer
+            rows={payment.bank}
+            invoiceNumber={inv.invoiceNumber}
+            amountLabel={due}
+            billingEmail={inv.billingEmail}
+            mailHref={mailHref}
+            alsoOnline={payment.online}
+          />
+        )}
+        {inv.status === 'sent' && !payment.online && !payment.bank && (
+          <div className="flex gap-3 rounded-lg border border-(--cr-border) bg-(--cr-surface-2) p-4 text-sm">
+            <Mail aria-hidden className="size-5 shrink-0 text-(--cr-accent)" />
+            <p className="text-(--cr-text-muted)">
+              To pay this invoice, email{' '}
+              <a href={mailHref} className={cx(linkAccent, 'font-medium')}>
+                {inv.billingEmail}
+              </a>{' '}
+              quoting {inv.invoiceNumber} and we&apos;ll send payment details.
+            </p>
+          </div>
+        )}
         {paid && (
           <div className="space-y-4">
             <div className="flex gap-3 rounded-lg border border-(--cr-accent) bg-(--cr-accent-tint) p-4 text-sm">
@@ -132,10 +217,12 @@ export function InvoiceView({ invoice: inv }: { invoice: PublicInvoice }) {
       </div>
 
       <div className="mt-8 pt-6 border-t border-(--cr-border) space-y-2 text-xs text-(--cr-text-muted)">
-        <p className="flex items-center gap-2">
-          <Lock aria-hidden className="size-3.5 shrink-0" />
-          Payments are processed securely by Paystack.
-        </p>
+        {payment.online && (
+          <p className="flex items-center gap-2">
+            <Lock aria-hidden className="size-3.5 shrink-0" />
+            Card payments are processed securely by Paystack.
+          </p>
+        )}
         <p className="flex items-center gap-2">
           <Mail aria-hidden className="size-3.5 shrink-0" />
           <span>
