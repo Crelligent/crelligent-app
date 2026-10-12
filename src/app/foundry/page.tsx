@@ -1,399 +1,292 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
-import { ArrowRight, Sparkles, Layers, Rocket, Target, CheckCircle, Zap, Brain, Users, Shield, TrendingUp, Repeat } from 'lucide-react'
+import { FOUNDRY_PACKAGES } from '@/lib/foundry/packages'
+import {
+  FIXES,
+  FINAL_CTA,
+  HERO,
+  L2_SECTION,
+  NOT_ACCELERATOR,
+  PACKAGES_SECTION,
+  PATHS_HEADING,
+  PROBLEM,
+  PROCESS_HEADING,
+  STAT_CARDS,
+} from '@/components/foundry/content'
+import { AehiTag, Cite, Eyebrow, Section, SectionHeader } from '@/components/foundry/primitives'
+import { Reveal } from '@/components/foundry/Reveal'
+import { AehiDotGrid, FailureReasonsChart, FundingChart, SeedVsSeriesAChart } from '@/components/foundry/charts'
+import {
+  OsLiteStack,
+  PathsDiagram,
+  PaymentSplitBar,
+  ProblemPackageFlow,
+  ProblemSolutionMap,
+  ProcessTimeline,
+} from '@/components/foundry/diagrams'
+import {
+  BillingTerms,
+  ComparisonTable,
+  FAQ,
+  faqJsonLd,
+  HeroPathChooser,
+  PackageCard,
+  SourcesList,
+  StatCard,
+} from '@/components/foundry/sections'
+import { btnPrimary, btnSecondary, cx } from '@/components/foundry/ui'
 
-export const metadata = {
-    title: 'Crelligent Foundry | ESRE OS Lite',
-    description: 'We engineer startups as adaptive business systems — not just products — so they validate faster, scale smarter, and survive longer.',
+const title = 'Foundry: Build and Validate Startups'
+const description =
+  'Crelligent Foundry builds and validates startups with founders: prove product-market fit, install the operating system to scale, or co-build your next venture.'
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: '/foundry' },
+  openGraph: { title, description, url: '/foundry' },
 }
 
-const systemComponents = [
-    {
-        icon: Layers,
-        title: 'System Architecture',
-        description: 'Business model, product strategy, and operating model designed as one integrated system.',
-    },
-    {
-        icon: Zap,
-        title: 'Execution Engine',
-        description: 'Processes, technology, and data infrastructure that actually runs your startup.',
-    },
-    {
-        icon: Repeat,
-        title: 'Learning Loops',
-        description: 'Customer feedback, analytics, and iteration cycles built into how you operate.',
-    },
-    {
-        icon: Shield,
-        title: 'Control Mechanisms',
-        description: 'Governance, economics, and risk frameworks that keep you stable as you grow.',
-    },
-    {
-        icon: Users,
-        title: 'Activation Layer',
-        description: 'Adoption, behavior, and culture that turns systems into living organizations.',
-    },
-]
-
-const deliverables = [
-    {
-        icon: Target,
-        title: 'Go-To-Market Strategy',
-        description: 'Comprehensive planning to position your product, reach target audiences, and execute launch strategies.',
-    },
-    {
-        icon: TrendingUp,
-        title: 'Scale-Up Advisory',
-        description: 'Strategic guidance to navigate rapid growth, optimize operations, and prepare for investor due diligence.',
-    },
-    {
-        icon: Zap,
-        title: 'Tech-Stack Integration',
-        description: 'Seamless selection and integration of modern tools, platforms, and architectures to power operations.',
-    },
-    {
-        icon: Rocket,
-        title: 'MVP Engineering',
-        description: 'Rapid design and development of your product to test core hypotheses and gather early user feedback.',
-    },
-    {
-        icon: Brain,
-        title: 'Data & Intelligence',
-        description: 'Implementation of essential telemetry, analytics, and business intelligence to drive decision making.',
-    },
-    {
-        icon: Repeat,
-        title: 'Operational Playbooks',
-        description: 'Standardized processes and workflows engineered for consistency, predictability, and team alignment.',
-    },
-]
-
-const packages = [
-    {
-        name: 'Starter',
-        stage: 'Idea / Concept',
-        price: 'From $5,000',
-        description: 'Validate your startup\'s system intent and market fit.',
-        features: [
-            'Business Design & Problem Definition',
-            'Product-Market Fit Assessment',
-            'System Intent Mapping',
-            'MVP Blueprint',
-            'Core Architecture Blueprint',
-            'Early Customer Feedback Loops',
-            'Basic Tech Stack Recommendation',
-            'Initial Metrics / KPIs',
-            'VeloDesk Integration',
-            '4-week engagement',
-        ],
-        cta: 'Start Validating',
-        highlight: false,
-    },
-    {
-        name: 'Growth',
-        stage: 'Early Traction / Seed Stage',
-        price: 'From $15,000',
-        description: 'Strengthen your operating model and user experience.',
-        features: [
-            'Everything in Starter',
-            'Full Product Strategy Roadmap',
-            'Full System Architecture',
-            'Technical Stack Selection',
-            'CX / Service Design (User Journeys & Feedback)',
-            'Data & Intelligence Setup',
-            'Operating Model & Process Design',
-            'Team & Process Design',
-            'Governance & Risk Framework',
-            'Implementation Roadmap',
-            'Early Go-to-Market Plan',
-            '8-week engagement',
-        ],
-        cta: 'Accelerate Growth',
-        highlight: true,
-    },
-    {
-        name: 'Scale',
-        stage: 'Post-Seed / Series A+',
-        price: 'From $30,000',
-        description: 'Optimize for system-wide growth and investor readiness.',
-        features: [
-            'Everything in Growth',
-            'Technology & Platform Architecture',
-            'Scale Architecture Review',
-            'Advanced Analytics & ML Insights',
-            'Failure Mode Analysis',
-            'Governance, Risk & Control Enhancement',
-            'Economics & Value Engineering',
-            'Operational Playbooks',
-            'Change & Adoption Mechanisms',
-            'Funding / Investor Readiness Support',
-            'BI Suite Integration',
-            '12-week engagement',
-        ],
-        cta: 'Prepare for Scale',
-        highlight: false,
-    },
-]
-
-const differentiators = [
-    { traditional: 'Incubators & accelerators', foundry: 'Systems engineering' },
-    { traditional: 'Mentorship-heavy', foundry: 'Design & build-heavy' },
-    { traditional: 'Advice and frameworks', foundry: 'Executable systems' },
-    { traditional: 'Focus on pitch decks', foundry: 'Focus on operating reality' },
-    { traditional: 'Fragmented vendors', foundry: 'Integrated system' },
-]
-
-const targetFounders = [
-    'Founders who want structure without bureaucracy',
-    'Technical or non-technical founders who need a full startup system',
-    'Startups preparing for serious scale or investment',
-    'Corporates spinning out new ventures',
-]
+function CtaPair() {
+  return (
+    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+      <Link href="/foundry/apply" className={cx(btnPrimary, 'w-full sm:w-auto')}>
+        {HERO.primaryCta}
+        <ArrowRight aria-hidden className="size-4" />
+      </Link>
+      <a href="#packages" className={cx(btnSecondary, 'w-full sm:w-auto')}>
+        {HERO.secondaryCta}
+      </a>
+    </div>
+  )
+}
 
 export default function FoundryPage() {
-    return (
-        <div className="min-h-screen bg-[#050505] text-white">
-            <Navigation />
+  const validate = FOUNDRY_PACKAGES.filter((p) => p.path === 'validate')
+  const venture = FOUNDRY_PACKAGES.filter((p) => p.path === 'venture')
 
-            {/* Hero */}
-            <section className="pt-32 pb-20 px-6">
-                <div className="max-w-4xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#22c55e]/10 border border-[#22c55e]/20 rounded-full mb-8">
-                        <Sparkles className="w-4 h-4 text-[#22c55e]" />
-                        <span className="text-sm text-[#22c55e]">Startup-as-a-Service</span>
-                    </div>
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }} />
+      <Navigation />
+      <main id="main">
+        {/* 1. Hero */}
+        <section id="top" aria-labelledby="hero-title" className="px-4 sm:px-6 pt-28 pb-16 lg:pt-36 lg:pb-24 bg-(--cr-bg)">
+          <div className="max-w-6xl mx-auto lg:grid lg:grid-cols-12 lg:gap-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <Eyebrow>{HERO.eyebrow}</Eyebrow>
+              <h1
+                id="hero-title"
+                className="mt-4 font-outfit text-[2.5rem] leading-[1.05] sm:text-5xl lg:text-6xl tracking-[-0.03em] text-(--cr-text)"
+              >
+                {HERO.headline}
+              </h1>
+              <p className="mt-5 text-base lg:text-lg text-(--cr-text-muted) max-w-2xl leading-relaxed">{HERO.subhead}</p>
+              <CtaPair />
+              <p className="mt-4 text-sm text-(--cr-text-muted)">
+                {HERO.trust.map((t, i) => (
+                  <span key={t}>
+                    {i > 0 && (
+                      <span aria-hidden className="mx-2">
+                        ·
+                      </span>
+                    )}
+                    {t}
+                  </span>
+                ))}
+              </p>
+            </div>
+            <div className="mt-10 lg:mt-0 lg:col-span-5">
+              <HeroPathChooser />
+            </div>
+          </div>
+        </section>
 
-                    <h1 className="heading-xl mb-6">
-                        Crelligent Foundry
-                    </h1>
+        {/* 2. The problem */}
+        <Section id="problem" labelledBy="problem-title" surface>
+          <SectionHeader id="problem-title" eyebrow={PROBLEM.eyebrow} title={PROBLEM.heading} intro={PROBLEM.intro} />
+          <Reveal className="mt-10 lg:mt-14">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {STAT_CARDS.map((s, i) => (
+                <StatCard key={s.value} stat={s} describedBy={i === 0 ? 'chart-failure-reasons' : undefined} />
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-(--cr-text-muted)">
+              Global figures <Cite n={[1, 15]} /> are global data; <Cite n={2} /> is Africa-wide and Nigeria-specific.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid gap-4 lg:grid-cols-12">
+            <Reveal className="lg:col-span-7 min-w-0">
+              <FundingChart onSurface className="h-full" />
+            </Reveal>
+            <Reveal className="lg:col-span-5 min-w-0">
+              <FailureReasonsChart onSurface className="h-full" />
+            </Reveal>
+          </div>
+          <Reveal className="mt-4">
+            <SeedVsSeriesAChart onSurface />
+          </Reveal>
+        </Section>
 
-                    <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed mb-4">
-                        We engineer startups as adaptive business systems &mdash; not just products.
-                    </p>
+        {/* 3. Problem → solution */}
+        <Section id="fixes" labelledBy="fixes-title">
+          <SectionHeader id="fixes-title" eyebrow={FIXES.eyebrow} title={FIXES.heading} intro={FIXES.intro} />
+          <div className="mt-10 lg:mt-14">
+            <Reveal className="hidden md:block max-w-3xl mb-12">
+              <ProblemPackageFlow />
+            </Reveal>
+            <ProblemSolutionMap />
+          </div>
+        </Section>
 
-                    <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
-                        Foundry delivers ESRE OS Lite: an essential baseline installation of the Enterprise Operating System, right-sized for fast-growing African startups. Every Foundry engagement includes full access to VeloDesk (our standalone PMF Validation Platform) as a seamless Value-Added Service (VAS).
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href="#packages" className="btn-primary">
-                            View Startup Kit
-                            <ArrowRight className="w-4 h-4" />
-                        </Link>
-                        <Link href="/contact" className="btn-ghost">
-                            Talk to Us
-                        </Link>
-                    </div>
+        {/* 4. Why L2 first */}
+        <Section id="l2" labelledBy="l2-title" surface>
+          <div className="lg:grid lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-6">
+              <AehiTag />
+              <h2 id="l2-title" className="mt-4 heading-lg text-(--cr-text)">
+                {L2_SECTION.heading}
+              </h2>
+              <Reveal className="mt-8">
+                <div className="flex flex-wrap items-center gap-5">
+                  <AehiDotGrid className="block size-36 lg:size-44 shrink-0" />
+                  <div className="min-w-0 flex-1 basis-40">
+                    <p className="font-mono text-5xl lg:text-6xl font-medium text-(--cr-l2-ink)">{L2_SECTION.bigStat}</p>
+                    <p className="mt-2 text-sm text-(--cr-text-muted) leading-relaxed">{L2_SECTION.bigStatLine}</p>
+                  </div>
                 </div>
-            </section>
+                <ul className="mt-4 space-y-1 text-xs text-(--cr-text-muted)">
+                  <li className="flex items-center gap-2">
+                    <span aria-hidden className="inline-block size-2.5 rounded-full bg-(--cr-l2-fill)" />
+                    L2 is the primary constraint (91%)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span aria-hidden className="inline-block size-2.5 rounded-full border-[1.5px] border-(--cr-text-dim)" />
+                    Another OS layer (9%)
+                  </li>
+                </ul>
+              </Reveal>
+              <p className="mt-6 text-sm text-(--cr-text-muted)">
+                {L2_SECTION.supportingLabel}:{' '}
+                <span className="font-mono text-2xl text-(--cr-text) align-middle">{L2_SECTION.supportingValue}</span>
+                <span aria-hidden className="mx-2">
+                  ·
+                </span>
+                {L2_SECTION.sample}
+              </p>
+              <p className="mt-3 text-xs text-(--cr-text-muted)">{L2_SECTION.smallPrint}</p>
+              <ul className="mt-6 space-y-3 text-base text-(--cr-text-muted) leading-relaxed">
+                {L2_SECTION.body.map((b, i) => (
+                  <li key={b} className="flex gap-3">
+                    <span
+                      aria-hidden
+                      className={cx(
+                        'mt-2.5 size-1.5 shrink-0 rounded-full',
+                        i === 0 ? 'bg-(--cr-l2-ink)' : 'bg-(--cr-text-dim)',
+                      )}
+                    />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-10 lg:mt-0 lg:col-span-6 lg:pt-12">
+              <Reveal>
+                <OsLiteStack />
+              </Reveal>
+            </div>
+          </div>
+        </Section>
 
-            {/* VeloDesk Components */}
-            <section className="py-20 px-6 border-t border-white/5">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="section-label mb-4">The Baseline Architecture</div>
-                        <h2 className="heading-lg">ESRE OS Lite</h2>
-                        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                            The core layers of the ESRE Operating System, scaled for early-stage teams to ensure operational stability ahead of institutional investment.
-                        </p>
-                    </div>
+        {/* 5. Two ways in */}
+        <Section id="paths" labelledBy="paths-title">
+          <SectionHeader id="paths-title" eyebrow="Paths" title={PATHS_HEADING} />
+          <div className="mt-10 lg:mt-14">
+            <PathsDiagram />
+          </div>
+        </Section>
 
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <div className="glass-card rounded-lg">
-                            <Target className="w-6 h-6 text-[#22c55e] mb-4" />
-                            <h3 className="text-lg font-light mb-2">Validated L1 Business Design</h3>
-                            <p className="text-sm text-gray-500">Core system intent, business model validation, and value engineering foundations.</p>
-                        </div>
-                        <div className="glass-card rounded-lg">
-                            <Layers className="w-6 h-6 text-[#22c55e] mb-4" />
-                            <h3 className="text-lg font-light mb-2">Lightweight L2 Operating Model</h3>
-                            <p className="text-sm text-gray-500">Processes and playbooks mapped directly to your early team to prevent chaos.</p>
-                        </div>
-                        <div className="glass-card rounded-lg">
-                            <Zap className="w-6 h-6 text-[#22c55e] mb-4" />
-                            <h3 className="text-lg font-light mb-2">Pre-configured L3 Technology</h3>
-                            <p className="text-sm text-gray-500">Essential integrations, data pipelines, and infrastructure to scale without friction.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        {/* 6. How it works */}
+        <Section id="process" labelledBy="process-title" surface>
+          <SectionHeader id="process-title" eyebrow="How it works" title={PROCESS_HEADING} />
+          <div className="mt-10 lg:mt-14">
+            <ProcessTimeline />
+            <PaymentSplitBar className="mt-10 max-w-xl" />
+          </div>
+        </Section>
 
-            {/* What We Provide */}
-            <section className="py-20 px-6 bg-[#0a0a0a] border-y border-white/5">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="section-label mb-4">What We Provide</div>
-                        <h2 className="heading-lg">A Complete Startup System</h2>
-                        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                            Instead of assembling fragmented services, get an integrated system engineered to validate, scale, and learn.
-                        </p>
-                    </div>
+        {/* 7. Packages */}
+        <Section id="packages" labelledBy="packages-title">
+          <SectionHeader id="packages-title" title={PACKAGES_SECTION.heading} intro={PACKAGES_SECTION.intro} />
+          <div className="mt-10 lg:mt-14">
+            <h3 className="mb-4 font-sans! text-sm font-medium! tracking-normal! text-(--cr-text)">
+              Path 1 · Validate &amp; scale
+            </h3>
+            <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {validate.map((p) => (
+                <PackageCard key={p.id} p={p} />
+              ))}
+            </Reveal>
+            <h3 className="mt-10 mb-4 font-sans! text-sm font-medium! tracking-normal! text-(--cr-text)">
+              Path 2 · Venture build
+            </h3>
+            <Reveal>
+              {venture.map((p) => (
+                <PackageCard key={p.id} p={p} variant="wide" />
+              ))}
+            </Reveal>
+            <div className="mt-10">
+              <BillingTerms />
+            </div>
+          </div>
+        </Section>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {systemComponents.map((item) => (
-                            <div key={item.title} className="glass-card rounded-lg">
-                                <item.icon className="w-6 h-6 text-[#22c55e] mb-4" />
-                                <h3 className="text-lg font-light mb-2">{item.title}</h3>
-                                <p className="text-sm text-gray-500">{item.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+        {/* 8. Not an accelerator */}
+        <Section id="not-an-accelerator" labelledBy="na-title" surface>
+          <header>
+            <h2 id="na-title" className="heading-lg text-(--cr-text)">
+              {NOT_ACCELERATOR.heading}
+            </h2>
+            <p className="mt-3 text-lg text-(--cr-text-muted)">{NOT_ACCELERATOR.line}</p>
+          </header>
+          <div className="mt-10 max-w-4xl">
+            <ComparisonTable />
+            <p className="mt-6 text-sm text-(--cr-text-muted)">{NOT_ACCELERATOR.footer}</p>
+          </div>
+        </Section>
 
-            {/* What Makes Us Different */}
-            <section className="py-20 px-6">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <div className="section-label mb-4">The Difference</div>
-                        <h2 className="heading-lg">Not Another Accelerator</h2>
-                    </div>
+        {/* 9. FAQ */}
+        <Section id="faq" labelledBy="faq-title">
+          <SectionHeader id="faq-title" title="FAQ" />
+          <div className="mt-10">
+            <FAQ />
+          </div>
+        </Section>
 
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left">
-                            <thead>
-                                <tr className="border-b border-white/10">
-                                    <th className="py-4 text-sm text-gray-500 font-normal">Typical Startup Support</th>
-                                    <th className="py-4 text-sm text-[#22c55e] font-normal">Crelligent Foundry</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {differentiators.map((row, i) => (
-                                    <tr key={i} className="border-b border-white/5">
-                                        <td className="py-4 text-gray-400">{row.traditional}</td>
-                                        <td className="py-4 text-white">{row.foundry}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
+        {/* 10. Final CTA */}
+        <section
+          id="apply"
+          aria-labelledby="apply-title"
+          className="scroll-mt-24 px-4 sm:px-6 py-16 lg:py-24 bg-(--cr-surface) border-t border-(--cr-border)"
+        >
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-3xl">
+              <h2 id="apply-title" className="heading-lg text-(--cr-text)">
+                {FINAL_CTA.heading}
+              </h2>
+              <p className="mt-4 text-base lg:text-lg text-(--cr-text-muted)">{FINAL_CTA.line}</p>
+              <CtaPair />
+            </div>
+          </div>
+        </section>
 
-            {/* Core Deliverables */}
-            <section className="py-20 px-6">
-                <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="section-label mb-4">Core Deliverables</div>
-                        <h2 className="heading-lg">What You Get</h2>
-                        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                            Tangible outputs and expert services engineered to move your startup from concept to market dominance.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {deliverables.map((item) => (
-                            <div key={item.title} className="p-6 border border-white/5 rounded-lg hover:border-white/10 transition bg-white/[0.02]">
-                                <item.icon className="w-6 h-6 text-white mb-4" />
-                                <h3 className="text-lg font-light mb-2">{item.title}</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Startup Kit */}
-            <section id="packages" className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5">
-                <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="section-label mb-4">Startup Kit</div>
-                        <h2 className="heading-lg">Stage-Appropriate Systems</h2>
-                        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                            Each startup receives what it needs for its stage — not unnecessary complexity.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {packages.map((pkg) => (
-                            <div
-                                key={pkg.name}
-                                className={`rounded-lg p-8 ${pkg.highlight
-                                    ? 'bg-[#22c55e]/5 border-2 border-[#22c55e]/30'
-                                    : 'glass-card'
-                                    }`}
-                            >
-                                {pkg.highlight && (
-                                    <div className="text-xs uppercase tracking-widest text-[#22c55e] mb-4">
-                                        Most Popular
-                                    </div>
-                                )}
-                                <div className="text-xs uppercase tracking-widest text-gray-500 mb-2">
-                                    {pkg.stage}
-                                </div>
-                                <h3 className="text-2xl font-light mb-2">{pkg.name}</h3>
-                                <div className="text-lg text-[#22c55e] mb-4">{pkg.price}</div>
-                                <p className="text-sm text-gray-500 mb-6">{pkg.description}</p>
-
-                                <ul className="space-y-3 mb-8">
-                                    {pkg.features.slice(0, 6).map((feature) => (
-                                        <li key={feature} className="flex items-start gap-2 text-sm text-gray-400">
-                                            <CheckCircle className="w-4 h-4 text-[#22c55e] mt-0.5 shrink-0" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                    {pkg.features.length > 6 && (
-                                        <li className="text-sm text-gray-500">+ {pkg.features.length - 6} more</li>
-                                    )}
-                                </ul>
-
-                                <Link
-                                    href="/contact"
-                                    className={`block text-center py-3 rounded transition ${pkg.highlight
-                                        ? 'bg-[#22c55e] text-black hover:bg-[#16a34a]'
-                                        : 'border border-white/10 text-gray-300 hover:bg-white/5'
-                                        }`}
-                                >
-                                    {pkg.cta}
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Who It's For */}
-            <section className="py-20 px-6">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <div className="section-label mb-4">For Founders</div>
-                        <h2 className="heading-lg">Is Foundry Right for You?</h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                        {targetFounders.map((founder) => (
-                            <div
-                                key={founder}
-                                className="flex items-center gap-3 p-5 border border-white/5 rounded-lg"
-                            >
-                                <CheckCircle className="w-5 h-5 text-[#22c55e]" />
-                                <span className="text-gray-300">{founder}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className="py-24 px-6 text-center bg-gradient-to-t from-[#22c55e]/5 to-transparent">
-                <div className="max-w-2xl mx-auto">
-                    <h2 className="heading-lg mb-6">
-                        Ready to engineer your startup?
-                    </h2>
-                    <p className="text-gray-500 mb-8">
-                        Let&apos;s build a system that validates faster, scales smarter, and survives longer.
-                    </p>
-                    <Link href="/contact" className="btn-primary">
-                        Start the Conversation
-                        <ArrowRight className="w-4 h-4" />
-                    </Link>
-                </div>
-            </section>
-
-            <Footer />
-        </div>
-    )
+        {/* 11. Sources */}
+        <SourcesList />
+      </main>
+      <Footer />
+    </>
+  )
 }
-
-

@@ -79,7 +79,7 @@ const navData: NavMenuData[] = [
                 title: 'Specialised Units',
                 items: [
                     { name: 'Edge & Intelligent Systems', href: '/intelligent-systems' },
-                    { name: 'Foundry — ESRE OS Lite', href: '/foundry' },
+                    { name: 'Foundry — Build & validate startups', href: '/foundry' },
                     { name: 'Core — Informal Economy Intelligence', href: '/core' },
                     { name: 'Enterprise — Scale Transformations', href: '/enterprise' },
                 ]
