@@ -18,6 +18,7 @@ import {
 } from '@/components/foundry/content'
 import { AehiTag, Cite, Eyebrow, Section, SectionHeader } from '@/components/foundry/primitives'
 import { Reveal } from '@/components/foundry/Reveal'
+import { HeroForge } from '@/components/foundry/HeroForge'
 import { AehiDotGrid, FailureReasonsChart, FundingChart, SeedVsSeriesAChart } from '@/components/foundry/charts'
 import {
   OsLiteStack,
@@ -75,7 +76,7 @@ export default function FoundryPage() {
       <main id="main">
         {/* 1. Hero */}
         <section id="top" aria-labelledby="hero-title" className="px-4 sm:px-6 pt-28 pb-16 lg:pt-36 lg:pb-24 bg-(--cr-bg)">
-          <div className="max-w-6xl mx-auto lg:grid lg:grid-cols-12 lg:gap-12 lg:items-end">
+          <div className="max-w-6xl mx-auto lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
             <div className="lg:col-span-7">
               <Eyebrow>{HERO.eyebrow}</Eyebrow>
               <h1
@@ -99,7 +100,8 @@ export default function FoundryPage() {
                 ))}
               </p>
             </div>
-            <div className="mt-10 lg:mt-0 lg:col-span-5">
+            <div className="mt-10 lg:mt-0 lg:col-span-5 space-y-5">
+              <HeroForge />
               <HeroPathChooser />
             </div>
           </div>
