@@ -12,7 +12,6 @@ import { Footer } from '@/components/shared/Footer'
 import { InternalAuthorityGraph } from '@/components/shared/InternalAuthorityGraph'
 import { Cover } from '@/components/library/Cover'
 import { LibraryCard } from '@/components/library/LibraryCard'
-import { PhotoCredit } from '@/components/library/PhotoCredit'
 import { PrintButton } from '@/components/library/PrintButton'
 import { btnPrimary, btnSecondary, chip, chipAccent, cx, eyebrow, linkAccent } from '@/components/foundry/ui'
 
@@ -132,9 +131,6 @@ export default async function InsightPage({ params }: { params: Params }) {
                   sizes="(min-width: 1024px) 1024px, 100vw"
                   className="aspect-video lg:aspect-[21/9] rounded-lg border border-(--cr-border)"
                 />
-                <figcaption className="mt-2 flex justify-end">
-                  <PhotoCredit />
-                </figcaption>
               </figure>
             )}
           </header>

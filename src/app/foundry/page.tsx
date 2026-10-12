@@ -40,7 +40,6 @@ import {
 } from '@/components/foundry/sections'
 import { btnPrimary, btnSecondary, cx, linkAccentStandalone } from '@/components/foundry/ui'
 import { LibraryCard } from '@/components/library/LibraryCard'
-import { PhotoCredit } from '@/components/library/PhotoCredit'
 import { foundryFeaturedItems } from '@/data/library'
 
 const title = 'Foundry: Build and Validate Startups'
@@ -286,7 +285,6 @@ export default function FoundryPage() {
               ))}
             </ul>
           </Reveal>
-          <PhotoCredit className="mt-4" />
         </Section>
 
         {/* 10. FAQ */}

@@ -42,7 +42,6 @@ export const TYPE_LABEL: Record<LibraryType, string> = {
   'ceo-corner': 'CEO Corner',
 }
 
-export const PHOTO_CREDIT = { label: 'Photos: DC Studio on Freepik', href: 'https://www.freepik.com/author/dc-studio' }
 
 const cover = (slug: string) => `/images/insights/${slug}.webp`
 

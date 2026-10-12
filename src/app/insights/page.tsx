@@ -3,7 +3,6 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { Eyebrow } from '@/components/foundry/primitives'
 import { LibraryBrowser } from '@/components/library/LibraryBrowser'
-import { PhotoCredit } from '@/components/library/PhotoCredit'
 import { isLibraryFilter } from '@/data/library'
 
 export const metadata = generateSeoMetadata({
@@ -39,7 +38,6 @@ export default async function LibraryPage({ searchParams }: { searchParams: Prom
             <div className="mt-10 lg:mt-14">
               <LibraryBrowser initial={initial} />
             </div>
-            <PhotoCredit className="mt-12 border-t border-(--cr-border) pt-6" />
           </div>
         </section>
       </main>
