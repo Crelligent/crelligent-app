@@ -17,7 +17,7 @@ import {
 import { FOUNDRY_BILLING, SHOW_PRICES, formatNgn, priceLabel, type FoundryPackage } from '@/lib/foundry/packages'
 import { FAQ_ITEMS, NOT_ACCELERATOR, type StatCardData } from './content'
 import { Cite } from './primitives'
-import { AEHI_SOURCE_TEXT, FOUNDRY_SOURCES } from './sources'
+import { FOUNDRY_SOURCES } from './sources'
 import { btnPrimary, btnSecondary, cx, eyebrowMuted, linkAccent } from './ui'
 
 /* Hero path chooser */
@@ -339,12 +339,6 @@ export function SourcesList() {
               </a>
             </li>
           ))}
-          <li
-            id="src-aehi"
-            className="scroll-mt-24 target:bg-(--cr-surface-2) rounded-md p-2 break-inside-avoid list-none -ml-6 pl-8"
-          >
-            {AEHI_SOURCE_TEXT}
-          </li>
         </ol>
       </div>
     </section>

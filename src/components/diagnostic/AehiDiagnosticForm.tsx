@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ArrowRight, ChevronRight, Activity, ArrowLeft } from 'lucide-react';
 import { submitAehiScore } from '@/app/actions/aehi';
+import { identifyUser, trackEvent } from '@/lib/mixpanel';
 
 const QUESTIONS = [
   { layer: 'L1', title: 'Business Design', q: 'How is your core value proposition and pricing defined?', opts: [{ text: 'Changes frequently based on client demands or competitors.', pts: 0 }, { text: 'Standard offerings, but heavily discounted/customized by sales.', pts: 5 }, { text: 'Rigid, documented product matrix with strict pricing guardrails.', pts: 10 }] },
@@ -86,6 +87,23 @@ export default function AehiDiagnosticForm() {
     setIsSubmitting(false);
 
     if (res.success) {
+      identifyUser(formData.email, {
+        email: formData.email,
+        company: formData.company,
+        country: formData.country,
+        industry: formData.industry,
+      });
+      trackEvent('aehi_diagnostic_completed', {
+        total_score: scores.total,
+        l1_score: scores.l1,
+        l2_score: scores.l2,
+        l3_score: scores.l3,
+        l4_score: scores.l4,
+        l5_score: scores.l5,
+        country: formData.country,
+        industry: formData.industry,
+        company_name: formData.company,
+      });
       setStep('results');
     } else {
       setError('Failed to submit. Please try again.');

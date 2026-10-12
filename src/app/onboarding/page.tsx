@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Building, Target, FileUp, Check, ArrowRight, ArrowLeft, Loader2, UploadCloud, ShieldCheck } from "lucide-react";
 import { Navigation } from "@/components/shared/Navigation";
 import { Footer } from "@/components/shared/Footer";
+import { identifyUser, trackEvent } from "@/lib/mixpanel";
 
 export default function OnboardingPage() {
   const [step, setStep] = useState(1);
@@ -31,6 +32,19 @@ export default function OnboardingPage() {
     // Simulate API call for now
     setTimeout(() => {
       setIsSubmitting(false);
+      if (formData.email) {
+        identifyUser(formData.email, {
+          name: formData.contactName,
+          email: formData.email,
+          company: formData.companyName,
+          industry: formData.industry,
+        });
+      }
+      trackEvent('onboarding_intake_submitted', {
+        company_name: formData.companyName,
+        industry: formData.industry,
+        employees: formData.employees,
+      });
       setStep(4);
     }, 2000);
   };

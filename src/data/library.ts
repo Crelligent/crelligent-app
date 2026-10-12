@@ -42,7 +42,6 @@ export const TYPE_LABEL: Record<LibraryType, string> = {
   'ceo-corner': 'CEO Corner',
 }
 
-export const PHOTO_CREDIT = { label: 'Photos: DC Studio on Freepik', href: 'https://www.freepik.com/author/dc-studio' }
 
 const cover = (slug: string) => `/images/insights/${slug}.webp`
 
@@ -124,8 +123,9 @@ export const library: LibraryItem[] = [
     slug: 'aehi-q4-2026',
     type: 'research',
     title: 'African Enterprise Health Index - Q4 2026',
-    excerpt: 'Analysis of operational resilience in Nigerian mid-market companies.',
-    date: '2026-10-01',
+    excerpt: 'The inaugural benchmark of operating health across Nigerian mid-market companies. In preparation; enterprises can contribute now.',
+    date: null,
+    statusLabel: 'Publishing Q4 2026',
     href: '/research/aehi/q4-2026',
     foundryFeatured: false,
     cover: cover('aehi-q4-2026'),

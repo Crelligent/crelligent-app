@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { initMixpanel, optInTracking, optOutTracking } from '@/lib/mixpanel'
 
 export function CookieConsent() {
     const [isVisible, setIsVisible] = useState(false)
@@ -9,6 +10,7 @@ export function CookieConsent() {
     const bannerRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        initMixpanel()
         const cookieChoice = localStorage.getItem('crelligent-cookie-consent')
         if (!cookieChoice) {
             // First render offscreen, then trigger the animation
@@ -20,12 +22,14 @@ export function CookieConsent() {
 
     const handleAcceptAll = () => {
         localStorage.setItem('crelligent-cookie-consent', 'accepted')
+        optInTracking()
         setIsVisible(false)
         setTimeout(() => setShouldRender(false), 1200)
     }
 
     const handleRejectAll = () => {
         localStorage.setItem('crelligent-cookie-consent', 'rejected')
+        optOutTracking()
         setIsVisible(false)
         setTimeout(() => setShouldRender(false), 1200)
     }

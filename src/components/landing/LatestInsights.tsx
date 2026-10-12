@@ -44,7 +44,7 @@ export function LatestInsights() {
                         <div className="absolute inset-0 bg-gradient-to-r from-[#00C985] to-[#3b82f6] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="relative bg-[#050505] rounded-xl h-full z-10 w-full overflow-hidden flex flex-col">
                             <div className="absolute inset-0 z-0 bg-[#0a0a0a] transition-transform duration-700" />
-                            <Link href="https://aehi.crelligent.com/report" target="_blank" className="absolute inset-0 z-20 flex flex-col p-8 md:p-10 border-t border-[#00C985]/20 transition-colors duration-300 group-hover:border-[#00C985]/50">
+                            <Link href="https://aehi.crelligent.com/contribute" target="_blank" className="absolute inset-0 z-20 flex flex-col p-8 md:p-10 border-t border-[#00C985]/20 transition-colors duration-300 group-hover:border-[#00C985]/50">
                                 <div className="text-[11px] uppercase tracking-[0.2em] text-[#00C985] mb-6 flex items-center gap-3 font-semibold shrink-0">
                                     <div className="w-4 h-[1px] bg-[#00C985]" />
                                     Crelligent Intelligence
@@ -53,10 +53,10 @@ export function LatestInsights() {
                                     The African Enterprise Health Index — Q4 2026
                                 </h3>
                                 <p className="text-sm md:text-base text-gray-400 font-[300] leading-relaxed line-clamp-4">
-                                    The first systematic quarterly benchmark of enterprise operating health across the Nigerian mid-market. Nigerian average: 44/100. L2 is the primary constraint in 91% of enterprises assessed.
+                                    A quarterly benchmark of enterprise operating health across the Nigerian mid-market, scored across the five layers of the ESRE OS. The inaugural edition is in preparation; enterprises can contribute now.
                                 </p>
                                 <div className="text-[10px] text-gray-500 font-[400] uppercase tracking-widest mt-auto pt-6 shrink-0">
-                                    Read the Report
+                                    Contribute to the index
                                 </div>
                             </Link>
                         </div>

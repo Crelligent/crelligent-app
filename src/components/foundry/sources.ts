@@ -120,4 +120,4 @@ export const FOUNDRY_SOURCES: FoundrySource[] = [
 ]
 
 export const AEHI_SOURCE_TEXT =
-  'AEHI figures: African Enterprise Health Index, Crelligent AEHI data (430 Nigerian mid-market enterprises, 9 sectors).'
+  'AEHI: African Enterprise Health Index (Crelligent). Inaugural edition publishes Q4 2026.'
