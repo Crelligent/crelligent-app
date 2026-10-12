@@ -203,7 +203,7 @@ export function BillingTerms() {
   const items = [
     { icon: CalendarCheck, text: '50% on signing, 50% on delivery.' },
     { icon: Landmark, text: 'Nigerian clients are billed in NGN.' },
-    { icon: Globe, text: 'International clients: quoted and invoiced in USD.' },
+    { icon: Globe, text: 'International clients: quoted and invoiced in USD, GBP or EUR.' },
   ]
   return (
     <div className="rounded-lg border border-(--cr-border) bg-(--cr-surface) p-5 lg:p-6 grid sm:grid-cols-2 gap-x-8 gap-y-4">

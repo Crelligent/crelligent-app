@@ -1,7 +1,7 @@
 /**
  * Crelligent Foundry packages and pricing: the single place to edit what /foundry shows.
  * Prices are NGN ranges; the final fee is agreed in the proposal after a discovery call.
- * International clients are quoted and invoiced in USD (no converted figures are shown).
+ * International clients are quoted and invoiced in USD, GBP or EUR (no converted figures are shown).
  */
 
 export type FoundryPath = 'validate' | 'venture'

@@ -302,7 +302,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     a: [
       '50% on signing and 50% on delivery.',
       'You pay by a secure invoice link, processed by Paystack.',
-      'Nigerian clients pay in NGN. International clients are quoted and invoiced in USD.',
+      'Nigerian clients pay in NGN. International clients are quoted and invoiced in USD, GBP or EUR.',
     ],
   },
   {
@@ -322,7 +322,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'We are outside Nigeria. Can we apply?',
-    a: 'Yes. International clients are quoted and invoiced in USD.',
+    a: 'Yes. International clients are quoted and invoiced in US dollars, pounds or euros, and pay by card (USD) or bank transfer.',
   },
   {
     q: 'What happens after I apply?',

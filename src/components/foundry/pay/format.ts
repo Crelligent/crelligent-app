@@ -1,5 +1,5 @@
 /** Client-safe copy of the PublicInvoice shape from src/lib/foundry/invoices.ts (that file is server-only). */
-export type InvoiceCurrency = 'NGN' | 'USD'
+export type InvoiceCurrency = 'NGN' | 'USD' | 'GBP' | 'EUR'
 export interface PublicInvoice {
   token: string
   invoiceNumber: string
@@ -22,7 +22,7 @@ export interface PublicInvoice {
 }
 
 export function formatMinor(minor: number, currency: InvoiceCurrency) {
-  return new Intl.NumberFormat(currency === 'NGN' ? 'en-NG' : 'en-US', {
+  return new Intl.NumberFormat({ NGN: 'en-NG', USD: 'en-US', GBP: 'en-GB', EUR: 'en-IE' }[currency], {
     style: 'currency',
     currency,
     currencyDisplay: 'narrowSymbol',
