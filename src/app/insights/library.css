@@ -1,0 +1,242 @@
+/* Crelligent Library: reading-view prose for article/whitepaper HTML bodies. Tokens only (no hex). */
+
+.foundry .cr-prose {
+  max-width: 68ch;
+  color: var(--cr-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+@media (min-width: 1024px) {
+  .foundry .cr-prose {
+    font-size: 1.125rem;
+  }
+}
+
+.foundry .cr-prose > * + * {
+  margin-top: 1.25em;
+}
+
+.foundry .cr-prose p,
+.foundry .cr-prose li {
+  color: color-mix(in srgb, var(--cr-text) 82%, var(--cr-bg));
+}
+
+.foundry .cr-prose h2 {
+  margin-top: 2.5em;
+  padding-top: 1.25em;
+  border-top: 1px solid var(--cr-border);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--cr-text);
+  scroll-margin-top: 6rem;
+}
+.foundry .cr-prose > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.foundry .cr-prose h3 {
+  margin-top: 2em;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--cr-text);
+}
+.foundry .cr-prose h2 + *,
+.foundry .cr-prose h3 + * {
+  margin-top: 0.75em;
+}
+
+.foundry .cr-prose strong {
+  color: var(--cr-text);
+  font-weight: 600;
+}
+.foundry .cr-prose em {
+  font-style: italic;
+}
+
+.foundry .cr-prose a {
+  color: var(--cr-accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  overflow-wrap: anywhere;
+}
+.foundry .cr-prose a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.foundry .cr-prose ul,
+.foundry .cr-prose ol {
+  padding-left: 1.5em;
+}
+.foundry .cr-prose ul {
+  list-style: disc;
+}
+.foundry .cr-prose ol {
+  list-style: decimal;
+}
+.foundry .cr-prose li + li {
+  margin-top: 0.5em;
+}
+.foundry .cr-prose li::marker {
+  color: var(--cr-accent-ink);
+}
+.foundry .cr-prose ol > li::marker {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* Pull quote */
+.foundry .cr-prose blockquote {
+  border-left: 2px solid var(--cr-accent);
+  padding: 0.25em 0 0.25em 1.25em;
+}
+.foundry .cr-prose blockquote p {
+  color: var(--cr-text);
+  font-family: var(--font-heading);
+  font-size: 1.25em;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Key findings callout (first blockquote that opens with "Key findings") */
+.foundry .cr-prose blockquote.cr-callout {
+  border: 1px solid color-mix(in srgb, var(--cr-accent) 35%, transparent);
+  background: var(--cr-accent-tint);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+}
+@media (min-width: 640px) {
+  .foundry .cr-prose blockquote.cr-callout {
+    padding: 1.5rem 1.75rem;
+  }
+}
+.foundry .cr-prose blockquote.cr-callout p {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--cr-accent-ink);
+}
+.foundry .cr-prose blockquote.cr-callout p strong {
+  color: inherit;
+  font-weight: inherit;
+}
+.foundry .cr-prose blockquote.cr-callout ul {
+  margin-top: 0.75em;
+  font-size: 0.9375em;
+}
+.foundry .cr-prose blockquote.cr-callout li {
+  color: var(--cr-text);
+}
+
+/* Citations */
+.foundry .cr-prose sup {
+  font-size: 0.7em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 0.1em;
+  white-space: nowrap;
+}
+.foundry .cr-prose sup a {
+  position: relative;
+  font-family: var(--font-mono);
+  text-decoration: none;
+  color: var(--cr-accent-ink);
+}
+.foundry .cr-prose sup a::after {
+  content: '';
+  position: absolute;
+  inset: -0.5rem -0.25rem;
+}
+.foundry .cr-prose sup a:hover {
+  text-decoration: underline;
+}
+.foundry .cr-prose sup .cr-cite-sep {
+  color: var(--cr-text-muted);
+}
+
+/* Tables scroll inside their own box on small screens, never the page */
+.foundry .cr-prose .cr-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--cr-border);
+  border-radius: 0.5rem;
+  background: var(--cr-surface);
+}
+.foundry .cr-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.foundry .cr-prose th,
+.foundry .cr-prose td {
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--cr-border);
+}
+.foundry .cr-prose th {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cr-text-muted);
+  background: var(--cr-surface-2);
+  white-space: nowrap;
+}
+.foundry .cr-prose td {
+  color: color-mix(in srgb, var(--cr-text) 82%, var(--cr-bg));
+  font-variant-numeric: tabular-nums;
+}
+.foundry .cr-prose td:first-child {
+  color: var(--cr-text);
+}
+.foundry .cr-prose tbody tr:last-child td {
+  border-bottom: 0;
+}
+.foundry .cr-prose tbody tr:hover td {
+  background: var(--cr-surface-2);
+}
+/* "Source: ..." line under a table */
+.foundry .cr-prose p.cr-table-source {
+  margin-top: 0.5em;
+  font-size: 0.8125rem;
+  color: var(--cr-text-muted);
+}
+
+@media print {
+  .foundry .cr-prose {
+    max-width: none;
+    font-size: 11pt;
+  }
+  .foundry .cr-prose h2,
+  .foundry .cr-prose h3 {
+    break-after: avoid;
+  }
+  .foundry .cr-prose .cr-table-wrap,
+  .foundry .cr-prose blockquote {
+    break-inside: avoid;
+  }
+  .foundry .no-print {
+    display: none !important;
+  }
+}
+
+/* Sources list (article pages) */
+.foundry .cr-source a {
+  color: var(--cr-accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.foundry .cr-source em {
+  color: var(--cr-text);
+}

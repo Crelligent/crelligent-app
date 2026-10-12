@@ -1,0 +1,102 @@
+/* Crelligent Foundry: scoped design tokens. The only Foundry file allowed to hold hex values. */
+.foundry {
+  /* surfaces match the live site; everything else = Crelligent tokens.css (dark) */
+  --cr-bg: #050505;
+  --cr-surface: #0A0A0A;
+  --cr-surface-2: #111111;
+  --cr-border: rgba(255, 255, 255, 0.08);
+  --cr-border-strong: rgba(255, 255, 255, 0.16);
+  --cr-text: #F8FAFC;
+  --cr-text-muted: #8A94A6;
+  --cr-text-dim: #6E7A8F;
+  --cr-accent: #00C985;
+  --cr-accent-hover: #00B377;
+  --cr-accent-ink: #00C985;
+  --cr-on-accent: #08111F;
+  --cr-success: #00C985;
+  --cr-warning: #E0A33A;
+  --cr-danger: #E5534B;
+  --cr-l1-fill: #1A6B8A;
+  --cr-l2-fill: #C0392B;
+  --cr-l3-fill: #534AB7;
+  --cr-l1-ink: #3A9BC0;
+  --cr-l2-ink: #E5534B;
+  --cr-l3-ink: #8A82E0;
+  --cr-accent-tint: color-mix(in srgb, #00C985 10%, transparent);
+  --cr-l2-tint: color-mix(in srgb, #C0392B 14%, transparent);
+  --cr-danger-tint: color-mix(in srgb, #E5534B 10%, transparent);
+  --cr-warning-tint: color-mix(in srgb, #E0A33A 10%, transparent);
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+  background: var(--cr-bg);
+  color: var(--cr-text);
+  color-scheme: dark;
+}
+
+.foundry :focus-visible {
+  outline: 2px solid var(--cr-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.foundry .tabular,
+.foundry td {
+  font-variant-numeric: tabular-nums;
+}
+
+/* FAQ: hide the native disclosure marker (Safari) */
+.foundry summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Problem → package flow: highlight a package's links on hover/focus */
+.foundry .ppf-link {
+  transition: stroke 150ms ease;
+}
+.foundry .ppf:has(.ppf-node[data-pkg='pmf']:is(:hover, :focus-visible)) .ppf-link[data-pkg='pmf'],
+.foundry .ppf:has(.ppf-node[data-pkg='foundry']:is(:hover, :focus-visible)) .ppf-link[data-pkg='foundry'],
+.foundry .ppf:has(.ppf-node[data-pkg='os-lite']:is(:hover, :focus-visible)) .ppf-link[data-pkg='os-lite'],
+.foundry .ppf:has(.ppf-node[data-pkg='venture']:is(:hover, :focus-visible)) .ppf-link[data-pkg='venture'] {
+  stroke: var(--cr-accent);
+}
+
+/* Chart bars grow once (skipped under reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .foundry .bar-grow-y {
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: cr-grow-y 400ms ease-out both;
+  }
+  .foundry .bar-grow-x {
+    transform-box: fill-box;
+    transform-origin: left;
+    animation: cr-grow-x 400ms ease-out both;
+  }
+}
+@keyframes cr-grow-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes cr-grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media print {
+  .foundry {
+    --cr-bg: #fff;
+    --cr-surface: #fff;
+    --cr-surface-2: #f5f8fc;
+    --cr-text: #0B1626;
+    --cr-text-muted: #5B6B82;
+    --cr-border: #DDE6F0;
+    --cr-border-strong: #C5D2E2;
+    --cr-accent-ink: #0F6E56;
+    --cr-success: #0F6E56;
+    color-scheme: light;
+  }
+}
+
+/* Programmatic focus targets (headings, alert boxes) don't need a ring */
+.foundry [tabindex='-1']:focus-visible {
+  outline: none;
+}

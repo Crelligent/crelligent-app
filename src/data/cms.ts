@@ -7,7 +7,10 @@ export type ContentCategory =
   | 'Governance' 
   | 'Systems Thinking' 
   | 'Enterprise Transformation' 
-  | 'Africa';
+  | 'Africa'
+  | 'Product-Market Fit'
+  | 'Fundraising'
+  | 'Venture Building';
 
 export interface SeoMetadata {
   title: string;
@@ -31,6 +34,13 @@ export interface Article {
   relatedTemplates: string[]; // slugs
   relatedResearch: string[]; // slugs
   seo: SeoMetadata;
+  /** Library fields (optional; used by Crelligent Foundry research pieces). */
+  type?: 'article' | 'whitepaper' | 'research' | 'ceo-corner';
+  dek?: string;
+  readingMinutes?: number;
+  /** Inner HTML of each numbered source, matching the body's <sup>[n]</sup> keys. */
+  sources?: string[];
+  sourcesNote?: string;
 }
 
 export interface CaseStudy {
