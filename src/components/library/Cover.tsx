@@ -41,7 +41,15 @@ export function Cover({
   const tint = TINT[type]
 
   return (
-    <div className={cx('relative overflow-hidden bg-(--cr-surface-2)', className)}>
+    <div
+      className={cx(
+        // Callers that pass `absolute` position the cover themselves; adding `relative` too would
+        // override it, collapse the box to zero height and stop the lazy image from ever loading.
+        !/(^|\s)(absolute|fixed)(\s|$)/.test(className ?? '') && 'relative',
+        'overflow-hidden bg-(--cr-surface-2)',
+        className,
+      )}
+    >
       {/* Fallback panel: always painted underneath, visible while loading and when the photo is missing */}
       <div
         aria-hidden
