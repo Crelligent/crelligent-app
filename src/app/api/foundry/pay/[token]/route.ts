@@ -35,6 +35,11 @@ export async function POST(req: Request, ctx: { params: Promise<{ token: string 
       return NextResponse.json({ error: 'not_payable', status: row.status }, { status: 409, headers: NO_STORE })
     }
 
+    if (row.currency !== 'NGN' && row.currency !== 'USD') {
+      // GBP / EUR invoices are bank transfer only.
+      return NextResponse.json({ error: 'not_payable_by_card' }, { status: 409, headers: NO_STORE })
+    }
+
     const reference = newPaystackReference(row.invoice_number)
     const stored = await setInvoiceReference(row.id, reference)
     if (!stored) {

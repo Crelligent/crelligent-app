@@ -8,7 +8,10 @@ import { FOUNDRY_REFERENCE_PREFIX, type PaystackTransaction } from './paystack'
 
 export type InvoiceStatus = 'draft' | 'sent' | 'paid' | 'void'
 export type InvoiceKind = 'deposit' | 'balance'
-export type InvoiceCurrency = 'NGN' | 'USD'
+export type InvoiceCurrency = 'NGN' | 'USD' | 'GBP' | 'EUR'
+
+/** Paystack (our account) settles NGN and USD only. GBP and EUR invoices are paid by bank transfer. */
+export const CARD_CURRENCIES: readonly InvoiceCurrency[] = ['NGN', 'USD']
 
 export interface EngagementRow {
   id: string

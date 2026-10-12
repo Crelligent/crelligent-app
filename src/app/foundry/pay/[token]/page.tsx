@@ -33,15 +33,26 @@ function paymentOptions(currency: string): PaymentOptions {
           { label: 'Account number', value: env.FOUNDRY_BANK_ACCOUNT_NUMBER },
         ]
       : null
-  // USD details vary by bank (domiciliary account, SWIFT, routing), so they are one free-text value.
-  const usd = env.FOUNDRY_BANK_USD_DETAILS
-    ? env.FOUNDRY_BANK_USD_DETAILS.split('|').map((line) => {
-        const [label, ...rest] = line.split(':')
-        return rest.length ? { label: label.trim(), value: rest.join(':').trim() } : { label: '', value: line.trim() }
-      })
-    : null
+  // Domiciliary details vary by bank (account number, SWIFT, IBAN, sort code), so each currency is one
+  // free-text value with lines separated by "|", e.g. "Bank: GTBank | Account number: ... | SWIFT: ...".
+  const parse = (raw?: string) =>
+    raw
+      ? raw
+          .split('|')
+          .map((line) => line.trim())
+          .filter(Boolean)
+          .map((line) => {
+            const [label, ...rest] = line.split(':')
+            return rest.length ? { label: label.trim(), value: rest.join(':').trim() } : { label: '', value: line }
+          })
+      : null
+  const bank =
+    currency === 'NGN'
+      ? ngn
+      : parse({ USD: env.FOUNDRY_BANK_USD_DETAILS, GBP: env.FOUNDRY_BANK_GBP_DETAILS, EUR: env.FOUNDRY_BANK_EUR_DETAILS }[currency])
   return {
-    online: Boolean(env.PAYSTACK_SECRET_KEY),
-    bank: currency === 'USD' ? usd : ngn,
+    // Card checkout needs Paystack, which only settles NGN and USD on our account.
+    online: Boolean(env.PAYSTACK_SECRET_KEY) && (currency === 'NGN' || currency === 'USD'),
+    bank,
   }
 }

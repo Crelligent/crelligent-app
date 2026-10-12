@@ -1,7 +1,7 @@
 /**
  * Crelligent Foundry packages and pricing: the single place to edit what /foundry shows.
  * Prices are NGN ranges; the final fee is agreed in the proposal after a discovery call.
- * International clients are quoted and invoiced in USD (no converted figures are shown).
+ * International clients are quoted and invoiced in USD, GBP or EUR (no converted figures are shown).
  */
 
 export type FoundryPath = 'validate' | 'venture'
@@ -85,6 +85,9 @@ export const FOUNDRY_PACKAGES: FoundryPackage[] = [
   },
 ]
 
+/** Prices stay in this file for internal reference. The public site shows "Request a quote" while this is false. */
+export const SHOW_PRICES = false
+
 export const FOUNDRY_BILLING = {
   depositPercent: 50,
   balanceLabel: 'on delivery',
@@ -98,6 +101,7 @@ export function formatNgn(n: number) {
 }
 
 export function priceLabel(p: FoundryPackage) {
+  if (!SHOW_PRICES) return 'Quote on request'
   if (p.priceFromNgn == null || p.priceToNgn == null) return 'Custom quote'
   return `${formatNgn(p.priceFromNgn)} – ${formatNgn(p.priceToNgn)}`
 }

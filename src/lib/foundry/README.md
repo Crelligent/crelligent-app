@@ -80,7 +80,8 @@ Mismatched or unexpected payments are never marked paid; they are logged and wri
 The invoice page shows bank details when these Vercel env vars are set (never put them in the repo):
 
 - NGN: `FOUNDRY_BANK_NAME`, `FOUNDRY_BANK_ACCOUNT_NAME`, `FOUNDRY_BANK_ACCOUNT_NUMBER`
-- USD: `FOUNDRY_BANK_USD_DETAILS`, lines separated by `|`, e.g. `Bank: ... | Account name: ... | Account number: ... | SWIFT: ...`
+- USD, GBP, EUR (domiciliary accounts): `FOUNDRY_BANK_USD_DETAILS`, `FOUNDRY_BANK_GBP_DETAILS`, `FOUNDRY_BANK_EUR_DETAILS`. Each is one line, with details separated by `|`, e.g. `Bank: ... | Account name: ... | Account number: ... | SWIFT: ...`
+- GBP and EUR invoices are bank transfer only (Paystack settles NGN and USD). They need migration `20261012_foundry_gbp_eur.sql`.
 
 The card button only shows when `PAYSTACK_SECRET_KEY` is set. After the money lands, mark the invoice paid:
 

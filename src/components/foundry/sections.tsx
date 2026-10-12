@@ -14,7 +14,7 @@ import {
   Rocket,
   ShieldCheck,
 } from 'lucide-react'
-import { FOUNDRY_BILLING, formatNgn, priceLabel, type FoundryPackage } from '@/lib/foundry/packages'
+import { FOUNDRY_BILLING, SHOW_PRICES, formatNgn, priceLabel, type FoundryPackage } from '@/lib/foundry/packages'
 import { FAQ_ITEMS, NOT_ACCELERATOR, type StatCardData } from './content'
 import { Cite } from './primitives'
 import { AEHI_SOURCE_TEXT, FOUNDRY_SOURCES } from './sources'
@@ -78,7 +78,7 @@ export function StatCard({ stat, describedBy }: { stat: StatCardData; describedB
 function PriceBlock({ p }: { p: FoundryPackage }) {
   return (
     <div aria-label={priceLabel(p)} role="group" className="mt-5">
-      {p.priceFromNgn != null && p.priceToNgn != null ? (
+      {SHOW_PRICES && p.priceFromNgn != null && p.priceToNgn != null ? (
         <>
           <p aria-hidden className="font-mono text-2xl font-medium text-(--cr-text) tabular">
             {formatNgn(p.priceFromNgn)}
@@ -88,7 +88,10 @@ function PriceBlock({ p }: { p: FoundryPackage }) {
           </p>
         </>
       ) : (
-        <p className="font-outfit text-2xl text-(--cr-text)">Custom quote</p>
+        <>
+          <p className="font-outfit text-2xl text-(--cr-text)">Quote on request</p>
+          <p className="text-sm text-(--cr-text-muted)">Scoped to your stage and goals</p>
+        </>
       )}
     </div>
   )
@@ -123,10 +126,10 @@ export function PackageCard({ p, variant = 'default' }: { p: FoundryPackage; var
   const cta = (
     <Link
       href={`/foundry/apply?package=${p.id}`}
-      aria-label={`Apply for ${p.name}`}
+      aria-label={`Request a quote for ${p.name}`}
       className={cx(p.featured ? btnPrimary : btnSecondary, 'w-full', variant === 'wide' && 'lg:min-w-48')}
     >
-      Apply
+      Request a quote
     </Link>
   )
   const timeline = (
@@ -200,7 +203,7 @@ export function BillingTerms() {
   const items = [
     { icon: CalendarCheck, text: '50% on signing, 50% on delivery.' },
     { icon: Landmark, text: 'Nigerian clients are billed in NGN.' },
-    { icon: Globe, text: 'International clients: quoted and invoiced in USD.' },
+    { icon: Globe, text: 'International clients: quoted and invoiced in USD, GBP or EUR.' },
   ]
   return (
     <div className="rounded-lg border border-(--cr-border) bg-(--cr-surface) p-5 lg:p-6 grid sm:grid-cols-2 gap-x-8 gap-y-4">
