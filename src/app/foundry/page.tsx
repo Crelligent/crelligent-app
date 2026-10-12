@@ -38,7 +38,10 @@ import {
   SourcesList,
   StatCard,
 } from '@/components/foundry/sections'
-import { btnPrimary, btnSecondary, cx } from '@/components/foundry/ui'
+import { btnPrimary, btnSecondary, cx, linkAccentStandalone } from '@/components/foundry/ui'
+import { LibraryCard } from '@/components/library/LibraryCard'
+import { PhotoCredit } from '@/components/library/PhotoCredit'
+import { foundryFeaturedItems } from '@/data/library'
 
 const title = 'Foundry: Build and Validate Startups'
 const description =
@@ -260,15 +263,41 @@ export default function FoundryPage() {
           </div>
         </Section>
 
-        {/* 9. FAQ */}
-        <Section id="faq" labelledBy="faq-title">
+        {/* 9. Research for founders (Library) */}
+        <Section id="research" labelledBy="research-title">
+          <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+            <SectionHeader
+              id="research-title"
+              eyebrow="Library"
+              title="Research for founders"
+              intro="What African investors are funding now, and the evidence that gets a founder through the door."
+            />
+            <Link href="/insights" className={cx(linkAccentStandalone, 'text-sm')}>
+              Browse the library
+              <ArrowRight aria-hidden className="size-4" />
+            </Link>
+          </div>
+          <Reveal className="mt-10 lg:mt-14">
+            <ul role="list" className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:gap-6">
+              {foundryFeaturedItems.map((item) => (
+                <li key={item.slug} className="min-w-0">
+                  <LibraryCard item={item} sizes="(min-width: 768px) 33vw, 100vw" />
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <PhotoCredit className="mt-4" />
+        </Section>
+
+        {/* 10. FAQ */}
+        <Section id="faq" labelledBy="faq-title" className="border-t border-(--cr-border)">
           <SectionHeader id="faq-title" title="FAQ" />
           <div className="mt-10">
             <FAQ />
           </div>
         </Section>
 
-        {/* 10. Final CTA */}
+        {/* 11. Final CTA */}
         <section
           id="apply"
           aria-labelledby="apply-title"
@@ -285,7 +314,7 @@ export default function FoundryPage() {
           </div>
         </section>
 
-        {/* 11. Sources */}
+        {/* 12. Sources */}
         <SourcesList />
       </main>
       <Footer />

@@ -5,6 +5,7 @@ import { problems } from '@/data/problems'
 import { industries } from '@/data/industries'
 import { caseStudies } from '@/data/case-studies'
 import { insights } from '@/data/insights'
+import { foundryResearch } from '@/data/foundry-research'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.crelligent.com'
@@ -88,12 +89,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }))
 
-    const insightRoutes = insights.map((a) => ({
+    const insightRoutes = [...foundryResearch, ...insights].map((a) => ({
         url: `${baseUrl}/insights/${a.slug}`,
-        lastModified: new Date().toISOString(),
+        lastModified: new Date(Math.min(Date.parse(`${a.updatedAt}T00:00:00Z`), Date.now())).toISOString(),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
     }))
 
-    return [...coreRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
+    const libraryExtraRoutes = ['/insights/ceo-corner/issue-1', '/research/pmf-blind-spot'].map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }))
+
+    return [...coreRoutes, ...libraryExtraRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
 }

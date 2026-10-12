@@ -1,39 +1,49 @@
-import Link from 'next/link';
-import { insights } from '@/data/insights';
-import { generateSeoMetadata } from '@/lib/seo/metadata';
-import { Navigation } from '@/components/shared/Navigation';
-import { Footer } from '@/components/shared/Footer';
+import { generateSeoMetadata } from '@/lib/seo/metadata'
+import { Navigation } from '@/components/shared/Navigation'
+import { Footer } from '@/components/shared/Footer'
+import { Eyebrow } from '@/components/foundry/primitives'
+import { LibraryBrowser } from '@/components/library/LibraryBrowser'
+import { PhotoCredit } from '@/components/library/PhotoCredit'
+import { isLibraryFilter } from '@/data/library'
 
 export const metadata = generateSeoMetadata({
-  title: 'Insights & Systems Thinking | Crelligent',
-  description: 'Authoritative research, frameworks, and consulting insights on enterprise operating models, technology architecture, and African business growth.',
+  title: 'Library: Articles, Whitepapers and Research | Crelligent',
+  description:
+    'Articles, whitepapers and research by Crelligent on product-market fit, fundraising, operating models and the health of African enterprises.',
   path: '/insights',
-});
+})
 
-export default function InsightsHub() {
+export default async function LibraryPage({ searchParams }: { searchParams: Promise<{ type?: string | string[] }> }) {
+  const { type } = await searchParams
+  const initial = isLibraryFilter(type) ? type : 'all'
+
   return (
-    <main className="min-h-screen bg-[#050505] flex flex-col font-outfit text-white">
+    <>
       <Navigation />
-      <section className="pt-40 pb-20 px-6 max-w-5xl mx-auto flex-1 w-full">
-        <h1 className="text-4xl md:text-5xl font-light mb-4 text-[#22c55e]">Insights & Frameworks</h1>
-        <p className="text-xl text-gray-400 mb-16 max-w-2xl">Proprietary knowledge on scaling complex enterprises. We write for systems thinkers, operators, and architects.</p>
-        
-        <div className="grid gap-8">
-          {insights.map(article => (
-            <Link key={article.slug} href={`/insights/${article.slug}`} className="block group">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/[0.08] hover:border-[#22c55e]/50 transition duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="px-3 py-1 bg-[#22c55e]/10 text-[#22c55e] text-xs font-mono rounded-full uppercase tracking-wider">{article.category}</span>
-                  <span className="text-gray-500 text-sm">{article.publishedAt}</span>
-                </div>
-                <h2 className="text-3xl font-light mb-4 group-hover:text-[#22c55e] transition">{article.title}</h2>
-                <p className="text-gray-400 text-lg leading-relaxed">{article.excerpt}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <main id="main" className="bg-(--cr-bg)">
+        <section aria-labelledby="library-title" className="px-4 sm:px-6 pt-28 pb-16 lg:pt-36 lg:pb-24">
+          <div className="max-w-6xl mx-auto">
+            <header className="max-w-3xl">
+              <Eyebrow>Crelligent Library</Eyebrow>
+              <h1
+                id="library-title"
+                className="mt-4 font-outfit text-[2.5rem] leading-[1.05] sm:text-5xl lg:text-6xl tracking-[-0.03em] text-(--cr-text)"
+              >
+                Library
+              </h1>
+              <p className="mt-5 text-base lg:text-lg text-(--cr-text-muted) leading-relaxed">
+                Articles, whitepapers and research by Crelligent, for founders and the leaders of growing African
+                enterprises.
+              </p>
+            </header>
+            <div className="mt-10 lg:mt-14">
+              <LibraryBrowser initial={initial} />
+            </div>
+            <PhotoCredit className="mt-12 border-t border-(--cr-border) pt-6" />
+          </div>
+        </section>
+      </main>
       <Footer />
-    </main>
-  );
+    </>
+  )
 }
