@@ -145,6 +145,7 @@ export function HeroForge({ className }: { className?: string }) {
             : { x: p.width * (0.5 + 0.38 * Math.sin(tt * 0.6)), y: p.height * (0.5 + 0.3 * Math.sin(tt * 0.9 + 1)) }
 
           const n = pts.length
+          if (n < 2) return
 
           // Connections when the system is installed
           if (current === 1) {
@@ -182,11 +183,13 @@ export function HeroForge({ className }: { className?: string }) {
             for (let i = 0; i < n; i++) p.vertex(pts[i].x, pts[i].y)
             p.endShape()
             // a pulse travelling up the curve
-            const k = Math.floor(((now - stageStart) / 25) % n)
+            const k = Math.floor(Math.max(0, now - stageStart) / 25) % Math.max(1, n)
             const head = pts[k]
-            p.noStroke()
-            p.fill(C.accent[0], C.accent[1], C.accent[2], 60)
-            p.circle(head.x, head.y, 22)
+            if (head) {
+              p.noStroke()
+              p.fill(C.accent[0], C.accent[1], C.accent[2], 60)
+              p.circle(head.x, head.y, 22)
+            }
           }
 
           for (let i = 0; i < n; i++) {
