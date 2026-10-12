@@ -132,7 +132,16 @@ export function HeroForge({ className }: { className?: string }) {
 
         const ease = (t: number) => 1 - Math.pow(1 - Math.min(1, Math.max(0, t)), 3)
 
+        // Decorative: a drawing error must never break the page.
         p.draw = () => {
+          try {
+            drawFrame()
+          } catch (err) {
+            console.warn('[HeroForge] frame skipped', err)
+          }
+        }
+
+        const drawFrame = () => {
           p.clear()
           const now = p.millis()
           if (!reduced && now - stageStart > STAGE_MS) setStageLocal(((current + 1) % 3) as Stage)
