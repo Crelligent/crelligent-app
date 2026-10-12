@@ -4,7 +4,6 @@
  */
 import { TrendingDown, TrendingUp } from 'lucide-react'
 import {
-  AEHI_L2_PRIMARY_CONSTRAINT,
   AFRICA_FUNDING_BY_YEAR,
   AFRICA_SEED_VS_SERIES_A_2025,
   STARTUP_FAILURE_REASONS,
@@ -323,42 +322,3 @@ export function SeedVsSeriesAChart({ onSurface = false, className }: { onSurface
   )
 }
 
-/* ------------------------------------------------------------------ */
-/* (vi-b) AEHI 100-dot grid                                            */
-/* ------------------------------------------------------------------ */
-export function AehiDotGrid({ className }: { className?: string }) {
-  const d = AEHI_L2_PRIMARY_CONSTRAINT
-  const filled = d.data[0].value
-  const id = d.id
-  return (
-    <svg
-      viewBox="0 0 200 200"
-      width="100%"
-      className={className}
-      role="img"
-      aria-labelledby={`${id}-title ${id}-desc`}
-    >
-      <title id={`${id}-title`}>{d.title}</title>
-      <desc id={`${id}-desc`}>
-        91 of 100 assessed enterprises have L2 Operating Model as their primary constraint; 9 have another OS layer as
-        their primary constraint. Crelligent AEHI data, 430 Nigerian mid-market enterprises, 9 sectors.
-      </desc>
-      {Array.from({ length: 100 }, (_, i) => {
-        const col = i % 10
-        const row = Math.floor(i / 10)
-        const on = i < filled
-        return (
-          <circle
-            key={i}
-            cx={10 + col * 20}
-            cy={10 + row * 20}
-            r={7}
-            fill={on ? 'var(--cr-l2-fill)' : 'none'}
-            stroke={on ? undefined : 'var(--cr-text-dim)'}
-            strokeWidth={on ? undefined : 1.5}
-          />
-        )
-      })}
-    </svg>
-  )
-}

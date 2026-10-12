@@ -117,7 +117,7 @@ export const FIX_ROWS: FixRow[] = [
     n: 5,
     problem: 'Customers churn because delivery is inconsistent.',
     short: 'Inconsistent delivery',
-    evidence: ['L2 Operating Model is the primary constraint in 91% of assessed enterprises ', { aehi: true }],
+    evidence: ['Delivery that depends on the founder is the first thing to break as a team grows'],
     solution: [
       { l2: 'L2 first' },
       ': processes, roles and decision rights, mapped to the retention and referral dimensions they lift',
@@ -161,16 +161,9 @@ export const FIX_ROWS: FixRow[] = [
 ]
 
 export const L2_SECTION = {
-  label: 'Crelligent AEHI data',
   heading: "Most companies don't stall on strategy. They stall on L2.",
-  bigStat: '91%',
-  bigStatLine:
-    'the share of assessed Nigerian mid-market enterprises where L2 Operating Model is the primary constraint.',
-  supportingLabel: 'Average ESRE OS Performance Score',
-  supportingValue: '44/100',
-  sample: 'Sample: 430 enterprises, 9 sectors.',
-  smallPrint:
-    'Source: African Enterprise Health Index (AEHI), Crelligent AEHI data. Sample is established mid-market enterprises, not startups.',
+  aehiNote:
+    "We're measuring how often this holds across Nigerian mid-market enterprises in the African Enterprise Health Index (AEHI). The inaugural edition publishes in Q4 2026.",
   body: [
     'L2 is the operating model: processes, roles and decision rights. In the ESRE OS Performance Score it carries a 1.4× weight, the highest of the five OS layers.',
     'If L2 is missing at 400 staff, it was missing at 10. Startups are where it is cheapest to install.',

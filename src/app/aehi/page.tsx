@@ -165,9 +165,9 @@ export default async function AehiPage() {
         {/* Key Findings from the Index */}
         <section className="px-6 max-w-7xl mx-auto mb-32">
           <div className="mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4">Latest Insights from the Index</h2>
+            <h2 className="text-3xl font-heading font-bold mb-4">What the Index Is Testing</h2>
             <p className="text-gray-400 max-w-2xl">
-              Patterns emerging from the top 100 mid-market enterprises across the continent.
+              Three patterns we see in Crelligent's diagnostic work. The inaugural edition (Q4 2026) will measure how widely they hold.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -175,7 +175,7 @@ export default async function AehiPage() {
               <AlertTriangle className="w-8 h-8 text-amber-400 mb-6" />
               <h3 className="text-xl font-semibold mb-3">The L2 Founder Trap</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                68% of indexed companies score below 55 on Operating Model (L2). Their processes are completely undocumented, meaning the founder or CEO is still acting as the system scheduler for day-to-day operations.
+                In many growing companies, core processes are undocumented, so the founder or CEO is still acting as the system scheduler for day-to-day operations.
               </p>
             </div>
             <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5">
@@ -189,7 +189,7 @@ export default async function AehiPage() {
               <Shield className="w-8 h-8 text-emerald-400 mb-6" />
               <h3 className="text-xl font-semibold mb-3">Reactive Governance (L5)</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Only 12% of indexed companies have proactive L5 Governance. The vast majority rely on "root access" (executive escalation) to solve exceptions, rather than having built-in system constraints and authority matrices.
+                Many companies rely on "root access" (executive escalation) to solve exceptions, rather than built-in system constraints and authority matrices.
               </p>
             </div>
           </div>
@@ -332,7 +332,7 @@ export default async function AehiPage() {
                       <div className="h-full bg-amber-500 w-[45%]" />
                     </div>
                     <div className="text-sm text-gray-400">
-                      Operating Model (L2) score of 45 falls significantly below the sector average of 58. High dependency on founder execution limits scale.
+                      Illustrative output: an Operating Model (L2) score of 45 sits in the at-risk range. High dependency on founder execution limits scale.
                     </div>
                   </div>
                 </div>

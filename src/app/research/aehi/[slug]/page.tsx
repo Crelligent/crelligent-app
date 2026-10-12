@@ -30,12 +30,12 @@ export default function ReportPage({ params }: { params: { slug: string } }) {
       <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto flex-1 w-full">
         <Link href="/research/aehi" className="text-[#22c55e] text-sm mb-8 block hover:underline">&larr; Back to Research Hub</Link>
         <h1 className="text-4xl font-light mb-4">{report.title}</h1>
-        <p className="text-sm text-gray-500 mb-8">Published: {report.date}</p>
+        <p className="text-sm text-gray-500 mb-8">{report.date}</p>
         <p className="text-xl text-gray-400 mb-8">{report.description}</p>
         
         <div className="prose prose-invert max-w-none">
             <h2>Executive Summary</h2>
-            <p>Our research indicates that the primary growth bottleneck for African mid-market enterprises is not capital, but structural rigidity. Without a defined operating system (ESRE OS), scaling efforts lead to exponential complexity.</p>
+            <p>Crelligent's working hypothesis, which the AEHI is designed to test, is that the primary growth bottleneck for African mid-market enterprises is not capital, but structural rigidity. Without a defined operating system (ESRE OS), scaling efforts lead to exponential complexity.</p>
         </div>
       </section>
       <Footer />

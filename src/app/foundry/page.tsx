@@ -16,10 +16,10 @@ import {
   PROCESS_HEADING,
   STAT_CARDS,
 } from '@/components/foundry/content'
-import { AehiTag, Cite, Eyebrow, Section, SectionHeader } from '@/components/foundry/primitives'
+import { Cite, Eyebrow, Section, SectionHeader } from '@/components/foundry/primitives'
 import { Reveal } from '@/components/foundry/Reveal'
 import { HeroForge } from '@/components/foundry/HeroForge'
-import { AehiDotGrid, FailureReasonsChart, FundingChart, SeedVsSeriesAChart } from '@/components/foundry/charts'
+import { FailureReasonsChart, FundingChart, SeedVsSeriesAChart } from '@/components/foundry/charts'
 import {
   OsLiteStack,
   PathsDiagram,
@@ -162,38 +162,9 @@ export default function FoundryPage() {
         <Section id="l2" labelledBy="l2-title" surface>
           <div className="lg:grid lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-6">
-              <AehiTag />
-              <h2 id="l2-title" className="mt-4 heading-lg text-(--cr-text)">
+              <h2 id="l2-title" className="heading-lg text-(--cr-text)">
                 {L2_SECTION.heading}
               </h2>
-              <Reveal className="mt-8">
-                <div className="flex flex-wrap items-center gap-5">
-                  <AehiDotGrid className="block size-36 lg:size-44 shrink-0" />
-                  <div className="min-w-0 flex-1 basis-40">
-                    <p className="font-mono text-5xl lg:text-6xl font-medium text-(--cr-l2-ink)">{L2_SECTION.bigStat}</p>
-                    <p className="mt-2 text-sm text-(--cr-text-muted) leading-relaxed">{L2_SECTION.bigStatLine}</p>
-                  </div>
-                </div>
-                <ul className="mt-4 space-y-1 text-xs text-(--cr-text-muted)">
-                  <li className="flex items-center gap-2">
-                    <span aria-hidden className="inline-block size-2.5 rounded-full bg-(--cr-l2-fill)" />
-                    L2 is the primary constraint (91%)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span aria-hidden className="inline-block size-2.5 rounded-full border-[1.5px] border-(--cr-text-dim)" />
-                    Another OS layer (9%)
-                  </li>
-                </ul>
-              </Reveal>
-              <p className="mt-6 text-sm text-(--cr-text-muted)">
-                {L2_SECTION.supportingLabel}:{' '}
-                <span className="font-mono text-2xl text-(--cr-text) align-middle">{L2_SECTION.supportingValue}</span>
-                <span aria-hidden className="mx-2">
-                  ·
-                </span>
-                {L2_SECTION.sample}
-              </p>
-              <p className="mt-3 text-xs text-(--cr-text-muted)">{L2_SECTION.smallPrint}</p>
               <ul className="mt-6 space-y-3 text-base text-(--cr-text-muted) leading-relaxed">
                 {L2_SECTION.body.map((b, i) => (
                   <li key={b} className="flex gap-3">
@@ -208,6 +179,7 @@ export default function FoundryPage() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-6 text-sm text-(--cr-text-muted)">{L2_SECTION.aehiNote}</p>
             </div>
             <div className="mt-10 lg:mt-0 lg:col-span-6 lg:pt-12">
               <Reveal>

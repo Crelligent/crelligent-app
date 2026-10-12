@@ -101,7 +101,7 @@ export function ESRESection() {
                 </div>
                 {layer.alert && (
                   <div className="text-[10px] text-white/40 mt-1 ml-6">
-                    Primary constraint in 91% of enterprises — AEHI Q4 2026
+                    Usually the first layer to break as a company grows
                   </div>
                 )}
               </div>

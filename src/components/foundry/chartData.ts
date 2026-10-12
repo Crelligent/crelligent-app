@@ -46,14 +46,3 @@ export const AFRICA_SEED_VS_SERIES_A_2025 = {
   caption: 'Source: Partech, 2025 Africa Tech Venture Capital Report [2].',
 } as const
 
-export const AEHI_L2_PRIMARY_CONSTRAINT = {
-  id: 'aehi-l2-primary-constraint',
-  title: 'Where the ESRE OS breaks',
-  unit: '% of assessed enterprises',
-  data: [
-    { label: 'L2 Operating Model is the primary constraint', value: 91, highlight: true },
-    { label: 'Another OS layer is the primary constraint', value: 9 },
-  ],
-  source: 'Crelligent AEHI data',
-  caption: 'Crelligent AEHI data: 430 Nigerian mid-market enterprises, 9 sectors. Mid-market sample, not startups.',
-} as const
