@@ -24,7 +24,7 @@ import EsreOsPerformanceScore from '@/components/landing/EsreOsPerformanceScore'
 import { GlobalNetworkGlobe } from '@/components/landing/GlobalNetworkGlobe'
 
 export const metadata: Metadata = {
-  title: 'ESRE OS: The Enterprise Operating System for Growing Companies',
+  title: 'ESRE OS: An Operating System for Growing Companies',
   description: "ESRE OS describes how a company runs in five layers, from business design to governance, and scores it from 0 to 100. How Crelligent diagnoses, designs and installs it.",
   alternates: { canonical: '/esre-os' },
 }

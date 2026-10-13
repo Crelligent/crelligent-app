@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Transport Systems (ITS) | Crelligent | Fleet & Fuel Intelligence',
+  title: 'Fleet Tracking & Fuel Theft Monitoring (ITS)',
   description:
     'Real-time fleet visibility, fuel anomaly detection, and driver behaviour scoring for Nigerian logistics, transport, and fuel distribution companies.',
   alternates: { canonical: '/intelligent-systems/its' },

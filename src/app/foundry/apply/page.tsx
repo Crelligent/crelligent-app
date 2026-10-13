@@ -10,7 +10,7 @@ import { Eyebrow } from '@/components/foundry/primitives'
 import { linkAccentStandalone } from '@/components/foundry/ui'
 
 export const metadata: Metadata = {
-  title: 'Apply or request a quote | Crelligent Foundry',
+  title: 'Apply to Crelligent Foundry or Request a Quote',
   description:
     'Apply to Crelligent Foundry in about 5 minutes. Tell us your stage and goals; we review every application and reply with next steps.',
   alternates: { canonical: '/foundry/apply' },

@@ -3,7 +3,7 @@ import { LAYERS } from '@/data/aehi/edition'
 import { HubCard, HubCta, HubShell } from '@/components/esre-os/HubShell'
 
 export const metadata = generateSeoMetadata({
-  title: 'ESRE OS Architecture: Core Layers, Applications and Platforms',
+  title: 'ESRE OS Architecture: Layers, Apps and Platforms',
   description:
     'How the ESRE OS fits together: five core layers, the applications that run on them, and the PRISM, CEM and VeloDesk platforms that sense and score how the business runs.',
   path: '/esre-os/architecture',

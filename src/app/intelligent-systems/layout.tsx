@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Fleet, Fuel & Generator Monitoring Systems for African Industry',
+  title: 'Fleet, Fuel & Generator Monitoring for African Industry',
   description:
     "IoT hardware and the PRISM platform for real-time fleet tracking, fuel and diesel monitoring, generator and energy telemetry across Nigerian and African operations.",
   alternates: { canonical: '/intelligent-systems' },

@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Energy Systems (IES) | Crelligent | Generator & Energy Intelligence',
+  title: 'Generator & Energy Monitoring Systems (IES)',
   description:
     'Generator monitoring, fuel reconciliation, and energy optimisation intelligence for Nigerian enterprises — telecom towers, banks, hospitals, and factories.',
   alternates: { canonical: '/intelligent-systems/ies' },

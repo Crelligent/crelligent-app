@@ -18,7 +18,14 @@ export default function DiagnosticPage() {
       
       <Navigation />
       
-      <main className="flex-grow pt-32 pb-24 px-6 flex items-center justify-center relative z-10">
+      <main className="flex-grow pt-32 pb-24 px-6 flex flex-col items-center justify-center relative z-10">
+        <header className="mb-10 max-w-2xl text-center">
+          <h1 className="font-outfit text-3xl font-light text-white md:text-4xl">Free business diagnostic</h1>
+          <p className="mt-4 text-base leading-relaxed text-gray-400">
+            Score how your company is run across five layers, from business design to governance, and see which one is holding the
+            business back. About 10 minutes. Your company is never named.
+          </p>
+        </header>
         <AehiDiagnosticForm />
       </main>
       

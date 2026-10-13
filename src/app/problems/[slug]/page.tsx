@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!problem) return {};
   
   return generateSeoMetadata({
-    title: `${problem.name}: Causes, Symptoms and How to Fix It`,
+    title: `${problem.name}: Causes and Fixes`,
     description: `${problem.symptoms} What causes ${problem.name.toLowerCase()} in growing companies, and how to fix it at the root.`.slice(0, 158),
     path: `/problems/${problem.slug}`,
   });

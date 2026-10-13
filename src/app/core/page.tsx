@@ -15,7 +15,7 @@ import { PartnershipCTA } from '@/components/core-landing/PartnershipCTA'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Crelligent Core | Survival Intelligence',
+  title: 'Crelligent Core: Business Tools for Small Traders',
   description: 'Survival intelligence for the grassroots economy. Crelligent Core translates raw conversational data into structured business vitals for the informal sector.',
   alternates: { canonical: '/core' },
 }
