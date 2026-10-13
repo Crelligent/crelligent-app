@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { insights } from '@/data/insights'
 import { foundryResearch } from '@/data/foundry-research'
+import { aehiResearch } from '@/data/aehi-research'
 import type { Article } from '@/data/cms'
 import { formatLibraryDate, library, libraryItemBySlug, TYPE_LABEL } from '@/data/library'
 import { generateSeoMetadata } from '@/lib/seo/metadata'
@@ -21,15 +22,17 @@ type Params = Promise<{ slug: string }>
 const SITE_URL = 'https://www.crelligent.com'
 
 /** Foundry research pieces first, then the legacy insight articles. */
-function findArticle(slug: string): { article: Article; foundry: boolean } | null {
+function findArticle(slug: string): { article: Article; foundry: boolean; aehi: boolean } | null {
   const f = foundryResearch.find((a) => a.slug === slug)
-  if (f) return { article: f, foundry: true }
-  const legacy = insights.find((a) => a.slug === slug)
-  return legacy ? { article: legacy, foundry: false } : null
+  if (f) return { article: f, foundry: true, aehi: false }
+  const a = aehiResearch.find((x) => x.slug === slug)
+  if (a) return { article: a, foundry: false, aehi: true }
+  const legacy = insights.find((x) => x.slug === slug)
+  return legacy ? { article: legacy, foundry: false, aehi: false } : null
 }
 
 export function generateStaticParams() {
-  return [...foundryResearch, ...insights].map((a) => ({ slug: a.slug }))
+  return [...foundryResearch, ...aehiResearch, ...insights].map((a) => ({ slug: a.slug }))
 }
 
 export const dynamicParams = false
@@ -52,7 +55,7 @@ export default async function InsightPage({ params }: { params: Params }) {
   const { slug } = await params
   const found = findArticle(slug)
   if (!found) notFound()
-  const { article, foundry } = found
+  const { article, foundry, aehi } = found
 
   const item = libraryItemBySlug(slug)
   const type = article.type ?? item?.type ?? 'article'
@@ -132,9 +135,11 @@ export default async function InsightPage({ params }: { params: Params }) {
                   sizes="(min-width: 1024px) 1024px, 100vw"
                   className="aspect-video lg:aspect-[21/9] rounded-lg border border-(--cr-border)"
                 />
-                <figcaption className="mt-2 flex justify-end">
-                  <PhotoCredit />
-                </figcaption>
+                {!aehi && (
+                  <figcaption className="mt-2 flex justify-end">
+                    <PhotoCredit />
+                  </figcaption>
+                )}
               </figure>
             )}
           </header>
@@ -171,7 +176,30 @@ export default async function InsightPage({ params }: { params: Params }) {
               )}
 
               {/* Closing CTA */}
-              {foundry ? (
+              {aehi ? (
+                <aside
+                  aria-labelledby="cta-title"
+                  className="no-print mt-14 rounded-lg border border-(--cr-accent)/40 bg-(--cr-accent-tint) p-6 sm:p-8"
+                >
+                  <p className={eyebrow}>African Enterprise Health Index</p>
+                  <h2 id="cta-title" className="mt-3 font-outfit text-2xl leading-tight font-normal! text-(--cr-text)">
+                    See how your enterprise scores
+                  </h2>
+                  <p className="mt-3 text-base leading-relaxed text-(--cr-text-muted)">
+                    The free diagnostic scores your business on all five ESRE OS layers. Your anonymised answers become part of the
+                    inaugural AEHI edition.
+                  </p>
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                    <Link href="/diagnostic" className={cx(btnPrimary, 'w-full sm:w-auto')}>
+                      Take the free diagnostic
+                      <ArrowRight aria-hidden className="size-4" />
+                    </Link>
+                    <Link href="/aehi/research" className={cx(btnSecondary, 'w-full sm:w-auto')}>
+                      See the evidence charts
+                    </Link>
+                  </div>
+                </aside>
+              ) : foundry ? (
                 <aside
                   aria-labelledby="cta-title"
                   className="no-print mt-14 rounded-lg border border-(--cr-accent)/40 bg-(--cr-accent-tint) p-6 sm:p-8"

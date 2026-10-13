@@ -5,6 +5,7 @@ import { industries } from '@/data/industries'
 import { caseStudies } from '@/data/case-studies'
 import { insights } from '@/data/insights'
 import { foundryResearch } from '@/data/foundry-research'
+import { aehiResearch } from '@/data/aehi-research'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.crelligent.com'
@@ -29,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/aehi/methodology',
         '/aehi/contribute',
         '/aehi/barometer',
+        '/aehi/research',
         '/aehi/report',
         '/aehi/data',
         '/aehi/institutional',
@@ -88,7 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }))
 
-    const insightRoutes = [...foundryResearch, ...insights].map((a) => ({
+    const insightRoutes = [...foundryResearch, ...aehiResearch, ...insights].map((a) => ({
         url: `${baseUrl}/insights/${a.slug}`,
         lastModified: new Date(Math.min(Date.parse(`${a.updatedAt}T00:00:00Z`), Date.now())).toISOString(),
         changeFrequency: 'weekly' as const,

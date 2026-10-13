@@ -6,6 +6,7 @@
  */
 import { insights } from './insights'
 import { foundryResearch } from './foundry-research'
+import { aehiResearch } from './aehi-research'
 
 export type LibraryType = 'article' | 'whitepaper' | 'research' | 'ceo-corner'
 
@@ -51,7 +52,7 @@ function minutesFromHtml(html: string) {
   return Math.max(1, Math.round(words / 220))
 }
 
-const research = (slug: string) => foundryResearch.find((a) => a.slug === slug)!
+const research = (slug: string) => [...foundryResearch, ...aehiResearch].find((a) => a.slug === slug)!
 const legacy = (slug: string) => insights.find((a) => a.slug === slug)!
 
 export const library: LibraryItem[] = [
@@ -119,6 +120,21 @@ export const library: LibraryItem[] = [
     cover: cover('what-is-technology-debt'),
     coverAlt: 'A software engineer writing code across two monitors',
   },
+  ...aehiResearch.map(
+    (a): LibraryItem => ({
+      slug: a.slug,
+      type: a.type === 'whitepaper' ? 'whitepaper' : 'research',
+      title: a.title,
+      excerpt: a.excerpt,
+      date: a.publishedAt,
+      href: `/insights/${a.slug}`,
+      readingMinutes: a.readingMinutes,
+      foundryFeatured: false,
+      // No photo: the Cover component shows the branded panel for AEHI research.
+      cover: cover(a.slug),
+      coverAlt: '',
+    }),
+  ),
   {
     slug: 'aehi-q4-2026',
     type: 'research',

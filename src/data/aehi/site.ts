@@ -9,7 +9,7 @@ export const NAV_LINKS = [
   { label: 'Take part', href: '/aehi/contribute' },
   { label: 'Barometer', href: '/aehi/barometer' },
   { label: 'Report', href: '/aehi/report' },
-  { label: 'Data', href: '/aehi/data' },
+  { label: 'Research', href: '/aehi/research' },
   { label: 'Partners', href: '/aehi/institutional' },
 ] as const
 

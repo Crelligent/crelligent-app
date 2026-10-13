@@ -3,6 +3,8 @@ import { pageMetadata } from '@/data/aehi/site'
 import { formatCount, formatDate, getAssessedCount, getEditionForDisplay } from '@/data/aehi/live'
 import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
 import { WAVE as BAROMETER_WAVE } from '@/data/aehi/barometer'
+import { MANAGEMENT_PRACTICES } from '@/data/aehi/evidence'
+import { StatTile } from '@/components/aehi/evidence/Charts'
 import { ButtonLink, TextLink } from '@/components/aehi/ui/Links'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { AssessedRecordRow } from '@/components/aehi/ui/AssessedCount'
@@ -199,8 +201,41 @@ export default async function HomePage() {
         </div>
       </Band>
 
+      {/* Research teaser: third-party evidence only */}
+      <Band id="research" tone="bg" labelledBy="research-title">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-6">
+          <div className="lg:col-span-5">
+            <Eyebrow>Research</Eyebrow>
+            <h2 id="research-title" className="t-h2 mt-4">
+              What the public data already says.
+            </h2>
+            <p className="t-lead mt-4">
+              The World Bank surveyed 1,043 Nigerian firms in 2025. Read through the ESRE OS layers, its data points to the operating
+              model. These are the World Bank&apos;s figures, not AEHI results.
+            </p>
+            <div className="mt-8">
+              <ButtonLink href="/aehi/research" fullWidthOnMobile>
+                See the research
+              </ButtonLink>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 gap-x-6 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
+            <StatTile
+              value={MANAGEMENT_PRACTICES.rows[0].value.toFixed(1)}
+              label="score for acting when a problem arises (out of 100)"
+              source={[1]}
+            />
+            <StatTile value="27.3" label="score for acting on under-performance (out of 100)" source={[1]} />
+            <StatTile value="9.2% vs 1.4%" label="yearly staff growth vs real sales growth, medium firms" source={[1]} />
+            <p className="t-small pt-4 text-aehi-text-subtle sm:col-span-3">
+              [1] World Bank Enterprise Surveys, Nigeria 2025. Firms with 20 or more workers for the management scores.
+            </p>
+          </div>
+        </div>
+      </Band>
+
       {/* Executive Barometer */}
-      <Band id="barometer" tone="bg" labelledBy="barometer-title">
+      <Band id="barometer" tone="deep" labelledBy="barometer-title">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-6">
           <div className="lg:col-span-7">
             <Eyebrow>Executive Barometer · {BAROMETER_WAVE.label}</Eyebrow>
@@ -223,7 +258,7 @@ export default async function HomePage() {
 
       {/* §4 Hypotheses (pre-publication only) */}
       {!published && (
-        <Band id="hypotheses" tone="deep" labelledBy="hyp-title">
+        <Band id="hypotheses" tone="bg" labelledBy="hyp-title">
           <Eyebrow>Hypotheses for the inaugural edition</Eyebrow>
           <h2 id="hyp-title" className="t-h2 mt-4">
             What we expect to find, and will test.
@@ -246,7 +281,7 @@ export default async function HomePage() {
       )}
 
       {/* §5 Who the index is for */}
-      <Band tone="bg" labelledBy="take-part-title">
+      <Band tone="deep" labelledBy="take-part-title">
         <Eyebrow>Take part</Eyebrow>
         <h2 id="take-part-title" className="t-h2 mt-4">
           Three ways to be part of the first edition.
