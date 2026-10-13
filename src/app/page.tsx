@@ -125,14 +125,6 @@ const platforms = [
     href: 'https://prism.crelligent.com',
     color: '#3b82f6',
     logo: '/PRISM-logo.png',
-  },
-  {
-    name: 'Crelligent Edge Module (CEM)',
-    role: 'Industrial IoT Hardware for Africa',
-    description: 'Purpose-built IoT hardware designed for African operating conditions. Connects vehicles, generators, tanks, and industrial assets to the PRISM intelligence platform via 4G/LTE and LoRa. CEM is the physical infrastructure layer of the ESRE OS — the hardware that the operational sensing layer (L4) and PRISM network depend on.',
-    stage: 'Industry Operations',
-    href: '/intelligent-systems/hardware',
-    color: '#f59e0b',
   }
 ]
 
@@ -412,14 +404,14 @@ export default function LandingPage() {
           <div className="text-center mb-16">
             <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Systems Intelligence Stack</div>
             <h2 className="heading-lg mb-4">
-              Applied systems tools
+              Technologies &amp; Platforms
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
               Platforms that operationalize systems thinking—from validation to enterprise governance.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto" style={{ fontFamily: "'Outfit', sans-serif" }}>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto" style={{ fontFamily: "'Outfit', sans-serif" }}>
             {platforms.map((platform) => (
               <Link
                 key={platform.href}

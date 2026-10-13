@@ -736,7 +736,7 @@ export default function IntelligentSystemsPage() {
       </section>
 
       {/* ── SECTION 3.5 — HARDWARE PRODUCT SUITE ── */}
-      <section className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6 relative overflow-hidden">
+      <section id="hardware" className="bg-[#0a0a0a] border-y border-white/5 py-24 px-6 relative overflow-hidden scroll-mt-24">
         {/* Subtle ambient glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[#f59e0b]/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
@@ -756,6 +756,31 @@ export default function IntelligentSystemsPage() {
               that survive generator surges to command displays that visualise your entire
               operation. Every device feeds data into PRISM for real-time operational intelligence.
             </motion.p>
+          </motion.div>
+
+          {/* CEM: the module family every device below is built on (moved here from the homepage) */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={fadeUp}
+            className="relative rounded-2xl p-[1px] mb-12 overflow-hidden"
+            style={{ backgroundImage: 'linear-gradient(to right, #f59e0b40, #f59e0b80)' }}
+          >
+            <div className="relative rounded-2xl bg-[#050505] p-8 md:p-10 grid md:grid-cols-12 gap-6 md:gap-10 items-start">
+              <div className="md:col-span-5">
+                <div className="text-[11px] font-[400] uppercase tracking-[0.2em] mb-4 text-[#f59e0b]">Industry Operations</div>
+                <h3 className="text-2xl font-[300] tracking-wide text-white mb-2" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  Crelligent Edge Module (CEM)
+                </h3>
+                <div className="text-sm text-gray-400 font-[200]">Industrial IoT Hardware for Africa</div>
+              </div>
+              <p className="md:col-span-7 text-sm text-white font-[200] leading-loose opacity-80">
+                Purpose-built IoT hardware designed for African operating conditions. Connects vehicles, generators, tanks, and
+                industrial assets to the PRISM intelligence platform via 4G/LTE and LoRa. CEM is the physical infrastructure layer of
+                the ESRE OS — the hardware that the operational sensing layer (L4) and PRISM network depend on.
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
