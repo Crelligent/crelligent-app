@@ -181,3 +181,9 @@ export function formatLibraryDate(iso: string) {
 export function isLibraryFilter(v: unknown): v is LibraryFilter {
   return typeof v === 'string' && LIBRARY_TYPES.some((t) => t.value === v)
 }
+
+/** Attribution required by the Freepik free licence for the Library cover photos. */
+export const PHOTO_CREDIT = {
+  label: 'Cover photos designed by Freepik',
+  href: 'https://www.freepik.com',
+} as const

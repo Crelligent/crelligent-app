@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/aehi',
         '/aehi/methodology',
         '/aehi/contribute',
+        '/aehi/barometer',
         '/aehi/report',
         '/aehi/data',
         '/aehi/institutional',

@@ -2,12 +2,14 @@ import { EDITION, DIAGNOSTIC_MINUTES, HYPOTHESES } from '@/data/aehi/edition'
 import { pageMetadata } from '@/data/aehi/site'
 import { formatCount, formatDate, getAssessedCount, getEditionForDisplay } from '@/data/aehi/live'
 import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
+import { WAVE as BAROMETER_WAVE } from '@/data/aehi/barometer'
 import { ButtonLink, TextLink } from '@/components/aehi/ui/Links'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { AssessedRecordRow } from '@/components/aehi/ui/AssessedCount'
 import { LayerStack } from '@/components/aehi/model/LayerStack'
 import { WeightStrip } from '@/components/aehi/model/WeightStrip'
 import { IndexFlow } from '@/components/aehi/model/IndexFlow'
+import { CoverageMap } from '@/components/aehi/model/CoverageMap'
 import { EditionFindingsGrid, SourceLine, fmtScore } from '@/components/aehi/published/Figures'
 
 export const revalidate = 600
@@ -173,6 +175,50 @@ export default async function HomePage() {
         <TextLink href="/aehi/methodology" className="mt-4">
           Read the full methodology
         </TextLink>
+      </Band>
+
+      {/* Coverage map */}
+      <Band id="coverage" tone="deep" labelledBy="coverage-title">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
+          <div className="lg:col-span-5">
+            <Eyebrow>Coverage</Eyebrow>
+            <h2 id="coverage-title" className="t-h2 mt-4">
+              The inaugural edition starts in Nigeria.
+            </h2>
+            <p className="t-lead mt-4">
+              Every response so far comes from Nigerian mid-market enterprises. Other African markets are not covered
+              yet, and we will only add a market when it has enough responses to report on.
+            </p>
+            <p className="t-small mt-4 text-aehi-text-subtle">
+              Hover or tap a country to see its status. The map shows coverage only, not scores.
+            </p>
+          </div>
+          <div className="lg:col-span-7">
+            <CoverageMap />
+          </div>
+        </div>
+      </Band>
+
+      {/* Executive Barometer */}
+      <Band id="barometer" tone="bg" labelledBy="barometer-title">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-6">
+          <div className="lg:col-span-7">
+            <Eyebrow>Executive Barometer · {BAROMETER_WAVE.label}</Eyebrow>
+            <h2 id="barometer-title" className="t-h2 mt-4">
+              Five minutes on what you expect from the year ahead.
+            </h2>
+            <p className="t-lead mt-4">
+              Alongside the index, a short survey asks senior leaders how confident they are in their operating model, what they expect
+              for the next 12 months, what holds them back and whom they trust. You see your own score as soon as you finish.
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9 lg:items-end">
+            <ButtonLink href="/aehi/barometer#survey" variant="primary" fullWidthOnMobile>
+              Answer the Barometer
+            </ButtonLink>
+            <TextLink href="/aehi/barometer#method">How it works</TextLink>
+          </div>
+        </div>
       </Band>
 
       {/* §4 Hypotheses (pre-publication only) */}
