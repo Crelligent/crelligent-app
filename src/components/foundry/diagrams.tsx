@@ -179,14 +179,14 @@ export function OsLiteStack() {
   return (
     <div>
       <ol aria-label="ESRE OS Lite: three OS layers, L2 installed first">
-        <li className="rounded-lg border border-(--cr-border) border-l-4 border-l-(--cr-l1-ink) flex items-center justify-between gap-4 px-4 py-4">
+        <li className="rounded-lg border border-(--cr-border) flex items-center justify-between gap-4 px-4 py-4">
           <div className="flex items-center gap-3">
             <span className="font-mono text-sm text-(--cr-l1-ink)">L1</span>
             <span className="text-(--cr-text)">Business Design</span>
           </div>
           <span className="font-mono text-sm text-(--cr-text-muted)">1.0×</span>
         </li>
-        <li className="my-2 rounded-lg border border-(--cr-border) border-l-4 border-l-(--cr-l2-ink) bg-(--cr-l2-tint) flex items-center justify-between gap-4 px-4 py-6">
+        <li className="my-2 rounded-lg border border-(--cr-border) bg-(--cr-l2-tint) flex items-center justify-between gap-4 px-4 py-6">
           <div className="flex items-start gap-3 min-w-0">
             <span className="font-mono text-(--cr-l2-ink) pt-0.5">L2</span>
             <div className="min-w-0">
@@ -202,7 +202,7 @@ export function OsLiteStack() {
           </div>
           <span className="font-mono text-2xl text-(--cr-l2-ink)">1.4×</span>
         </li>
-        <li className="rounded-lg border border-(--cr-border) border-l-4 border-l-(--cr-l3-ink) flex items-center justify-between gap-4 px-4 py-4">
+        <li className="rounded-lg border border-(--cr-border) flex items-center justify-between gap-4 px-4 py-4">
           <div className="flex items-center gap-3">
             <span className="font-mono text-sm text-(--cr-l3-ink)">L3</span>
             <span className="text-(--cr-text)">Technology &amp; Platform</span>
