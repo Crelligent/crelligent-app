@@ -66,7 +66,7 @@ export function TocMobile({ items }: { items: TocItem[] }) {
   return (
     <details className="group rounded-md border border-aehi-line-strong">
       <summary className="flex min-h-[48px] cursor-pointer list-none items-center justify-between px-4 text-[15px] font-medium text-aehi-text [&::-webkit-details-marker]:hidden">
-        On this page
+        In this section
         <span aria-hidden="true" className="text-aehi-text-muted transition-transform duration-150 group-open:rotate-180">
           ▾
         </span>
