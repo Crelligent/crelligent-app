@@ -1,11 +1,14 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 // Initialize a server-side Supabase client using Service Role for bypass RLS if needed,
 // but for public insertions, anon key is fine.
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-const supabase = createClient(supabaseUrl, supabaseKey)
+// Created on first use, not at import, so a build never fails when these env vars are absent.
+let client: SupabaseClient | null = null
+function db() {
+    if (!client) client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
+    return client
+}
 
 export async function POST(req: Request) {
     try {
@@ -17,7 +20,7 @@ export async function POST(req: Request) {
         }
 
         // Upsert the partial submission
-        const { data, error } = await supabase
+        const { data, error } = await db()
             .from('form_partial_submissions')
             .upsert({
                 form_id,

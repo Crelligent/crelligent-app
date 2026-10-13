@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-const supabase = createClient(supabaseUrl, supabaseKey)
+// Created on first use, not at import, so a build never fails when these env vars are absent.
+let client: SupabaseClient | null = null
+function db() {
+    if (!client) client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
+    return client
+}
 
 export async function POST(req: Request) {
     try {
@@ -15,7 +18,7 @@ export async function POST(req: Request) {
         }
 
         // 1. Insert Final Submission
-        const { error: insertError } = await supabase
+        const { error: insertError } = await db()
             .from('form_submissions')
             .insert({
                 form_id,
@@ -30,7 +33,7 @@ export async function POST(req: Request) {
 
         // 2. Clear Partial Submission State (if it exists)
         if (session_id) {
-            await supabase
+            await db()
                 .from('form_partial_submissions')
                 .delete()
                 .match({ form_id, session_id })

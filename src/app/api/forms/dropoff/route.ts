@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-const supabase = createClient(supabaseUrl, supabaseKey)
+// Created on first use, not at import, so a build never fails when these env vars are absent.
+let client: SupabaseClient | null = null
+function db() {
+    if (!client) client = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
+    return client
+}
 
 export async function POST(req: Request) {
     try {
@@ -24,7 +27,7 @@ export async function POST(req: Request) {
             time_spent_ms: evt.time_spent_ms || 0
         }))
 
-        const { error } = await supabase
+        const { error } = await db()
             .from('form_dropoff_events')
             .insert(payload)
 
