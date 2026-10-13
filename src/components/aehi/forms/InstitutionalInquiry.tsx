@@ -98,7 +98,7 @@ export function InstitutionalInquiry() {
     return (
       <SuccessPanel title="Thank you. Your enquiry has been sent." headingRef={headingRef}>
         <p>A member of the Crelligent team will reply to {doneEmail} within two working days.</p>
-        <TextLink href="/aehi/methodology">While you wait: read the methodology</TextLink>
+        <TextLink href="/aehi#methodology">While you wait: read the methodology</TextLink>
       </SuccessPanel>
     )
   }

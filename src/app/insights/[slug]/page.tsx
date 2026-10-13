@@ -194,7 +194,7 @@ export default async function InsightPage({ params }: { params: Params }) {
                       Take the free diagnostic
                       <ArrowRight aria-hidden className="size-4" />
                     </Link>
-                    <Link href="/aehi/research" className={cx(btnSecondary, 'w-full sm:w-auto')}>
+                    <Link href="/aehi#research" className={cx(btnSecondary, 'w-full sm:w-auto')}>
                       See the evidence charts
                     </Link>
                   </div>

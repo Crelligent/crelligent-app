@@ -2,9 +2,12 @@ import { EDITION, DIAGNOSTIC_MINUTES, HYPOTHESES } from '@/data/aehi/edition'
 import { pageMetadata } from '@/data/aehi/site'
 import { formatCount, formatDate, getAssessedCount, getEditionForDisplay } from '@/data/aehi/live'
 import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
-import { WAVE as BAROMETER_WAVE } from '@/data/aehi/barometer'
-import { MANAGEMENT_PRACTICES } from '@/data/aehi/evidence'
-import { StatTile } from '@/components/aehi/evidence/Charts'
+import { MethodologySection } from '@/components/aehi/sections/MethodologySection'
+import { TakePartSection } from '@/components/aehi/sections/TakePartSection'
+import { BarometerSection } from '@/components/aehi/sections/BarometerSection'
+import { ReportSection } from '@/components/aehi/sections/ReportSection'
+import { ResearchSection } from '@/components/aehi/sections/ResearchSection'
+import { PartnersSection } from '@/components/aehi/sections/PartnersSection'
 import { ButtonLink, TextLink } from '@/components/aehi/ui/Links'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { AssessedRecordRow } from '@/components/aehi/ui/AssessedCount'
@@ -64,7 +67,7 @@ export default async function HomePage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <DiagnosticLink location="hero" fullWidthOnMobile />
                 {published ? (
-                  <ButtonLink href="/aehi/report" fullWidthOnMobile>
+                  <ButtonLink href="/aehi#report" fullWidthOnMobile>
                     Read the {edition.label} report
                   </ButtonLink>
                 ) : (
@@ -112,7 +115,7 @@ export default async function HomePage() {
                   <RecordRow label="Publisher">Crelligent &amp; Company, Lagos</RecordRow>
                 </dl>
                 <div className="border-t border-aehi-line pt-2">
-                  <TextLink href="/aehi/report#notify">Get the report when it publishes</TextLink>
+                  <TextLink href="/aehi#notify">Get the report when it publishes</TextLink>
                 </div>
               </div>
             </aside>
@@ -132,7 +135,7 @@ export default async function HomePage() {
           </div>
           <SourceLine edition={edition} className="mt-6" />
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-            <ButtonLink href="/aehi/report" variant="primary" fullWidthOnMobile>
+            <ButtonLink href="/aehi#report" variant="primary" fullWidthOnMobile>
               Read the full report
             </ButtonLink>
             <TextLink href="/aehi/data">Explore the data</TextLink>
@@ -153,7 +156,7 @@ export default async function HomePage() {
         <div className="mt-10 lg:mt-14">
           <LayerStack
             footer={
-              <TextLink href="/aehi/methodology#layers" className="mt-2">
+              <TextLink href="/aehi#methodology#layers" className="mt-2">
                 Read all five layers as text
               </TextLink>
             }
@@ -174,7 +177,7 @@ export default async function HomePage() {
         <div className="mt-10 lg:mt-14">
           <IndexFlow tone={published ? 'deep' : 'bg'} />
         </div>
-        <TextLink href="/aehi/methodology" className="mt-4">
+        <TextLink href="/aehi#methodology" className="mt-4">
           Read the full methodology
         </TextLink>
       </Band>
@@ -197,61 +200,6 @@ export default async function HomePage() {
           </div>
           <div className="lg:col-span-7">
             <CoverageMap />
-          </div>
-        </div>
-      </Band>
-
-      {/* Research teaser: third-party evidence only */}
-      <Band id="research" tone="bg" labelledBy="research-title">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-5">
-            <Eyebrow>Research</Eyebrow>
-            <h2 id="research-title" className="t-h2 mt-4">
-              What the public data already says.
-            </h2>
-            <p className="t-lead mt-4">
-              The World Bank surveyed 1,043 Nigerian firms in 2025. Read through the ESRE OS layers, its data points to the operating
-              model. These are the World Bank&apos;s figures, not AEHI results.
-            </p>
-            <div className="mt-8">
-              <ButtonLink href="/aehi/research" fullWidthOnMobile>
-                See the research
-              </ButtonLink>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-x-6 sm:grid-cols-3 lg:col-span-6 lg:col-start-7">
-            <StatTile
-              value={MANAGEMENT_PRACTICES.rows[0].value.toFixed(1)}
-              label="score for acting when a problem arises (out of 100)"
-              source={[1]}
-            />
-            <StatTile value="27.3" label="score for acting on under-performance (out of 100)" source={[1]} />
-            <StatTile value="9.2% vs 1.4%" label="yearly staff growth vs real sales growth, medium firms" source={[1]} />
-            <p className="t-small pt-4 text-aehi-text-subtle sm:col-span-3">
-              [1] World Bank Enterprise Surveys, Nigeria 2025. Firms with 20 or more workers for the management scores.
-            </p>
-          </div>
-        </div>
-      </Band>
-
-      {/* Executive Barometer */}
-      <Band id="barometer" tone="deep" labelledBy="barometer-title">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end lg:gap-6">
-          <div className="lg:col-span-7">
-            <Eyebrow>Executive Barometer · {BAROMETER_WAVE.label}</Eyebrow>
-            <h2 id="barometer-title" className="t-h2 mt-4">
-              Five minutes on what you expect from the year ahead.
-            </h2>
-            <p className="t-lead mt-4">
-              Alongside the index, a short survey asks senior leaders how confident they are in their operating model, what they expect
-              for the next 12 months, what holds them back and whom they trust. You see your own score as soon as you finish.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9 lg:items-end">
-            <ButtonLink href="/aehi/barometer#survey" variant="primary" fullWidthOnMobile>
-              Answer the Barometer
-            </ButtonLink>
-            <TextLink href="/aehi/barometer#method">How it works</TextLink>
           </div>
         </div>
       </Band>
@@ -280,46 +228,13 @@ export default async function HomePage() {
         </Band>
       )}
 
-      {/* §5 Who the index is for */}
-      <Band tone="deep" labelledBy="take-part-title">
-        <Eyebrow>Take part</Eyebrow>
-        <h2 id="take-part-title" className="t-h2 mt-4">
-          Three ways to be part of the first edition.
-        </h2>
-        <ol className="mt-10 lg:mt-14">
-          {[
-            {
-              n: '01',
-              title: 'For CEOs, founders and senior executives',
-              body: "Take the diagnostic and get your enterprise's ESRE OS Performance Score, layer by layer. Your anonymised answers become part of the inaugural edition.",
-              action: <DiagnosticLink location="take-part" fullWidthOnMobile />,
-            },
-            {
-              n: '02',
-              title: 'For universities, associations and investors',
-              body: 'Review the method with us, invite your members or portfolio companies to take part, or plan for access to the published data.',
-              action: (
-                <ButtonLink href="/aehi/institutional" fullWidthOnMobile>
-                  Partner with the index
-                </ButtonLink>
-              ),
-            },
-            {
-              n: '03',
-              title: 'For anyone who follows Nigerian business',
-              body: 'Get one email when the inaugural report is published.',
-              action: <TextLink href="/aehi/report#notify">Get the report when it publishes</TextLink>,
-            },
-          ].map((row) => (
-            <li key={row.n} className="grid grid-cols-1 gap-3 border-t border-aehi-line py-6 lg:grid-cols-12 lg:gap-6 lg:py-8">
-              <span className="t-data text-sm text-aehi-text-subtle lg:col-span-1">{row.n}</span>
-              <h3 className="t-h3 lg:col-span-4">{row.title}</h3>
-              <p className="t-body lg:col-span-4">{row.body}</p>
-              <div className="mt-2 lg:col-span-3 lg:mt-0 lg:flex lg:items-start lg:justify-end">{row.action}</div>
-            </li>
-          ))}
-        </ol>
-      </Band>
+      {/* One-page AEHI: each nav item is a section below */}
+      <MethodologySection />
+      <TakePartSection />
+      <BarometerSection />
+      <ReportSection />
+      <ResearchSection />
+      <PartnersSection />
     </>
   )
 }

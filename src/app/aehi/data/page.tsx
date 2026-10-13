@@ -155,7 +155,7 @@ export default async function DataPage({ searchParams }: { searchParams?: { by?:
           <SourceLine edition={edition} className="mt-6" />
           <p className="t-small mt-2 text-aehi-text-muted">
             How these figures are calculated:{' '}
-            <Link href="/aehi/methodology" className="link-inline">
+            <Link href="/aehi#methodology" className="link-inline">
               methodology
             </Link>
             .
@@ -201,7 +201,7 @@ export default async function DataPage({ searchParams }: { searchParams?: { by?:
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <DiagnosticLink location="data" fullWidthOnMobile />
-          <TextLink href="/aehi/report#notify">Get notified when the data is published</TextLink>
+          <TextLink href="/aehi#notify">Get notified when the data is published</TextLink>
         </div>
       </div>
     </section>

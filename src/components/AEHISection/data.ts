@@ -4,7 +4,7 @@
  */
 export const AEHI_HOMEPAGE_DATA = {
   edition: 'Q4 2026',
-  contributeUrl: '/aehi/contribute',
+  contributeUrl: '/aehi#take-part',
   micrositeUrl: '/aehi',
   layers: [
     { code: 'L1', name: 'Business Design', measures: 'Model, positioning and economics' },

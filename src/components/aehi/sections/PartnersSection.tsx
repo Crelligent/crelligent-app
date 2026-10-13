@@ -1,16 +1,8 @@
 import { ShieldCheck } from 'lucide-react'
 import { EDITION, MIN_GROUP_SIZE } from '@/data/aehi/edition'
-import { pageMetadata } from '@/data/aehi/site'
 import { Band, Eyebrow } from '@/components/aehi/ui/Typography'
 import { ButtonLink, TextLink } from '@/components/aehi/ui/Links'
 import { InstitutionalInquiry } from '@/components/aehi/forms/InstitutionalInquiry'
-
-export const metadata = pageMetadata({
-  title: 'Partners',
-  description:
-    'Universities, associations and investors: review the method, invite members or portfolio companies, or plan for access to AEHI data.',
-  path: '/aehi/institutional',
-})
 
 const PARTNER_TYPES = [
   {
@@ -46,16 +38,16 @@ const PRINCIPLES = [
   'Partners do not approve or change findings before publication.',
 ]
 
-export default function InstitutionalPage() {
+export function PartnersSection() {
   return (
     <>
-      <section aria-labelledby="page-title" className="bg-aehi-bg pb-16 pt-10 lg:pb-24 lg:pt-14">
+      <section id="partners" aria-labelledby="partners-title" className="scroll-mt-20 border-t border-aehi-line bg-aehi-bg pb-16 pt-16 lg:pb-24 lg:pt-24">
         <div className="container-x">
           <div className="lg:max-w-[58%]">
             <Eyebrow>Partners</Eyebrow>
-            <h1 id="page-title" className="t-h1 mt-5">
+            <h2 id="partners-title" className="t-h1 mt-5">
               Build the index with us.
-            </h1>
+            </h2>
             <p className="t-lead mt-6">
               The AEHI is in its first edition. We are looking for research partners to review the method, networks that can invite
               their members to take part, and institutions that want to use the data once it is published.
@@ -65,7 +57,7 @@ export default function InstitutionalPage() {
               <ButtonLink href="#enquiry" variant="primary" fullWidthOnMobile>
                 Send an enquiry
               </ButtonLink>
-              <TextLink href="/aehi/methodology">Read the methodology</TextLink>
+              <TextLink href="/aehi#methodology">Read the methodology</TextLink>
             </div>
           </div>
         </div>

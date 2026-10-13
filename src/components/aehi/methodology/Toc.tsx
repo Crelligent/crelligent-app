@@ -54,8 +54,8 @@ function TocList({ items, active }: { items: TocItem[]; active?: string }) {
 export function TocDesktop({ items }: { items: TocItem[] }) {
   const active = useActiveSection(items.map((i) => i.id))
   return (
-    <nav aria-label="On this page" className="sticky top-24">
-      <p className="t-label mb-3 text-aehi-text-subtle">On this page</p>
+    <nav aria-label="Methodology sections" className="sticky top-24">
+      <p className="t-label mb-3 text-aehi-text-subtle">In this section</p>
       <TocList items={items} active={active} />
     </nav>
   )
@@ -71,7 +71,7 @@ export function TocMobile({ items }: { items: TocItem[] }) {
           ▾
         </span>
       </summary>
-      <nav aria-label="On this page" className="border-t border-aehi-line px-2 py-2">
+      <nav aria-label="Methodology sections" className="border-t border-aehi-line px-2 py-2">
         <TocList items={items} />
       </nav>
     </details>

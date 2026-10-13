@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 const PAGES = [
   ['AEHI home', '/aehi'],
-  ['Methodology', '/aehi/methodology'],
-  ['Take part', '/aehi/contribute'],
-  ['Inaugural report', '/aehi/report'],
+  ['Methodology', '/aehi#methodology'],
+  ['Take part', '/aehi#take-part'],
+  ['Inaugural report', '/aehi#report'],
   ['Data', '/aehi/data'],
-  ['Partners', '/aehi/institutional'],
+  ['Partners', '/aehi#partners'],
 ] as const
 
 export default function NotFound() {

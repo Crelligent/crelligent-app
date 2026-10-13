@@ -1,20 +1,10 @@
 import { ShieldCheck } from 'lucide-react'
 import { EDITION, DIAGNOSTIC_MINUTES, LAYERS, MIN_GROUP_SIZE } from '@/data/aehi/edition'
-import { pageMetadata } from '@/data/aehi/site'
 import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
 import { TextLink } from '@/components/aehi/ui/Links'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
-import { LayerStack } from '@/components/aehi/model/LayerStack'
 import { WeightStrip } from '@/components/aehi/model/WeightStrip'
-import { IndexFlow } from '@/components/aehi/model/IndexFlow'
 import { TocDesktop, TocMobile, type TocItem } from '@/components/aehi/methodology/Toc'
-
-export const metadata = pageMetadata({
-  title: 'Methodology',
-  description:
-    'How the AEHI scores enterprises on five OS layers, who is included, how the 0–100 score is weighted and how individual results are kept anonymous.',
-  path: '/aehi/methodology',
-})
 
 const TOC: TocItem[] = [
   { id: 'layers', n: '01', label: 'What the index measures' },
@@ -59,19 +49,19 @@ function Bullets({ items, ordered = false }: { items: React.ReactNode[]; ordered
   )
 }
 
-export default function MethodologyPage() {
+export function MethodologySection() {
   return (
     <>
-      <section aria-labelledby="page-title" className="bg-aehi-bg pb-4 pt-10 lg:pb-0 lg:pt-14">
+      <section id="methodology" aria-labelledby="methodology-title" className="scroll-mt-20 border-t border-aehi-line bg-aehi-bg pb-4 pt-16 lg:pb-0 lg:pt-24">
         <div className="container-x">
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-8 lg:col-start-4">
               <Eyebrow>Methodology · Version {EDITION.methodVersion}</Eyebrow>
-              <h1 id="page-title" className="t-h1 mt-5">
+              <h2 id="methodology-title" className="t-h1 mt-5">
                 How the index is built.
-              </h1>
+              </h2>
               <p className="t-lead mt-6">
-                This page sets out how the African Enterprise Health Index measures enterprises, who is included, how scores are
+                This section sets out how the African Enterprise Health Index measures enterprises, who is included, how scores are
                 calculated and how individual results are protected. It applies to the inaugural edition (Q4 2026). Any change to the
                 method will be published here, with each edition.
               </p>
@@ -102,9 +92,9 @@ export default function MethodologyPage() {
                   operating system. Each layer depends on the ones below it.
                 </p>
               </Section>
-              <div className="mt-10">
-                <LayerStack stacked />
-              </div>
+              <p className="t-small mt-6 text-aehi-text-subtle">
+                The five layers are shown in the <a href="#model" className="link-inline">model above</a>.
+              </p>
 
               {/* Layer table: table on desktop, definition blocks on mobile */}
               <table className="mt-12 hidden w-full border-collapse text-left sm:table">
@@ -223,9 +213,6 @@ export default function MethodologyPage() {
               </Section>
 
               <Section item={TOC[4]}>
-                <div className="!mt-8">
-                  <IndexFlow />
-                </div>
                 <ul className="!mt-10 space-y-4">
                   {[
                     'Company names, people’s names and contact details are removed before any analysis for publication.',
@@ -304,7 +291,7 @@ export default function MethodologyPage() {
         <p className="t-body mt-4">The diagnostic takes about {DIAGNOSTIC_MINUTES} minutes and is free.</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <DiagnosticLink location="methodology-end" fullWidthOnMobile />
-          <TextLink href="/aehi/institutional">Partner with the index</TextLink>
+          <TextLink href="/aehi#partners">Partner with the index</TextLink>
         </div>
       </Band>
     </>

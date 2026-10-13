@@ -3,15 +3,18 @@ import type { Metadata } from 'next'
 export const SITE_URL = 'https://crelligent.com'
 export const SITE_NAME = 'African Enterprise Health Index (AEHI)'
 
+/** One-page AEHI: every item is a section on /aehi (ids match the section components). */
 export const NAV_LINKS = [
   { label: 'Overview', href: '/aehi' },
-  { label: 'Methodology', href: '/aehi/methodology' },
-  { label: 'Take part', href: '/aehi/contribute' },
-  { label: 'Barometer', href: '/aehi/barometer' },
-  { label: 'Report', href: '/aehi/report' },
-  { label: 'Research', href: '/aehi/research' },
-  { label: 'Partners', href: '/aehi/institutional' },
+  { label: 'Methodology', href: '/aehi#methodology' },
+  { label: 'Take part', href: '/aehi#take-part' },
+  { label: 'Barometer', href: '/aehi#barometer' },
+  { label: 'Report', href: '/aehi#report' },
+  { label: 'Research', href: '/aehi#research' },
+  { label: 'Partners', href: '/aehi#partners' },
 ] as const
+
+export const SECTION_IDS = ['methodology', 'take-part', 'barometer', 'report', 'research', 'partners'] as const
 
 /** Per-page metadata with canonical URL and Open Graph / Twitter fields (DESIGN.md 8). */
 export function pageMetadata({

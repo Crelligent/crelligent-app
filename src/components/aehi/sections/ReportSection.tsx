@@ -1,7 +1,6 @@
-import type { Metadata } from 'next'
 import { ArrowDownToLine } from 'lucide-react'
 import { EDITION } from '@/data/aehi/edition'
-import { SITE_URL, pageMetadata } from '@/data/aehi/site'
+import { SITE_URL } from '@/data/aehi/site'
 import { formatDate, getEditionForDisplay } from '@/data/aehi/live'
 import { Chip, Eyebrow } from '@/components/aehi/ui/Typography'
 import { TextLink } from '@/components/aehi/ui/Links'
@@ -9,38 +8,13 @@ import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { NotifyForm } from '@/components/aehi/forms/NotifyForm'
 import { SourceLine } from '@/components/aehi/published/Figures'
 
-export const revalidate = 600
-
-function truncate(text: string, max = 155) {
-  if (text.length <= max) return text
-  const cut = text.slice(0, max - 1)
-  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,.;:]$/, '') + '…'
-}
-
-export async function generateMetadata(): Promise<Metadata> {
-  const edition = await getEditionForDisplay()
-  if (edition) {
-    return pageMetadata({
-      title: `${edition.label} edition`,
-      description: truncate(edition.summary ?? `The AEHI ${edition.label} edition.`),
-      path: '/aehi/report',
-    })
-  }
-  return pageMetadata({
-    title: 'Inaugural report, Q4 2026',
-    description:
-      'The first AEHI report is being prepared. Leave your details to get it by email when the Q4 2026 edition publishes.',
-    path: '/aehi/report',
-  })
-}
-
-export default async function ReportPage() {
+export async function ReportSection() {
   const edition = await getEditionForDisplay()
 
   if (edition) {
     const year = new Date(edition.publishedAt).getFullYear()
     return (
-      <section aria-labelledby="page-title" className="bg-aehi-bg pb-16 pt-10 lg:pb-28 lg:pt-14">
+      <section id="report" aria-labelledby="report-title" className="scroll-mt-20 border-t border-aehi-line bg-aehi-bg pb-16 pt-16 lg:pb-28 lg:pt-24">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -49,7 +23,7 @@ export default async function ReportPage() {
               '@type': 'Report',
               name: `African Enterprise Health Index, ${edition.label} edition`,
               datePublished: edition.publishedAt,
-              url: `${SITE_URL}/aehi/report`,
+              url: `${SITE_URL}/aehi#report`,
               publisher: { '@type': 'Organization', name: 'Crelligent & Company', url: 'https://crelligent.com' },
             }),
           }}
@@ -58,9 +32,9 @@ export default async function ReportPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-6">
               <Eyebrow>{edition.label} edition</Eyebrow>
-              <h1 id="page-title" className="t-h1 mt-5">
+              <h2 id="report-title" className="t-h1 mt-5">
                 AEHI {edition.label} edition.
-              </h1>
+              </h2>
               <Chip className="mt-5">Published {formatDate(edition.publishedAt)}</Chip>
               {edition.summary && <p className="t-lead mt-6">{edition.summary}</p>}
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
@@ -75,7 +49,7 @@ export default async function ReportPage() {
               <h2 className="t-label mt-12 text-aehi-text-subtle">How to cite</h2>
               <pre className="mt-3 whitespace-pre-wrap break-words rounded-md border border-aehi-line bg-aehi-bg-deep p-4 font-mono text-sm text-aehi-text">
                 Crelligent &amp; Company ({year}). African Enterprise Health Index, {edition.label} edition. Lagos: Crelligent &amp;
-                Company. crelligent.com/aehi/report
+                Company. crelligent.com/aehi#report
               </pre>
               <SourceLine edition={edition} className="mt-6" />
             </div>
@@ -93,14 +67,14 @@ export default async function ReportPage() {
   }
 
   return (
-    <section aria-labelledby="page-title" className="bg-aehi-bg pb-16 pt-10 lg:pb-28 lg:pt-14">
+    <section id="report" aria-labelledby="report-title" className="scroll-mt-20 border-t border-aehi-line bg-aehi-bg pb-16 pt-16 lg:pb-28 lg:pt-24">
       <div className="container-x">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-6">
             <Eyebrow>Inaugural report · {EDITION.label}</Eyebrow>
-            <h1 id="page-title" className="t-h1 mt-5">
+            <h2 id="report-title" className="t-h1 mt-5">
               The first AEHI report is being prepared.
-            </h1>
+            </h2>
             <Chip className="mt-5">In preparation</Chip>
             <p className="t-lead mt-6">
               The inaugural edition will benchmark how Nigerian mid-market enterprises are run, across the five OS layers. It will be

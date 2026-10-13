@@ -142,7 +142,7 @@ export const library: LibraryItem[] = [
     excerpt: 'The inaugural benchmark of operating health across Nigerian mid-market companies. In preparation; enterprises can contribute now.',
     date: null,
     statusLabel: 'Publishing Q4 2026',
-    href: '/aehi/report',
+    href: '/aehi#report',
     foundryFeatured: false,
     cover: cover('aehi-q4-2026'),
     coverAlt: 'A team of coworkers analysing charts and printed reports around a table',

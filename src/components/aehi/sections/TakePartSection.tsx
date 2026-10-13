@@ -1,22 +1,11 @@
 import Link from 'next/link'
 import { DIAGNOSTIC_MINUTES, EDITION, MIN_GROUP_SIZE } from '@/data/aehi/edition'
-import { pageMetadata } from '@/data/aehi/site'
 import { getAssessedCount } from '@/data/aehi/live'
 import { Band, Eyebrow } from '@/components/aehi/ui/Typography'
 import { TextLink } from '@/components/aehi/ui/Links'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { AssessedStatusLine } from '@/components/aehi/ui/AssessedCount'
 import { IndexFlow } from '@/components/aehi/model/IndexFlow'
-
-export const revalidate = 600
-
-export const metadata = pageMetadata({
-  title: 'Take part',
-  // OWNER CONFIRM: "10-minute" diagnostic length
-  description:
-    'Take the free 10-minute ESRE OS diagnostic, see your enterprise’s score straight away, and help build the first edition of the AEHI.',
-  path: '/aehi/contribute',
-})
 
 function RuledList({ items }: { items: React.ReactNode[] }) {
   return (
@@ -54,7 +43,7 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Yes, you will still get your score. Your answers will not be included in the mid-market results; the{' '}
-        <Link href="/aehi/methodology#scope" className="link-inline">
+        <Link href="/aehi#methodology#scope" className="link-inline">
           methodology
         </Link>{' '}
         explains the definition.
@@ -68,18 +57,18 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
   },
 ]
 
-export default async function ContributePage() {
+export async function TakePartSection() {
   const count = await getAssessedCount()
   return (
     <>
-      <section aria-labelledby="page-title" className="bg-aehi-bg pb-16 pt-10 lg:pb-24 lg:pt-14">
+      <section id="take-part" aria-labelledby="take-part-title" className="scroll-mt-20 border-t border-aehi-line bg-aehi-bg pb-16 pt-16 lg:pb-24 lg:pt-24">
         <div className="container-x">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-7">
               <Eyebrow>Take part</Eyebrow>
-              <h1 id="page-title" className="t-h1 mt-5">
+              <h2 id="take-part-title" className="t-h1 mt-5">
                 Get your enterprise&apos;s score, and help build the index.
-              </h1>
+              </h2>
               <p className="t-lead mt-6">
                 The AEHI is built from the anonymised answers of the enterprises that take part. Take the diagnostic and you see your
                 own ESRE OS Performance Score straight away. Your answers, without your name, become part of the inaugural edition.
@@ -173,7 +162,7 @@ export default async function ContributePage() {
         </h2>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <DiagnosticLink location="contribute-end" fullWidthOnMobile />
-          <TextLink href="/aehi/methodology">Read the methodology first</TextLink>
+          <TextLink href="/aehi#methodology">Read the methodology first</TextLink>
         </div>
       </Band>
     </>

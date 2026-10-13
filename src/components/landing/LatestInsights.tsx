@@ -44,7 +44,7 @@ export function LatestInsights() {
                         <div className="absolute inset-0 bg-gradient-to-r from-[#00C985] to-[#3b82f6] opacity-30 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="relative bg-[#050505] rounded-xl h-full z-10 w-full overflow-hidden flex flex-col">
                             <div className="absolute inset-0 z-0 bg-[#0a0a0a] transition-transform duration-700" />
-                            <Link href="/aehi/contribute" className="absolute inset-0 z-20 flex flex-col p-8 md:p-10 border-t border-[#00C985]/20 transition-colors duration-300 group-hover:border-[#00C985]/50">
+                            <Link href="/aehi#take-part" className="absolute inset-0 z-20 flex flex-col p-8 md:p-10 border-t border-[#00C985]/20 transition-colors duration-300 group-hover:border-[#00C985]/50">
                                 <div className="text-[11px] uppercase tracking-[0.2em] text-[#00C985] mb-6 flex items-center gap-3 font-semibold shrink-0">
                                     <div className="w-4 h-[1px] bg-[#00C985]" />
                                     Crelligent Intelligence

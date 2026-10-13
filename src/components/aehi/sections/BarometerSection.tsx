@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Clock, Lock, Users } from 'lucide-react'
 import {
   ELIGIBILITY_TEXT,
@@ -9,21 +8,12 @@ import {
   SURVEY_MINUTES,
   WAVE,
 } from '@/data/aehi/barometer'
-import { pageMetadata } from '@/data/aehi/site'
 import { getPublishedBarometer } from '@/lib/aehi/barometer-store'
 import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
 import { TextLink } from '@/components/aehi/ui/Links'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { BarometerSurvey } from '@/components/aehi/barometer/BarometerSurvey'
 import { BarometerResults } from '@/components/aehi/barometer/BarometerResults'
-
-export const revalidate = 600
-
-export const metadata: Metadata = pageMetadata({
-  title: 'Executive Barometer',
-  description: `A ${SURVEY_MINUTES}-minute survey of senior leaders in Nigeria's mid-market: confidence in their operating model, the year ahead, what holds them back and whom they trust. ${WAVE.label} is open.`,
-  path: '/aehi/barometer',
-})
 
 const BLOCKS = [
   { n: '01', title: 'Your operating model', body: 'How confident you are in each of the five ESRE OS layers, from business design to governance.' },
@@ -32,20 +22,20 @@ const BLOCKS = [
   { n: '04', title: 'Trust', body: 'How far you trust banks, government, suppliers, customers and your own figures.' },
 ]
 
-export default async function BarometerPage() {
+export async function BarometerSection() {
   const results = await getPublishedBarometer()
   const fielding = WAVE.status === 'fielding'
 
   return (
     <>
-      <section aria-labelledby="page-title" className="bg-aehi-bg pb-12 pt-10 lg:pb-16 lg:pt-14">
+      <section id="barometer" aria-labelledby="barometer-title" className="scroll-mt-20 border-t border-aehi-line bg-aehi-bg pb-12 pt-16 lg:pb-16 lg:pt-24">
         <div className="container-x">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-7">
               <Eyebrow>Executive Barometer · {WAVE.label}</Eyebrow>
-              <h1 id="page-title" className="t-h1 mt-5">
+              <h2 id="barometer-title" className="t-h1 mt-5">
                 How confident are the people who run Nigeria&apos;s mid-market?
-              </h1>
+              </h2>
               <Chip variant={fielding ? 'live' : 'neutral'} className="mt-5">
                 {fielding ? `Open now · closes ${WAVE.closesShort}` : results ? 'Results published' : 'Fieldwork closed · results in preparation'}
               </Chip>
@@ -159,7 +149,7 @@ export default async function BarometerPage() {
               </div>
             ))}
             <div className="border-t border-aehi-line pt-6">
-              <TextLink href="/aehi/methodology">Read the AEHI methodology</TextLink>
+              <TextLink href="/aehi#methodology">Read the AEHI methodology</TextLink>
             </div>
           </dl>
         </div>

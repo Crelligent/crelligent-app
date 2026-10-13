@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-import { NAV_LINKS } from '@/data/aehi/site'
+import { NAV_LINKS, SECTION_IDS } from '@/data/aehi/site'
 import { EDITION, DIAGNOSTIC_MINUTES } from '@/data/aehi/edition'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { Chip } from '@/components/aehi/ui/Typography'
@@ -79,7 +79,32 @@ export function SiteHeader() {
     }
   }, [open, close])
 
-  const isCurrent = (href: string) => pathname === href || (href !== '/aehi' && pathname?.startsWith(href + '/'))
+  // Scrollspy: on /aehi, the current nav item is the section in view (Overview above the first section).
+  const [active, setActive] = useState<string | null>(null)
+  useEffect(() => {
+    if (pathname !== '/aehi') return setActive(null)
+    const els = SECTION_IDS.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el)
+    if (!els.length) return
+    const update = () => {
+      const line = window.innerHeight * 0.3
+      let current: string | null = null
+      for (const el of els) if (el.getBoundingClientRect().top <= line) current = el.id
+      setActive(current)
+    }
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
+  }, [pathname])
+
+  const isCurrent = (href: string) => {
+    if (pathname !== '/aehi') return false
+    const hash = href.split('#')[1] ?? null
+    return hash === active
+  }
   const solid = scrolled || open
 
   return (
@@ -154,7 +179,18 @@ export function SiteHeader() {
                       ref={i === 0 ? firstLinkRef : undefined}
                       href={link.href}
                       aria-current={current ? 'page' : undefined}
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => {
+                        // The open menu locks page scroll; close it first, then scroll to the section.
+                        const hash = link.href.split('#')[1]
+                        if (pathname !== '/aehi') return setOpen(false)
+                        e.preventDefault()
+                        setOpen(false)
+                        requestAnimationFrame(() => {
+                          if (hash) document.getElementById(hash)?.scrollIntoView({ block: 'start' })
+                          else window.scrollTo({ top: 0 })
+                          history.replaceState(null, '', link.href)
+                        })
+                      }}
                       className={`flex h-14 items-center justify-between font-aehi-head text-[22px] font-medium ${
                         current ? 'text-aehi-text' : 'text-aehi-text-muted'
                       }`}

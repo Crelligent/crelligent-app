@@ -220,7 +220,7 @@ export function IndexFlow({ compact = false, tone = 'bg' }: { compact?: boolean;
 
       <p className="t-small mt-10 max-w-prose text-aehi-text-muted">
         Your individual answers and score are never published or shared with other participants. See the{' '}
-        <Link href="/aehi/methodology#anonymisation" className="link-inline">
+        <Link href="/aehi#methodology#anonymisation" className="link-inline">
           methodology
         </Link>{' '}
         for the full anonymisation rules.

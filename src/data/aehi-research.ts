@@ -110,7 +110,7 @@ export const aehiResearch: FoundryResearchArticle[] = [
 </ol>
 
 <h2>Take part in the AEHI</h2>
-<p>The World Bank data shows the pattern across all formal firms. The AEHI will measure it directly, layer by layer, for Nigerian mid-market enterprises. <a href="/diagnostic">Take the free diagnostic</a> to get your own ESRE OS Performance Score and to be part of the inaugural edition, or <a href="/aehi/research">see the evidence charts</a>.</p>`,
+<p>The World Bank data shows the pattern across all formal firms. The AEHI will measure it directly, layer by layer, for Nigerian mid-market enterprises. <a href="/diagnostic">Take the free diagnostic</a> to get your own ESRE OS Performance Score and to be part of the inaugural edition, or <a href="/aehi#research">see the evidence charts</a>.</p>`,
     sources: [WBES],
   },
   {
@@ -158,7 +158,7 @@ export const aehiResearch: FoundryResearchArticle[] = [
 <li>If the CEO were unavailable for three months, who would approve spending above your largest routine payment?</li>
 <li>Is your strategy for the next three years written down, and do the people expected to deliver it know what it says?</li>
 </ol>
-<p><a href="/diagnostic">Take the free diagnostic</a> to see how your enterprise scores on Governance and the other four layers, or <a href="/aehi/research">see the evidence charts</a>.</p>`,
+<p><a href="/diagnostic">Take the free diagnostic</a> to see how your enterprise scores on Governance and the other four layers, or <a href="/aehi#research">see the evidence charts</a>.</p>`,
     sources: [FBS21, FBS18],
   },
   {
@@ -190,7 +190,7 @@ export const aehiResearch: FoundryResearchArticle[] = [
 <h2>What the AEHI measures instead</h2>
 <p>The African Enterprise Health Index does not ask firms to rank obstacles. It scores how each enterprise is run across the five ESRE OS layers, from Business Design to Governance, through the diagnostic. The question changes from "what is in your way?" to "how well does your business work, given what is in its way?"</p>
 <p>Our working hypothesis, which the inaugural edition will test, is that the Operating Model (L2) is the most common primary constraint, even for firms that would name power or finance first.</p>
-<p><a href="/diagnostic">Take the free diagnostic</a>, answer the five-minute <a href="/aehi/barometer">Executive Barometer</a>, or <a href="/aehi/research">see the evidence charts</a>.</p>`,
+<p><a href="/diagnostic">Take the free diagnostic</a>, answer the five-minute <a href="/aehi#barometer">Executive Barometer</a>, or <a href="/aehi#research">see the evidence charts</a>.</p>`,
     sources: [WBES, MSME24],
   },
 ]

@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { ArrowUpRight, FileText } from 'lucide-react'
 import {
   BIGGEST_OBSTACLE,
@@ -14,34 +13,26 @@ import {
 import { aehiResearch } from '@/data/aehi-research'
 import { EDITION } from '@/data/aehi/edition'
 import { WAVE } from '@/data/aehi/barometer'
-import { pageMetadata } from '@/data/aehi/site'
 import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
 import { TextLink } from '@/components/aehi/ui/Links'
 import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
 import { Cite, GrowthChart, HBarChart, SourcesList, StatTile } from '@/components/aehi/evidence/Charts'
 
-export const metadata: Metadata = pageMetadata({
-  title: 'Research',
-  description:
-    'What published data already says about how Nigerian enterprises are run, read through the five ESRE OS layers: World Bank 2025, PwC and SMEDAN figures, charts and research briefs.',
-  path: '/aehi/research',
-})
-
 const TYPE = { whitepaper: 'Whitepaper', article: 'Research brief' } as const
 
-export default function ResearchPage() {
+export function ResearchSection() {
   return (
     <>
-      <section aria-labelledby="page-title" className="bg-aehi-bg pb-12 pt-10 lg:pb-16 lg:pt-14">
+      <section id="research" aria-labelledby="research-title" className="scroll-mt-20 border-t border-aehi-line bg-aehi-bg pb-12 pt-16 lg:pb-16 lg:pt-24">
         <div className="container-x">
           <div className="max-w-3xl">
             <Eyebrow>AEHI Research</Eyebrow>
-            <h1 id="page-title" className="t-h1 mt-5">
+            <h2 id="research-title" className="t-h1 mt-5">
               What the public data already says about how Nigerian firms are run.
-            </h1>
+            </h2>
             <p className="t-lead mt-6">
               Before the first AEHI edition publishes, here is the best published evidence, read through the five ESRE OS layers.
-              Every figure on this page comes from a named source: the World Bank, PwC and SMEDAN. None of it is AEHI data.
+              Every figure in this section comes from a named source: the World Bank, PwC and SMEDAN. None of it is AEHI data.
             </p>
             <Chip className="mt-6">Third-party data · sources listed below</Chip>
           </div>
@@ -177,14 +168,14 @@ export default function ResearchPage() {
                 title: `AEHI inaugural report, ${EDITION.label}`,
                 status: 'In preparation',
                 body: 'The first benchmark of how Nigerian mid-market enterprises are run, across the five ESRE OS layers.',
-                href: '/aehi/report',
+                href: '/aehi#report',
                 cta: 'Get it when it publishes',
               },
               {
                 title: `Executive Barometer, ${WAVE.label}`,
                 status: WAVE.status === 'fielding' ? 'Open now' : 'Fieldwork closed',
                 body: 'A five-minute survey of senior leaders: confidence, outlook, constraints and trust. Results publish when the wave closes.',
-                href: '/aehi/barometer',
+                href: '/aehi#barometer',
                 cta: 'Answer the Barometer',
               },
               {
