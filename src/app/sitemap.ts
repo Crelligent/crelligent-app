@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
 import { templates } from '@/data/templates'
-import { aehiReports } from '@/data/research'
 import { problems } from '@/data/problems'
 import { industries } from '@/data/industries'
 import { caseStudies } from '@/data/case-studies'
@@ -26,7 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/tools/operating-model-assessment',
         '/tools/technology-readiness',
         '/templates',
-        '/research/aehi',
+        '/aehi',
+        '/aehi/methodology',
+        '/aehi/contribute',
+        '/aehi/report',
+        '/aehi/data',
+        '/aehi/institutional',
         '/problems',
         '/industries',
         '/case-studies',
@@ -60,13 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date().toISOString(),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
-    }))
-
-    const researchRoutes = aehiReports.map((r) => ({
-        url: `${baseUrl}/research/aehi/${r.slug}`,
-        lastModified: new Date().toISOString(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.8,
     }))
 
     const problemRoutes = problems.map((p) => ({
@@ -104,5 +101,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }))
 
-    return [...coreRoutes, ...libraryExtraRoutes, ...templateRoutes, ...researchRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
+    return [...coreRoutes, ...libraryExtraRoutes, ...templateRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
 }

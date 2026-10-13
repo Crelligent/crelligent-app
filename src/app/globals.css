@@ -72,6 +72,26 @@ body {
 }
 
 @theme inline {
+  /* AEHI section (/aehi): namespaced colours that read the tokens scoped on .aehi (src/app/aehi/aehi.css) */
+  --color-aehi-bg: var(--bg);
+  --color-aehi-bg-deep: var(--bg-deep);
+  --color-aehi-surface: var(--surface);
+  --color-aehi-surface-2: var(--surface-2);
+  --color-aehi-line: var(--line);
+  --color-aehi-line-strong: var(--line-strong);
+  --color-aehi-text: var(--text);
+  --color-aehi-text-muted: var(--text-muted);
+  --color-aehi-text-subtle: var(--text-subtle);
+  --color-aehi-accent: var(--accent);
+  --color-aehi-accent-hover: var(--accent-hover);
+  --color-aehi-on-accent: var(--on-accent);
+  --color-aehi-accent-tint: var(--accent-tint);
+  --color-aehi-warn: var(--warn);
+  --color-aehi-warn-tint: var(--warn-tint);
+  --color-aehi-danger: var(--danger);
+  --color-aehi-danger-tint: var(--danger-tint);
+  --font-aehi-head: var(--font-head);
+  --container-aehi-container: 1200px;
   --color-background: var(--bg);
   --color-foreground: var(--text-main);
   --color-accent: var(--accent);

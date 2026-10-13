@@ -4,8 +4,8 @@
  */
 export const AEHI_HOMEPAGE_DATA = {
   edition: 'Q4 2026',
-  contributeUrl: 'https://aehi.crelligent.com/contribute',
-  micrositeUrl: 'https://aehi.crelligent.com',
+  contributeUrl: '/aehi/contribute',
+  micrositeUrl: '/aehi',
   layers: [
     { code: 'L1', name: 'Business Design', measures: 'Model, positioning and economics' },
     { code: 'L2', name: 'Operating Model', measures: 'Processes, roles and decision rights' },
