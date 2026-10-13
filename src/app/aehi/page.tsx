@@ -1,7 +1,8 @@
-import { EDITION, DIAGNOSTIC_MINUTES, HYPOTHESES } from '@/data/aehi/edition'
+import { HYPOTHESES } from '@/data/aehi/edition'
 import { pageMetadata } from '@/data/aehi/site'
-import { formatCount, formatDate, getAssessedCount, getEditionForDisplay } from '@/data/aehi/live'
+import { getAssessedCount, getEditionForDisplay } from '@/data/aehi/live'
 import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
+import { Hero } from '@/components/aehi/hero/Hero'
 import { MethodologySection } from '@/components/aehi/sections/MethodologySection'
 import { TakePartSection } from '@/components/aehi/sections/TakePartSection'
 import { BarometerSection } from '@/components/aehi/sections/BarometerSection'
@@ -9,13 +10,11 @@ import { ReportSection } from '@/components/aehi/sections/ReportSection'
 import { ResearchSection } from '@/components/aehi/sections/ResearchSection'
 import { PartnersSection } from '@/components/aehi/sections/PartnersSection'
 import { ButtonLink, TextLink } from '@/components/aehi/ui/Links'
-import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
-import { AssessedRecordRow } from '@/components/aehi/ui/AssessedCount'
 import { LayerStack } from '@/components/aehi/model/LayerStack'
 import { WeightStrip } from '@/components/aehi/model/WeightStrip'
 import { IndexFlow } from '@/components/aehi/model/IndexFlow'
 import { CoverageMap } from '@/components/aehi/model/CoverageMap'
-import { EditionFindingsGrid, SourceLine, fmtScore } from '@/components/aehi/published/Figures'
+import { EditionFindingsGrid, SourceLine } from '@/components/aehi/published/Figures'
 
 export const revalidate = 600
 
@@ -27,101 +26,17 @@ export const metadata = pageMetadata({
   path: '/aehi',
 })
 
-function RecordRow({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="border-t border-aehi-line py-3">
-      <dt className="t-label text-aehi-text-subtle">{label}</dt>
-      <dd className="mt-1 text-[15px] font-medium text-aehi-text">{children}</dd>
-    </div>
-  )
-}
-
 export default async function HomePage() {
   const [count, edition] = await Promise.all([getAssessedCount(), getEditionForDisplay()])
   const published = edition !== null
 
   return (
     <>
-      {/* §1 Hero */}
-      <section aria-labelledby="hero-title" className="relative overflow-hidden bg-aehi-bg pb-16 pt-10 lg:pb-24 lg:pt-14">
-        {/* Five hairlines echoing the stack (decorative, desktop only) */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] lg:block">
-          {[30, 40, 50, 60, 70].map((top) => (
-            <div key={top} className="absolute inset-x-0 h-px bg-aehi-line" style={{ top: `${top}%` }} />
-          ))}
-        </div>
-        <div className="container-x relative">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-7">
-              <Eyebrow>
-                African Enterprise Health Index{published ? ` · ${edition.label} edition` : ''}
-              </Eyebrow>
-              <h1 id="hero-title" className="t-display mt-5">
-                How well are Nigeria&apos;s mid-market enterprises run?
-              </h1>
-              <p className="t-lead mt-6">
-                {published
-                  ? `The AEHI is a quarterly benchmark of how Nigerian mid-market enterprises are run, scored on five OS layers. The ${edition.label} edition is out: ${formatCount(edition.overall!.n)} enterprises took part.`
-                  : 'The AEHI is a quarterly benchmark that scores enterprises on the five layers of how a business operates, from business design to governance. The inaugural edition, for Q4 2026, is collecting responses now.'}
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <DiagnosticLink location="hero" fullWidthOnMobile />
-                {published ? (
-                  <ButtonLink href="/aehi#report" fullWidthOnMobile>
-                    Read the {edition.label} report
-                  </ButtonLink>
-                ) : (
-                  <ButtonLink href="#how-it-works" fullWidthOnMobile>
-                    How the index works
-                  </ButtonLink>
-                )}
-              </div>
-              {/* OWNER CONFIRM: "About 10 minutes" (diagnostic length) */}
-              <p className="t-small mt-4 max-w-prose text-aehi-text-subtle">
-                About {DIAGNOSTIC_MINUTES} minutes. You see your own ESRE OS Performance Score straight away. Your company is never
-                named.
-              </p>
-            </div>
-
-            <aside aria-labelledby="record-title" className="lg:col-span-4 lg:col-start-9">
-              <div className="panel bg-aehi-surface">
-                <h2 id="record-title" className="t-label text-aehi-text-muted">
-                  Edition record
-                </h2>
-                <dl className="mt-4">
-                  <RecordRow label="Edition">{EDITION.number} (inaugural)</RecordRow>
-                  <RecordRow label="Period">{published ? edition.label : EDITION.label}</RecordRow>
-                  <RecordRow label="Status">
-                    {published ? (
-                      <Chip className="mt-0.5">Published {formatDate(edition.publishedAt)}</Chip>
-                    ) : (
-                      <Chip variant="live" className="mt-0.5">
-                        Collecting responses
-                      </Chip>
-                    )}
-                  </RecordRow>
-                  {published ? (
-                    <>
-                      <RecordRow label="Sample">{formatCount(edition.overall!.n)} enterprises</RecordRow>
-                      <div className="border-t border-aehi-line py-3">
-                        <dt className="t-label text-aehi-text-subtle">Median OS Performance Score</dt>
-                        <dd className="t-data mt-1 text-[28px] leading-tight text-aehi-text">{fmtScore(edition.overall!.composite.median)}</dd>
-                      </div>
-                    </>
-                  ) : (
-                    <AssessedRecordRow count={count} />
-                  )}
-                  <RecordRow label="Coverage">Nigerian mid-market enterprises</RecordRow>
-                  <RecordRow label="Publisher">Crelligent &amp; Company, Lagos</RecordRow>
-                </dl>
-                <div className="border-t border-aehi-line pt-2">
-                  <TextLink href="/aehi#notify">Get the report when it publishes</TextLink>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
+      <Hero
+        count={count}
+        publishedLabel={published ? edition.label : undefined}
+        publishedN={published ? edition.overall?.n : undefined}
+      />
 
       {/* Published only: what the edition found */}
       {published && (

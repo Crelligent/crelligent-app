@@ -490,3 +490,31 @@
   font-weight: revert-layer;
   letter-spacing: revert-layer;
 }
+
+/* Hero: fine grid fading out, and a scan line passing through the five-layer stack. */
+@layer components {
+  .aehi-hero-grid {
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: 0.45;
+    mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 35%, #000 20%, transparent 75%);
+  }
+  .aehi-scan-line {
+    opacity: 0;
+    box-shadow: 0 0 12px 1px var(--accent);
+    animation: aehi-scan 6s ease-in-out 0.8s infinite;
+  }
+  @keyframes aehi-scan {
+    0% { transform: translateY(0); opacity: 0; }
+    8% { opacity: 0.9; }
+    45% { transform: translateY(var(--aehi-scan-h, 360px)); opacity: 0.9; }
+    55%, 100% { transform: translateY(var(--aehi-scan-h, 360px)); opacity: 0; }
+  }
+  .aehi-scan { --aehi-scan-h: 270px; }
+  @media (prefers-reduced-motion: reduce) {
+    .aehi-scan-line { animation: none; opacity: 0; }
+  }
+}

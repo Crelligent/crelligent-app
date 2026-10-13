@@ -3,7 +3,6 @@ import { Space_Grotesk, IBM_Plex_Mono } from 'next/font/google'
 import './aehi.css'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
-import { SiteHeader } from '@/components/aehi/layout/SiteHeader'
 import { MotionProvider } from '@/components/aehi/ui/MotionProvider'
 import { SITE_NAME } from '@/data/aehi/site'
 
@@ -21,8 +20,8 @@ export const metadata: Metadata = {
 }
 
 /**
- * The AEHI section of crelligent.com. Main Crelligent navigation on top (fixed), then the
- * AEHI section bar below it, the page, then the site footer.
+ * The AEHI section of crelligent.com: main Crelligent navigation on top (fixed), the one-page AEHI,
+ * then the site footer. Section navigation lives in the hero's jump links.
  */
 export default function AehiLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -44,7 +43,6 @@ export default function AehiLayout({ children }: { children: React.ReactNode }) 
       <Navigation />
       <MotionProvider>
         <div className="aehi-offset">
-          <SiteHeader />
           <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
             {children}
           </main>
