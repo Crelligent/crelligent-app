@@ -4,8 +4,9 @@ import { Footer } from '@/components/shared/Footer'
 import { Mail, MapPin, ArrowRight } from 'lucide-react'
 
 export const metadata = {
-    title: 'Contact | Crelligent',
+    title: 'Contact',
     description: 'Start a conversation about how Crelligent can help engineer the systems your organization needs.',
+  alternates: { canonical: '/contact' },
 }
 
 export default function ContactPage() {

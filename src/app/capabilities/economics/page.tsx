@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Economics | Crelligent Capabilities',
-  description: 'Economics defines the structural approach to solving complex enterprise challenges in this domain....',
+  title: 'Pricing, Unit Economics & Margin Improvement',
+  description: "Find where margin is made and lost: pricing, unit economics and cost-to-serve analysis for Nigerian and African mid-market companies.",
   path: '/capabilities/economics',
 });
 

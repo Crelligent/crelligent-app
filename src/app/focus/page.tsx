@@ -14,9 +14,10 @@ import {
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Our Focus | Crelligent',
+    title: 'Our Focus',
     description:
         'The three system domains Crelligent operates in: Software Systems, IT/Enterprise Systems, and Business Systems.',
+  alternates: { canonical: '/focus' },
 }
 
 /* ───────── Domain Data ───────── */

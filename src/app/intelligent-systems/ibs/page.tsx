@@ -14,9 +14,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Building Systems (IBS) | Crelligent',
+  title: 'Intelligent Building Systems (IBS)',
   description:
     'Smart access, occupancy optimisation, and energy efficiency intelligence for Nigerian commercial buildings, hotels, universities, and estates.',
+  alternates: { canonical: '/intelligent-systems/ibs' },
 }
 
 const hardware = [

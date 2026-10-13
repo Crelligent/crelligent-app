@@ -14,9 +14,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Logistics Systems (ILS) | Crelligent',
+  title: 'Intelligent Logistics Systems (ILS)',
   description:
     'End-to-end cargo visibility, delivery prediction, and supply chain intelligence for Nigerian warehouses, ports, e-commerce, and distributors.',
+  alternates: { canonical: '/intelligent-systems/ils' },
 }
 
 const hardware = [

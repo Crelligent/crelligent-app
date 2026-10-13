@@ -6,8 +6,9 @@ import { ArrowRight, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | Crelligent',
+  title: 'Frequently Asked Questions',
   description: 'Common questions about the ESRE OS, enterprise operating systems in Africa, AEHI, and the Crelligent Foundry.',
+  alternates: { canonical: '/faq' },
 }
 
 export default function FAQPage() {

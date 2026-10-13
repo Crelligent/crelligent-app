@@ -8,7 +8,7 @@ import { P5Canvas } from './P5Canvas';
 const slides = [
     {
         id: 1, // Business Design
-        video: '/8200869-uhd_3840_2160_30fps.mp4',
+        video: '/videos/hero/slide-1.mp4',
         duration: 18000, // 00:18
         text: (
             <>
@@ -18,7 +18,7 @@ const slides = [
     },
     {
         id: 2, // Product Strategy
-        video: '/20690716-uhd_3840_2160_25fps.mp4',
+        video: '/videos/hero/slide-2.mp4',
         duration: 27000, // 00:27
         text: (
             <>
@@ -28,7 +28,7 @@ const slides = [
     },
     {
         id: 3, // Economics & Value Engineering
-        video: '/273487_medium.mp4',
+        video: '/videos/hero/slide-3.mp4',
         duration: 18000, // 00:18
         text: (
             <>
@@ -38,7 +38,7 @@ const slides = [
     },
     {
         id: 4, // CX/Service Design
-        video: '/210213_medium.mp4',
+        video: '/videos/hero/slide-4.mp4',
         duration: 28000, // 00:28
         text: (
             <>
@@ -48,7 +48,7 @@ const slides = [
     },
     {
         id: 5, // Operating model/process
-        video: '/4824781-uhd_3840_2160_30fps.mp4',
+        video: '/videos/hero/slide-5.mp4',
         duration: 9000, // 00:09
         text: (
             <>
@@ -58,7 +58,7 @@ const slides = [
     },
     {
         id: 6, // Technology & platform
-        video: '/21116-315137080_medium.mp4',
+        video: '/videos/hero/slide-6.mp4',
         duration: 6000, // 00:06
         text: (
             <>
@@ -68,7 +68,7 @@ const slides = [
     },
     {
         id: 7, // Data & Intelligence
-        video: '/13141784_1920_1080_60fps.mp4',
+        video: '/videos/hero/slide-7.mp4',
         duration: 17000, // 00:17
         text: (
             <>
@@ -78,7 +78,7 @@ const slides = [
     },
     {
         id: 8, // Governance, Risk & Control
-        video: '/9193308-hd_1280_720_31fps.mp4',
+        video: '/videos/hero/slide-8.mp4',
         duration: 50000, // 00:50
         text: (
             <>
@@ -88,7 +88,7 @@ const slides = [
     },
     {
         id: 9, // Change, Adoption & Behaviour
-        video: '/4457089-hd_1920_1080_30fps.mp4',
+        video: '/videos/hero/slide-9.mp4',
         duration: 20000, // 00:20
         text: (
             <>
@@ -222,6 +222,7 @@ export function HeroSlider() {
                             playsInline
                             aria-hidden="true"
                             preload={index === 0 ? "auto" : "none"}
+                            poster={index === 0 ? '/videos/hero/slide-1-poster.webp' : undefined}
                             className="w-full h-full object-cover opacity-75"
                         />
                     </>
@@ -234,6 +235,11 @@ export function HeroSlider() {
             {/* Floating Particle Texture Overlay (Optional, adds premium feel) */}
             <div className="absolute inset-0 z-[2] bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
 
+            {/* The page's one H1: what Crelligent does, in the words buyers search for */}
+            <h1 className="absolute left-1/2 top-28 z-10 w-full max-w-4xl -translate-x-1/2 px-6 text-center text-[11px] font-medium uppercase tracking-[0.3em] text-white/70 md:top-32 md:text-xs">
+                Operating model &amp; business systems consulting for Nigeria&apos;s mid-market
+            </h1>
+
             {/* Narrative Text */}
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center pointer-events-none">
                 {slides.map((slide, index) => (
@@ -244,9 +250,9 @@ export function HeroSlider() {
                             : 'opacity-0 translate-y-4 pointer-events-none'
                             }`}
                     >
-                        <h1 className={`max-w-3xl mx-auto ${slide.isConclusion ? 'text-lg md:text-2xl font-light text-white tracking-[0.15em]' : 'text-base md:text-xl font-thin text-white tracking-[0.15em]'} leading-[1.8] md:leading-[1.8] text-justify [text-align-last:center]`}>
+                        <p className={`max-w-3xl mx-auto ${slide.isConclusion ? 'text-lg md:text-2xl font-light text-white tracking-[0.15em]' : 'text-base md:text-xl font-thin text-white tracking-[0.15em]'} leading-[1.8] md:leading-[1.8] text-justify [text-align-last:center]`}>
                             {slide.text}
-                        </h1>
+                        </p>
 
                         {/* Show Action Buttons only on the Conclusion slide */}
                         {slide.isConclusion && (

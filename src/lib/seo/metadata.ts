@@ -20,6 +20,9 @@ export function generateSeoMetadata({
   ogType = "website",
 }: SeoProps): Metadata {
   const url = `${SITE_URL}${path}`;
+  // The root layout's title template adds " | Crelligent"; strip it here so it never appears twice.
+  title = title.replace(/\s*\|\s*Crelligent[^|]*$/i, "").trim();
+  const fullTitle = `${title} | Crelligent`;
 
   return {
     title,
@@ -32,7 +35,7 @@ export function generateSeoMetadata({
       follow: true,
     },
     openGraph: {
-      title,
+      title: fullTitle,
       description,
       url,
       type: ogType,
@@ -41,14 +44,14 @@ export function generateSeoMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: fullTitle,
         },
       ],
       siteName: "Crelligent",
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description,
       images: [ogImage],
     },

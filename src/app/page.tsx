@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { AgenticComparison } from '@/components/landing/AgenticComparison';
 import Link from 'next/link'
 import Image from 'next/image'
@@ -127,6 +128,13 @@ const platforms = [
     logo: '/PRISM-logo.png',
   }
 ]
+
+export const metadata: Metadata = {
+  title: { absolute: 'Crelligent | Operating Model & Business Systems Consulting, Nigeria' },
+  description:
+    'Crelligent designs and installs how growing companies run: operating model, processes, ERP and data, governance. Free diagnostic for Nigerian and African mid-market firms.',
+  alternates: { canonical: '/' },
+}
 
 export default function LandingPage() {
   return (

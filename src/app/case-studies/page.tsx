@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { caseStudies } from '@/data/case-studies';
+import { publishedCaseStudies as caseStudies } from '@/data/case-studies';
 import { generateSeoMetadata } from '@/lib/seo/metadata';
 import { Navigation } from '@/components/shared/Navigation';
 import { Footer } from '@/components/shared/Footer';
@@ -16,8 +16,15 @@ export default function CaseStudiesHub() {
       <Navigation />
       <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto flex-1 w-full">
         <h1 className="text-4xl font-light mb-4 text-[#22c55e]">Case Studies</h1>
-        <p className="text-xl text-gray-400 mb-12">Real-world evidence of structural transformation and systems design.</p>
+        <p className="text-xl text-gray-400 mb-12">Client engagements, with results confirmed by the client before publication.</p>
         
+        {caseStudies.length === 0 && (
+          <p className="text-gray-400 border border-white/10 rounded-lg p-8">
+            Case studies are published once each engagement&apos;s results are confirmed with the client. The first is in progress.
+            In the meantime, see <Link href="/esre-os/methodology" className="text-[#22c55e] hover:underline">how we work</Link> or{' '}
+            <Link href="/diagnostic" className="text-[#22c55e] hover:underline">take the free diagnostic</Link>.
+          </p>
+        )}
         <div className="grid gap-6">
           {caseStudies.map(cs => (
             <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="block bg-white/5 border border-white/10 p-8 rounded-lg hover:border-[#22c55e]/50 transition group">

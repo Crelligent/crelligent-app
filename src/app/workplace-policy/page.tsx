@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
     title: 'Workplace Policy - Crelligent',
     description: 'Our commitment to a remote-first operating model.',
+  alternates: { canonical: '/workplace-policy' },
 }
 
 export default function WorkplacePolicy() {

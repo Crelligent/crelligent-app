@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Technology & Platform | Crelligent Capabilities',
-  description: 'Enterprise technology architecture defines how digital infrastructure, applications, and integrations support the operating model. We design platforms...',
+  title: 'ERP & Technology Platform Advisory for Mid-Market Firms',
+  description: "Choose and install ERP, CRM and core systems that fit how your business works. Technology advisory for Nigerian mid-market companies, from selection to integration.",
   path: '/capabilities/technology-platform',
 });
 

@@ -1,6 +1,7 @@
 import { CaseStudy } from './cms';
 
 export const caseStudies: CaseStudy[] = [
+  // OWNER CONFIRM: is "Project M" a real engagement with these results? It stays hidden (published: false) until confirmed.
   {
     title: "Project M: Core Banking Transformation",
     slug: "project-m-banking",
@@ -16,6 +17,10 @@ export const caseStudies: CaseStudy[] = [
     seo: {
       title: "Core Banking Transformation Case Study | Crelligent",
       description: "How Crelligent decoupled a monolithic banking core to reduce product time-to-market from 8 months to 3 weeks."
-    }
+    },
+    published: false,
   }
 ];
+
+/** Case studies that may appear on the site. */
+export const publishedCaseStudies = caseStudies.filter((c) => c.published)

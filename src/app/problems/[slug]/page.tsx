@@ -9,19 +9,21 @@ export async function generateStaticParams() {
   return problems.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const problem = problems.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const problem = problems.find((p) => p.slug === slug);
   if (!problem) return {};
   
   return generateSeoMetadata({
-    title: `Solving ${problem.name} | Crelligent Systems Design`,
-    description: `Identify the symptoms and structural causes of ${problem.name.toLowerCase()}.`,
+    title: `${problem.name}: Causes, Symptoms and How to Fix It`,
+    description: `${problem.symptoms} What causes ${problem.name.toLowerCase()} in growing companies, and how to fix it at the root.`.slice(0, 158),
     path: `/problems/${problem.slug}`,
   });
 }
 
-export default function ProblemPage({ params }: { params: { slug: string } }) {
-  const problem = problems.find((p) => p.slug === params.slug);
+export default async function ProblemPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const problem = problems.find((p) => p.slug === slug);
   if (!problem) notFound();
 
   return (

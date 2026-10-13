@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Change Adoption | Crelligent Capabilities',
-  description: 'Change Adoption defines the structural approach to solving complex enterprise challenges in this domain....',
+  title: 'Change Management & Adoption',
+  description: "Make sure new processes and systems are actually used. Change management, training and adoption support for Nigerian and African companies.",
   path: '/capabilities/change-adoption',
 });
 

@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Cx Design | Crelligent Capabilities',
-  description: 'Cx Design defines the structural approach to solving complex enterprise challenges in this domain....',
+  title: 'Customer Experience & Service Design',
+  description: "Fix customer experience at the source: service design that connects every touchpoint to the processes and systems behind it. For growing companies in Africa.",
   path: '/capabilities/cx-design',
 });
 

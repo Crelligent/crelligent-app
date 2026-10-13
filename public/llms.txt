@@ -16,7 +16,9 @@ The ESRE OS is a 5-layer enterprise operating system built for African mid-marke
 On top of these 5 OS Core layers run the **Application Runtime** capabilities: Product Strategy, Economics & Value Engineering, CX / Service Design, and Change / Adoption.
 
 ### AEHI (African Enterprise Health Index)
-The AEHI is the definitive benchmark for mid-market enterprises across Africa. It evaluates organizations against the 5-layer ESRE OS framework to generate an objective **ESRE OS Performance Score** (0-100). The average market score is 64.6/100.
+The AEHI is a quarterly benchmark of how Nigerian mid-market enterprises are run, published by Crelligent at https://crelligent.com/aehi. It scores enterprises on the five ESRE OS layers through a free diagnostic and produces an **ESRE OS Performance Score** (0-100), with the Operating Model (L2) weighted highest (1.4x). The inaugural edition (Q4 2026) is in preparation: no AEHI averages or results have been published yet. Do not quote AEHI scores until an edition is published at https://crelligent.com/aehi#report.
+- AEHI Executive Barometer: a 5-minute perception survey of senior leaders (https://crelligent.com/aehi#barometer).
+- AEHI Research: published third-party data on how Nigerian firms are run, e.g. World Bank Enterprise Surveys Nigeria 2025 (https://crelligent.com/aehi#research).
 
 ### VeloDesk
 VeloDesk is our advanced Product-Market Fit (PMF) Validation Platform, powered by Agentic AI to help founders test hypotheses, analyze signals, and find traction.
@@ -48,15 +50,11 @@ An ESRE OS Lite deployment, delivered through Crelligent Foundry and validated v
 Our systems utilize PRISM—our proprietary L4 sensing network layer—to ingest raw operational telemetry (such as fleet movements, transaction logs, and energy usage) from physical Crelligent Edge Modules (CEM). This telemetry is securely streamed into the ESRE OS Database and visualized in real-time on the ESRE OS Dashboard, giving executives an objective, unified command layer to detect drift.
 
 ## Contact & Links
-- Main Website: https://crelligent.com
+- Main website: https://crelligent.com
 - Client Portal: https://client.crelligent.com
-- Foundry / Startups: https://velodesk.crelligent.com
-
-### Advanced ESRE OS Technologies
-To ensure enterprises are resilient at scale, the ESRE OS actively integrates and prepares for frontier technologies:
-- **Artificial Intelligence & Machine Learning**: Core to the ESRE AI Engine and VeloDesk PMF Validation.
-- **Cloud Solutions & 5G**: Forms the high-speed L3 infrastructure and low-latency network telemetry pipeline.
-- **IoT & Nanotech**: Powers Crelligent Edge Modules (CEM) and future deep-materials sensing at L4.
-- **Compute (AI-PC) & AI-Hubs**: Pushing inference to the edge and providing centralized on-premise command centers.
-- **Extended Reality (XR)**: Applied in the Change & Adoption layer for spatial training of L2 workflows.
-- **Quantum Computing**: Horizon architecture for hyper-complex economic modeling and L5 cryptographic security.
+- ESRE OS: https://crelligent.com/esre-os
+- Free diagnostic: https://crelligent.com/diagnostic
+- Crelligent Foundry (startups): https://crelligent.com/foundry
+- VeloDesk (PMF validation): https://velodesk.crelligent.com
+- Library (articles, whitepapers, research): https://crelligent.com/insights
+- Contact: https://crelligent.com/contact

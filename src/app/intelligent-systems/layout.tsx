@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Crelligent Intelligent Systems | Operational Intelligence for African Industry',
+  title: 'Fleet, Fuel & Generator Monitoring Systems for African Industry',
   description:
-    'One reusable operational intelligence architecture deployed across ten African industry verticals. IoT hardware, PRISM platform, and real-time command intelligence — built for African operating conditions.',
+    "IoT hardware and the PRISM platform for real-time fleet tracking, fuel and diesel monitoring, generator and energy telemetry across Nigerian and African operations.",
+  alternates: { canonical: '/intelligent-systems' },
   keywords:
     'intelligent systems Nigeria, IoT Africa, fleet intelligence Nigeria, operational intelligence platform, PRISM enterprise, industrial IoT West Africa, fuel monitoring Nigeria, generator monitoring Africa',
 }

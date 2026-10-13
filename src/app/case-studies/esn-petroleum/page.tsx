@@ -3,7 +3,18 @@ import { ArrowRight, BarChart3, ShieldCheck, Zap, Activity, Droplets } from 'luc
 import { Navigation } from '@/components/shared/Navigation';
 import { Footer } from '@/components/shared/Footer';
 
-// JSON-LD for AI crawlers indexing it as an authoritative case study
+import { generateSeoMetadata } from '@/lib/seo/metadata';
+
+// OWNER CONFIRM: kept out of search (noindex) until the figures on this page are confirmed against the
+// Energy Smart Nigeria engagement. Remove `noindex: true` and add the route to the sitemap once confirmed.
+export const metadata = generateSeoMetadata({
+  title: 'ESN Petroleum Case Study: Dispatch and Fuel Visibility',
+  description: 'How a downstream energy company in Africa moved dispatch approvals off the founder and gained real-time fuel visibility with ESRE OS and Crelligent Edge Modules.',
+  path: '/case-studies/esn-petroleum',
+  noindex: true,
+});
+
+// JSON-LD for AI crawlers
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -58,9 +69,8 @@ export default function ESNPetroleumCaseStudy() {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
             {[
-              { label: "AEHI Score", value: "42 → 81", icon: <Activity className="w-6 h-6 text-emerald-400" /> },
               { label: "Fuel Shrinkage", value: "-94%", icon: <Droplets className="w-6 h-6 text-blue-400" /> },
               { label: "Dispatch Approvals", value: "Automated", icon: <ShieldCheck className="w-6 h-6 text-purple-400" /> }
             ].map((stat, i) => (

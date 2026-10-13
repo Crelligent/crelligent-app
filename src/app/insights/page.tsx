@@ -7,7 +7,7 @@ import { PhotoCredit } from '@/components/library/PhotoCredit'
 import { isLibraryFilter } from '@/data/library'
 
 export const metadata = generateSeoMetadata({
-  title: 'Library: Articles, Whitepapers and Research | Crelligent',
+  title: 'Library: Research and Insights on Nigerian Business',
   description:
     'Articles, whitepapers and research by Crelligent on product-market fit, fundraising, operating models and the health of African enterprises.',
   path: '/insights',

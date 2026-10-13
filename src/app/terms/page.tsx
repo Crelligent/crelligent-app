@@ -2,8 +2,9 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 
 export const metadata = {
-  title: 'Terms of Service | Crelligent',
+  title: 'Terms of Service',
   description: 'Terms of Service for Crelligent, ESRE OS, VeloDesk, and PRISM.',
+  alternates: { canonical: '/terms' },
 }
 
 export default function TermsPage() {

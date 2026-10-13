@@ -2,8 +2,9 @@ import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 
 export const metadata = {
-  title: 'Privacy Policy | Crelligent',
+  title: 'Privacy Policy',
   description: 'Privacy Policy for Crelligent, ESRE OS, VeloDesk, and PRISM.',
+  alternates: { canonical: '/privacy' },
 }
 
 export default function PrivacyPage() {

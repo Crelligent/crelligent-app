@@ -7,6 +7,7 @@ import { Navigation } from "@/components/shared/Navigation";
 export const metadata = {
   title: "Pricing | ESRE OS",
   description: "Enterprise operating system pricing and installation packages.",
+  alternates: { canonical: '/pricing' },
 };
 
 const plans = [

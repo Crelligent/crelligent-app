@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { templates } from '@/data/templates'
 import { problems } from '@/data/problems'
 import { industries } from '@/data/industries'
-import { caseStudies } from '@/data/case-studies'
+import { publishedCaseStudies as caseStudies } from '@/data/case-studies'
 import { insights } from '@/data/insights'
 import { foundryResearch } from '@/data/foundry-research'
 import { aehiResearch } from '@/data/aehi-research'
@@ -20,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/intelligent-systems',
         '/enterprise',
         '/pricing',
-        '/onboarding',
         '/tools/esre-os-score',
         '/tools/ai-readiness',
         '/tools/operating-model-assessment',
@@ -32,6 +31,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/industries',
         '/case-studies',
         '/insights',
+        '/esre-os',
+        '/diagnostic',
+        '/faq',
+        '/core',
+        '/telemetry',
+        '/intelligent-systems/its',
+        '/intelligent-systems/ies',
+        '/intelligent-systems/ils',
+        '/intelligent-systems/iis',
+        '/intelligent-systems/ibs',
+        '/intelligent-systems/ihs',
+        '/intelligent-systems/ias',
+        '/intelligent-systems/iss',
+        '/intelligent-systems/irs',
+        '/intelligent-systems/ifis',
         '/esre-os/methodology',
         '/esre-os/architecture',
         '/esre-os/layers',
@@ -53,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
         changeFrequency: 'monthly' as const,
-        priority: route === '' ? 1 : route.startsWith('/capabilities') ? 0.8 : 0.9,
+        priority: route === '' ? 1 : ['/esre-os', '/diagnostic', '/aehi', '/foundry', '/enterprise'].includes(route) ? 0.95 : route.startsWith('/capabilities') || route.startsWith('/intelligent-systems/') ? 0.8 : 0.9,
     }))
 
     const templateRoutes = templates.map((t) => ({
@@ -91,6 +105,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }))
 
+    const legalRoutes = ['/privacy', '/terms'].map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'yearly' as const,
+        priority: 0.3,
+    }))
+
     const libraryExtraRoutes = ['/insights/ceo-corner/issue-1', '/research/pmf-blind-spot'].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
@@ -98,5 +119,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }))
 
-    return [...coreRoutes, ...libraryExtraRoutes, ...templateRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
+    return [...coreRoutes, ...legalRoutes, ...libraryExtraRoutes, ...templateRoutes, ...problemRoutes, ...industryRoutes, ...caseRoutes, ...insightRoutes]
 }

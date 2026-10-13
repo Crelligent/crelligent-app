@@ -13,9 +13,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Financial Infrastructure (IFIS) | Crelligent',
+  title: 'Intelligent Financial Infrastructure (IFIS)',
   description:
     'Transaction intelligence, AML monitoring, fraud detection, and risk scoring for Nigerian banks, fintechs, fuel card providers, and payment operators.',
+  alternates: { canonical: '/intelligent-systems/ifis' },
 }
 
 const hardware = [

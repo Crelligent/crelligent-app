@@ -17,6 +17,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Crelligent Core | Survival Intelligence',
   description: 'Survival intelligence for the grassroots economy. Crelligent Core translates raw conversational data into structured business vitals for the informal sector.',
+  alternates: { canonical: '/core' },
 }
 
 export default function CoreLandingPage() {

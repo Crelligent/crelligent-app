@@ -13,9 +13,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Security Systems (ISS) | Crelligent',
+  title: 'Intelligent Security Systems (ISS)',
   description:
     'Threat detection, behavioural analytics, and security operations intelligence for Nigerian estates, campuses, airports, factories, and government facilities.',
+  alternates: { canonical: '/intelligent-systems/iss' },
 }
 
 const hardware = [

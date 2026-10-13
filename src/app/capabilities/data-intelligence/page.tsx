@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Data & Intelligence | Crelligent Capabilities',
-  description: 'Enterprise data architecture ensures that information flows seamlessly from operations to leadership. It transforms raw fragmented data into real-time...',
+  title: 'Business Dashboards, Reporting & Data Strategy',
+  description: "Get the numbers you run the business on in time to act: KPIs, management reporting, dashboards and data pipelines for growing companies in Nigeria and Africa.",
   path: '/capabilities/data-intelligence',
 });
 

@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Operating Model Design | Crelligent Capabilities',
-  description: 'An enterprise operating model defines how an organization structures people, processes, technology, data, and decision-making to execute its strategy....',
+  title: 'Operating Model Design, Processes & SOPs',
+  description: "Design how work gets done without the founder: processes, roles, decision rights and SOPs for growing companies in Nigeria and Africa. Start with a free diagnostic.",
   path: '/capabilities/operating-model',
 });
 

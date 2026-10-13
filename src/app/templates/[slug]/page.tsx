@@ -9,8 +9,9 @@ export async function generateStaticParams() {
   return templates.map((t) => ({ slug: t.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const template = templates.find((t) => t.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const template = templates.find((t) => t.slug === slug);
   if (!template) return {};
   
   return generateSeoMetadata({
@@ -20,8 +21,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   });
 }
 
-export default function TemplatePage({ params }: { params: { slug: string } }) {
-  const template = templates.find((t) => t.slug === params.slug);
+export default async function TemplatePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const template = templates.find((t) => t.slug === slug);
   if (!template) notFound();
 
   return (

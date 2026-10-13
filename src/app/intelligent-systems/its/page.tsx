@@ -21,6 +21,7 @@ export const metadata = {
   title: 'Intelligent Transport Systems (ITS) | Crelligent | Fleet & Fuel Intelligence',
   description:
     'Real-time fleet visibility, fuel anomaly detection, and driver behaviour scoring for Nigerian logistics, transport, and fuel distribution companies.',
+  alternates: { canonical: '/intelligent-systems/its' },
 }
 
 const hardware = [

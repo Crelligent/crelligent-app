@@ -4,6 +4,7 @@ import { CheckCircle, XCircle, Clock } from 'lucide-react'
 
 export const metadata = {
   title: 'L5 Governance | Agent Approvals',
+  robots: { index: false, follow: false },
 }
 
 export default async function ApprovalsDashboard() {

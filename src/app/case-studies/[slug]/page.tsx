@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { caseStudies } from '@/data/case-studies';
+import { publishedCaseStudies as caseStudies } from '@/data/case-studies';
 import { generateSeoMetadata } from '@/lib/seo/metadata';
 import { Navigation } from '@/components/shared/Navigation';
 import { Footer } from '@/components/shared/Footer';
@@ -9,8 +9,9 @@ export async function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const cs = caseStudies.find((c) => c.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) return {};
   
   return generateSeoMetadata({
@@ -20,8 +21,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   });
 }
 
-export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const cs = caseStudies.find((c) => c.slug === params.slug);
+export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) notFound();
 
   return (

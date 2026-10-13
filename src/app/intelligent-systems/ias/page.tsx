@@ -13,9 +13,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Agriculture Systems (IAS) | Crelligent',
+  title: 'Intelligent Agriculture Systems (IAS)',
   description:
     'Yield prediction, irrigation optimisation, and climate analytics for Nigerian commercial farms, cooperatives, food processors, and governments.',
+  alternates: { canonical: '/intelligent-systems/ias' },
 }
 
 const hardware = [

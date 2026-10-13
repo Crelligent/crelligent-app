@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Governance | Crelligent Capabilities',
-  description: 'Governance defines the structural approach to solving complex enterprise challenges in this domain....',
+  title: 'Corporate Governance, Approvals & Risk Controls',
+  description: "Set clear approval limits, controls and accountability so decisions stop waiting for the CEO. Governance and risk design for Nigerian mid-market and family businesses.",
   path: '/capabilities/governance',
 });
 

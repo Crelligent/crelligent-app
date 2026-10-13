@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const industry = industries.find((i) => i.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const industry = industries.find((i) => i.slug === slug);
   if (!industry) return {};
   
   return generateSeoMetadata({
@@ -21,8 +22,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   });
 }
 
-export default function IndustryPage({ params }: { params: { slug: string } }) {
-  const industry = industries.find((i) => i.slug === params.slug);
+export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const industry = industries.find((i) => i.slug === slug);
   if (!industry) notFound();
 
   return (

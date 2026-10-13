@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: { canonical: '/research/pmf-blind-spot' },
 }
 
 export default function PMFSurveyPage() {

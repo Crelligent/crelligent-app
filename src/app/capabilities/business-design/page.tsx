@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Business Design | Crelligent Capabilities',
-  description: 'Business Design defines the structural approach to solving complex enterprise challenges in this domain....',
+  title: 'Business Model & Strategy Design for Growing Companies',
+  description: "Clarify what you sell, to whom and at what margin. Business design for Nigerian and African mid-market companies: revenue model, positioning and unit economics.",
   path: '/capabilities/business-design',
 });
 

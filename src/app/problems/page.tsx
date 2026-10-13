@@ -5,7 +5,7 @@ import { Navigation } from '@/components/shared/Navigation';
 import { Footer } from '@/components/shared/Footer';
 
 export const metadata = generateSeoMetadata({
-  title: 'Enterprise Problems & Structural Bottlenecks | Crelligent',
+  title: 'Common Business Bottlenecks and Their Structural Causes',
   description: 'Diagnose the root causes of scaling failure, data silos, and operational inefficiency.',
   path: '/problems',
 });

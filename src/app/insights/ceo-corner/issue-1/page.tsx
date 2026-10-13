@@ -3,11 +3,12 @@ import Link from 'next/link'
 import { Linkedin, Link2, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-    title: 'The Hidden Cost of Your Last Technology Investment | CEO Corner Issue #1 | Crelligent',
+    title: 'The Hidden Cost of Your Last Technology Investment',
     description: 'Systems thinking for African enterprise leaders. The CEO Corner by Crelligent.',
     openGraph: {
         images: ['/og-image.jpg'],
-    }
+    },
+  alternates: { canonical: '/insights/ceo-corner/issue-1' },
 }
 
 export default function CEOCornerIssue1() {

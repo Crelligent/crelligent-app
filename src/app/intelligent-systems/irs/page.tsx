@@ -13,9 +13,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Retail Systems (IRS) | Crelligent',
+  title: 'Intelligent Retail Systems (IRS)',
   description:
     'Demand forecasting, customer analytics, and inventory optimisation for Nigerian restaurants, supermarkets, retail chains, and QSR brands.',
+  alternates: { canonical: '/intelligent-systems/irs' },
 }
 
 const hardware = [

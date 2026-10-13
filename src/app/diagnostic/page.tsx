@@ -4,8 +4,9 @@ import { Footer } from '@/components/shared/Footer'
 import AehiDiagnosticForm from '@/components/diagnostic/AehiDiagnosticForm'
 
 export const metadata: Metadata = {
-  title: 'AEHI Diagnostic | Crelligent',
-  description: 'Evaluate your enterprise against the 5-layer ESRE OS framework and get your African Enterprise Health Index Performance Score.',
+  title: 'Free Business Diagnostic: Score How Your Company Is Run',
+  description: "A free 10-minute diagnostic for Nigerian and African companies. Get your ESRE OS Performance Score across five layers and see which one is holding the business back.",
+  alternates: { canonical: '/diagnostic' },
 }
 
 export default function DiagnosticPage() {

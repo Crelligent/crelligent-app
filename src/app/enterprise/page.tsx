@@ -4,8 +4,9 @@ import { Footer } from '@/components/shared/Footer'
 import { ArrowRight, Building2, Layers, RefreshCw, Shield, CheckCircle } from 'lucide-react'
 
 export const metadata = {
-    title: 'Enterprise Systems | Crelligent',
-    description: 'System re-architecture, platform redesign, and pre-scale stabilization for organizations rebuilding their foundations.',
+    title: 'Operating Model & Business Systems Consulting in Nigeria',
+    description: "Crelligent Enterprise redesigns how mid-market companies run: operating model, processes, ERP and data, governance. Diagnose first, then install. Based in Lagos.",
+  alternates: { canonical: '/enterprise' },
 }
 
 const services = [

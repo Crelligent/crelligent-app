@@ -4,8 +4,8 @@ import { Footer } from '@/components/shared/Footer';
 import { CapabilityLayout } from '@/components/capabilities/CapabilityLayout';
 
 export const metadata = generateSeoMetadata({
-  title: 'Product Strategy | Crelligent Capabilities',
-  description: 'Product Strategy defines the structural approach to solving complex enterprise challenges in this domain....',
+  title: 'Product Strategy for Growing Companies',
+  description: "Decide what to build and sell next, and in what order. Product strategy tied to your operating model, for African mid-market companies and startups.",
   path: '/capabilities/product-strategy',
 });
 

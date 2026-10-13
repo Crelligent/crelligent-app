@@ -8,9 +8,9 @@ import { linkAccentStandalone } from '@/components/foundry/ui'
 import { PmfCheck } from '@/components/foundry/pmf-check/PmfCheck'
 
 export const metadata: Metadata = {
-  title: 'Free PMF snapshot: how close are you to product-market fit? | Crelligent Foundry',
+  title: 'Free Product-Market Fit Score: 3-Minute PMF Snapshot',
   description:
-    'Answer 10 questions in about 3 minutes and get a product-market fit score, your three biggest gaps and the next step, weighted like the VeloDesk PMF Score.',
+    "How close are you to product-market fit? Answer 10 questions and get a PMF score, your three biggest gaps and the next step. Free, no sign-up to see your result.",
   alternates: { canonical: '/foundry/pmf-check' },
 }
 

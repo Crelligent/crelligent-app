@@ -14,9 +14,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Industrial Systems (IIS) | Crelligent',
+  title: 'Intelligent Industrial Systems (IIS)',
   description:
     'Production monitoring, downtime analytics, and predictive maintenance intelligence for Nigerian factories, breweries, cement plants, and industrial facilities.',
+  alternates: { canonical: '/intelligent-systems/iis' },
 }
 
 const hardware = [

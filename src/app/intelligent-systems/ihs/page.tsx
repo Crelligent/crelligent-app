@@ -13,9 +13,10 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Healthcare Systems (IHS) | Crelligent',
+  title: 'Intelligent Healthcare Systems (IHS)',
   description:
     'Patient flow intelligence, health risk prediction, and clinical decision support for Nigerian hospitals, HMOs, clinics, and healthcare operators.',
+  alternates: { canonical: '/intelligent-systems/ihs' },
 }
 
 const hardware = [

@@ -56,6 +56,8 @@ export interface CaseStudy {
   lessons: string;
   relatedCapabilities: string[];
   seo: SeoMetadata;
+  /** Only published case studies are listed, routed and put in the sitemap. Set true once the client story is confirmed. */
+  published?: boolean;
 }
 
 export interface Industry {

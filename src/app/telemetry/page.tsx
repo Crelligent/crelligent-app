@@ -8,8 +8,9 @@ import Link from 'next/link'
 import { getIndustryStats } from '@/app/actions/telemetry'
 
 export const metadata: Metadata = {
-  title: 'Public Telemetry Benchmarks | Crelligent',
+  title: 'Public Telemetry Benchmarks',
   description: 'Live performance metrics and telemetry benchmarks from ESRE OS installations across the African mid-market.',
+  alternates: { canonical: '/telemetry' },
 }
 
 export default async function TelemetryPage() {
