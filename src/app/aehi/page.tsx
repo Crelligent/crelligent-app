@@ -8,6 +8,7 @@ import { AssessedRecordRow } from '@/components/aehi/ui/AssessedCount'
 import { LayerStack } from '@/components/aehi/model/LayerStack'
 import { WeightStrip } from '@/components/aehi/model/WeightStrip'
 import { IndexFlow } from '@/components/aehi/model/IndexFlow'
+import { CoverageMap } from '@/components/aehi/model/CoverageMap'
 import { EditionFindingsGrid, SourceLine, fmtScore } from '@/components/aehi/published/Figures'
 
 export const revalidate = 600
@@ -173,6 +174,28 @@ export default async function HomePage() {
         <TextLink href="/aehi/methodology" className="mt-4">
           Read the full methodology
         </TextLink>
+      </Band>
+
+      {/* Coverage map */}
+      <Band id="coverage" tone="deep" labelledBy="coverage-title">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
+          <div className="lg:col-span-5">
+            <Eyebrow>Coverage</Eyebrow>
+            <h2 id="coverage-title" className="t-h2 mt-4">
+              The inaugural edition starts in Nigeria.
+            </h2>
+            <p className="t-lead mt-4">
+              Every response so far comes from Nigerian mid-market enterprises. Other African markets are not covered
+              yet, and we will only add a market when it has enough responses to report on.
+            </p>
+            <p className="t-small mt-4 text-aehi-text-subtle">
+              Hover or tap a country to see its status. The map shows coverage only, not scores.
+            </p>
+          </div>
+          <div className="lg:col-span-7">
+            <CoverageMap />
+          </div>
+        </div>
       </Band>
 
       {/* §4 Hypotheses (pre-publication only) */}
