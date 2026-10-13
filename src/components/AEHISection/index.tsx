@@ -47,7 +47,7 @@ export function AEHISection() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href={data.contributeUrl}
-                target="_blank"
+               
                 className="w-full sm:w-auto bg-[#00C985] text-black font-semibold rounded-[8px] py-[12px] px-[22px] text-[14px] flex items-center justify-center gap-2 hover:bg-[#00e094] transition-colors"
               >
                 Contribute your enterprise
@@ -55,7 +55,7 @@ export function AEHISection() {
               </Link>
               <Link
                 href={data.micrositeUrl}
-                target="_blank"
+               
                 className="w-full sm:w-auto bg-transparent border border-white/20 text-white/75 font-medium rounded-[8px] py-[12px] px-[22px] text-[14px] flex items-center justify-center gap-2 hover:bg-white/5 transition-colors"
               >
                 Explore the AEHI
@@ -86,8 +86,8 @@ export function AEHISection() {
               </ul>
               <div className="text-[10px] text-white/25 font-normal pt-4 mt-5 border-t border-white/[0.08]">
                 Inaugural edition {data.edition} ·{' '}
-                <Link href={data.micrositeUrl} target="_blank" className="text-white/45 hover:underline">
-                  aehi.crelligent.com &rarr;
+                <Link href={data.micrositeUrl} className="text-white/45 hover:underline">
+                  crelligent.com/aehi &rarr;
                 </Link>
               </div>
             </div>

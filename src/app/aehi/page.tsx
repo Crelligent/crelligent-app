@@ -1,368 +1,244 @@
-import { Navigation } from '@/components/shared/Navigation'
-import { Footer } from '@/components/shared/Footer'
-import { Activity, BarChart3, Database, Layers, Shield, Workflow, TrendingUp, Building2, Map as MapIcon, AlertTriangle, Lightbulb, ChevronRight, CheckCircle2 } from 'lucide-react'
-import Link from 'next/link'
-import { createAdminClient } from '@supabase/server/core'
-import type { SupabaseEnv } from '@supabase/server'
+import { EDITION, DIAGNOSTIC_MINUTES, HYPOTHESES } from '@/data/aehi/edition'
+import { pageMetadata } from '@/data/aehi/site'
+import { formatCount, formatDate, getAssessedCount, getEditionForDisplay } from '@/data/aehi/live'
+import { Band, Chip, Eyebrow } from '@/components/aehi/ui/Typography'
+import { ButtonLink, TextLink } from '@/components/aehi/ui/Links'
+import { DiagnosticLink } from '@/components/aehi/ui/DiagnosticLink'
+import { AssessedRecordRow } from '@/components/aehi/ui/AssessedCount'
+import { LayerStack } from '@/components/aehi/model/LayerStack'
+import { WeightStrip } from '@/components/aehi/model/WeightStrip'
+import { IndexFlow } from '@/components/aehi/model/IndexFlow'
+import { EditionFindingsGrid, SourceLine, fmtScore } from '@/components/aehi/published/Figures'
 
-export const metadata = {
+export const revalidate = 600
+
+export const metadata = pageMetadata({
   title: 'African Enterprise Health Index (AEHI) | Crelligent',
-  description: 'The definitive operational benchmark for mid-market enterprises across Africa. Compare your ESRE OS performance against sector averages.',
-}
+  absoluteTitle: true,
+  description:
+    'A quarterly benchmark of how Nigerian mid-market enterprises are run, scored on five OS layers. Inaugural edition Q4 2026. Take the free diagnostic.',
+  path: '/aehi',
+})
 
-export const dynamic = 'force-dynamic'
-
-function resolveNextEnv(): Partial<SupabaseEnv> {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
-  const secretKey = process.env.SUPABASE_SECRET_KEY
-  return {
-    url: url ?? undefined,
-    publishableKeys: publishableKey ? { default: publishableKey } : {},
-    secretKeys: secretKey ? { default: secretKey } : {},
-  }
-}
-
-export default async function AehiPage() {
-  const env = resolveNextEnv()
-  const supabaseAdmin = createAdminClient({ env })
-
-  // Fetch real benchmark data
-  const { data: scores } = await supabaseAdmin
-    .from('aehi_os_scores')
-    .select(`
-      composite_score,
-      score_l1_business_design,
-      score_l2_operating_model,
-      score_l3_technology,
-      score_l4_data_intelligence,
-      score_l5_governance,
-      aehi_enterprises!inner ( sector )
-    `)
-
-  // Aggregate by sector
-  const sectorMap = new Map<string, any>()
-  if (scores) {
-    for (const score of scores) {
-      const sector = (score.aehi_enterprises as any).sector
-      if (!sectorMap.has(sector)) {
-        sectorMap.set(sector, { count: 0, score: 0, l1: 0, l2: 0, l3: 0, l4: 0, l5: 0 })
-      }
-      const s = sectorMap.get(sector)
-      s.count++
-      s.score += score.composite_score
-      s.l1 += score.score_l1_business_design
-      s.l2 += score.score_l2_operating_model
-      s.l3 += score.score_l3_technology
-      s.l4 += score.score_l4_data_intelligence
-      s.l5 += score.score_l5_governance
-    }
-  }
-
-  const sectorData = Array.from(sectorMap.entries()).map(([name, data]) => ({
-    name,
-    score: Math.round(data.score / data.count),
-    l1: Math.round(data.l1 / data.count),
-    l2: Math.round(data.l2 / data.count),
-    l3: Math.round(data.l3 / data.count),
-    l4: Math.round(data.l4 / data.count),
-    l5: Math.round(data.l5 / data.count),
-  }))
-
-  const totalIndexed = scores ? scores.length : 0
-  const averageOsScore = scores && scores.length > 0
-    ? (scores.reduce((acc, curr) => acc + curr.composite_score, 0) / scores.length).toFixed(1)
-    : '0'
-
+function RecordRow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#050505] text-gray-100 font-sans selection:bg-blue-500/30">
-      <Navigation />
-
-      <main className="pt-32 pb-24">
-        {/* Hero Section */}
-        <section className="relative px-6 max-w-7xl mx-auto mb-24">
-          <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
-          
-          <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-widest text-blue-400 uppercase mb-8">
-              <Activity className="w-3 h-3" />
-              Live Benchmark Data
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold font-heading leading-tight mb-8">
-              African Enterprise <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                Health Index (AEHI)
-              </span>
-            </h1>
-            <p className="text-xl text-gray-400 font-light leading-relaxed mb-10">
-              Financial audits tell you about the past. The AEHI tells you about your capacity to execute the future. 
-              The definitive operational benchmark for mid-market enterprises across Africa.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="https://client.crelligent.com" className="px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
-                Calculate Your Score <TrendingUp className="w-4 h-4" />
-              </Link>
-              <Link href="#methodology" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-medium rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center">
-                Read the Methodology
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Global Stats */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { label: 'Enterprises Indexed', value: totalIndexed.toString(), icon: Building2, trend: 'Updated live' },
-              { label: 'Average OS Score', value: averageOsScore, icon: Activity, trend: 'Out of 100' },
-              { label: 'Markets Covered', value: '1', icon: MapIcon, trend: 'Nigeria (Live)' }
-            ].map((stat, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px] -mr-10 -mt-10 transition-opacity opacity-50 group-hover:opacity-100" />
-                <stat.icon className="w-6 h-6 text-blue-400 mb-4" />
-                <div className="text-4xl font-bold font-heading mb-2">{stat.value}</div>
-                <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
-                <div className="text-xs text-gray-500 mt-4 pt-4 border-t border-white/5">{stat.trend}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Why the AEHI Exists (The Problem) */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-heading font-bold mb-6">Why we built the Index</h2>
-              <div className="space-y-6 text-gray-400 leading-relaxed">
-                <p>
-                  Most mid-market enterprises in Africa appear healthy on their balance sheets right up until the moment they collapse under the weight of their own complexity.
-                </p>
-                <p>
-                  They suffer from a phenomenon we call the <strong>Adaptation Deficit</strong>. Their strategies are modern, but their underlying operating systems—how they make decisions, flow data, and execute processes—are built for a smaller, simpler version of themselves that no longer exists.
-                </p>
-                <p>
-                  We built the AEHI to expose this invisible risk. By measuring the structural health of an enterprise across the five ESRE OS layers, we can predict operational failures before they hit the P&L.
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
-              <div className="relative space-y-4">
-                {[
-                  { title: "Standard KPIs measure outputs.", desc: "Revenue, EBITDA, and churn tell you what happened last quarter." },
-                  { title: "The AEHI measures capacity.", desc: "The health of your OS layers tells you what you can actually execute tomorrow." }
-                ].map((item, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-[#0a0a0a] border border-white/10 shadow-2xl">
-                    <h3 className="text-white font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-gray-400">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Key Findings from the Index */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
-          <div className="mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4">What the Index Is Testing</h2>
-            <p className="text-gray-400 max-w-2xl">
-              Three patterns we see in Crelligent's diagnostic work. The inaugural edition (Q4 2026) will measure how widely they hold.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5">
-              <AlertTriangle className="w-8 h-8 text-amber-400 mb-6" />
-              <h3 className="text-xl font-semibold mb-3">The L2 Founder Trap</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                In many growing companies, core processes are undocumented, so the founder or CEO is still acting as the system scheduler for day-to-day operations.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5">
-              <Database className="w-8 h-8 text-blue-400 mb-6" />
-              <h3 className="text-xl font-semibold mb-3">The L3/L4 Disconnect</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Enterprises overspend on Technology (L3) while scoring poorly on Data Intelligence (L4). They have expensive ERPs, but the systems do not talk to each other, resulting in zero real-time operational sensing.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/5">
-              <Shield className="w-8 h-8 text-emerald-400 mb-6" />
-              <h3 className="text-xl font-semibold mb-3">Reactive Governance (L5)</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Many companies rely on "root access" (executive escalation) to solve exceptions, rather than built-in system constraints and authority matrices.
-              </p>
-            </div>
-          </div>
-          
-          <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-[#3b82f6]/10 to-[#ec4899]/10 border border-[#3b82f6]/20 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-2">Are you an informal micro-business?</h3>
-              <p className="text-gray-400 text-sm max-w-2xl">
-                The AEHI also tracks the grassroots economy through the <strong>AEHI Vitals Score</strong>. We use conversational data from our WhatsApp bot to measure Cash Velocity, Supplier Dependency, and Capital Retention for market traders.
-              </p>
-            </div>
-            <Link href="/core" className="shrink-0 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg text-sm transition-colors whitespace-nowrap">
-              Explore Crelligent Core
-            </Link>
-          </div>
-        </section>
-
-        {/* What We Measure: The 5 Layers */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
-          <div className="mb-12 text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-heading font-bold mb-4">How we measure OS Health</h2>
-            <p className="text-gray-400">
-              The AEHI evaluates enterprises across the five foundational layers of the ESRE OS. A failure in any lower layer compounds as it moves up the stack.
-            </p>
-          </div>
-          
-          <div className="space-y-4">
-            {[
-              { id: 'L1', name: 'Business Design', subtitle: 'The Kernel', desc: 'Is the fundamental business logic sound? Are the boundaries, unit economics, and value propositions clearly codified?' },
-              { id: 'L2', name: 'Operating Model & Process', subtitle: 'The Scheduler', desc: 'How does work flow? Is execution dependent on heroic individual effort, or are processes mapped and decoupled from specific people?' },
-              { id: 'L3', name: 'Technology & Platform', subtitle: 'Infrastructure Layer', desc: 'Does the technology support the L2 processes? Is the infrastructure scalable, or is it a patched-together legacy system?' },
-              { id: 'L4', name: 'Data & Intelligence', subtitle: 'Sensing Layer', desc: 'Can the enterprise see itself? Is there real-time telemetry and feedback loops that detect operational drift before failure?' },
-              { id: 'L5', name: 'Governance, Risk & Control', subtitle: 'Security Layer', desc: 'Who has the authority to change the system? Are risks contained, or can a single failure mode bring down the entire enterprise?' },
-            ].map((layer, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col md:flex-row md:items-center gap-6 group hover:bg-white/[0.04] transition-colors">
-                <div className="w-16 h-16 shrink-0 rounded-full bg-blue-500/10 flex items-center justify-center border border-blue-500/20 text-blue-400 font-bold text-xl group-hover:scale-110 transition-transform">
-                  {layer.id}
-                </div>
-                <div>
-                  <div className="flex items-center gap-3 mb-1">
-                    <h3 className="text-lg font-semibold">{layer.name}</h3>
-                    <span className="text-xs font-medium px-2 py-1 bg-white/5 rounded-full text-gray-400">{layer.subtitle}</span>
-                  </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">{layer.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Sector Benchmarks */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
-          <div className="mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4">OS Performance by Sector</h2>
-            <p className="text-gray-400 max-w-2xl">
-              Average health scores across the 5 ESRE OS Core layers. Use this table to benchmark your own organization against your specific industry peers.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.01]">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-white/10 bg-white/[0.02]">
-                  <th className="py-5 px-6 font-medium text-gray-300 text-sm">Sector</th>
-                  <th className="py-5 px-4 font-medium text-blue-400 text-sm text-center">AEHI Score</th>
-                  <th className="py-5 px-4 font-medium text-gray-400 text-sm text-center">L1</th>
-                  <th className="py-5 px-4 font-medium text-gray-400 text-sm text-center">L2</th>
-                  <th className="py-5 px-4 font-medium text-gray-400 text-sm text-center">L3</th>
-                  <th className="py-5 px-4 font-medium text-gray-400 text-sm text-center">L4</th>
-                  <th className="py-5 px-4 font-medium text-gray-400 text-sm text-center">L5</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sectorData.map((sector, i) => (
-                  <tr key={i} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
-                    <td className="py-6 px-6 font-medium">{sector.name}</td>
-                    <td className="py-6 px-4 text-center">
-                      <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 font-bold border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                        {sector.score}
-                      </span>
-                    </td>
-                    <td className="py-6 px-4 text-center text-gray-300">{sector.l1}</td>
-                    <td className="py-6 px-4 text-center text-gray-300">
-                      <span className={sector.l2 < 60 ? 'text-amber-400 font-medium' : ''}>{sector.l2}</span>
-                    </td>
-                    <td className="py-6 px-4 text-center text-gray-300">{sector.l3}</td>
-                    <td className="py-6 px-4 text-center text-gray-300">
-                      <span className={sector.l4 < 60 ? 'text-amber-400 font-medium' : ''}>{sector.l4}</span>
-                    </td>
-                    <td className="py-6 px-4 text-center text-gray-300">{sector.l5}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* The Diagnostic Engine / Methodology */}
-        <section id="methodology" className="px-6 max-w-7xl mx-auto mb-32">
-          <div className="p-12 rounded-3xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-emerald-400 to-purple-500" />
-            
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-3xl font-heading font-bold mb-6">How the Index is calculated</h2>
-                <p className="text-gray-400 mb-6 leading-relaxed">
-                  The AEHI is powered by the Crelligent ESRE AI Engine. When an enterprise undergoes an ESRE Diagnostic, our models evaluate 45 unique data points across the 5 OS Core layers.
-                </p>
-                <p className="text-gray-400 mb-8 leading-relaxed">
-                  These inputs are aggregated, anonymized, and weighted to produce a composite OS Performance Score. We penalize heavily for "weakest link" failures—because a brilliant L1 strategy cannot survive a broken L2 process.
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    { text: 'Objective, data-driven layer assessments (45 metrics)', icon: Database },
-                    { text: 'Dynamic weighting penalizing lower-layer vulnerabilities', icon: BarChart3 },
-                    { text: 'Strictly anonymized sector aggregation', icon: Shield },
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-300 text-sm">
-                      <item.icon className="w-5 h-5 text-blue-400" />
-                      {item.text}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div className="relative">
-                <div className="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full" />
-                <div className="relative bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 shadow-2xl">
-                  <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/5">
-                    <div>
-                      <div className="text-sm text-gray-500 mb-1">Diagnostic Output Example</div>
-                      <div className="font-semibold text-amber-400">L2 Vulnerability Detected</div>
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
-                      <Workflow className="w-5 h-5" />
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                      <div className="h-full bg-amber-500 w-[45%]" />
-                    </div>
-                    <div className="text-sm text-gray-400">
-                      Illustrative output: an Operating Model (L2) score of 45 sits in the at-risk range. High dependency on founder execution limits scale.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="px-6 max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-heading font-bold mb-6">Find out where your enterprise breaks.</h2>
-          <p className="text-xl text-gray-400 mb-10">
-            Stop relying on trailing financial indicators. Benchmark your operational execution capacity against the best in Africa.
-          </p>
-          <Link href="https://client.crelligent.com" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors">
-            Run an ESRE Diagnostic <ArrowRight className="w-4 h-4" />
-          </Link>
-        </section>
-      </main>
-
-      <Footer />
+    <div className="border-t border-aehi-line py-3">
+      <dt className="t-label text-aehi-text-subtle">{label}</dt>
+      <dd className="mt-1 text-[15px] font-medium text-aehi-text">{children}</dd>
     </div>
   )
 }
 
-function ArrowRight(props: any) {
+export default async function HomePage() {
+  const [count, edition] = await Promise.all([getAssessedCount(), getEditionForDisplay()])
+  const published = edition !== null
+
   return (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14"/>
-      <path d="m12 5 7 7-7 7"/>
-    </svg>
+    <>
+      {/* §1 Hero */}
+      <section aria-labelledby="hero-title" className="relative overflow-hidden bg-aehi-bg pb-16 pt-10 lg:pb-24 lg:pt-14">
+        {/* Five hairlines echoing the stack (decorative, desktop only) */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] lg:block">
+          {[30, 40, 50, 60, 70].map((top) => (
+            <div key={top} className="absolute inset-x-0 h-px bg-aehi-line" style={{ top: `${top}%` }} />
+          ))}
+        </div>
+        <div className="container-x relative">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-7">
+              <Eyebrow>
+                African Enterprise Health Index{published ? ` · ${edition.label} edition` : ''}
+              </Eyebrow>
+              <h1 id="hero-title" className="t-display mt-5">
+                How well are Nigeria&apos;s mid-market enterprises run?
+              </h1>
+              <p className="t-lead mt-6">
+                {published
+                  ? `The AEHI is a quarterly benchmark of how Nigerian mid-market enterprises are run, scored on five OS layers. The ${edition.label} edition is out: ${formatCount(edition.overall!.n)} enterprises took part.`
+                  : 'The AEHI is a quarterly benchmark that scores enterprises on the five layers of how a business operates, from business design to governance. The inaugural edition, for Q4 2026, is collecting responses now.'}
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <DiagnosticLink location="hero" fullWidthOnMobile />
+                {published ? (
+                  <ButtonLink href="/aehi/report" fullWidthOnMobile>
+                    Read the {edition.label} report
+                  </ButtonLink>
+                ) : (
+                  <ButtonLink href="#how-it-works" fullWidthOnMobile>
+                    How the index works
+                  </ButtonLink>
+                )}
+              </div>
+              {/* OWNER CONFIRM: "About 10 minutes" (diagnostic length) */}
+              <p className="t-small mt-4 max-w-prose text-aehi-text-subtle">
+                About {DIAGNOSTIC_MINUTES} minutes. You see your own ESRE OS Performance Score straight away. Your company is never
+                named.
+              </p>
+            </div>
+
+            <aside aria-labelledby="record-title" className="lg:col-span-4 lg:col-start-9">
+              <div className="panel bg-aehi-surface">
+                <h2 id="record-title" className="t-label text-aehi-text-muted">
+                  Edition record
+                </h2>
+                <dl className="mt-4">
+                  <RecordRow label="Edition">{EDITION.number} (inaugural)</RecordRow>
+                  <RecordRow label="Period">{published ? edition.label : EDITION.label}</RecordRow>
+                  <RecordRow label="Status">
+                    {published ? (
+                      <Chip className="mt-0.5">Published {formatDate(edition.publishedAt)}</Chip>
+                    ) : (
+                      <Chip variant="live" className="mt-0.5">
+                        Collecting responses
+                      </Chip>
+                    )}
+                  </RecordRow>
+                  {published ? (
+                    <>
+                      <RecordRow label="Sample">{formatCount(edition.overall!.n)} enterprises</RecordRow>
+                      <div className="border-t border-aehi-line py-3">
+                        <dt className="t-label text-aehi-text-subtle">Median OS Performance Score</dt>
+                        <dd className="t-data mt-1 text-[28px] leading-tight text-aehi-text">{fmtScore(edition.overall!.composite.median)}</dd>
+                      </div>
+                    </>
+                  ) : (
+                    <AssessedRecordRow count={count} />
+                  )}
+                  <RecordRow label="Coverage">Nigerian mid-market enterprises</RecordRow>
+                  <RecordRow label="Publisher">Crelligent &amp; Company, Lagos</RecordRow>
+                </dl>
+                <div className="border-t border-aehi-line pt-2">
+                  <TextLink href="/aehi/report#notify">Get the report when it publishes</TextLink>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Published only: what the edition found */}
+      {published && (
+        <Band tone="deep" labelledBy="found-title">
+          <Eyebrow>{edition.label} edition</Eyebrow>
+          <h2 id="found-title" className="t-h2 mt-4">
+            What the {edition.label} edition found.
+          </h2>
+          <div className="mt-10 lg:mt-14">
+            <EditionFindingsGrid edition={edition} />
+          </div>
+          <SourceLine edition={edition} className="mt-6" />
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <ButtonLink href="/aehi/report" variant="primary" fullWidthOnMobile>
+              Read the full report
+            </ButtonLink>
+            <TextLink href="/aehi/data">Explore the data</TextLink>
+          </div>
+        </Band>
+      )}
+
+      {/* §2 The model */}
+      <Band id="model" tone={published ? 'bg' : 'deep'} labelledBy="model-title">
+        <Eyebrow>The ESRE OS model</Eyebrow>
+        <h2 id="model-title" className="t-h2 mt-4">
+          Five layers. Weaknesses start low and travel up.
+        </h2>
+        <p className="t-lead mt-4">
+          Every enterprise in the index is scored on the same five OS layers. They depend on each other: a weakness in a lower layer
+          shows up in every layer built on top of it. Explore the layers, then trace what happens when one is weak.
+        </p>
+        <div className="mt-10 lg:mt-14">
+          <LayerStack
+            footer={
+              <TextLink href="/aehi/methodology#layers" className="mt-2">
+                Read all five layers as text
+              </TextLink>
+            }
+          />
+        </div>
+        <WeightStrip className="mt-10 max-w-3xl" />
+      </Band>
+
+      {/* §3 How the index works */}
+      <Band id="how-it-works" tone={published ? 'deep' : 'bg'} labelledBy="how-title">
+        <Eyebrow>How the index works</Eyebrow>
+        <h2 id="how-title" className="t-h2 mt-4">
+          From one diagnostic to a national benchmark.
+        </h2>
+        <p className="t-lead mt-4">
+          Each enterprise gets something useful straight away. The index only ever publishes what is true of a group.
+        </p>
+        <div className="mt-10 lg:mt-14">
+          <IndexFlow tone={published ? 'deep' : 'bg'} />
+        </div>
+        <TextLink href="/aehi/methodology" className="mt-4">
+          Read the full methodology
+        </TextLink>
+      </Band>
+
+      {/* §4 Hypotheses (pre-publication only) */}
+      {!published && (
+        <Band id="hypotheses" tone="deep" labelledBy="hyp-title">
+          <Eyebrow>Hypotheses for the inaugural edition</Eyebrow>
+          <h2 id="hyp-title" className="t-h2 mt-4">
+            What we expect to find, and will test.
+          </h2>
+          <p className="t-lead mt-4">
+            Three patterns Crelligent sees repeatedly in its diagnostic work. They are hypotheses, not findings. The inaugural edition
+            will report how widely each one holds, including where we are wrong.
+          </p>
+          <ul className="mt-10 grid grid-cols-1 lg:mt-14 lg:grid-cols-3 lg:gap-6">
+            {HYPOTHESES.map((h) => (
+              <li key={h.index} className="border-t border-aehi-line py-6">
+                <Chip variant="hypothesis">Hypothesis {h.index}</Chip>
+                <h3 className="t-h3 mt-4">{h.title}</h3>
+                <p className="t-body mt-2">{h.body}</p>
+                <p className="t-data mt-3 text-sm text-aehi-text-subtle">Layers: {h.layers.join(', ')}</p>
+              </li>
+            ))}
+          </ul>
+        </Band>
+      )}
+
+      {/* §5 Who the index is for */}
+      <Band tone="bg" labelledBy="take-part-title">
+        <Eyebrow>Take part</Eyebrow>
+        <h2 id="take-part-title" className="t-h2 mt-4">
+          Three ways to be part of the first edition.
+        </h2>
+        <ol className="mt-10 lg:mt-14">
+          {[
+            {
+              n: '01',
+              title: 'For CEOs, founders and senior executives',
+              body: "Take the diagnostic and get your enterprise's ESRE OS Performance Score, layer by layer. Your anonymised answers become part of the inaugural edition.",
+              action: <DiagnosticLink location="take-part" fullWidthOnMobile />,
+            },
+            {
+              n: '02',
+              title: 'For universities, associations and investors',
+              body: 'Review the method with us, invite your members or portfolio companies to take part, or plan for access to the published data.',
+              action: (
+                <ButtonLink href="/aehi/institutional" fullWidthOnMobile>
+                  Partner with the index
+                </ButtonLink>
+              ),
+            },
+            {
+              n: '03',
+              title: 'For anyone who follows Nigerian business',
+              body: 'Get one email when the inaugural report is published.',
+              action: <TextLink href="/aehi/report#notify">Get the report when it publishes</TextLink>,
+            },
+          ].map((row) => (
+            <li key={row.n} className="grid grid-cols-1 gap-3 border-t border-aehi-line py-6 lg:grid-cols-12 lg:gap-6 lg:py-8">
+              <span className="t-data text-sm text-aehi-text-subtle lg:col-span-1">{row.n}</span>
+              <h3 className="t-h3 lg:col-span-4">{row.title}</h3>
+              <p className="t-body lg:col-span-4">{row.body}</p>
+              <div className="mt-2 lg:col-span-3 lg:mt-0 lg:flex lg:items-start lg:justify-end">{row.action}</div>
+            </li>
+          ))}
+        </ol>
+      </Band>
+    </>
   )
 }
