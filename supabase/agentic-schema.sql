@@ -136,3 +136,16 @@ DROP TRIGGER IF EXISTS update_l2_workflows_updated_at ON public.l2_workflows;
 CREATE TRIGGER update_l2_workflows_updated_at
   BEFORE UPDATE ON public.l2_workflows
   FOR EACH ROW EXECUTE PROCEDURE public.update_updated_at();
+
+-- Data API grants (required for new tables in "public" from 30 Oct 2026).
+-- Mirrors production. Row Level Security still controls which rows each user can reach.
+grant select, insert, update, delete on public.crd_accounts to anon, authenticated;
+grant all on public.crd_accounts to service_role;
+grant select, insert, update, delete on public.crd_transactions to anon, authenticated;
+grant all on public.crd_transactions to service_role;
+grant select, insert, update, delete on public.agent_executions to anon, authenticated;
+grant all on public.agent_executions to service_role;
+grant select, insert, update, delete on public.l2_workflows to anon, authenticated;
+grant all on public.l2_workflows to service_role;
+grant select, insert, update, delete on public.l2_workflow_steps to anon, authenticated;
+grant all on public.l2_workflow_steps to service_role;
