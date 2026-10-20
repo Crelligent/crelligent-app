@@ -7,6 +7,7 @@ export const NAV_LINKS = [
   { label: 'Overview', href: '/aehi' },
   { label: 'Methodology', href: '/aehi/methodology' },
   { label: 'Take part', href: '/aehi/contribute' },
+  { label: 'Barometer', href: '/aehi/barometer' },
   { label: 'Report', href: '/aehi/report' },
   { label: 'Data', href: '/aehi/data' },
   { label: 'Partners', href: '/aehi/institutional' },

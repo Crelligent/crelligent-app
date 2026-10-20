@@ -95,7 +95,6 @@ export function SiteHeader() {
             <span className="font-aehi-head text-lg font-semibold tracking-tight text-aehi-text">AEHI</span>
             <span className="whitespace-nowrap text-[13px] text-aehi-text-subtle">by Crelligent</span>
           </Link>
-          <Chip className="hidden min-[1360px]:inline-flex">{EDITION.chip}</Chip>
         </div>
 
         <nav aria-label="Main" className="hidden lg:block">
