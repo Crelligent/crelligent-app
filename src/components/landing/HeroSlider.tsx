@@ -98,8 +98,9 @@ const slides = [
     },
     {
         id: 10, // Conclusion
-        video: '/videos/slide10.mp4',
-        duration: 10000, // placeholder
+        video: '/videos/hero/slide-10.mp4',
+        duration: 20000, // 00:12 logo animation, then the closing text holds for 8s
+        textDelay: 12000, // text and buttons appear once the animation has played
         text: (
             <>
                 WHEN ALL NINE CAPABILITIES FORM ONE OPERATING SYSTEM, THE ENTERPRISE NO LONGER DEPENDS ON ANY INDIVIDUAL TO RUN. THIS IS ESRE OS. WE INSTALL IT. WE MAINTAIN IT. IT RUNS.
@@ -113,6 +114,7 @@ export function HeroSlider() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isMuted, setIsMuted] = useState(true);
     const [isPlaying, setIsPlaying] = useState(true);
+    const [textReady, setTextReady] = useState(true);
     const audioRef = useRef<HTMLAudioElement>(null);
     const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -130,6 +132,19 @@ export function HeroSlider() {
             }
         });
     }, [currentSlide, isPlaying]);
+
+    // Slides with a textDelay play their video clean first, then show the text.
+    // The text appears when the video ends, with a timer as a fallback.
+    useEffect(() => {
+        const delay = slides[currentSlide].textDelay;
+        if (!delay) {
+            setTextReady(true);
+            return;
+        }
+        setTextReady(false);
+        const timer = setTimeout(() => setTextReady(true), delay + 1500);
+        return () => clearTimeout(timer);
+    }, [currentSlide]);
 
     // Toggle Audio (unmute/mute the active video + narration track)
     const toggleAudio = () => {
@@ -218,6 +233,7 @@ export function HeroSlider() {
                         <video
                             ref={(el) => { videoRefs.current[index] = el; }}
                             src={slide.video}
+                            onEnded={() => { if (index === currentSlide && slide.textDelay) setTextReady(true); }}
                             muted
                             playsInline
                             aria-hidden="true"
@@ -245,7 +261,7 @@ export function HeroSlider() {
                 {slides.map((slide, index) => (
                     <div
                         key={`text-${slide.id}`}
-                        className={`absolute flex flex-col items-center justify-center w-full px-4 transition-all duration-1000 transform ${index === currentSlide
+                        className={`absolute flex flex-col items-center justify-center w-full px-4 transition-all duration-1000 transform ${index === currentSlide && textReady
                             ? 'opacity-100 translate-y-0 pointer-events-auto delay-300'
                             : 'opacity-0 translate-y-4 pointer-events-none'
                             }`}
