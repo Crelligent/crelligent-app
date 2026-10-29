@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Navigation } from '@/components/shared/Navigation'
@@ -241,9 +242,18 @@ export default function FoundryPage() {
               ))}
             </Reveal>
 
-            <h3 id="launch" className="mt-14 scroll-mt-24 font-outfit text-2xl font-normal! text-(--cr-text)">
-              {LAUNCH_SECTION.heading}
-            </h3>
+            <div className="mt-14 flex flex-wrap items-center justify-between gap-4">
+              <h3 id="launch" className="scroll-mt-24 font-outfit text-2xl font-normal! text-(--cr-text)">
+                {LAUNCH_SECTION.heading}
+              </h3>
+              <Image
+                src="/advantage-logo.webp"
+                alt="AD+Vantage"
+                width={800}
+                height={147}
+                className="h-10 w-auto rounded-md sm:h-12"
+              />
+            </div>
             <p className="mt-2 mb-4 max-w-3xl text-sm text-(--cr-text-muted) leading-relaxed">{LAUNCH_SECTION.intro}</p>
             <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {launch.map((p) => (
