@@ -7,7 +7,7 @@
  */
 import { z } from 'zod'
 import { STAGE_OPTIONS, TEAM_SIZE_OPTIONS, HEARD_FROM_OPTIONS, HONEYPOT_FIELD } from './schema'
-import type { FoundryPackageId } from './packages'
+import type { ApplyPackageId } from './packages'
 
 export type DimensionKey = 'retention' | 'revenueGrowth' | 'love' | 'engagement' | 'timeToValue' | 'expansion' | 'referral'
 
@@ -179,7 +179,7 @@ export interface SnapshotResult {
   dimensions: { id: DimensionKey; dimension: string; points: number; unmeasured: boolean; weight: number }[]
   gaps: Gap[]
   unmeasuredCount: number
-  recommended: Exclude<FoundryPackageId, never>
+  recommended: ApplyPackageId
   recommendationReason: string
 }
 
@@ -224,7 +224,7 @@ export function scoreSnapshot(answers: Answers): SnapshotResult {
   return { score, band, bandLabel, bandSummary, dimensions, gaps, unmeasuredCount, recommended, recommendationReason }
 }
 
-function recommend(score: number, a: Answers): { recommended: FoundryPackageId; recommendationReason: string } {
+function recommend(score: number, a: Answers): { recommended: ApplyPackageId; recommendationReason: string } {
   const raisingSoon = a.raise === '0-6'
   const opsWeak = a.ops === 'founder' || a.ops === 'informal'
   const later = a.stage === 'series-a' || a.stage === 'series-b-plus'
@@ -237,19 +237,25 @@ function recommend(score: number, a: Answers): { recommended: FoundryPackageId; 
   }
   if (raisingSoon && score < 70 && opsWeak) {
     return {
-      recommended: 'foundry',
-      recommendationReason: 'You plan to raise within 6 months, the PMF evidence has gaps and decisions still sit with a few people. The Foundry Package closes both before you meet investors.',
+      recommended: 'blueprint',
+      recommendationReason: 'You plan to raise within 6 months, the PMF evidence has gaps and decisions still sit with a few people. A Foundry Blueprint tests the evidence and designs the operating model before you meet investors.',
     }
   }
-  if (score < 70 || raisingSoon) {
+  if (raisingSoon) {
     return {
-      recommended: 'pmf',
-      recommendationReason: 'The priority is evidence: a measured PMF score and a narrative investors accept, built from your real customer data.',
+      recommended: 'raise',
+      recommendationReason: 'You plan to raise soon. Raise Ready turns your real customer data into a measured PMF score, a model and a narrative investors accept.',
+    }
+  }
+  if (score < 70) {
+    return {
+      recommended: 'sprint',
+      recommendationReason: 'The priority is evidence. A Foundry Sprint tests demand with real customers and tells you clearly whether to build, change course or stop.',
     }
   }
   return {
-    recommended: 'os-lite',
-    recommendationReason: 'Your PMF signals are solid. What usually breaks next is the operating model, so install it before the team grows further.',
+    recommended: 'blueprint',
+    recommendationReason: 'Your PMF signals are solid. What usually breaks next is the operating model, so a Foundry Blueprint designs it before the team grows further.',
   }
 }
 

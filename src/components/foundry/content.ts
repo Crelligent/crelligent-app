@@ -1,5 +1,5 @@
 /** /foundry copy, verbatim from CONTENT.md. Prices and package names come from @/lib/foundry/packages. */
-import type { FoundryPackageId } from '@/lib/foundry/packages'
+import type { ApplyPackageId } from '@/lib/foundry/packages'
 
 /** Rich text segment: plain text, a source citation, the AEHI chip, or an L2 highlight. */
 export type Seg = string | { cite: number[] } | { aehi: true } | { l2: string }
@@ -8,9 +8,9 @@ export const HERO = {
   eyebrow: 'Crelligent Foundry',
   headline: 'Prove the market. Install the system. Then scale.',
   subhead:
-    'Crelligent Foundry builds and validates startups with their founders. Early-stage founders prove product-market fit and install the operating system that lets them scale. Growing startups co-build their next venture with our team doing the build.',
+    'Crelligent Foundry designs the whole system a new venture runs on, builds it, launches it and proves it works. Founders validate, design, build and launch with one team. Established companies co-build their next venture with us doing the build.',
   primaryCta: 'Apply to Foundry',
-  secondaryCta: 'See packages',
+  secondaryCta: 'See tiers',
   trust: ['No equity.', 'No cohort.', 'You own everything we build.'],
 }
 
@@ -67,7 +67,7 @@ export interface FixRow {
   short: string
   evidence: Seg[]
   solution: Seg[]
-  packageId: FoundryPackageId
+  packageId: ApplyPackageId
 }
 
 export const FIX_ROWS: FixRow[] = [
@@ -77,7 +77,7 @@ export const FIX_ROWS: FixRow[] = [
     short: "Can't prove PMF",
     evidence: ['43% of failed startups cite poor PMF', { cite: [1] }],
     solution: ['Scores PMF across 10 weighted dimensions and shows which ones are pitch-ready'],
-    packageId: 'pmf',
+    packageId: 'sprint',
   },
   {
     n: 2,
@@ -85,7 +85,7 @@ export const FIX_ROWS: FixRow[] = [
     short: 'Fewer, bigger cheques',
     evidence: ['Seed deals −38% since 2021 peak; Series A ticket +21%', { cite: [2] }],
     solution: ['Investor Readiness Assessment and a PMF Narrative Framework built from your evidence'],
-    packageId: 'pmf',
+    packageId: 'raise',
   },
   {
     n: 3,
@@ -98,7 +98,7 @@ export const FIX_ROWS: FixRow[] = [
       { cite: [9] },
     ],
     solution: ['Makes your case before the meeting, with the data investors check first'],
-    packageId: 'foundry',
+    packageId: 'raise',
   },
   {
     n: 4,
@@ -111,7 +111,7 @@ export const FIX_ROWS: FixRow[] = [
       { cite: [1] },
     ],
     solution: ['Installs the ', { l2: 'L2 Operating Model' }, ' so the runway you have goes further'],
-    packageId: 'os-lite',
+    packageId: 'build',
   },
   {
     n: 5,
@@ -122,15 +122,15 @@ export const FIX_ROWS: FixRow[] = [
       { l2: 'L2 first' },
       ': processes, roles and decision rights, mapped to the retention and referral dimensions they lift',
     ],
-    packageId: 'foundry',
+    packageId: 'build',
   },
   {
     n: 6,
     problem: 'You are hiring ahead of the system.',
     short: 'Hiring ahead of the system',
     evidence: ['70% of startups scaled prematurely; none passed 100,000 users', { cite: [14] }],
-    solution: ['Diagnoses L1, L2 and L3 and installs only what your stage needs'],
-    packageId: 'os-lite',
+    solution: ['Diagnoses L1, L2 and L3 and designs only what your stage needs'],
+    packageId: 'blueprint',
   },
   {
     n: 7,
@@ -180,7 +180,7 @@ export interface PathData {
   line: string
   body: Seg[]
   flow: string[]
-  packageIds: FoundryPackageId[]
+  packageIds: ApplyPackageId[]
 }
 
 export const PATHS_HEADING = 'Two ways in.'
@@ -189,27 +189,27 @@ export const PATHS: PathData[] = [
   {
     id: 'validate',
     n: 1,
-    title: 'Validate & scale',
-    forWho: 'Early-stage founders, pre-seed to Series A.',
-    line: 'Prove product-market fit. Install the operating system that lets you scale.',
+    title: 'Build and scale a startup',
+    forWho: 'Founders, from idea to Series A.',
+    line: 'Validate the idea, design the system, build it, launch it, then scale.',
     body: [
-      'We score your PMF with VeloDesk, show you which dimensions are ready for investors, and install ESRE OS Lite: L1 Business Design, ',
+      'A Sprint tests demand with real customers. A Blueprint designs ESRE OS Lite: L1 Business Design, ',
       { l2: 'L2 Operating Model' },
-      ' and L3 Technology & Platform. We install L2 first, because it is the primary constraint.',
+      ' and L3 Technology & Platform, with L2 first because it is the primary constraint. Build delivers the product, its systems and the launch, and Partner stays with you as you scale.',
     ],
-    flow: ['Prove PMF', 'Install the OS (L2 first)', 'Scale'],
-    packageIds: ['pmf', 'os-lite', 'foundry'],
+    flow: ['Validate', 'Design (L2 first)', 'Build and launch', 'Scale'],
+    packageIds: ['sprint', 'blueprint', 'build', 'partner'],
   },
   {
     id: 'venture',
     n: 2,
-    title: 'Venture build',
-    forWho: 'Growing startups and their founders.',
+    title: 'Co-build a venture',
+    forWho: 'Established companies, development finance institutions and impact programmes.',
     line: 'Co-build your next venture with us.',
     body: [
-      'A second product, a spin-out or a new market. We take it from validation to launch, with our team doing the build. You test demand before you spend, and your core team keeps running the core business.',
+      'A second product, a spin-out or a new market. We take it from blueprint to launch, with our team doing the build and AD+Vantage running the launch. You test demand before you spend, and your core team keeps running the core business.',
     ],
-    flow: ['Validation', 'Build', 'Launch'],
+    flow: ['Blueprint', 'Build', 'Launch', 'Measure'],
     packageIds: ['venture'],
   },
 ]
@@ -254,8 +254,24 @@ export const PROCESS_STEPS: ProcessStep[] = [
 ]
 
 export const PACKAGES_SECTION = {
-  heading: 'Packages',
-  intro: 'Every engagement is quoted for your company. Tell us where you are and we will send a fixed quote after a short discovery call.',
+  heading: 'Tiers',
+  intro: 'Five tiers, each matched to a phase of the ESRE method, so a venture is designed before it is built. Every client starts with a Sprint or a Blueprint. Every engagement is quoted for your company after a short discovery call.',
+  credit: 'The Sprint fee is credited against the Blueprint.',
+}
+
+export const ADDONS_SECTION = {
+  heading: 'Add-on',
+  intro: 'Add to any tier, or take on its own when a raise is close.',
+}
+
+export const LAUNCH_SECTION = {
+  heading: 'Launch, by AD+Vantage',
+  intro:
+    'Launch is part of Foundry. It is delivered by AD+Vantage, our sister creative and marketing company under Chavion Holdings, inside your Foundry contract: one quote and one invoice from Crelligent. Foundry Build includes Launch Essentials; Foundry Venture includes Launch Pro or Launch Scale. You can upgrade any of them.',
+  notes: [
+    'Ad spend is always separate: you pay the platforms directly, or we bill it at cost.',
+    'After launch, AD+Vantage offers monthly growth retainers: Content Engine, Digital Growth and Performance.',
+  ],
 }
 
 export const NOT_ACCELERATOR = {
@@ -264,7 +280,7 @@ export const NOT_ACCELERATOR = {
   rows: [
     ['Take equity', 'No equity. You pay a fee, agreed upfront.'],
     ['Run fixed cohorts and demo days', 'No cohort. You start when you are ready.'],
-    ['Give advice and a network', 'We install working systems and, on Venture Build, do the build.'],
+    ['Give advice and a network', 'We design and install working systems and, on Build and Venture, do the build and the launch.'],
     ['Share IP or terms with the programme', 'You own everything we build: the systems, the code and the documents.'],
   ] as const,
   footer: 'You pay only Crelligent. We pay our own team and contractors.',
@@ -279,10 +295,11 @@ export interface FaqItem {
 export const FAQ_ITEMS: FaqItem[] = [
   {
     q: 'Who is Foundry for?',
-    intro: 'Two groups:',
+    intro: 'Three groups:',
     a: [
-      'Early-stage founders, pre-seed to Series A, who need to prove product-market fit and build a team that can execute.',
-      'Growing startups that want to launch a second product, a spin-out or a new market without pulling their core team off the core.',
+      'Founders, from idea to Series A, who need to validate, design, build and launch with one team.',
+      'Established companies that want to launch a second product, a spin-out or a new market without pulling their core team off the core.',
+      'Development finance institutions and impact programmes that fund ventures and need them built properly, with measured results.',
     ],
   },
   { q: 'Do you take equity?', a: 'No. Foundry is a paid engagement. You own everything we build.' },
@@ -303,7 +320,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     a: [
       'A 0–100 score built from 10 weighted dimensions of product-market fit, from problem-solution fit to unit economics.',
       'Retention carries the highest weight.',
-      'You get the score, an Investor Readiness Assessment, and a PMF Narrative Framework for investor conversations.',
+      'Every Foundry tier uses it: a baseline in the Sprint, scores at launch, and tracking in Partner. Raise Ready adds an Investor Readiness Assessment and a PMF Narrative Framework for investor conversations.',
     ],
   },
   {
@@ -311,6 +328,13 @@ export const FAQ_ITEMS: FaqItem[] = [
     a: [
       "We don't hand you a report and leave.",
       'We design and put in place the processes, roles, decision rights and tools your team runs on (L1, L2 and L3 of the ESRE OS), and we work with your team until they run.',
+    ],
+  },
+  {
+    q: 'Who runs the launch?',
+    a: [
+      'AD+Vantage, our sister creative and marketing company under Chavion Holdings.',
+      'It works inside your Foundry contract, so you still have one quote, one invoice and one account lead from Crelligent.',
     ],
   },
   {

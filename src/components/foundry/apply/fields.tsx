@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react'
 import { AlertCircle, CheckCircle2, Gauge, Rocket } from 'lucide-react'
-import { FOUNDRY_PACKAGES, priceLabel, type FoundryPath } from '@/lib/foundry/packages'
+import { FOUNDRY_PACKAGES, type FoundryPath } from '@/lib/foundry/packages'
 import { PACKAGE_INTEREST_OPTIONS, PATH_OPTIONS } from '@/lib/foundry/schema'
 import { cx } from '../ui'
 
@@ -219,7 +219,7 @@ export function PathCards({
 
 /** Package ids allowed on each path, in display order. */
 export const PACKAGES_BY_PATH: Record<FoundryPath, string[]> = {
-  validate: ['pmf', 'os-lite', 'foundry', 'not-sure'],
+  validate: ['sprint', 'blueprint', 'build', 'partner', 'raise', 'not-sure'],
   venture: ['venture', 'not-sure'],
 }
 
@@ -270,7 +270,7 @@ export function PackageOptions({
                       <span className="font-medium text-(--cr-text)">{opt.label}</span>
                       {pkg?.featured && (
                         <span className="rounded-md bg-(--cr-accent) text-(--cr-on-accent) text-[0.7rem] font-medium px-1.5 py-0.5">
-                          Most popular
+                          Recommended start
                         </span>
                       )}
                     </span>
@@ -279,7 +279,6 @@ export function PackageOptions({
                   <span className="text-xs text-(--cr-text-muted) sm:text-right sm:shrink-0">
                     {pkg ? (
                       <>
-                        <span className="block font-mono">{priceLabel(pkg)}</span>
                         <span className="block">{pkg.timeline}</span>
                       </>
                     ) : (

@@ -52,9 +52,10 @@
 .foundry .ppf-link {
   transition: stroke 150ms ease;
 }
-.foundry .ppf:has(.ppf-node[data-pkg='pmf']:is(:hover, :focus-visible)) .ppf-link[data-pkg='pmf'],
-.foundry .ppf:has(.ppf-node[data-pkg='foundry']:is(:hover, :focus-visible)) .ppf-link[data-pkg='foundry'],
-.foundry .ppf:has(.ppf-node[data-pkg='os-lite']:is(:hover, :focus-visible)) .ppf-link[data-pkg='os-lite'],
+.foundry .ppf:has(.ppf-node[data-pkg='sprint']:is(:hover, :focus-visible)) .ppf-link[data-pkg='sprint'],
+.foundry .ppf:has(.ppf-node[data-pkg='raise']:is(:hover, :focus-visible)) .ppf-link[data-pkg='raise'],
+.foundry .ppf:has(.ppf-node[data-pkg='build']:is(:hover, :focus-visible)) .ppf-link[data-pkg='build'],
+.foundry .ppf:has(.ppf-node[data-pkg='blueprint']:is(:hover, :focus-visible)) .ppf-link[data-pkg='blueprint'],
 .foundry .ppf:has(.ppf-node[data-pkg='venture']:is(:hover, :focus-visible)) .ppf-link[data-pkg='venture'] {
   stroke: var(--cr-accent);
 }

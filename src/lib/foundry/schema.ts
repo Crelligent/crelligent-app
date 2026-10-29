@@ -4,7 +4,7 @@
  * supabase/migrations/20261012_foundry.sql.
  */
 import { z } from 'zod'
-import type { FoundryPackageId, FoundryPath } from './packages'
+import type { ApplyPackageId, FoundryPath } from './packages'
 
 type Option<V extends string> = { value: V; label: string }
 
@@ -26,18 +26,20 @@ export const TEAM_SIZE_OPTIONS = [
 ] as const satisfies readonly Option<string>[]
 
 export const PATH_OPTIONS = [
-  { value: 'validate', label: 'Validate & scale' },
-  { value: 'venture', label: 'Venture build' },
+  { value: 'validate', label: 'Build and scale a startup' },
+  { value: 'venture', label: 'Co-build a new venture for an established company' },
 ] as const satisfies readonly Option<FoundryPath>[]
 
 /** Package ids from packages.ts plus "not-sure". */
 export const PACKAGE_INTEREST_OPTIONS = [
-  { value: 'pmf', label: 'PMF Validation' },
-  { value: 'os-lite', label: 'ESRE OS Lite' },
-  { value: 'foundry', label: 'Foundry Package' },
-  { value: 'venture', label: 'Venture Build' },
+  { value: 'sprint', label: 'Foundry Sprint' },
+  { value: 'blueprint', label: 'Foundry Blueprint' },
+  { value: 'build', label: 'Foundry Build' },
+  { value: 'partner', label: 'Foundry Partner' },
+  { value: 'raise', label: 'Raise Ready' },
+  { value: 'venture', label: 'Foundry Venture' },
   { value: 'not-sure', label: 'Not sure yet' },
-] as const satisfies readonly Option<FoundryPackageId | 'not-sure'>[]
+] as const satisfies readonly Option<ApplyPackageId | 'not-sure'>[]
 
 /** Monthly revenue bands (NGN). Optional field. */
 export const REVENUE_BAND_OPTIONS = [
@@ -125,14 +127,14 @@ export const foundryApplicationSchema = z
       ctx.addIssue({
         code: 'custom',
         path: ['packageInterest'],
-        message: 'Venture build applications use the Venture Build package',
+        message: 'Co-build applications use Foundry Venture',
       })
     }
     if (d.path === 'validate' && d.packageInterest === 'venture') {
       ctx.addIssue({
         code: 'custom',
         path: ['packageInterest'],
-        message: 'Venture Build belongs to the Venture build path',
+        message: 'Foundry Venture belongs to the co-build path',
       })
     }
   })

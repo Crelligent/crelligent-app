@@ -14,7 +14,7 @@ import {
   Rocket,
   ShieldCheck,
 } from 'lucide-react'
-import { FOUNDRY_BILLING, SHOW_PRICES, formatNgn, priceLabel, type FoundryPackage } from '@/lib/foundry/packages'
+import { FOUNDRY_BILLING, priceLabel, type FoundryPackage } from '@/lib/foundry/packages'
 import { FAQ_ITEMS, NOT_ACCELERATOR, type StatCardData } from './content'
 import { Cite } from './primitives'
 import { FOUNDRY_SOURCES } from './sources'
@@ -26,10 +26,10 @@ export function HeroPathChooser() {
     {
       href: '#fix-early',
       icon: Gauge,
-      title: 'Early-stage founder',
-      text: 'Pre-seed to Series A. Prove PMF, install the OS.',
+      title: 'Founder',
+      text: 'Idea to Series A. Validate, design, build and launch.',
     },
-    { href: '#fix-growing', icon: Rocket, title: 'Growing startup', text: 'Second product, spin-out or new market.' },
+    { href: '#fix-growing', icon: Rocket, title: 'Established company', text: 'Second product, spin-out or new market.' },
   ]
   return (
     <nav aria-label="Jump to your situation" className="rounded-lg border border-(--cr-border) bg-(--cr-surface) p-5 lg:p-6">
@@ -77,22 +77,11 @@ export function StatCard({ stat, describedBy }: { stat: StatCardData; describedB
 /* Package card */
 function PriceBlock({ p }: { p: FoundryPackage }) {
   return (
-    <div aria-label={priceLabel(p)} role="group" className="mt-5">
-      {SHOW_PRICES && p.priceFromNgn != null && p.priceToNgn != null ? (
-        <>
-          <p aria-hidden className="font-mono text-2xl font-medium text-(--cr-text) tabular">
-            {formatNgn(p.priceFromNgn)}
-          </p>
-          <p aria-hidden className="font-mono text-base text-(--cr-text-muted) tabular">
-            to {formatNgn(p.priceToNgn)}
-          </p>
-        </>
-      ) : (
-        <>
-          <p className="font-outfit text-2xl text-(--cr-text)">Quote on request</p>
-          <p className="text-sm text-(--cr-text-muted)">Scoped to your stage and goals</p>
-        </>
-      )}
+    <div className="mt-5">
+      <p className="font-outfit text-2xl text-(--cr-text)">{priceLabel(p)}</p>
+      <p className="text-sm text-(--cr-text-muted)">
+        {p.kind === 'launch' ? 'Added to your Foundry quote' : 'Scoped to your stage and goals'}
+      </p>
     </div>
   )
 }
@@ -101,7 +90,7 @@ function Includes({ p }: { p: FoundryPackage }) {
   return (
     <ul className="space-y-2.5 text-sm text-(--cr-text)">
       {p.includes.map((item) => {
-        const l2 = p.id === 'os-lite' && item.startsWith('L2 ')
+        const l2 = p.id === 'blueprint' && item.startsWith('L2 ')
         return (
           <li key={item} className="flex gap-2.5">
             <Check aria-hidden className="size-4 text-(--cr-accent-ink) mt-0.5 shrink-0" />
@@ -123,7 +112,7 @@ function Includes({ p }: { p: FoundryPackage }) {
 }
 
 export function PackageCard({ p, variant = 'default' }: { p: FoundryPackage; variant?: 'default' | 'wide' }) {
-  const cta = (
+  const cta = p.kind === 'launch' ? null : (
     <Link
       href={`/foundry/apply?package=${p.id}`}
       aria-label={`Request a quote for ${p.name}`}
@@ -142,11 +131,12 @@ export function PackageCard({ p, variant = 'default' }: { p: FoundryPackage; var
     <>
       {p.featured && (
         <span className="mb-3 inline-block w-fit rounded-md bg-(--cr-accent) text-(--cr-on-accent) text-xs font-medium px-2 py-0.5 sm:absolute sm:top-5 sm:right-5 sm:mb-0">
-          Most popular
+          Recommended start
         </span>
       )}
       <p className={cx(eyebrowMuted, p.featured && 'sm:pr-24')}>{p.forWho}</p>
       <h3 className="mt-2 font-outfit text-xl font-normal! tracking-[-0.01em] text-(--cr-text)">{p.name}</h3>
+      {p.phase && <p className="mt-1 text-xs text-(--cr-accent-ink)">ESRE phase: {p.phase}</p>}
       <p className="mt-2 text-sm text-(--cr-text-muted) leading-relaxed">{p.summary}</p>
     </>
   )
@@ -163,6 +153,7 @@ export function PackageCard({ p, variant = 'default' }: { p: FoundryPackage; var
           <h3 id={`pkg-${p.id}-name`} className="mt-2 font-outfit text-xl font-normal! tracking-[-0.01em] text-(--cr-text)">
             {p.name}
           </h3>
+          {p.phase && <p className="mt-1 text-xs text-(--cr-accent-ink)">ESRE phase: {p.phase}</p>}
           <p className="mt-2 text-sm text-(--cr-text-muted) leading-relaxed">{p.summary}</p>
         </div>
         <div className="order-last lg:order-none">
@@ -193,7 +184,7 @@ export function PackageCard({ p, variant = 'default' }: { p: FoundryPackage; var
       {timeline}
       <div className="my-5 border-t border-(--cr-border)" />
       <Includes p={p} />
-      <div className="mt-auto pt-6">{cta}</div>
+      {cta && <div className="mt-auto pt-6">{cta}</div>}
     </article>
   )
 }

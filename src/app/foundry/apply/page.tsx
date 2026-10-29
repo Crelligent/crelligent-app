@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
-import { getPackage } from '@/lib/foundry/packages'
+import { getApplyPackage } from '@/lib/foundry/packages'
 import { ApplyForm } from '@/components/foundry/apply/ApplyForm'
 import { WhatHappensNext, WhatHappensNextCollapsed } from '@/components/foundry/apply/WhatHappensNext'
 import { Eyebrow } from '@/components/foundry/primitives'
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 /** DESIGN.md 5.1: URL preselection. `package` wins over `path`. */
 function preselect(sp: { path?: string | string[]; package?: string | string[] }) {
   const one = (v?: string | string[]) => (Array.isArray(v) ? v[0] : v) ?? ''
-  const pkg = getPackage(one(sp.package))
-  if (pkg) return { path: pkg.path, packageInterest: pkg.id as string }
+  const pkg = getApplyPackage(one(sp.package))
+  if (pkg?.path) return { path: pkg.path, packageInterest: pkg.id as string }
   const path = one(sp.path)
   if (path === 'validate') return { path: 'validate', packageInterest: '' }
   if (path === 'venture') return { path: 'venture', packageInterest: 'venture' }

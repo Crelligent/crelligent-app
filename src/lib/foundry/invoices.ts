@@ -3,7 +3,7 @@
  */
 import { randomBytes } from 'node:crypto'
 import { getFoundryAdminDb } from './admin-db'
-import { FOUNDRY_BILLING, getPackage } from './packages'
+import { FOUNDRY_BILLING, packageName } from './packages'
 import { FOUNDRY_REFERENCE_PREFIX, type PaystackTransaction } from './paystack'
 
 export type InvoiceStatus = 'draft' | 'sent' | 'paid' | 'void'
@@ -105,7 +105,7 @@ export function toPublicInvoice(row: InvoiceRow): PublicInvoice | null {
     clientName: eng.client_name,
     companyName: eng.company_name,
     packageId: eng.package_id,
-    packageName: getPackage(eng.package_id)?.name ?? eng.package_id,
+    packageName: packageName(eng.package_id),
     engagementTitle: eng.title,
     engagementTotalMinor: Number(eng.total_minor),
     depositPercent: eng.deposit_percent,

@@ -4,25 +4,26 @@
  */
 import Link from 'next/link'
 import { AlertTriangle, ArrowDown, ArrowRight, ChevronRight, Gauge, Rocket, Wallet } from 'lucide-react'
-import { FOUNDRY_BILLING, getPackage, type FoundryPackageId } from '@/lib/foundry/packages'
+import { FOUNDRY_BILLING, packageName, type ApplyPackageId } from '@/lib/foundry/packages'
 import { FIX_ROWS, PATHS, PROCESS_STEPS, type FixRow } from './content'
 import { RichText } from './primitives'
 import { chip, chipAccent, cx, linkAccentStandalone } from './ui'
 
-const pkgName = (id: FoundryPackageId) => getPackage(id)?.name ?? id
+const pkgName = (id: ApplyPackageId) => packageName(id)
 
 /* ------------------------------------------------------------------ */
 /* (iii-a) ProblemPackageFlow (md+)                                     */
 /* ------------------------------------------------------------------ */
-const FLOW_TARGETS: { id: FoundryPackageId; y: number }[] = [
-  { id: 'pmf', y: 40 },
-  { id: 'foundry', y: 104 },
-  { id: 'os-lite', y: 168 },
+const FLOW_TARGETS: { id: ApplyPackageId; y: number }[] = [
+  { id: 'sprint', y: 40 },
+  { id: 'raise', y: 88 },
+  { id: 'build', y: 136 },
+  { id: 'blueprint', y: 184 },
   { id: 'venture', y: 232 },
 ]
 
 export function ProblemPackageFlow({ className }: { className?: string }) {
-  const targetY = (id: FoundryPackageId) => FLOW_TARGETS.find((t) => t.id === id)!.y
+  const targetY = (id: ApplyPackageId) => FLOW_TARGETS.find((t) => t.id === id)!.y
   return (
     <div className={cx('ppf', className)}>
       <svg
@@ -32,10 +33,10 @@ export function ProblemPackageFlow({ className }: { className?: string }) {
         role="img"
         aria-labelledby="ppf-title ppf-desc"
       >
-        <title id="ppf-title">Eight problems, four packages</title>
+        <title id="ppf-title">Eight problems, five ways Foundry fixes them</title>
         <desc id="ppf-desc">
-          Problems 1 and 2 map to PMF Validation; 3 and 5 to the Foundry Package; 4 and 6 to ESRE OS Lite; 7 and 8 to
-          Venture Build.
+          Problem 1 maps to Foundry Sprint; 2 and 3 to Raise Ready; 4 and 5 to Foundry Build; 6 to Foundry Blueprint; 7
+          and 8 to Foundry Venture.
         </desc>
         {FIX_ROWS.map((r, i) => {
           const y = 24 + i * 32
@@ -69,7 +70,7 @@ export function ProblemPackageFlow({ className }: { className?: string }) {
           )
         })}
         {FLOW_TARGETS.map((t) => {
-          const featured = t.id === 'foundry'
+          const featured = t.id === 'blueprint'
           return (
             <a key={t.id} href={`#pkg-${t.id}`} className="ppf-node" data-pkg={t.id} aria-label={pkgName(t.id)}>
               <rect
@@ -127,7 +128,7 @@ function FixRowItem({ row }: { row: FixRow }) {
         <a
           href={`#pkg-${row.packageId}`}
           className={cx(chipAccent, 'mt-3 py-2.5 no-underline hover:underline')}
-          aria-label={`See the ${pkgName(row.packageId)} package`}
+          aria-label={`See ${pkgName(row.packageId)}`}
         >
           {pkgName(row.packageId)}
           <ArrowRight aria-hidden className="size-3.5" />
@@ -287,7 +288,7 @@ export function PathsDiagram() {
                 ))}
               </ol>
               <div className="mt-5 flex flex-wrap items-center gap-2 text-sm text-(--cr-text-muted)">
-                <span>{p.packageIds.length > 1 ? 'Packages:' : 'Package:'}</span>
+                <span>{p.packageIds.length > 1 ? 'Tiers:' : 'Tier:'}</span>
                 {p.packageIds.map((id) => (
                   <a key={id} href={`#pkg-${id}`} className={cx(chip, 'py-2 no-underline hover:text-(--cr-text)')}>
                     {pkgName(id)}

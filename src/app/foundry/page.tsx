@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
-import { FOUNDRY_PACKAGES } from '@/lib/foundry/packages'
+import { packagesOfKind } from '@/lib/foundry/packages'
 import {
   FIXES,
   FINAL_CTA,
@@ -11,6 +11,8 @@ import {
   L2_SECTION,
   NOT_ACCELERATOR,
   PACKAGES_SECTION,
+  ADDONS_SECTION,
+  LAUNCH_SECTION,
   PATHS_HEADING,
   PROBLEM,
   PROCESS_HEADING,
@@ -44,7 +46,7 @@ import { foundryFeaturedItems } from '@/data/library'
 
 const title = 'Foundry: Build and Validate Startups'
 const description =
-  'Crelligent Foundry builds and validates startups with founders: prove product-market fit, install the operating system to scale, or co-build your next venture.'
+  'Crelligent Foundry designs, builds and launches ventures: validate the idea, design the operating system, build the product, launch with AD+Vantage, and scale.'
 
 export const metadata: Metadata = {
   title,
@@ -79,8 +81,11 @@ function SnapshotLink() {
 }
 
 export default function FoundryPage() {
-  const validate = FOUNDRY_PACKAGES.filter((p) => p.path === 'validate')
-  const venture = FOUNDRY_PACKAGES.filter((p) => p.path === 'venture')
+  const tiers = packagesOfKind('tier')
+  const validate = tiers.filter((p) => p.path === 'validate')
+  const venture = tiers.filter((p) => p.path === 'venture')
+  const addons = packagesOfKind('addon')
+  const launch = packagesOfKind('launch')
 
   return (
     <>
@@ -211,21 +216,45 @@ export default function FoundryPage() {
           <SectionHeader id="packages-title" title={PACKAGES_SECTION.heading} intro={PACKAGES_SECTION.intro} />
           <div className="mt-10 lg:mt-14">
             <h3 className="mb-4 font-sans! text-sm font-medium! tracking-normal! text-(--cr-text)">
-              Path 1 · Validate &amp; scale
+              Path 1 · Build and scale a startup
             </h3>
-            <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Reveal className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
               {validate.map((p) => (
                 <PackageCard key={p.id} p={p} />
               ))}
             </Reveal>
+            <p className="mt-4 text-sm text-(--cr-text-muted)">{PACKAGES_SECTION.credit}</p>
             <h3 className="mt-10 mb-4 font-sans! text-sm font-medium! tracking-normal! text-(--cr-text)">
-              Path 2 · Venture build
+              Path 2 · Co-build a venture
             </h3>
             <Reveal>
               {venture.map((p) => (
                 <PackageCard key={p.id} p={p} variant="wide" />
               ))}
             </Reveal>
+
+            <h3 className="mt-14 font-outfit text-2xl font-normal! text-(--cr-text)">{ADDONS_SECTION.heading}</h3>
+            <p className="mt-2 mb-4 text-sm text-(--cr-text-muted)">{ADDONS_SECTION.intro}</p>
+            <Reveal>
+              {addons.map((p) => (
+                <PackageCard key={p.id} p={p} variant="wide" />
+              ))}
+            </Reveal>
+
+            <h3 id="launch" className="mt-14 scroll-mt-24 font-outfit text-2xl font-normal! text-(--cr-text)">
+              {LAUNCH_SECTION.heading}
+            </h3>
+            <p className="mt-2 mb-4 max-w-3xl text-sm text-(--cr-text-muted) leading-relaxed">{LAUNCH_SECTION.intro}</p>
+            <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {launch.map((p) => (
+                <PackageCard key={p.id} p={p} />
+              ))}
+            </Reveal>
+            <ul className="mt-4 space-y-1 text-sm text-(--cr-text-muted)">
+              {LAUNCH_SECTION.notes.map((n) => (
+                <li key={n}>{n}</li>
+              ))}
+            </ul>
             <div className="mt-10">
               <BillingTerms />
             </div>

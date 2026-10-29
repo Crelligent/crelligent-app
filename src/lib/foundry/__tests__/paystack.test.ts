@@ -83,7 +83,7 @@ test('application schema parses a valid payload and normalises fields', () => {
     stage: 'seed',
     teamSize: '6-15',
     path: 'validate',
-    packageInterest: 'foundry',
+    packageInterest: 'blueprint',
     revenueBand: '',
     goals: 'Prove PMF before our seed extension.',
     heardFrom: 'linkedin',
@@ -99,7 +99,7 @@ test('application schema parses a valid payload and normalises fields', () => {
 test('application schema rejects missing consent and long goals', () => {
   const r = foundryApplicationSchema.safeParse({
     founderName: 'A', email: 'a@b.co', companyName: 'C', country: 'NG', stage: 'idea', teamSize: '1',
-    path: 'validate', packageInterest: 'pmf', goals: 'x'.repeat(1501), heardFrom: 'other', consent: false,
+    path: 'validate', packageInterest: 'sprint', goals: 'x'.repeat(1501), heardFrom: 'other', consent: false,
   })
   assert.equal(r.success, false)
   const paths = r.success ? [] : r.error.issues.map((i) => i.path.join('.'))

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { HONEYPOT_FIELD } from '@/lib/foundry/schema'
-import { getPackage } from '@/lib/foundry/packages'
+import { packageName } from '@/lib/foundry/packages'
 import { pmfCheckSaveSchema, scoreSnapshot, summariseSnapshot, type PmfCheckSaveResponse } from '@/lib/foundry/pmf-check'
 import { getFoundryAdminDb } from '@/lib/foundry/admin-db'
 import { notifyNewApplication } from '@/lib/foundry/notify'
@@ -88,7 +88,7 @@ export async function POST(req: Request) {
         teamSize: d.teamSize,
         path,
         packageInterest: pkg,
-        goals: `${goals}\n\nAsked for a free 20-minute review of the snapshot (${getPackage(pkg)?.name ?? pkg} suggested).`,
+        goals: `${goals}\n\nAsked for a free 20-minute review of the snapshot (${packageName(pkg)} suggested).`,
         heardFrom: d.heardFrom,
         consent: true,
       },

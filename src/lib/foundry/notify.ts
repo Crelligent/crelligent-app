@@ -3,7 +3,7 @@
  * Skips silently when RESEND_API_KEY is not set. Never throws.
  */
 import type { FoundryApplication } from './schema'
-import { getPackage } from './packages'
+import { packageName } from './packages'
 
 const ADMIN_EMAIL = 'admin@crelligent.com'
 const DEFAULT_FROM = 'Crelligent Foundry <foundry@crelligent.com>'
@@ -24,7 +24,7 @@ export async function notifyNewApplication(app: FoundryApplication, applicationI
     `Stage: ${app.stage}`,
     `Team size: ${app.teamSize}`,
     `Path: ${app.path}`,
-    `Package: ${getPackage(app.packageInterest)?.name ?? app.packageInterest}`,
+    `Package: ${packageName(app.packageInterest)}`,
     `Monthly revenue: ${app.revenueBand ?? '-'}`,
     `Heard from: ${app.heardFrom}${app.heardFromOther ? ` (${app.heardFromOther})` : ''}`,
     '',
