@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { Plug, BarChart, Bell, ArrowRight, AlertTriangle } from 'lucide-react';
 
 const osLayers = [
-  { code: 'L5', name: 'Governance, Risk & Control', role: 'The Security Layer', color: '#BA7517' },
-  { code: 'L4', name: 'Data & Intelligence', role: 'The Sensing Layer', color: '#1A6B8A' },
-  { code: 'L3', name: 'Technology & Platform', role: 'Infrastructure Layer', color: '#534AB7' },
-  { code: 'L2', name: 'Operating Model & Process', role: 'The Scheduler', color: '#C0392B', alert: true },
-  { code: 'L1', name: 'Business Design', role: 'The Kernel', color: '#0F6E56' },
+  { code: 'L5', name: 'Governance, Risk & Control', role: 'The Security Layer', color: '#BA7517', failure: 'Without it, risk is found after the loss, not before it.' },
+  { code: 'L4', name: 'Data & Intelligence', role: 'The Sensing Layer', color: '#1A6B8A', failure: 'Without it, you learn what went wrong from a spreadsheet weeks later.' },
+  { code: 'L3', name: 'Technology & Platform', role: 'Infrastructure Layer', color: '#534AB7', failure: "Without it, staff copy data between tools that don't talk to each other." },
+  { code: 'L2', name: 'Operating Model & Process', role: 'The Scheduler', color: '#C0392B', alert: true, failure: 'Without it, the founder becomes the scheduler. Every decision waits for one person.' },
+  { code: 'L1', name: 'Business Design', role: 'The Kernel', color: '#0F6E56', failure: 'Without it, every team works towards a different idea of what the business is for.' },
 ];
 
 const platformFeatures = [
@@ -57,6 +57,9 @@ export function ESRESection() {
             ESRE OS.<br />
             The operating system for African enterprise.
           </h2>
+          <p className="text-[15px] text-white/55 leading-[1.6] max-w-[580px] mb-4">
+            Five layers, installed in order. Each one has a cost when it is missing.
+          </p>
           <p className="text-[16px] text-white/65 leading-[1.6] max-w-[580px]">
             Connect your departments, processes, and financials.<br />
             Receive a live OS Performance Score with AI-driven<br />
@@ -99,19 +102,19 @@ export function ESRESection() {
                     )}
                   </div>
                 </div>
-                {layer.alert && (
-                  <div className="text-[10px] text-white/40 mt-1 ml-6">
-                    Usually the first layer to break as a company grows
-                  </div>
-                )}
+                <div className={`text-[11px] mt-1 mb-1 ml-6 leading-snug ${layer.alert ? 'text-[#e8a49c]' : 'text-white/45'}`}>
+                  {layer.failure}
+                  {layer.alert && <span className="text-white/40"> Usually the first layer to break as a company grows.</span>}
+                </div>
               </div>
             ))}
           </div>
 
           {/* OS Score Display */}
           <div className="w-full lg:w-[45%] flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/[0.08] pt-10 lg:pt-0 lg:pl-16">
-            <div className="text-[14px] text-white/60 mb-2 font-medium" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            <div className="text-[14px] text-white/60 mb-2 font-medium flex items-center gap-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               OS Performance Score
+              <span className="text-[10px] uppercase tracking-wider text-white/50 border border-white/20 rounded px-1.5 py-0.5">Example</span>
             </div>
             <div className="flex items-baseline mb-4">
               <span 
@@ -123,7 +126,7 @@ export function ESRESection() {
               <span className="text-[24px] text-white/30 font-medium ml-1">/100</span>
             </div>
             <div className="text-[11px] text-white/40 leading-relaxed">
-              <span className="text-[#00C985]">↑ +4 this month</span> · Logistics sector · AEHI benchmark: 39
+              <span className="text-[#00C985]">↑ +4 this month</span> · An illustrative logistics company
             </div>
           </div>
         </div>

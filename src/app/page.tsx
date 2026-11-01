@@ -14,7 +14,6 @@ import { AEHISection } from '@/components/AEHISection'
 import { LatestInsights } from '@/components/landing/LatestInsights'
 import { RecentClientStories } from '@/components/landing/RecentClientStories'
 import { ValueProposition } from '@/components/landing/ValueProposition'
-import { SurveyTeaser } from '@/components/SurveyTeaser'
 import { ClientPortalBanner } from '@/components/ClientPortalBanner'
 import {
   Layers,
@@ -140,13 +139,9 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       <Navigation />
-      <SurveyTeaser />
 
       {/* Dynamic Video Slider Hero */}
       <HeroSlider />
-
-      {/* ═══ VALUE PROPOSITION ═══ */}
-      <ValueProposition />
 
       {/* Use Case: The Wright Principle */}
       <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5 relative overflow-hidden">
@@ -225,6 +220,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* ═══ VALUE PROPOSITION ═══ */}
+      <ValueProposition />
 
       {/* ═══ HIGHLIGHTS ═══ */}
       <section className="py-24 px-6 bg-[#0a0a0a] border-y border-white/5" >
@@ -613,6 +611,9 @@ export default function LandingPage() {
           <div className="text-center mb-12">
             <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Three Paths</div>
             <h2 className="heading-lg">Where are you in your journey?</h2>
+            <p className="mt-6 max-w-2xl mx-auto text-gray-400 font-light leading-relaxed" style={{ fontFamily: "'Outfit', sans-serif" }}>
+              One system at every size. Founders start with Velodesk and Foundry. As the venture grows, the same operating system expands into the full ESRE OS, and Intelligent Systems adds live sight of physical operations.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8" style={{ fontFamily: "'Outfit', sans-serif" }}>
             {/* Foundry */}
