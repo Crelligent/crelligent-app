@@ -235,8 +235,8 @@ export function HeroSlider() {
             {/* Floating Particle Texture Overlay (Optional, adds premium feel) */}
             <div className="absolute inset-0 z-[2] bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
 
-            {/* The page's one H1: what Crelligent does, in the words buyers search for */}
-            <h1 className="absolute left-1/2 top-28 z-10 w-full max-w-4xl -translate-x-1/2 px-6 text-center text-[11px] font-medium uppercase tracking-[0.3em] text-white/70 md:top-32 md:text-xs">
+            {/* The page's one H1: hidden from view, kept for search engines and screen readers */}
+            <h1 className="sr-only">
                 Operating model &amp; business systems consulting for Nigeria&apos;s mid-market
             </h1>
 
