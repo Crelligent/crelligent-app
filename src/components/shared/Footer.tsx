@@ -15,12 +15,13 @@ const footerLinks = {
     ],
     platforms: [
         { name: 'PRISM', href: 'https://prism.crelligent.com' },
-        { name: 'Telemetry Benchmarks', href: '/telemetry' },
+        { name: 'VeloDesk', href: 'https://velodesk.crelligent.com' },
     ],
     company: [
         { name: 'About', href: '/about' },
         { name: 'FAQ', href: '/faq' },
         { name: 'Templates', href: '/templates' },
+        { name: 'Telemetry Benchmarks', href: '/telemetry' },
         { name: 'Core', href: '/core' },
         { name: 'Foundry', href: '/foundry' },
         { name: 'Enterprise', href: '/enterprise' },

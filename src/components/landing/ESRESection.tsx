@@ -48,7 +48,7 @@ export function ESRESection() {
             className="text-[#00C985] uppercase tracking-[0.1em] font-medium mb-6" 
             style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: '10px' }}
           >
-            THE PLATFORM
+            THE OPERATING SYSTEM
           </div>
           <h2 
             className="text-[32px] md:text-[48px] font-bold text-[#F8FAFC] leading-[1.1] mb-6" 

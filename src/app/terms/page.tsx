@@ -19,7 +19,7 @@ export default function TermsPage() {
         <div className="space-y-8 text-gray-300 leading-relaxed font-inter">
           <section>
             <h2 className="text-2xl font-outfit text-white mb-4">1. Introduction</h2>
-            <p>Welcome to Crelligent. By accessing our website, using the ESRE OS framework, PRISM platform, VeloDesk, or engaging our Startup-as-a-Service (Foundry) or Enterprise services, you agree to be bound by these Terms of Service.</p>
+            <p>Welcome to Crelligent. By accessing our website, using the ESRE OS framework or our PRISM and VeloDesk platforms, or engaging our Startup-as-a-Service (Foundry) or Enterprise services, you agree to be bound by these Terms of Service.</p>
           </section>
 
           <section>

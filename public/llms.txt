@@ -20,6 +20,9 @@ The AEHI is a quarterly benchmark of how Nigerian mid-market enterprises are run
 - AEHI Executive Barometer: a 5-minute perception survey of senior leaders (https://crelligent.com/aehi#barometer).
 - AEHI Research: published third-party data on how Nigerian firms are run, e.g. World Bank Enterprise Surveys Nigeria 2025 (https://crelligent.com/aehi#research).
 
+### Platforms
+Crelligent has two platforms: **PRISM** (operational intelligence for enterprises) and **VeloDesk** (product-market fit validation for startups). ESRE OS is the operating system Crelligent installs, CEM is hardware that feeds PRISM, and AEHI is a benchmark; none of these is a platform.
+
 ### VeloDesk
 VeloDesk is our advanced Product-Market Fit (PMF) Validation Platform, powered by Agentic AI to help founders test hypotheses, analyze signals, and find traction.
 

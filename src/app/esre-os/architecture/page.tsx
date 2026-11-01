@@ -5,7 +5,7 @@ import { HubCard, HubCta, HubShell } from '@/components/esre-os/HubShell'
 export const metadata = generateSeoMetadata({
   title: 'ESRE OS Architecture: Layers, Apps and Platforms',
   description:
-    'How the ESRE OS fits together: five core layers, the applications that run on them, and the PRISM, CEM and VeloDesk platforms that sense and score how the business runs.',
+    'How the ESRE OS fits together: five core layers, the applications that run on them, and the two platforms, PRISM and VeloDesk, that sense and score how the business runs.',
   path: '/esre-os/architecture',
 })
 
@@ -45,16 +45,16 @@ export default function EsreOsArchitecturePage() {
         customers and staff feel the system, and they only perform as well as the layers beneath them.
       </p>
 
-      <h2 className="mb-6 mt-16 text-2xl font-light">3. The platforms that sense and score</h2>
+      <h2 className="mb-6 mt-16 text-2xl font-light">3. The platforms that sense and score: PRISM and VeloDesk</h2>
       <div className="grid gap-4 sm:grid-cols-3">
-        <HubCard label="L4 sensing" title="PRISM" href="/intelligent-systems">
+        <HubCard label="Platform · L4 sensing" title="PRISM" href="/intelligent-systems">
           Operational intelligence: telemetry ingestion, anomaly detection and monitoring of physical operations.
         </HubCard>
-        <HubCard label="Hardware" title="Crelligent Edge Module (CEM)" href="/intelligent-systems">
-          IoT hardware that connects vehicles, generators, tanks and machines to PRISM over 4G/LTE and LoRa.
-        </HubCard>
-        <HubCard label="Startups" title="VeloDesk" href="/foundry">
+        <HubCard label="Platform · Startups" title="VeloDesk" href="/foundry">
           Product-market fit validation and scoring for founders, used in Crelligent Foundry.
+        </HubCard>
+        <HubCard label="Hardware for PRISM" title="Crelligent Edge Module (CEM)" href="/intelligent-systems">
+          IoT hardware, not a platform: it connects vehicles, generators, tanks and machines to PRISM over 4G/LTE and LoRa.
         </HubCard>
       </div>
 

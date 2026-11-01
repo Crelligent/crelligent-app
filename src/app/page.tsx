@@ -109,15 +109,6 @@ const appRuntimeCapabilities = [
 
 const platforms = [
   {
-    name: 'VeloDesk',
-    role: 'Early-Stage System Sensing',
-    description: 'Product validation and PMF scoring for founders ready to prove traction. VeloDesk is an advanced PMF Validation Platform, powered by Agentic AI to help test hypotheses and find traction.',
-    stage: 'Startups & Founders',
-    href: '/platforms/velodesk',
-    color: '#22c55e',
-    logo: '/VeloDesk-logo.png',
-  },
-  {
     name: 'PRISM',
     role: 'ESRE OS Network Layer — Operational Intelligence Platform',
     description: 'Real-time telemetry ingestion, AI-driven anomaly detection, and systems monitoring. PRISM is the L4 sensing layer of the ESRE OS for operational assets — connecting CEM hardware telemetry to the Data & Intelligence layer and feeding the ESRE AI Engine in real time. Our Agentic AI actively monitors PRISM to draft remediation tasks the moment drift occurs.',
@@ -125,6 +116,15 @@ const platforms = [
     href: 'https://prism.crelligent.com',
     color: '#3b82f6',
     logo: '/PRISM-logo.png',
+  },
+  {
+    name: 'VeloDesk',
+    role: 'Early-Stage System Sensing',
+    description: 'Product validation and PMF scoring for founders ready to prove traction. VeloDesk is an advanced PMF Validation Platform, powered by Agentic AI to help test hypotheses and find traction.',
+    stage: 'Startups & Founders',
+    href: 'https://velodesk.crelligent.com',
+    color: '#22c55e',
+    logo: '/VeloDesk-logo.png',
   }
 ]
 
@@ -410,10 +410,10 @@ export default function LandingPage() {
           <div className="text-center mb-16">
             <div className="section-label mb-4" style={{ fontFamily: "'Outfit', sans-serif" }}>Systems Intelligence Stack</div>
             <h2 className="heading-lg mb-4">
-              Technologies &amp; Platforms
+              Our Platforms
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Platforms that operationalize systems thinking—from validation to enterprise governance.
+              Two platforms: PRISM for operational intelligence in enterprises, and VeloDesk for product-market fit in startups.
             </p>
           </div>
 
