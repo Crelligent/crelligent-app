@@ -265,41 +265,26 @@ export default function ITSPage() {
       <section className="py-20 px-6 bg-[#0a0a0a] border-y border-white/5">
         <div className="max-w-6xl mx-auto">
           <p className="section-label mb-4">Live Deployment</p>
-          <h2 className="heading-lg mb-8">ESN Petroleum Services</h2>
+          <h2 className="heading-lg mb-8">Fleet Intelligence for a Nigerian Fleet Operator</h2>
 
           <div className="glass-card p-8 rounded-2xl max-w-3xl">
             <div className="flex flex-wrap gap-2 mb-6">
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e]">
                 ITS
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#f59e0b]/10 border border-[#f59e0b]/20 text-[#f59e0b]">
-                IES
-              </span>
               <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e]">
-                ● Active
+                ● Live
               </span>
             </div>
             <h3 className="text-xl font-semibold text-white mb-3">
-              Fleet + Energy Intelligence for a Nigerian Petroleum Distributor
+              The design PRISM is built on
             </h3>
-            <p className="text-gray-400 leading-relaxed mb-6">
-              ESN Petroleum Services operates a fleet of fuel tankers and a network of generator
-              assets across multiple states. Crelligent deployed ITS for real-time tanker tracking
-              and fuel theft prevention, alongside IES for generator monitoring and fuel
-              reconciliation at distribution hubs.
+            <p className="text-gray-400 leading-relaxed">
+              Crelligent designed the fleet intelligence system for a Nigerian fleet operator: live vehicle
+              tracking, fuel monitoring, fuel cards and driver training recommendations in one command view,
+              running on third-party GPS trackers. PRISM takes that design and makes it available to any fleet.
+              Results will be published here once the client has confirmed them.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10">
-              {[
-                { label: 'Vehicles Monitored', value: '40+' },
-                { label: 'Fuel Anomalies Flagged', value: '200+ / month' },
-                { label: 'Generator Sites', value: '12' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                  <div className="text-xs text-gray-500">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

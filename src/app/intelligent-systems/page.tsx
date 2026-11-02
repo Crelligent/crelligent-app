@@ -47,7 +47,7 @@ const hardwareProducts = [
     description:
       'Connects legacy industrial machines and modern sensors into a unified data system. Aggregates, processes, stores, and transmits data from multiple sources.',
     image: '/images/Crelligent Edge Node (CEN).png',
-    specs: ['ESP32-S3 + nRF9160', 'RS-485 · Modbus · 4–20mA · Ethernet', '12–24V DC + Battery Backup', 'LoRa SX1262'],
+    specs: ['Connects legacy machines and modern sensors', 'Built to run on unstable power', 'Cellular and LoRa connectivity'],
     color: '#f59e0b',
   },
   {
@@ -58,7 +58,7 @@ const hardwareProducts = [
     description:
       'Real-time environmental monitoring — air quality, climate, and compliance. Pharmaceutical cold chains, cleanrooms, and food storage.',
     image: '/images/Environmental Sensor Array.png',
-    specs: ['STM32 + LoRa SX1262', '7 Environmental Sensors', '1–3 Year Battery Life', 'NAFDAC / HACCP Ready'],
+    specs: ['Temperature, humidity and air quality', 'Long battery life', 'Built for cold-chain and storage monitoring'],
     color: '#22c55e',
   },
   {
@@ -69,7 +69,7 @@ const hardwareProducts = [
     description:
       'Non-invasive energy monitoring via CT clamps. Per-tenant billing, generator optimization, and ESG carbon tracking without rewiring.',
     image: '/images/Smart Energy Monitor.png',
-    specs: ['STM32 + Precision AFE', 'Multi-Channel CT Clamps', 'WiFi / Cellular', 'Spike & Anomaly Detection'],
+    specs: ['Non-invasive clamp-on monitoring', 'Generator and grid usage', 'Spike and anomaly alerts'],
     color: '#3b82f6',
   },
   {
@@ -80,7 +80,7 @@ const hardwareProducts = [
     description:
       'Ultrasonic or pressure-based tank monitoring with real-time fuel theft detection and automated replenishment triggers.',
     image: '/images/Tank Level Monitor.png',
-    specs: ['STM32 + nRF9160', 'Ultrasonic / Pressure Sensor', 'Cellular Connectivity', 'Anomaly Detection'],
+    specs: ['Tank level by ultrasonic or pressure sensing', 'Fuel theft alerts', 'Refill triggers'],
     color: '#8b5cf6',
   },
   {
@@ -91,7 +91,7 @@ const hardwareProducts = [
     description:
       'Rugged touchscreen for on-site monitoring and operator control. Factory floors, warehouses, and depot stations.',
     image: '/images/Crelligent Edge Panel (CEP).png',
-    specs: ['7″ / 10″ Touchscreen', 'Qualcomm Snapdragon', 'Android Edge UI', '12V DC / Mains Powered'],
+    specs: ['Rugged touchscreen for site staff', 'Live PRISM views on site', 'Vehicle or mains powered'],
     color: '#ec4899',
   },
   {
@@ -102,7 +102,7 @@ const hardwareProducts = [
     description:
       'Large-format display for centralized command visibility — fleet operations, manufacturing control rooms, and executive dashboards.',
     image: '/images/operations command display.png',
-    specs: ['43″–65″ Display', 'Snapdragon Compute Module', 'Multi-Feed Visualization', 'Real-time Data Sync'],
+    specs: ['Large-screen command view', 'Several live feeds at once', 'For control rooms and head office'],
     color: '#f59e0b',
   },
 ]
@@ -120,41 +120,41 @@ const layerColors: Record<string, string> = {
 const layers = [
   {
     id: 'L1',
-    label: 'FIELD LAYER',
-    name: 'Crelligent Edge Module (CEM)',
-    desc: 'Purpose-built IoT hardware deployed at the point of operation — vehicles, generators, tanks, machines, buildings, soil, retail counters.',
+    label: 'FIELD',
+    name: 'Trackers and sensors',
+    desc: 'Proven third-party GPS trackers and sensors today, at the point of operation — vehicles, generators, tanks, machines. Crelligent Edge hardware is in development.',
   },
   {
     id: 'L2',
-    label: 'CONNECTIVITY LAYER',
+    label: 'CONNECTIVITY',
     name: '4G/LTE | LoRa | Wi-Fi | GPRS',
     desc: 'Designed for Nigerian and African network conditions. Offline-resilient with local data buffering when connectivity drops.',
   },
   {
     id: 'L3',
-    label: 'DATA PLATFORM LAYER',
-    name: 'CEIP — Crelligent Edge Intelligence Platform',
+    label: 'DATA',
+    name: 'PRISM data pipeline',
     desc: 'Real-time telemetry ingestion, normalisation, and event processing. Every data point structured for intelligence, not just storage.',
   },
   {
     id: 'L4',
-    label: 'INTELLIGENCE LAYER',
-    name: 'PRISM — Enterprise Intelligence Operating System',
+    label: 'INTELLIGENCE',
+    name: 'PRISM',
     desc: 'Anomaly detection. Pattern recognition. Predictive analytics. AI-powered conversational queries. The command centre for operations.',
   },
   {
     id: 'L5',
-    label: 'COMMAND LAYER',
+    label: 'COMMAND',
     name: 'Executive Command Centre',
     desc: 'One screen. Real-time operational state of the entire organization. Configurable per industry and per role.',
   },
 ]
 
-type StatusType = 'ACTIVE' | '2025-2026' | 'ROADMAP'
+type StatusType = 'LIVE' | 'NEXT' | 'ROADMAP'
 
 const statusStyles: Record<StatusType, string> = {
-  ACTIVE: 'bg-[#22c55e]/10 border-[#22c55e]/30 text-[#22c55e]',
-  '2025-2026': 'bg-[#f59e0b]/10 border-[#f59e0b]/30 text-[#f59e0b]',
+  LIVE: 'bg-[#22c55e]/10 border-[#22c55e]/30 text-[#22c55e]',
+  NEXT: 'bg-[#f59e0b]/10 border-[#f59e0b]/30 text-[#f59e0b]',
   ROADMAP: 'bg-white/5 border-white/10 text-gray-400',
 }
 
@@ -173,7 +173,7 @@ const verticals: {
   {
     num: '01',
     slug: 'its',
-    status: 'ACTIVE',
+    status: 'LIVE',
     icon: <Truck className="w-5 h-5" />,
     iconColor: '#f59e0b',
     name: 'Intelligent Transport Systems (ITS)',
@@ -185,7 +185,7 @@ const verticals: {
   {
     num: '02',
     slug: 'ies',
-    status: 'ACTIVE',
+    status: 'NEXT',
     icon: <Zap className="w-5 h-5" />,
     iconColor: '#3b82f6',
     name: 'Intelligent Energy Systems (IES)',
@@ -197,7 +197,7 @@ const verticals: {
   {
     num: '03',
     slug: 'ils',
-    status: '2025-2026',
+    status: 'NEXT',
     icon: <Warehouse className="w-5 h-5" />,
     iconColor: '#f59e0b',
     name: 'Intelligent Logistics Systems (ILS)',
@@ -209,7 +209,7 @@ const verticals: {
   {
     num: '04',
     slug: 'iis',
-    status: '2025-2026',
+    status: 'NEXT',
     icon: <Factory className="w-5 h-5" />,
     iconColor: '#8b5cf6',
     name: 'Intelligent Industrial Systems (IIS)',
@@ -314,9 +314,9 @@ const deploymentSteps = [
   {
     week: 'Week 3–6',
     title: 'HARDWARE DEPLOYMENT',
-    desc: 'CEM devices are installed, commissioned, and verified. Field engineers validate signal quality, sensor calibration, and data flow from every connected point.',
+    desc: 'Trackers and sensors are installed, commissioned, and verified. Field engineers validate signal quality, sensor calibration, and data flow from every connected point.',
     activities: [
-      'Physical installation of edge nodes and sensors',
+      'Installation of trackers and sensors',
       'Power integration (Mains/Generator/Solar/Battery)',
       'Signal calibration and baseline data testing',
       'Security encryption keys provisioning'
@@ -330,7 +330,7 @@ const deploymentSteps = [
       'Custom dashboard creation per user role',
       'Alerting thresholds and escalation workflows',
       'Historical data migration (if applicable)',
-      'AI conversational model fine-tuning'
+      'Plain-language question set-up for PRISM AI'
     ]
   },
   {
@@ -341,7 +341,7 @@ const deploymentSteps = [
       'Executive and operator platform training sessions',
       'Command centre physical display setup',
       'User acceptance testing (UAT)',
-      'Transition to 24/7 SLA support phase'
+      'Hand-over to ongoing support, with automated alerts around the clock'
     ]
   },
 ]
@@ -382,8 +382,8 @@ export default function IntelligentSystemsPage() {
                 className="heading-xl font-outfit mb-6"
               >
                 One Architecture.{' '}
-                <span className="text-[#f59e0b]">Ten Industries.</span>{' '}
-                The Intelligence Layer African Operations Have Never Had.
+                <span className="text-[#f59e0b]">Live in Transport.</span>{' '}
+                Built for Ten Industries.
               </motion.h1>
 
               {/* Subheading */}
@@ -393,9 +393,9 @@ export default function IntelligentSystemsPage() {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="text-xl text-gray-400 max-w-xl leading-relaxed mb-10"
               >
-                Crelligent Edge and Intelligent Systems deploy operational intelligence infrastructure across
-                African industry — connecting the physical world of assets, vehicles, energy, and
-                transactions to a unified command intelligence layer powered by PRISM.
+                PRISM is built on the fleet intelligence system Crelligent designed for a Nigerian fleet
+                operator: live vehicle visibility, fuel monitoring and driver scoring in one command view.
+                The same architecture extends to energy, logistics and industrial operations next.
               </motion.p>
 
               {/* CTAs */}
@@ -421,7 +421,7 @@ export default function IntelligentSystemsPage() {
                 transition={{ duration: 0.8, delay: 0.7 }}
                 className="flex flex-col sm:flex-row items-start gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10"
               >
-                {['10 Industry Verticals', '5-Layer Architecture', '12-Week Deployment'].map((stat) => (
+                {['Live in transport', 'Energy, logistics and industry next', '12-week deployment'].map((stat) => (
                   <div key={stat} className="px-6 first:pl-0 py-3 text-sm text-gray-400 tracking-wide">
                     {stat}
                   </div>
@@ -438,10 +438,11 @@ export default function IntelligentSystemsPage() {
             >
               <div className="relative w-full">
                 <div className="hero-product-glow animate-pulse-glow" />
+                <p className="absolute bottom-2 right-2 z-10 text-[10px] uppercase tracking-widest text-gray-500">Concept design</p>
                 <div className="animate-float">
                   <Image
                     src="/images/Crelligent Edge Panel (CEP).png"
-                    alt="Crelligent Edge Panel — Industrial Touch Interface"
+                    alt="Crelligent Edge Panel concept design"
                     width={850}
                     height={700}
                     className="w-full max-w-[700px] xl:max-w-[850px] h-auto drop-shadow-[0_20px_60px_rgba(245,158,11,0.15)]"
@@ -463,8 +464,9 @@ export default function IntelligentSystemsPage() {
             transition={{ duration: 0.7, delay: 1.0 }}
           >
             <h2 className="text-[15px] font-medium text-white mb-8 tracking-wide">
-              Our <span className="font-semibold">Products</span>
+              Crelligent Edge <span className="font-semibold">hardware in development</span>
             </h2>
+            <p className="-mt-6 mb-8 text-xs text-gray-500">Concept designs. Deployments today use proven third-party trackers and sensors.</p>
 
             <div className="grid grid-cols-3 md:grid-cols-6">
               {hardwareProducts.map((product, i) => (
@@ -566,7 +568,7 @@ export default function IntelligentSystemsPage() {
           >
             <motion.div variants={fadeUp} className="section-label mb-4">The Architecture</motion.div>
             <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-6">
-              Not Ten Products. One Platform Applied Across Ten Verticals.
+              Not Ten Products. One Platform, Built to Extend Across Industries.
             </motion.h2>
             <motion.div variants={fadeUp} className="max-w-3xl space-y-4 text-gray-400 leading-relaxed mb-14">
               <p>
@@ -577,7 +579,7 @@ export default function IntelligentSystemsPage() {
               <p>
                 Crelligent Intelligent Systems is built differently. We designed one architecture —
                 five layers from hardware to executive command — and we apply that same architecture
-                across every industry we enter. The hardware changes. The platform stays the same.
+                across every industry we enter. It runs in transport today. The hardware changes. The platform stays the same.
               </p>
               <p>
                 This means an organisation operating across logistics, energy, and retail gets one
@@ -618,7 +620,7 @@ export default function IntelligentSystemsPage() {
                         color,
                       }}
                     >
-                      {layer.id}
+                      {String(i + 1).padStart(2, '0')}
                     </div>
                     <div>
                       <div
@@ -649,7 +651,7 @@ export default function IntelligentSystemsPage() {
           >
             <motion.div variants={fadeUp} className="section-label mb-4">Industry Verticals</motion.div>
             <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-4">
-              Ten Industries. One Shared Intelligence Architecture.
+              One Shared Architecture. Live in Transport, Ten Industries Planned.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 max-w-2xl mb-12 leading-relaxed">
               We enter each vertical with the same methodology: design the operating model first,
@@ -749,12 +751,12 @@ export default function IntelligentSystemsPage() {
           >
             <motion.div variants={fadeUp} className="section-label mb-4">The Hardware Suite</motion.div>
             <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-6">
-              Six Devices. One Unified Intelligence Ecosystem.
+              Six Devices in Development. One Intelligence Ecosystem.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 max-w-3xl mb-16 leading-relaxed">
-              Purpose-built hardware designed for African operating conditions — from edge nodes
-              that survive generator surges to command displays that visualise your entire
-              operation. Every device feeds data into PRISM for real-time operational intelligence.
+              Concept designs for hardware built around African operating conditions — from edge nodes
+              that survive generator surges to command displays for the whole operation. Until they ship,
+              PRISM deployments use proven third-party GPS trackers and sensors.
             </motion.p>
           </motion.div>
 
@@ -776,9 +778,9 @@ export default function IntelligentSystemsPage() {
                 <div className="text-sm text-gray-400 font-[200]">Industrial IoT Hardware for Africa</div>
               </div>
               <p className="md:col-span-7 text-sm text-white font-[200] leading-loose opacity-80">
-                Purpose-built IoT hardware designed for African operating conditions. Connects vehicles, generators, tanks, and
-                industrial assets to the PRISM intelligence platform via 4G/LTE and LoRa. CEM is the physical infrastructure layer of
-                the ESRE OS — the hardware that the operational sensing layer (L4) and PRISM network depend on.
+                IoT hardware in development, designed for African operating conditions, to connect vehicles, generators, tanks and
+                industrial assets to PRISM over 4G/LTE and LoRa. Today, the same job is done with proven third-party trackers and
+                sensors, so a PRISM deployment does not wait for Crelligent hardware.
               </p>
             </div>
           </motion.div>
@@ -823,6 +825,7 @@ export default function IntelligentSystemsPage() {
                     {product.name}{' '}
                     <span className="text-sm text-gray-600">({product.abbr})</span>
                   </h3>
+                  <span className="inline-block mb-3 text-[10px] uppercase tracking-widest text-gray-400 border border-white/15 rounded px-1.5 py-0.5">Concept design</span>
                   <p className="text-sm text-gray-500 leading-relaxed mb-5">{product.description}</p>
 
                   {/* Key specs */}
@@ -1043,8 +1046,8 @@ export default function IntelligentSystemsPage() {
             Every vehicle moving, every generator running, every tank filling — all of it
             is data that currently evaporates. Crelligent Intelligent Systems captures that
             data, structures it, and turns it into the operational intelligence your
-            leadership team needs to make decisions with confidence. The infrastructure
-            exists. The platform is proven. The only question is when you decide to use it.
+            leadership team needs to make decisions with confidence. The approach
+            is proven in fleet operations. The only question is when you decide to use it.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">
@@ -1052,12 +1055,6 @@ export default function IntelligentSystemsPage() {
               Request an Assessment
               <ArrowRight className="w-4 h-4 ml-2 inline" />
             </Link>
-            <a
-              href="#"
-              className="text-sm text-gray-500 hover:text-gray-300 transition-colors underline underline-offset-4"
-            >
-              Download the CEM Hardware Spec Sheet →
-            </a>
           </motion.div>
         </motion.div>
       </section>
