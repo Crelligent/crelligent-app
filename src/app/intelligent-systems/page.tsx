@@ -161,6 +161,8 @@ const statusStyles: Record<StatusType, string> = {
 const verticals: {
   num: string
   slug: string
+  image: string
+  imageAlt: string
   status: StatusType
   icon: React.ReactNode
   iconColor: string
@@ -173,6 +175,8 @@ const verticals: {
   {
     num: '01',
     slug: 'ils',
+    image: 'https://images.unsplash.com/photo-1639283283022-ddeed766f2cc?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'Trucks and a fuel tanker on a busy road',
     status: 'DESIGNED',
     icon: <Truck className="w-5 h-5" />,
     iconColor: '#f59e0b',
@@ -185,6 +189,8 @@ const verticals: {
   {
     num: '02',
     slug: 'ies',
+    image: 'https://images.unsplash.com/photo-1680355065203-43ad84bb6e69?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A large solar farm with rows of panels',
     status: 'NEXT',
     icon: <Zap className="w-5 h-5" />,
     iconColor: '#3b82f6',
@@ -197,6 +203,8 @@ const verticals: {
   {
     num: '03',
     slug: 'its',
+    image: 'https://images.unsplash.com/photo-1648023199223-25d3622bcb13?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A busy Lagos junction full of traffic',
     status: 'ROADMAP',
     icon: <TrafficCone className="w-5 h-5" />,
     iconColor: '#3b82f6',
@@ -209,6 +217,8 @@ const verticals: {
   {
     num: '04',
     slug: 'iis',
+    image: 'https://images.unsplash.com/photo-1604072382401-b71031fa0315?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A worker inside a factory',
     status: 'NEXT',
     icon: <Factory className="w-5 h-5" />,
     iconColor: '#8b5cf6',
@@ -221,6 +231,8 @@ const verticals: {
   {
     num: '05',
     slug: 'ibs',
+    image: 'https://images.unsplash.com/photo-1749058388308-744fdc8991ed?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A city skyline of buildings by the ocean',
     status: 'ROADMAP',
     icon: <Building2 className="w-5 h-5" />,
     iconColor: '#22c55e',
@@ -233,6 +245,8 @@ const verticals: {
   {
     num: '06',
     slug: 'ihs',
+    image: 'https://images.unsplash.com/photo-1536064479547-7ee40b74b807?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A doctor with a young patient',
     status: 'ROADMAP',
     icon: <Heart className="w-5 h-5" />,
     iconColor: '#ec4899',
@@ -245,6 +259,8 @@ const verticals: {
   {
     num: '07',
     slug: 'ias',
+    image: 'https://images.unsplash.com/photo-1741874299706-2b8e16839aaa?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A farmer tending crops in a green field',
     status: 'ROADMAP',
     icon: <Leaf className="w-5 h-5" />,
     iconColor: '#22c55e',
@@ -257,6 +273,8 @@ const verticals: {
   {
     num: '08',
     slug: 'iss',
+    image: 'https://images.unsplash.com/photo-1589935447067-5531094415d1?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'Security cameras on a pole',
     status: 'ROADMAP',
     icon: <Shield className="w-5 h-5" />,
     iconColor: '#3b82f6',
@@ -269,6 +287,8 @@ const verticals: {
   {
     num: '09',
     slug: 'irs',
+    image: 'https://images.unsplash.com/photo-1687422809617-a7d97879b3b0?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A market trader at a fruit stall',
     status: 'ROADMAP',
     icon: <ShoppingBag className="w-5 h-5" />,
     iconColor: '#f59e0b',
@@ -281,6 +301,8 @@ const verticals: {
   {
     num: '10',
     slug: 'ifis',
+    image: 'https://images.unsplash.com/photo-1556740720-776b84291f8e?auto=format&fit=crop&w=900&h=400&q=70',
+    imageAlt: 'A card payment terminal in use',
     status: 'ROADMAP',
     icon: <CreditCard className="w-5 h-5" />,
     iconColor: '#8b5cf6',
@@ -670,8 +692,19 @@ export default function IntelligentSystemsPage() {
               <motion.div key={v.slug} variants={fadeUp}>
                 <Link
                   href={`/intelligent-systems/${v.slug}`}
-                  className="group relative rounded-xl border border-white/5 bg-[#0a0a0a] p-8 hover:border-white/10 hover:bg-[#0f0f0f] transition-all block"
+                  className="group relative rounded-xl border border-white/5 bg-[#0a0a0a] overflow-hidden hover:border-white/10 hover:bg-[#0f0f0f] transition-all block"
                 >
+                  <div className="relative h-44 overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={v.image}
+                      alt={v.imageAlt}
+                      loading="lazy"
+                      className="h-full w-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent" />
+                  </div>
+                  <div className="p-8 pt-4">
                   {/* top row */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -729,6 +762,7 @@ export default function IntelligentSystemsPage() {
                   <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
                     <span className="text-xs text-gray-600">{v.sectors}</span>
                     <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                  </div>
                   </div>
                 </Link>
               </motion.div>
