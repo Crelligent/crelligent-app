@@ -2,98 +2,100 @@ import Link from 'next/link'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import {
-  MapPin,
-  Cpu,
-  Fuel,
-  UserCheck,
-  Camera,
-  CheckCircle2,
   ArrowLeft,
   ArrowRight,
-  Truck,
+  Activity,
   AlertTriangle,
   BarChart3,
-  Route,
-  Wrench,
+  Bus,
+  Camera,
+  CloudRain,
+  Radar,
+  ScanLine,
+  Signpost,
+  TrafficCone,
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Fleet Tracking & Fuel Theft Monitoring (ITS)',
+  title: 'Traffic Management Systems (ITS)',
   description:
-    'Real-time fleet visibility, fuel anomaly detection, and driver behaviour scoring for Nigerian logistics, transport, and fuel distribution companies.',
+    'Intelligent traffic management for Nigerian states, traffic agencies, toll road operators, estates, ports and BRT operators: live congestion, adaptive signals and incident response.',
   alternates: { canonical: '/intelligent-systems/its' },
 }
 
 const hardware = [
   {
-    icon: MapPin,
-    name: 'GPS Vehicle Trackers',
-    description: 'Precise real-time location tracking for every vehicle in the fleet.',
-  },
-  {
-    icon: Cpu,
-    name: 'OBD-II Telematics Devices',
-    description: 'Engine diagnostics, speed, idling, and fault code data from every vehicle.',
-  },
-  {
-    icon: Fuel,
-    name: 'Fuel Consumption Sensors',
-    description: 'Inline sensors that measure fuel draw-off to the millilitre.',
-  },
-  {
-    icon: UserCheck,
-    name: 'Driver ID Terminals',
-    description: 'Biometric and card-based terminals that authenticate drivers at ignition.',
-  },
-  {
     icon: Camera,
-    name: 'Dashcams & ANPR Cameras',
-    description: 'Video evidence and automatic number plate recognition for security.',
+    name: 'Traffic & ANPR Cameras',
+    description: 'Vehicle counts, queue lengths and number plate recognition at junctions and corridors.',
+  },
+  {
+    icon: Radar,
+    name: 'Vehicle Detectors',
+    description: 'Radar and inductive-loop detectors that measure flow and speed lane by lane.',
+  },
+  {
+    icon: TrafficCone,
+    name: 'Smart Signal Controllers',
+    description: 'Signal controllers that can change timings in response to live traffic.',
+  },
+  {
+    icon: Signpost,
+    name: 'Variable Message Signs',
+    description: 'Roadside signs that warn drivers of incidents, closures and delays.',
+  },
+  {
+    icon: Bus,
+    name: 'Bus & BRT Trackers',
+    description: 'Vehicle location for buses and BRT fleets, for schedules and priority at signals.',
+  },
+  {
+    icon: CloudRain,
+    name: 'Weather & Flood Sensors',
+    description: 'Rain and water-level sensing on roads prone to flooding.',
   },
 ]
 
 const capabilities = [
   {
-    icon: MapPin,
-    title: 'Real-Time Fleet Visibility',
-    description:
-      'See every vehicle on a live map. Monitor location, speed, idle time, and trip history from a single dashboard.',
+    icon: Activity,
+    title: 'Live Congestion Picture',
+    description: 'See flow, speed and queues across junctions and corridors on one map, updated continuously.',
+  },
+  {
+    icon: TrafficCone,
+    title: 'Adaptive Signal Timing',
+    description: 'Adjust signal timings to the traffic actually on the road, not fixed plans set years ago.',
   },
   {
     icon: AlertTriangle,
-    title: 'Fuel Theft Detection',
-    description:
-      'AI-powered anomaly models flag unexplained fuel drops, siphoning events, and dispenser discrepancies instantly.',
+    title: 'Incident Detection & Response',
+    description: 'Spot crashes, breakdowns and flooding early, and route alerts to the teams who clear them.',
+  },
+  {
+    icon: Bus,
+    title: 'Bus & BRT Performance',
+    description: 'Track schedule adherence and headways, and give buses priority at signals on key corridors.',
+  },
+  {
+    icon: ScanLine,
+    title: 'Toll & Access Analytics',
+    description: 'Traffic volumes, peak patterns and plate-based access control for toll roads, estates and ports.',
   },
   {
     icon: BarChart3,
-    title: 'Driver Behaviour Scoring',
-    description:
-      'Score every driver on harsh braking, over-speeding, night driving, and idling to reduce risk and fuel waste.',
-  },
-  {
-    icon: Route,
-    title: 'Route Optimisation',
-    description:
-      'Analyse historical routes to recommend faster, cheaper paths and reduce empty-vehicle kilometres.',
-  },
-  {
-    icon: Wrench,
-    title: 'Predictive Maintenance Alerts',
-    description:
-      'OBD-II data triggers maintenance tickets before breakdowns occur, cutting unplanned downtime.',
+    title: 'Planning Evidence',
+    description: 'Historical traffic data that shows where new lanes, signals or enforcement will help most.',
   },
 ]
 
 const customers = [
-  'Logistics Companies',
-  'Fuel Distributors',
-  'FMCG Fleets',
-  'Courier Companies',
-  'Transport Agencies',
-  'Bus Operators',
+  'State Governments',
+  'Traffic Management Agencies',
+  'Toll & Road Concessionaires',
+  'Estates & Campuses',
   'Ports & Terminals',
-  'Government Fleets',
+  'Bus & BRT Operators',
 ]
 
 export default function ITSPage() {
@@ -121,18 +123,18 @@ export default function ITSPage() {
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#3b82f6]/10 border border-[#3b82f6]/30 text-[#3b82f6] uppercase tracking-widest">
               Intelligent Transport Systems
             </span>
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e] uppercase tracking-widest">
-              ● Active
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-gray-400 uppercase tracking-widest">
+              Roadmap
             </span>
           </div>
 
           <h1 className="heading-xl mb-6 max-w-4xl">
-            Real-Time Intelligence for Every Vehicle in Your Fleet.
+            Traffic Management That Sees the Whole Road Network.
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mb-10 leading-relaxed">
-            From GPS tracking and OBD-II telematics to fuel anomaly detection and driver behaviour
-            scoring — ITS connects your entire transport operation to a single intelligence command
-            layer.
+            Cameras, detectors, signals and bus trackers connected to one command view in PRISM, so
+            traffic teams can see congestion as it builds, change signal timings and respond to incidents
+            faster.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -152,15 +154,15 @@ export default function ITSPage() {
           <p className="section-label mb-4">Hardware Layer</p>
           <h2 className="heading-lg mb-4">What We Connect</h2>
           <p className="text-gray-400 mb-12 max-w-2xl">
-            ITS deploys the Crelligent Edge Module (CEM) to integrate industry-standard transport
-            hardware into a unified intelligence layer.
+            ITS works with proven, industry-standard traffic equipment, connected into one intelligence
+            layer, and with equipment already on the road where possible.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {hardware.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.name} className="glass-card p-6 rounded-2xl">
+                <div key={item.name} className="bg-white/[0.03] border border-white/10 p-6 rounded-2xl">
                   <div className="w-10 h-10 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-[#3b82f6]" />
                   </div>
@@ -198,51 +200,6 @@ export default function ITSPage() {
         </div>
       </section>
 
-      {/* CEM Hardware */}
-      <section className="py-20 px-6 bg-[#0a0a0a] border-y border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="section-label mb-4">Edge Hardware</p>
-              <h2 className="heading-lg mb-6">The Crelligent Edge Module (CEM)</h2>
-              <p className="text-gray-400 leading-relaxed mb-4">
-                Every ITS deployment is powered by the CEM — a ruggedised edge compute device
-                purpose-built for Nigerian transport environments. It processes GPS, OBD-II, and
-                sensor data locally before securely transmitting intelligence to the PRISM platform.
-              </p>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                The CEM operates on 2G/3G/4G with offline buffering, ensuring continuous data
-                capture even in low-connectivity corridors across Nigeria.
-              </p>
-              <Link
-                href="/intelligent-systems"
-                className="btn-ghost inline-flex items-center gap-2 text-sm"
-              >
-                View Full Hardware Specifications <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="glass-card p-8 rounded-2xl">
-              <div className="space-y-4">
-                {[
-                  '4G LTE + 2G fallback connectivity',
-                  'GPS + GLONASS dual-mode positioning',
-                  'OBD-II / RS232 / CAN bus interfaces',
-                  'Local edge processing & offline buffering',
-                  'Tamper detection & secure boot',
-                  'Operating temp: −20°C to +70°C',
-                  'IP67 dust & water resistance',
-                ].map((spec) => (
-                  <div key={spec} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#22c55e] flex-shrink-0" />
-                    <span className="text-sm text-gray-300">{spec}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Ideal Customers */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -264,26 +221,13 @@ export default function ITSPage() {
       {/* Live Deployment */}
       <section className="py-20 px-6 bg-[#0a0a0a] border-y border-white/5">
         <div className="max-w-6xl mx-auto">
-          <p className="section-label mb-4">Live Deployment</p>
-          <h2 className="heading-lg mb-8">Fleet Intelligence for a Nigerian Fleet Operator</h2>
-
-          <div className="glass-card p-8 rounded-2xl max-w-3xl">
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e]">
-                ITS
-              </span>
-              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e]">
-                ● Live
-              </span>
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-3">
-              The design PRISM is built on
-            </h3>
+          <p className="section-label mb-4">How We Would Start</p>
+          <h2 className="heading-lg mb-8">One Corridor First</h2>
+          <div className="bg-white/[0.03] border border-white/10 p-8 rounded-2xl max-w-3xl">
             <p className="text-gray-400 leading-relaxed">
-              Crelligent designed the fleet intelligence system for a Nigerian fleet operator: live vehicle
-              tracking, fuel monitoring, fuel cards and driver training recommendations in one command view,
-              running on third-party GPS trackers. PRISM takes that design and makes it available to any fleet.
-              Results will be published here once the client has confirmed them.
+              ITS is on our roadmap. We would begin with one corridor, estate or toll plaza: map the
+              traffic problem and the equipment already in place, design the operating model for the team
+              that runs it, then connect it to PRISM. The same design then extends across the network.
             </p>
           </div>
         </div>
@@ -292,14 +236,14 @@ export default function ITSPage() {
       {/* CTA */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-lg mb-6">Ready to Connect Your Fleet?</h2>
+          <h2 className="heading-lg mb-6">Planning a Traffic Management Programme?</h2>
           <p className="text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Our team will assess your fleet size, routes, and fuel infrastructure and design an ITS
-            deployment tailored to your operation.
+            Talk to us about a corridor, estate or toll road. We start by mapping the problem and the
+            equipment you already have.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" className="btn-primary">
-              Request a Deployment Assessment
+              Start a Conversation
             </Link>
             <Link href="https://prism.crelligent.com" className="btn-ghost inline-flex items-center gap-2">
               Explore PRISM Platform <ArrowRight className="w-4 h-4" />

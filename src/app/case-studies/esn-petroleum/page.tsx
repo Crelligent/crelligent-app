@@ -129,8 +129,8 @@ export default function ESNPetroleumCaseStudy() {
                         <div className="w-2 h-2 rounded-full bg-emerald-400" />
                       </div>
                       <div>
-                        <strong className="text-white block mb-1">Crelligent Edge Modules (CEM)</strong>
-                        Deployed across the entire tanker fleet to provide unprecedented L4 Sensing capabilities, tracking fuel levels, location, and flow rates in real-time.
+                        <strong className="text-white block mb-1">Fleet sensing architecture</strong>
+                        Designed how trackers and fuel sensors across the tanker fleet feed one system, tracking fuel levels, location and movement in real time. The client runs it on third-party GPS trackers.
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
@@ -138,8 +138,8 @@ export default function ESNPetroleumCaseStudy() {
                         <div className="w-2 h-2 rounded-full bg-blue-400" />
                       </div>
                       <div>
-                        <strong className="text-white block mb-1">PRISM Integration</strong>
-                        Connected all edge data directly into the PRISM engine, creating a single source of truth for the entire organization's logistics and telemetry.
+                        <strong className="text-white block mb-1">One source of truth</strong>
+                        Designed a single platform bringing fleet telemetry, fuel cards and reporting together, giving the organisation one source of truth for its logistics. PRISM is built on this design.
                       </div>
                     </li>
                     <li className="flex items-start gap-4">

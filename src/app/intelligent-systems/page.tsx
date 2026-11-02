@@ -9,7 +9,7 @@ import {
   ArrowRight, Cpu, Radio, Zap, Shield, Cloud, CheckCircle,
   Brain, Battery, Lock, Truck, Factory, Building2, Heart,
   Leaf, Eye, ShoppingBag, CreditCard, Warehouse
-, Wifi } from 'lucide-react'
+, Wifi, TrafficCone } from 'lucide-react'
 
 /* ─────────────── animation variants ─────────────── */
 
@@ -150,10 +150,10 @@ const layers = [
   },
 ]
 
-type StatusType = 'LIVE' | 'NEXT' | 'ROADMAP'
+type StatusType = 'DESIGNED' | 'NEXT' | 'ROADMAP'
 
 const statusStyles: Record<StatusType, string> = {
-  LIVE: 'bg-[#22c55e]/10 border-[#22c55e]/30 text-[#22c55e]',
+  DESIGNED: 'bg-[#22c55e]/10 border-[#22c55e]/30 text-[#22c55e]',
   NEXT: 'bg-[#f59e0b]/10 border-[#f59e0b]/30 text-[#f59e0b]',
   ROADMAP: 'bg-white/5 border-white/10 text-gray-400',
 }
@@ -172,15 +172,15 @@ const verticals: {
 }[] = [
   {
     num: '01',
-    slug: 'its',
-    status: 'LIVE',
+    slug: 'ils',
+    status: 'DESIGNED',
     icon: <Truck className="w-5 h-5" />,
     iconColor: '#f59e0b',
-    name: 'Intelligent Transport Systems (ITS)',
-    desc: 'Optimize movement of people, vehicles, and transport operations.',
-    connect: ['GPS vehicle trackers', 'OBD-II telematics', 'Fuel consumption sensors'],
-    deliver: ['Real-time fleet visibility', 'Fuel theft detection', 'Driver behaviour scoring'],
-    sectors: 'Logistics · Fuel distributors · FMCGs',
+    name: 'Intelligent Logistics Systems (ILS)',
+    desc: 'Fleet, fuel and goods movement: every vehicle, litre and load in one view.',
+    connect: ['GPS vehicle trackers', 'Fuel level sensors', 'Cargo and cold-chain sensors'],
+    deliver: ['Fleet visibility', 'Fuel theft detection', 'Driver behaviour scoring'],
+    sectors: 'Logistics · Fuel distributors · FMCG · Couriers',
   },
   {
     num: '02',
@@ -196,15 +196,15 @@ const verticals: {
   },
   {
     num: '03',
-    slug: 'ils',
-    status: 'NEXT',
-    icon: <Warehouse className="w-5 h-5" />,
-    iconColor: '#f59e0b',
-    name: 'Intelligent Logistics Systems (ILS)',
-    desc: 'End-to-end visibility across warehouses, cold chains, and last-mile delivery.',
-    connect: ['RFID / barcode scanners', 'Temperature & humidity sensors', 'Weight sensors'],
-    deliver: ['Inventory accuracy', 'Cold-chain compliance', 'Delivery performance metrics'],
-    sectors: 'FMCG · Pharma · E-commerce',
+    slug: 'its',
+    status: 'ROADMAP',
+    icon: <TrafficCone className="w-5 h-5" />,
+    iconColor: '#3b82f6',
+    name: 'Intelligent Transport Systems (ITS)',
+    desc: 'Traffic management: live congestion, adaptive signals and faster incident response.',
+    connect: ['Traffic and ANPR cameras', 'Vehicle detectors', 'Smart signal controllers'],
+    deliver: ['Live congestion picture', 'Adaptive signal timing', 'Bus and BRT performance'],
+    sectors: 'State governments · Traffic agencies · Toll roads · BRT operators',
   },
   {
     num: '04',
@@ -382,8 +382,8 @@ export default function IntelligentSystemsPage() {
                 className="heading-xl font-outfit mb-6"
               >
                 One Architecture.{' '}
-                <span className="text-[#f59e0b]">Live in Transport.</span>{' '}
-                Built for Ten Industries.
+                <span className="text-[#f59e0b]">Ten Industries.</span>{' '}
+                Starting With Fleet and Logistics.
               </motion.h1>
 
               {/* Subheading */}
@@ -393,7 +393,7 @@ export default function IntelligentSystemsPage() {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="text-xl text-gray-400 max-w-xl leading-relaxed mb-10"
               >
-                PRISM is built on the fleet intelligence system Crelligent designed for a Nigerian fleet
+                PRISM is built on the fleet intelligence architecture Crelligent designed for a Nigerian fleet
                 operator: live vehicle visibility, fuel monitoring and driver scoring in one command view.
                 The same architecture extends to energy, logistics and industrial operations next.
               </motion.p>
@@ -421,7 +421,7 @@ export default function IntelligentSystemsPage() {
                 transition={{ duration: 0.8, delay: 0.7 }}
                 className="flex flex-col sm:flex-row items-start gap-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10"
               >
-                {['Live in transport', 'Energy, logistics and industry next', '12-week deployment'].map((stat) => (
+                {['Fleet architecture designed', 'Energy and industry next', '12-week deployment plan'].map((stat) => (
                   <div key={stat} className="px-6 first:pl-0 py-3 text-sm text-gray-400 tracking-wide">
                     {stat}
                   </div>
@@ -579,7 +579,7 @@ export default function IntelligentSystemsPage() {
               <p>
                 Crelligent Intelligent Systems is built differently. We designed one architecture —
                 five layers from hardware to executive command — and we apply that same architecture
-                across every industry we enter. It runs in transport today. The hardware changes. The platform stays the same.
+                across every industry we enter. It starts with fleet and logistics. The hardware changes. The platform stays the same.
               </p>
               <p>
                 This means an organisation operating across logistics, energy, and retail gets one
@@ -651,7 +651,7 @@ export default function IntelligentSystemsPage() {
           >
             <motion.div variants={fadeUp} className="section-label mb-4">Industry Verticals</motion.div>
             <motion.h2 variants={fadeUp} className="heading-lg font-outfit mb-4">
-              One Shared Architecture. Live in Transport, Ten Industries Planned.
+              One Shared Architecture. Ten Industries, Starting With Logistics.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 max-w-2xl mb-12 leading-relaxed">
               We enter each vertical with the same methodology: design the operating model first,
@@ -900,7 +900,7 @@ export default function IntelligentSystemsPage() {
             <motion.div variants={scaleUp}>
               <Link
                 href="https://prism.crelligent.com"
-                className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
+                className="group bg-white/[0.03] border border-white/10 rounded-xl p-8 hover:border-white/10 transition-all block"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center mb-4">
                   <Radio className="w-5 h-5 text-[#22c55e]" />
@@ -919,7 +919,7 @@ export default function IntelligentSystemsPage() {
             <motion.div variants={scaleUp}>
               <Link
                 href="https://prism.crelligent.com#ai"
-                className="group glass-card rounded-xl p-8 hover:border-white/10 transition-all block"
+                className="group bg-white/[0.03] border border-white/10 rounded-xl p-8 hover:border-white/10 transition-all block"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#3b82f6]/10 border border-[#3b82f6]/20 flex items-center justify-center mb-4">
                   <Brain className="w-5 h-5 text-[#3b82f6]" />
@@ -1047,7 +1047,7 @@ export default function IntelligentSystemsPage() {
             is data that currently evaporates. Crelligent Intelligent Systems captures that
             data, structures it, and turns it into the operational intelligence your
             leadership team needs to make decisions with confidence. The approach
-            is proven in fleet operations. The only question is when you decide to use it.
+            is already designed for fleet operations. The only question is when you decide to use it.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col items-center gap-4">

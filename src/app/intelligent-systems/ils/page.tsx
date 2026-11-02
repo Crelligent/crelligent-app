@@ -2,50 +2,114 @@ import Link from 'next/link'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import {
-  Package,
-  Thermometer,
-  ScanBarcode,
   MapPin,
-  Server,
-  CheckCircle2,
+  Cpu,
+  Fuel,
+  UserCheck,
+  Camera,
   ArrowLeft,
   ArrowRight,
-  Clock,
+  Truck,
+  AlertTriangle,
+  BarChart3,
+  Route,
+  Wrench,
+  Thermometer,
+  Package,
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'Intelligent Logistics Systems (ILS)',
+  title: 'Fleet, Fuel & Logistics Intelligence (ILS)',
   description:
-    'End-to-end cargo visibility, delivery prediction, and supply chain intelligence for Nigerian warehouses, ports, e-commerce, and distributors.',
+    'Fleet visibility, fuel anomaly detection, driver behaviour scoring and cargo visibility for Nigerian logistics, fuel distribution, FMCG and courier companies.',
   alternates: { canonical: '/intelligent-systems/ils' },
 }
 
 const hardware = [
-  { icon: ScanBarcode, name: 'RFID Scanners', description: 'Real-time asset and cargo identification across warehouses and transit points.' },
-  { icon: Thermometer, name: 'Cold-Chain Sensors', description: 'Temperature and humidity monitoring for perishable goods in transit.' },
-  { icon: ScanBarcode, name: 'Warehouse Scanners', description: 'Barcode and QR scanning for inventory control and picking accuracy.' },
-  { icon: MapPin, name: 'Cargo Trackers', description: 'GPS and BLE trackers for high-value pallets and containers.' },
-  { icon: Server, name: 'Edge Gateways', description: 'On-site edge compute nodes for warehouse-level data aggregation.' },
-  { icon: Package, name: 'Smart Label Systems', description: 'Electronic labels and IoT tags for dynamic inventory management.' },
+  {
+    icon: MapPin,
+    name: 'GPS Vehicle Trackers',
+    description: 'Precise real-time location tracking for every vehicle in the fleet.',
+  },
+  {
+    icon: Cpu,
+    name: 'OBD-II Telematics Devices',
+    description: 'Engine diagnostics, speed, idling, and fault code data from every vehicle.',
+  },
+  {
+    icon: Fuel,
+    name: 'Fuel Consumption Sensors',
+    description: 'Fuel level and consumption sensors for tanks and vehicles.',
+  },
+  {
+    icon: UserCheck,
+    name: 'Driver ID Terminals',
+    description: 'Biometric and card-based terminals that authenticate drivers at ignition.',
+  },
+  {
+    icon: Camera,
+    name: 'Dashcams',
+    description: 'Video evidence of incidents and driver behaviour.',
+  },
+  {
+    icon: Thermometer,
+    name: 'Cold-Chain Sensors',
+    description: 'Temperature and humidity monitoring for perishable goods in transit.',
+  },
+  {
+    icon: Package,
+    name: 'Cargo Trackers',
+    description: 'GPS and BLE trackers for high-value pallets and containers.',
+  },
 ]
 
 const capabilities = [
-  'End-to-end cargo visibility from origin to delivery',
-  'Delivery time prediction with route intelligence',
-  'Inventory optimisation and stock level automation',
-  'Route intelligence for last-mile delivery',
-  'Cold chain integrity monitoring and alerting',
-  'Supplier and carrier performance analytics',
+  {
+    icon: MapPin,
+    title: 'Real-Time Fleet Visibility',
+    description:
+      'See every vehicle on a live map. Monitor location, speed, idle time, and trip history from a single dashboard.',
+  },
+  {
+    icon: AlertTriangle,
+    title: 'Fuel Theft Detection',
+    description:
+      'Anomaly rules flag unexplained fuel drops, siphoning events, and dispenser discrepancies as they happen.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Driver Behaviour Scoring',
+    description:
+      'Score every driver on harsh braking, over-speeding, night driving, and idling to reduce risk and fuel waste.',
+  },
+  {
+    icon: Route,
+    title: 'Route Optimisation',
+    description:
+      'Analyse historical routes to recommend faster, cheaper paths and reduce empty-vehicle kilometres.',
+  },
+  {
+    icon: Package,
+    title: 'Cargo and Cold-Chain Visibility',
+    description:
+      'Track high-value goods and temperature-sensitive loads from origin to delivery, with alerts when conditions slip.',
+  },
+  {
+    icon: Wrench,
+    title: 'Predictive Maintenance Alerts',
+    description:
+      'OBD-II data triggers maintenance tickets before breakdowns occur, cutting unplanned downtime.',
+  },
 ]
 
 const customers = [
+  'Logistics Companies',
+  'Fuel Distributors',
+  'FMCG Fleets & Distributors',
+  'Courier & E-commerce',
   'Warehouses & 3PLs',
-  'Ports & Terminals',
-  'E-commerce Companies',
-  'FMCG Distributors',
-  'Courier Companies',
-  'Manufacturers',
   'Cold Chain Operators',
+  'Government Fleets',
 ]
 
 export default function ILSPage() {
@@ -73,58 +137,45 @@ export default function ILSPage() {
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#3b82f6]/10 border border-[#3b82f6]/30 text-[#3b82f6] uppercase tracking-widest">
               Intelligent Logistics Systems
             </span>
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#f59e0b]/10 border border-[#f59e0b]/20 text-[#f59e0b] uppercase tracking-widest">
-              2025–2026
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e] uppercase tracking-widest">
+              Architecture designed
             </span>
           </div>
 
           <h1 className="heading-xl mb-6 max-w-4xl">
-            Optimize Supply Chain and Goods Movement with Real-Time Intelligence.
+            Real-Time Intelligence for Every Vehicle, Litre and Load.
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mb-10 leading-relaxed">
-            ILS connects warehouses, cargo, cold chains, and last-mile delivery into a unified
-            intelligence layer — giving logistics operators complete visibility from origin to
-            destination.
+            From GPS tracking and fuel monitoring to driver scoring and cargo visibility, ILS connects
+            your fleet and the goods it carries to one command view in PRISM.
           </p>
 
           <div className="flex flex-wrap gap-4">
             <Link href="/contact" className="btn-primary">
-              Register Interest
+              Request an Assessment
             </Link>
-            <Link href="/intelligent-systems" className="btn-ghost inline-flex items-center gap-2">
-              All Verticals <ArrowRight className="w-4 h-4" />
+            <Link href="https://prism.crelligent.com" className="btn-ghost inline-flex items-center gap-2">
+              Explore PRISM <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Timeline Note */}
-      <section className="py-8 px-6 bg-[#0a0a0a] border-y border-white/5">
+      {/* What We Connect */}
+      <section className="py-20 px-6 bg-[#0a0a0a] border-y border-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-start gap-4 p-6 rounded-2xl bg-[#f59e0b]/5 border border-[#f59e0b]/20">
-            <Clock className="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-sm font-semibold text-[#f59e0b] mb-1">Full Deployment Guide Launching 2025–2026</p>
-              <p className="text-sm text-gray-400">
-                ILS is currently in active development. Pilot deployments are available for
-                qualifying logistics enterprises. Register your interest to be considered for early
-                access.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <p className="section-label mb-4">Hardware Layer</p>
+          <h2 className="heading-lg mb-4">What We Connect</h2>
+          <p className="text-gray-400 mb-12 max-w-2xl">
+            ILS works with proven, industry-standard trackers and sensors, connected into one
+            intelligence layer. Crelligent's own edge hardware is in development.
+          </p>
 
-      {/* Hardware */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="section-label mb-4">Hardware Stack</p>
-          <h2 className="heading-lg mb-12">What We Connect</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {hardware.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.name} className="glass-card p-6 rounded-2xl">
+                <div key={item.name} className="bg-white/[0.03] border border-white/10 p-6 rounded-2xl">
                   <div className="w-10 h-10 rounded-xl bg-[#3b82f6]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-[#3b82f6]" />
                   </div>
@@ -137,18 +188,27 @@ export default function ILSPage() {
         </div>
       </section>
 
-      {/* Capabilities */}
-      <section className="py-20 px-6 bg-[#0a0a0a] border-y border-white/5">
+      {/* What We Deliver */}
+      <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="section-label mb-4">Intelligence Capabilities</p>
-          <h2 className="heading-lg mb-8">What We Deliver</h2>
-          <div className="space-y-4 max-w-2xl">
-            {capabilities.map((cap) => (
-              <div key={cap} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#22c55e] flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300">{cap}</span>
-              </div>
-            ))}
+          <h2 className="heading-lg mb-12">What We Deliver</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {capabilities.map((cap) => {
+              const Icon = cap.icon
+              return (
+                <div key={cap.title} className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#22c55e]/10 flex items-center justify-center mt-1">
+                    <Icon className="w-5 h-5 text-[#22c55e]" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white mb-2">{cap.title}</h3>
+                    <p className="text-sm text-gray-400 leading-relaxed">{cap.description}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -171,16 +231,50 @@ export default function ILSPage() {
         </div>
       </section>
 
+      {/* Live Deployment */}
+      <section className="py-20 px-6 bg-[#0a0a0a] border-y border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <p className="section-label mb-4">Where It Comes From</p>
+          <h2 className="heading-lg mb-8">Fleet Intelligence Designed for a Nigerian Fleet Operator</h2>
+
+          <div className="bg-white/[0.03] border border-white/10 p-8 rounded-2xl max-w-3xl">
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e]">
+                ILS
+              </span>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#22c55e]/10 border border-[#22c55e]/30 text-[#22c55e]">
+                Architecture designed
+              </span>
+            </div>
+            <h3 className="text-xl font-semibold text-white mb-3">
+              The design PRISM is built on
+            </h3>
+            <p className="text-gray-400 leading-relaxed">
+              Crelligent designed the architecture of a fleet intelligence system for a Nigerian fleet operator:
+              vehicle tracking, fuel monitoring, fuel cards and driver training recommendations in one command
+              view. The operator runs it on third-party GPS trackers. PRISM takes that design and makes it
+              available to any fleet. Results will be published here once the client has confirmed them.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-24 px-6 bg-[#0a0a0a] border-t border-white/5">
+      <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="heading-lg mb-6">Join the ILS Early Access Programme</h2>
+          <h2 className="heading-lg mb-6">Ready to See Your Fleet and Loads in One View?</h2>
           <p className="text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Register your organisation to be considered for pilot deployments launching in 2025–2026.
+            We assess your fleet, routes, fuel infrastructure and goods flows, then design an ILS
+            deployment for your operation.
           </p>
-          <Link href="/contact" className="btn-primary">
-            Register Interest
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/contact" className="btn-primary">
+              Request a Deployment Assessment
+            </Link>
+            <Link href="https://prism.crelligent.com" className="btn-ghost inline-flex items-center gap-2">
+              Explore PRISM Platform <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

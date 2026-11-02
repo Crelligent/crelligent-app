@@ -122,7 +122,7 @@ export default function IASPage() {
             {hardware.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.name} className="glass-card p-6 rounded-2xl opacity-80">
+                <div key={item.name} className="bg-white/[0.03] border border-white/10 p-6 rounded-2xl opacity-80">
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-gray-400" />
                   </div>

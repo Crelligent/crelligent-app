@@ -162,7 +162,7 @@ export default function IESPage() {
             {hardware.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.name} className="glass-card p-6 rounded-2xl">
+                <div key={item.name} className="bg-white/[0.03] border border-white/10 p-6 rounded-2xl">
                   <div className="w-10 h-10 rounded-xl bg-[#f59e0b]/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-[#f59e0b]" />
                   </div>
@@ -223,7 +223,7 @@ export default function IESPage() {
                 View Full Hardware Specifications <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="glass-card p-8 rounded-2xl">
+            <div className="bg-white/[0.03] border border-white/10 p-8 rounded-2xl">
               <div className="space-y-4">
                 {[
                   'Modbus RTU / Modbus TCP support',
@@ -268,7 +268,7 @@ export default function IESPage() {
                 color: '#22c55e',
               },
             ].map((item) => (
-              <div key={item.label} className="glass-card p-6 rounded-2xl">
+              <div key={item.label} className="bg-white/[0.03] border border-white/10 p-6 rounded-2xl">
                 <div
                   className="text-3xl font-bold mb-3"
                   style={{ color: item.color }}
