@@ -121,8 +121,8 @@ const layers = [
   {
     id: 'L1',
     label: 'FIELD',
-    name: 'Trackers and sensors',
-    desc: 'Proven third-party GPS trackers and sensors today, at the point of operation — vehicles, generators, tanks, machines. Crelligent Edge hardware is in development.',
+    name: 'Crelligent Edge IoT devices',
+    desc: 'Crelligent-designed IoT devices at the point of operation — vehicles, generators, tanks, machines. In development.',
   },
   {
     id: 'L2',
@@ -488,7 +488,7 @@ export default function IntelligentSystemsPage() {
             <h2 className="text-[15px] font-medium text-white mb-8 tracking-wide">
               Crelligent Edge <span className="font-semibold">hardware in development</span>
             </h2>
-            <p className="-mt-6 mb-8 text-xs text-gray-500">Concept designs. Deployments today use proven third-party trackers and sensors.</p>
+            <p className="-mt-6 mb-8 text-xs text-gray-500">Concept designs. Five IoT devices that report to PRISM, and two screens that display it.</p>
 
             <div className="grid grid-cols-3 md:grid-cols-6">
               {hardwareProducts.map((product, i) => (
@@ -789,8 +789,8 @@ export default function IntelligentSystemsPage() {
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 max-w-3xl mb-16 leading-relaxed">
               Concept designs for hardware built around African operating conditions — from edge nodes
-              that survive generator surges to command displays for the whole operation. Until they ship,
-              PRISM deployments use proven third-party GPS trackers and sensors.
+              that survive generator surges to command displays for the whole operation. Five are IoT devices
+              that report to PRISM; the Edge Panel and Command Display are the screens that show it.
             </motion.p>
           </motion.div>
 
@@ -813,8 +813,7 @@ export default function IntelligentSystemsPage() {
               </div>
               <p className="md:col-span-7 text-sm text-white font-[200] leading-loose opacity-80">
                 IoT hardware in development, designed for African operating conditions, to connect vehicles, generators, tanks and
-                industrial assets to PRISM over 4G/LTE and LoRa. Today, the same job is done with proven third-party trackers and
-                sensors, so a PRISM deployment does not wait for Crelligent hardware.
+                industrial assets to PRISM over 4G/LTE and LoRa. Every other Crelligent IoT device is built on the CEM.
               </p>
             </div>
           </motion.div>

@@ -167,8 +167,8 @@ export default function ILSPage() {
           <p className="section-label mb-4">Hardware Layer</p>
           <h2 className="heading-lg mb-4">What We Connect</h2>
           <p className="text-gray-400 mb-12 max-w-2xl">
-            ILS works with proven, industry-standard trackers and sensors, connected into one
-            intelligence layer. Crelligent's own edge hardware is in development.
+            ILS connects these through Crelligent's own IoT devices, built on the Crelligent Edge
+            Module (in development), into one intelligence layer in PRISM.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
